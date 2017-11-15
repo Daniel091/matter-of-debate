@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55C462C404603813E59AA330 /* Pods_matterOfdebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */; };
 		6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */; };
 		6529A4521FBB8DA000DFBE96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529A4511FBB8DA000DFBE96 /* ViewController.swift */; };
 		6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4531FBB8DA000DFBE96 /* Main.storyboard */; };
 		6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4561FBB8DA000DFBE96 /* Assets.xcassets */; };
 		6529A45A1FBB8DA000DFBE96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4581FBB8DA000DFBE96 /* LaunchScreen.storyboard */; };
 		6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4611FBB91BB00DFBE96 /* .gitignore */; };
+		654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654D95031FBC44BF0003C99D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		176893BE42F27B08E96B003B /* Pods-matterOfdebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.release.xcconfig"; sourceTree = "<group>"; };
 		6529A44C1FBB8DA000DFBE96 /* matterOfdebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = matterOfdebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6529A4511FBB8DA000DFBE96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		6529A4591FBB8DA000DFBE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6529A45B1FBB8DA000DFBE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6529A4611FBB91BB00DFBE96 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		654D95031FBC44BF0003C99D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.debug.xcconfig"; sourceTree = "<group>"; };
+		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,18 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C462C404603813E59AA330 /* Pods_matterOfdebate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		197A239B72AA53ECA394F6E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */,
+				176893BE42F27B08E96B003B /* Pods-matterOfdebate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6529A4431FBB8DA000DFBE96 = {
 			isa = PBXGroup;
 			children = (
 				6529A4611FBB91BB00DFBE96 /* .gitignore */,
 				6529A44E1FBB8DA000DFBE96 /* matterOfdebate */,
 				6529A44D1FBB8DA000DFBE96 /* Products */,
+				197A239B72AA53ECA394F6E1 /* Pods */,
+				92EA0741799855B3C1B39597 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +75,7 @@
 		6529A44E1FBB8DA000DFBE96 /* matterOfdebate */ = {
 			isa = PBXGroup;
 			children = (
+				654D95031FBC44BF0003C99D /* GoogleService-Info.plist */,
 				6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */,
 				6529A4511FBB8DA000DFBE96 /* ViewController.swift */,
 				6529A4531FBB8DA000DFBE96 /* Main.storyboard */,
@@ -67,6 +86,14 @@
 			path = matterOfdebate;
 			sourceTree = "<group>";
 		};
+		92EA0741799855B3C1B39597 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6529A45E1FBB8DA000DFBE96 /* Build configuration list for PBXNativeTarget "matterOfdebate" */;
 			buildPhases = (
+				159AEF81FF8E6DD7857F6787 /* [CP] Check Pods Manifest.lock */,
 				6529A4481FBB8DA000DFBE96 /* Sources */,
 				6529A4491FBB8DA000DFBE96 /* Frameworks */,
 				6529A44A1FBB8DA000DFBE96 /* Resources */,
+				349ACB1A55F7B202D16D5765 /* [CP] Embed Pods Frameworks */,
+				A7CA0A8325FBD53B95B4928B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,12 +158,73 @@
 			files = (
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
 				6529A45A1FBB8DA000DFBE96 /* LaunchScreen.storyboard in Resources */,
+				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
 				6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		159AEF81FF8E6DD7857F6787 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-matterOfdebate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		349ACB1A55F7B202D16D5765 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7CA0A8325FBD53B95B4928B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6529A4481FBB8DA000DFBE96 /* Sources */ = {
@@ -276,10 +367,12 @@
 		};
 		6529A45F1FBB8DA000DFBE96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = matterOfdebate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iosPrak.matterOfdebate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -290,10 +383,12 @@
 		};
 		6529A4601FBB8DA000DFBE96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 176893BE42F27B08E96B003B /* Pods-matterOfdebate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = matterOfdebate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iosPrak.matterOfdebate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
