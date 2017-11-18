@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55C462C404603813E59AA330 /* Pods_matterOfdebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */; };
 		65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65174D2F1FC072CE00E5B902 /* SettingsController.swift */; };
+		65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */; };
 		6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */; };
 		6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */; };
 		6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4531FBB8DA000DFBE96 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		176893BE42F27B08E96B003B /* Pods-matterOfdebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.release.xcconfig"; sourceTree = "<group>"; };
 		65174D2F1FC072CE00E5B902 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegistrationController.swift; sourceTree = "<group>"; };
 		6529A44C1FBB8DA000DFBE96 /* matterOfdebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = matterOfdebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */,
 				6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */,
 				6529A4531FBB8DA000DFBE96 /* Main.storyboard */,
+				65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */,
 				65174D2F1FC072CE00E5B902 /* SettingsController.swift */,
 				6529A4561FBB8DA000DFBE96 /* Assets.xcassets */,
 				6529A4581FBB8DA000DFBE96 /* LaunchScreen.storyboard */,
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */,
+				65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */,
 				6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */,
 				6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */,
 				6549E81B1FBDD58A00367D40 /* User.swift in Sources */,

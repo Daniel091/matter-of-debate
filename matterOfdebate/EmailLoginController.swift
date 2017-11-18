@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 
+
+// TODO compare with this:
+// https://github.com/firebase/quickstart-ios/blob/master/authentication/AuthenticationExampleSwift/EmailViewController.swift
 class EmailLoginController: UIViewController {
 
     @IBOutlet weak var debug_label: UILabel!
@@ -39,8 +42,9 @@ class EmailLoginController: UIViewController {
     // Triggered by Login Button
     @IBAction func loginEmail(_ sender: UIButton) {
 
-        // return if email or pw fields are not set or ""
+        // give feedback to user and return if email or pw fields are not set or ""
         guard let email = email_login_field.text, !email.isEmpty, let pw = pw_login_field.text, !pw.isEmpty else {
+            user_SignIn_error_feedback()
             return
         }
         
@@ -54,10 +58,22 @@ class EmailLoginController: UIViewController {
                 self.performSegue(withIdentifier: "loginSuccessful", sender: self)
                 
             } else {
+                self.user_SignIn_error_feedback()
                 print(error.debugDescription)
             }
             
         }))
+    }
+    
+    // make email and password field red
+    func user_SignIn_error_feedback() {
+        let redColor = UIColor.red
+        
+        email_login_field.layer.borderColor = redColor.cgColor
+        pw_login_field.layer.borderColor = redColor.cgColor
+        
+        email_login_field.layer.borderWidth = 1.0
+        pw_login_field.layer.borderWidth = 1.0
     }
 
 }

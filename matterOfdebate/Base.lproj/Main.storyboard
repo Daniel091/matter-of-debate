@@ -10,6 +10,76 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--RegisterEmailController-->
+        <scene sceneID="WFx-oo-Xy5">
+            <objects>
+                <viewController title="RegisterEmailController" id="iBi-zS-QO0" customClass="EmailRegistrationController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sqy-3V-Wdn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="C8g-kg-v4G">
+                                <rect key="frame" x="20" y="70" width="335" height="172.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Registration Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxp-Fr-OMX">
+                                        <rect key="frame" x="71" y="0.0" width="193" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ra8-Fo-zIH">
+                                        <rect key="frame" x="0.0" y="28.5" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raH-1c-5Tm">
+                                        <rect key="frame" x="0.0" y="66.5" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nutzername" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpy-2T-xTj">
+                                        <rect key="frame" x="0.0" y="104.5" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6W-S4-zhr">
+                                        <rect key="frame" x="116" y="142.5" width="103" height="30"/>
+                                        <state key="normal" title="Konto erstellen"/>
+                                        <connections>
+                                            <action selector="createUser:" destination="iBi-zS-QO0" eventType="touchUpInside" id="rxV-4e-Wva"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lpy-2T-xTj" secondAttribute="trailing" id="GmC-iR-sre"/>
+                                    <constraint firstAttribute="trailing" secondItem="raH-1c-5Tm" secondAttribute="trailing" id="IC1-Cn-u9t"/>
+                                    <constraint firstItem="lpy-2T-xTj" firstAttribute="leading" secondItem="C8g-kg-v4G" secondAttribute="leading" id="dRY-kc-a4d"/>
+                                    <constraint firstAttribute="trailing" secondItem="ra8-Fo-zIH" secondAttribute="trailing" id="ony-rR-Ijm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3le-7o-Ip6" firstAttribute="trailing" secondItem="C8g-kg-v4G" secondAttribute="trailing" constant="20" id="0xL-Kz-uAM"/>
+                            <constraint firstItem="C8g-kg-v4G" firstAttribute="top" secondItem="3le-7o-Ip6" secondAttribute="top" constant="50" id="CQ2-2S-m8Q"/>
+                            <constraint firstItem="C8g-kg-v4G" firstAttribute="leading" secondItem="3le-7o-Ip6" secondAttribute="leading" constant="20" id="nIg-VO-BF1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3le-7o-Ip6"/>
+                    </view>
+                    <connections>
+                        <outlet property="email_field" destination="ra8-Fo-zIH" id="1cK-DI-qoL"/>
+                        <outlet property="pw_field" destination="raH-1c-5Tm" id="eap-ni-hF5"/>
+                        <outlet property="usr_field" destination="lpy-2T-xTj" id="ERG-jI-uda"/>
+                        <segue destination="ONY-12-BDX" kind="show" identifier="signedInSequeAfterRegistered" id="2DW-fr-2FI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xn8-hX-RCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="-695"/>
+        </scene>
         <!--Email Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -45,6 +115,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-JP-TfU">
                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
                                                 <state key="normal" title="Register"/>
+                                                <connections>
+                                                    <segue destination="iBi-zS-QO0" kind="show" id="ebJ-Il-Sj5"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRl-Z8-TrE">
                                                 <rect key="frame" x="65" y="0.0" width="38" height="30"/>
@@ -96,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXK-BG-OHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921" y="436"/>
+            <point key="canvasLocation" x="4228" y="246"/>
         </scene>
         <!--Einstellungen-->
         <scene sceneID="1qy-cs-6sl">
@@ -126,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvU-Vc-ah9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920.8000000000002" y="1240.9295352323838"/>
+            <point key="canvasLocation" x="3145" y="877"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0BD-uS-GEO">
@@ -142,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-mw-c6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921" y="-287"/>
+            <point key="canvasLocation" x="4228" y="-477"/>
         </scene>
         <!--MainController-->
         <scene sceneID="mDk-g9-K80">
@@ -161,7 +234,10 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hz-1H-TCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="132"/>
+            <point key="canvasLocation" x="3145" y="-58"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2DW-fr-2FI"/>
+    </inferredMetricsTieBreakers>
 </document>
