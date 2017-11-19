@@ -12,10 +12,12 @@ import FirebaseAuth
 struct User {
     let uid: String
     let email: String
+    let user_name: String
     
     
     // Inits a User with Data from Firebase
-    init(userData: FirebaseAuth.User) {
+    init(userData: FirebaseAuth.User, user_name: String) {
+        self.user_name = user_name
         uid = userData.uid
         if let mail = userData.providerData.first?.email {
             email = mail
@@ -24,7 +26,8 @@ struct User {
         }
     }
     
-    init(uid: String, email: String) {
+    init(uid: String, email: String, user_name: String) {
+        self.user_name = user_name
         self.uid = uid
         self.email = email
     }

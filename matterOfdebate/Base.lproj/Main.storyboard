@@ -235,7 +235,7 @@
         <!--MainController-->
         <scene sceneID="mDk-g9-K80">
             <objects>
-                <tabBarController title="MainController" id="ONY-12-BDX" sceneMemberID="viewController">
+                <tabBarController title="MainController" id="ONY-12-BDX" customClass="TabBarMainController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QaC-Fh-rKP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
