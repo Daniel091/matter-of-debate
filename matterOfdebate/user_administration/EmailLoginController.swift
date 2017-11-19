@@ -14,7 +14,7 @@ import Firebase
 // https://github.com/firebase/quickstart-ios/blob/master/authentication/AuthenticationExampleSwift/EmailViewController.swift
 class EmailLoginController: UIViewController {
 
-    @IBOutlet weak var debug_label: UILabel!
+    @IBOutlet weak var feedback_label: UILabel!
     @IBOutlet weak var email_login_field: UITextField!
     @IBOutlet weak var pw_login_field: UITextField!
     
@@ -48,17 +48,22 @@ class EmailLoginController: UIViewController {
             return
         }
         
-        // Change debug label
-        debug_label.text = "Login Triggered with " + email + " " + pw
-        
-        // Do the Sign, react to error
+        // Do the Sign, show spinner, react to error
+        let sv = UIViewController.displaySpinner(onView: self.view)
         Auth.auth().signIn(withEmail: email, password: pw, completion: ({ (user, error) in
+            
+            // remove spinner
+            UIViewController.removeSpinner(spinner: sv)
             if let userMail = user?.email {
                 print(":-) " + userMail)
                 self.performSegue(withIdentifier: "loginSuccessful", sender: self)
                 
             } else {
                 self.user_SignIn_error_feedback()
+                if let error_desc = error?.localizedDescription {
+                    self.feedback_label.text = error_desc
+                }
+                
                 print(error.debugDescription)
             }
             
