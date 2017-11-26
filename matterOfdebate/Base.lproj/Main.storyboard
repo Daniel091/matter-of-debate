@@ -133,42 +133,6 @@
                                     <outlet property="theme_1_label" destination="8do-ZF-AP5" id="d7Q-dx-N6i"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0cR-6o-Lx2">
-                                <rect key="frame" x="199" y="0.0" width="176" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="176" height="127"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                                <size key="customSize" width="176" height="127"/>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="980-oO-01V">
-                                <rect key="frame" x="0.0" y="137" width="176" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="176" height="127"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                                <size key="customSize" width="176" height="127"/>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="g6F-KI-IoQ">
-                                <rect key="frame" x="199" y="137" width="176" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="176" height="127"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                                <size key="customSize" width="176" height="127"/>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rPu-6f-sRg">
-                                <rect key="frame" x="0.0" y="274" width="176" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="176" height="127"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                                <size key="customSize" width="176" height="127"/>
-                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="TY6-RK-409" id="eJI-f7-Jxg"/>
