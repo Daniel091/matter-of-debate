@@ -99,6 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1fS-4H-Y7f">
                             <size key="itemSize" width="176" height="127"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -113,30 +114,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="176" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bh6-Lt-4W4">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bh6-Lt-4W4" userLabel="CategoryImage">
                                             <rect key="frame" x="0.0" y="-1" width="176" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.090483070946032473" blue="0.33321795948686217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8do-ZF-AP5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8do-ZF-AP5" userLabel="CategoryTitle">
                                             <rect key="frame" x="0.0" y="-1" width="176" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.0" green="0.036381998308925745" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
                                 <size key="customSize" width="176" height="127"/>
                                 <connections>
-                                    <outlet property="cell" destination="bh6-Lt-4W4" id="uKb-AU-LfU"/>
-                                    <outlet property="cellTheme_1" destination="bh6-Lt-4W4" id="Ks5-66-pMa"/>
-                                    <outlet property="theme_1_label" destination="8do-ZF-AP5" id="d7Q-dx-N6i"/>
+                                    <outlet property="cellTheme_1" destination="bh6-Lt-4W4" id="6iH-Pe-8zf"/>
+                                    <outlet property="theme_1_label" destination="8do-ZF-AP5" id="8F0-um-Xz2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="TY6-RK-409" id="eJI-f7-Jxg"/>
-                            <outlet property="delegate" destination="TY6-RK-409" id="Pjr-VH-2vF"/>
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="LVf-tD-OHm"/>
@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZhA-vv-ltB">
-                                <rect key="frame" x="20" y="70" width="335" height="127.5"/>
+                                <rect key="frame" x="20" y="114" width="335" height="127.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSP-ue-GhG">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -327,6 +327,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="v2a-te-Owv"/>
+        <segue reference="2DW-fr-2FI"/>
     </inferredMetricsTieBreakers>
 </document>
