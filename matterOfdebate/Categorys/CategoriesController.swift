@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CategoriesController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CategoriesController: UICollectionViewController {
     var categories = [Category]()
     
     @IBOutlet var categoriesCollectionView: UICollectionView!
@@ -22,16 +22,18 @@ class CategoriesController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         
         let category = categories[indexPath.row]
         cell.displayContent(image: UIImage(named: category.categoryImage)!, title: category.categoryName)
+        
+        
         
         return cell
     }
