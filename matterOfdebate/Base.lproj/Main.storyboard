@@ -214,6 +214,14 @@
                                     <action selector="logoutUser:" destination="XJi-mA-luc" eventType="touchUpInside" id="PdL-IP-6nR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxx-Yn-oY0">
+                                <rect key="frame" x="100" y="241" width="174" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Admin Create DiscTheme"/>
+                                <connections>
+                                    <action selector="triggeredAdminCreateTheme:" destination="XJi-mA-luc" eventType="touchUpInside" id="PHM-m3-czV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="4v9-El-ZuV"/>
@@ -222,11 +230,39 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loggedOutUser" id="psF-Ly-k65"/>
+                        <segue destination="mzz-CD-xF8" kind="show" identifier="adminThemeControlSeque" id="4iI-Zb-CHL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvU-Vc-ah9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3145" y="877"/>
+        </scene>
+        <!--Create Disc Theme View Controller-->
+        <scene sceneID="MpY-pt-kNq">
+            <objects>
+                <viewController id="7cJ-ug-VX9" customClass="CreateDiscThemeViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U6x-Nc-8La">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="iEM-Qb-KA7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rxb-BF-XDt">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="jqS-te-9V1">
+                            <connections>
+                                <action selector="cancel:" destination="7cJ-ug-VX9" id="vll-3D-ewF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="61q-5g-GMM">
+                            <connections>
+                                <action selector="saveDiscTheme:" destination="7cJ-ug-VX9" id="VWI-Q4-dfN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIV-9e-spt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5402" y="1206"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0BD-uS-GEO">
@@ -331,6 +367,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Y4-g0-K3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="615" y="-1135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qgp-eT-xf6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mzz-CD-xF8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0rF-Js-wsK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7cJ-ug-VX9" kind="relationship" relationship="rootViewController" id="dfz-he-1S8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lbo-5o-2FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4404.8000000000002" y="1206.296851574213"/>
         </scene>
     </scenes>
     <resources>
