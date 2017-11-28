@@ -47,6 +47,9 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 Pods/
+Podfile.lock
+matterOfdebate/.DS_Store
+matterOfdebate/Assets.xcassets/.DS_Store
 
 # Carthage
 #
