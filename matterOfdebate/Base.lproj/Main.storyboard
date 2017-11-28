@@ -94,7 +94,6 @@
         <!--Categories Controller-->
         <scene sceneID="rGC-cT-uVe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GEo-h3-P1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="TY6-RK-409" customClass="CategoriesController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zHa-aO-9E5" customClass="Category">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -143,6 +142,7 @@
                     <tabBarItem key="tabBarItem" systemItem="recents" id="LVf-tD-OHm"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GEo-h3-P1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4053.5999999999999" y="-1397.4512743628186"/>
         </scene>
@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZhA-vv-ltB">
-                                <rect key="frame" x="20" y="114" width="335" height="127.5"/>
+                                <rect key="frame" x="20" y="70" width="335" height="127.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSP-ue-GhG">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -327,6 +327,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2DW-fr-2FI"/>
+        <segue reference="v2a-te-Owv"/>
     </inferredMetricsTieBreakers>
 </document>

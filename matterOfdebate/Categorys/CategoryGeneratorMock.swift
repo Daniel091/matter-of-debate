@@ -15,6 +15,9 @@ class CategoryGeneratorMock : CategoryProtocol {
         
         let dummyCat = Category(name: "string", image: "Image")
         Categories.append(dummyCat)
+        
+        let dummyCat1 = Category(name: "string", image: "Image")
+        Categories.append(dummyCat)
         return Categories
     }
 }

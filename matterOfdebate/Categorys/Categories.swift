@@ -9,8 +9,10 @@
 import Foundation
 
 struct Category {
+    
     let categoryName : String
     let categoryImage : String
+    let isAddButton: Bool = false
     
     init (name: String, image : String) {
         self.categoryName = name
