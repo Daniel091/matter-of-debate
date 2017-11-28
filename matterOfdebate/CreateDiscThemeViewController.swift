@@ -6,6 +6,7 @@
 //  Copyright © 2017 Gruppe7. All rights reserved.
 //
 
+import ImageRow
 import Eureka
 import UIKit
 import Firebase
@@ -42,6 +43,58 @@ class CreateDiscThemeViewController: FormViewController{
                 row.title = "Beschreibung"
                 row.placeholder = "Eingabe Beschreibungstext"
             }
+        
+            +++ Section("Picture")
+            <<< ImageRow("picture") { row in
+                row.title = "Foto"
+                row.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum]
+                row.clearAction = .yes(style: UIAlertActionStyle.destructive)
+            }
+
+    }
+    
+    func upload_img_to_storage(_ image: UIImage,_ titel: String,_ values_dict: [String : Any?]) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let metadata = StorageMetadata()
+        
+        // Image to Data
+        var data = Data()
+        data = UIImageJPEGRepresentation(image, 0.5)!
+        
+        // set MetaData
+        metadata.contentType = "image/jpeg"
+        
+        // display spinner
+        let sv = UIViewController.displaySpinner(onView: self.view)
+        
+        // Start upload of picture to firebase storage
+        let picRef = storageRef.child("theme-images/" + titel + ".jpg")
+        let _ = picRef.putData(data, metadata: metadata) { (metadata, error) in
+            
+            // Remove spinner, because uploads finished
+            UIViewController.removeSpinner(spinner: sv)
+            guard let metadata = metadata else {
+                print("Error")
+                return
+            }
+            let downloadURL = metadata.downloadURL()!.absoluteString
+            self.push_disc_database(downloadURL, values_dict)
+        }
+    }
+    
+    // push to Database
+    func push_disc_database(_ downloadUrl: String,_ values_dict: [String : Any?]) {
+        let titel = values_dict["titel"]! as! String
+        let desc = values_dict["description"] as! String
+        let cats = values_dict["categories"] as! NSSet
+        let cats_array = Array(cats)
+        
+        // Save Discussion Theme to firebase
+        self.ref = Database.database().reference()
+        let eventRefChild = self.ref.child("themes").childByAutoId()
+        eventRefChild.setValue(["titel": titel,"description": desc, "categories": cats_array, "img-url": downloadUrl])
+        
     }
     
     // User clicks Save
@@ -50,21 +103,14 @@ class CreateDiscThemeViewController: FormViewController{
         
         if (!checkIfDicisValid(dict: valuesDictionary)) {
             // Post alert
-            notifyUser("Formular Fehler", message: "Bitte Titel, mindestens eine Kategorie und Beschreibungstext angeben")
+            notifyUser("Formular Fehler", message: "Bitte Titel, Kategorie, Bild und Beschreibungstext angeben")
             return
         }
-        
         // unzip dic vals, and convert things
-        let titel = valuesDictionary["titel"]!
-        let desc = valuesDictionary["description"]!
-        let cats = valuesDictionary["categories"] as! NSSet
-        let cats_array = Array(cats)
-        
-        // Save Discussion Theme to firebase
-        self.ref = Database.database().reference()
-        let eventRefChild = self.ref.child("themes").childByAutoId()
-        eventRefChild.setValue(["titel": titel,"description": desc, "categories": cats_array])
-        
+       
+        let image = valuesDictionary["picture"] as! UIImage
+        let titel = valuesDictionary["titel"]! as! String
+        upload_img_to_storage(image, titel, valuesDictionary)
     }
     
     // simple check if Values in Dictionary are not nil or empty Strings

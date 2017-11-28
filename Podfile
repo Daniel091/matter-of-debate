@@ -9,6 +9,8 @@ target 'matterOfdebate' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
   pod 'Eureka'
+  pod 'ImageRow', '~> 3.0'
   
 end
