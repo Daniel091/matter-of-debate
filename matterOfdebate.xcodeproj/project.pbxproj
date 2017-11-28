@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */; };
 		55C462C404603813E59AA330 /* Pods_matterOfdebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */; };
 		65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65174D2F1FC072CE00E5B902 /* SettingsController.swift */; };
 		65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		176893BE42F27B08E96B003B /* Pods-matterOfdebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.release.xcconfig"; sourceTree = "<group>"; };
+		40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Panton-BlackCaps.otf"; sourceTree = "<group>"; };
 		65174D2F1FC072CE00E5B902 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegistrationController.swift; sourceTree = "<group>"; };
 		6529A44C1FBB8DA000DFBE96 /* matterOfdebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = matterOfdebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 				6529A4561FBB8DA000DFBE96 /* Assets.xcassets */,
 				6529A4581FBB8DA000DFBE96 /* LaunchScreen.storyboard */,
 				6529A45B1FBB8DA000DFBE96 /* Info.plist */,
+				40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */,
 			);
 			path = matterOfdebate;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
 				6529A45A1FBB8DA000DFBE96 /* LaunchScreen.storyboard in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
