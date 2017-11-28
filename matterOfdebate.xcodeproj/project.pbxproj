@@ -15,7 +15,6 @@
 		6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */; };
 		6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4531FBB8DA000DFBE96 /* Main.storyboard */; };
 		6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4561FBB8DA000DFBE96 /* Assets.xcassets */; };
-		6529A45A1FBB8DA000DFBE96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4581FBB8DA000DFBE96 /* LaunchScreen.storyboard */; };
 		6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4611FBB91BB00DFBE96 /* .gitignore */; };
 		6549E81B1FBDD58A00367D40 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549E81A1FBDD58A00367D40 /* User.swift */; };
 		654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654D95031FBC44BF0003C99D /* GoogleService-Info.plist */; };
@@ -33,7 +32,6 @@
 		6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginController.swift; sourceTree = "<group>"; };
 		6529A4541FBB8DA000DFBE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6529A4561FBB8DA000DFBE96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6529A4591FBB8DA000DFBE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6529A45B1FBB8DA000DFBE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6529A4611FBB91BB00DFBE96 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6549E81A1FBDD58A00367D40 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */,
 				65174D2F1FC072CE00E5B902 /* SettingsController.swift */,
 				6529A4561FBB8DA000DFBE96 /* Assets.xcassets */,
-				6529A4581FBB8DA000DFBE96 /* LaunchScreen.storyboard */,
 				6529A45B1FBB8DA000DFBE96 /* Info.plist */,
 				40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */,
 			);
@@ -192,7 +189,6 @@
 			files = (
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
-				6529A45A1FBB8DA000DFBE96 /* LaunchScreen.storyboard in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
 				6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */,
@@ -285,14 +281,6 @@
 				6529A4541FBB8DA000DFBE96 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6529A4581FBB8DA000DFBE96 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6529A4591FBB8DA000DFBE96 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -412,7 +400,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = matterOfdebate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iosPrak.matterOfdebate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,7 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = matterOfdebate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iosPrak.matterOfdebate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
