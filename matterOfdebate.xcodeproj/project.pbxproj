@@ -26,6 +26,7 @@
 		656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656430361FC1A29C0019F9BE /* ActivitySpinner.swift */; };
 		6564303B1FC1C1F10019F9BE /* TabBarMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */; };
 		65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65693D6D1FCED7D3009FE995 /* Constants.swift */; };
+		65693D711FCED94C009FE995 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65693D701FCED94C009FE995 /* ChatViewController.swift */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMainController.swift; sourceTree = "<group>"; };
 		65693D6C1FCED5A8009FE995 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		65693D6D1FCED7D3009FE995 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		65693D701FCED94C009FE995 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
 		E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 		65693D6F1FCED8B6009FE995 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				65693D701FCED94C009FE995 /* ChatViewController.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */,
 				65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */,
 				483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */,
+				65693D711FCED94C009FE995 /* ChatViewController.swift in Sources */,
 				48AEEFCD1FCB79CE00726996 /* CategoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
