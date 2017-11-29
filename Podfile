@@ -12,5 +12,6 @@ target 'matterOfdebate' do
   pod 'Firebase/Storage'
   pod 'Eureka'
   pod 'ImageRow', '~> 3.0'
+  pod 'JSQMessagesViewController'
   
 end
