@@ -111,6 +111,7 @@ class CreateDiscThemeViewController: FormViewController{
         let image = valuesDictionary["picture"] as! UIImage
         let titel = valuesDictionary["titel"]! as! String
         upload_img_to_storage(image, titel, valuesDictionary)
+        dismiss(animated: true, completion: nil)
     }
     
     // simple check if Values in Dictionary are not nil or empty Strings
