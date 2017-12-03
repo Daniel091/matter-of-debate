@@ -15,20 +15,24 @@ class CategoryViewModel
 {
     var ref = Database.database().reference()
 
+    var categories = [Category]()
+    
     // read from Database
     
     func getCategories() -> [Category] {
-        var categories = [Category]()
         self.ref.child("categories").observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
+            // TODO: do not use this cast!
             let dummyBE = postDict as? Dictionary<String, Dictionary<String, String>> ?? NSDictionary() as! Dictionary<String, Dictionary<String, String>>
             
             for categoryElement in dummyBE {
-               categories.append(Category(name: categoryElement.key, image: categoryElement.value["img-url"]!))
+                // TODO: check if Categoriy already exists!
+                self.categories.append(Category(name: categoryElement.key, image: categoryElement.value["img-url"]!))
             }
-            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
         
+        // TODO: rewrite categoryprotocol, no return value necessary
         return categories
     }
     

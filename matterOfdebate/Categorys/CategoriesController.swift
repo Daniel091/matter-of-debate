@@ -10,34 +10,35 @@ import Foundation
 import UIKit
 
 class CategoriesController: UICollectionViewController {
-    var categories = [Category]() {
-        didSet {
-            
-        }
-    }
     
     @IBOutlet var categoriesCollectionView: UICollectionView!
+    let categoryVM = CategoryViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let categoryVM = CategoryViewModel()
-        categories = categoryVM.getCategories()
+        NotificationCenter.default.addObserver(self, selector: #selector(categoriesUpdated), name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
+    
+        categoryVM.getCategories()
         
         //let categoryGenerator = CategoryGeneratorMock()
         //categories = categoryGenerator.getCategories()
     }
     
+    @objc private func categoriesUpdated () {
+        categoriesCollectionView.reloadData()
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count + 1
+        return categoryVM.categories.count + 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath.row < categories.count else {
+        guard indexPath.row < categoryVM.categories.count else {
             print("foobar add element")
             let catVM = CategoryViewModel()
             // TODO: dummy = userIput(AdminView)
-            catVM.pushCatToDatabase(category: Category(name: "dummy2", image: "dummyimg2"))
+            catVM.pushCatToDatabase(category: Category(name: "dummy2", image: "Image"))
             return
         }
         
@@ -46,10 +47,11 @@ class CategoriesController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard indexPath.row < categories.count else {
+        guard indexPath.row < categoryVM.categories.count else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             
+            // TODO: plus icon
             if let image = UIImage(named: "Image")?.withHorizontallyFlippedOrientation() {
                 cell.displayContent(image: image, title: "+")
             }
@@ -58,10 +60,13 @@ class CategoriesController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         
-        let category = categories[indexPath.row]
+        let category = categoryVM.categories[indexPath.row]
         
         if let image = UIImage(named: category.image) {
             cell.displayContent(image: image, title: category.title)
+        } else {
+            // TODO: actual dummy image
+            cell.displayContent(image: UIImage(named: "Image")!, title: category.title)
         }
         
         return cell
