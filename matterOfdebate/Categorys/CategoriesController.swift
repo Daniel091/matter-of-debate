@@ -10,17 +10,23 @@ import Foundation
 import UIKit
 
 class CategoriesController: UICollectionViewController {
-    var categories = [Category]()
+    var categories = [Category]() {
+        didSet {
+            
+        }
+    }
     
     @IBOutlet var categoriesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let categoryGenerator = CategoryGeneratorMock()
-        categories = categoryGenerator.generateCategories()
+        let categoryVM = CategoryViewModel()
+        categories = categoryVM.getCategories()
+        
+        //let categoryGenerator = CategoryGeneratorMock()
+        //categories = categoryGenerator.getCategories()
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count + 1
@@ -29,6 +35,9 @@ class CategoriesController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.row < categories.count else {
             print("foobar add element")
+            let catVM = CategoryViewModel()
+            // TODO: dummy = userIput(AdminView)
+            catVM.pushCatToDatabase(category: Category(name: "dummy2", image: "dummyimg2"))
             return
         }
         
@@ -41,9 +50,7 @@ class CategoriesController: UICollectionViewController {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             
-            let category = categories[0]
-            
-            if let image = UIImage(named: category.categoryImage)?.withHorizontallyFlippedOrientation() {
+            if let image = UIImage(named: "Image")?.withHorizontallyFlippedOrientation() {
                 cell.displayContent(image: image, title: "+")
             }
             return cell
@@ -53,8 +60,8 @@ class CategoriesController: UICollectionViewController {
         
         let category = categories[indexPath.row]
         
-        if let image = UIImage(named: category.categoryImage) {
-            cell.displayContent(image: image, title: category.categoryName)
+        if let image = UIImage(named: category.image) {
+            cell.displayContent(image: image, title: category.title)
         }
         
         return cell

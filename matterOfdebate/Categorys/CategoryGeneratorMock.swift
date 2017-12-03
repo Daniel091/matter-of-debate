@@ -10,7 +10,7 @@ import Foundation
 
 class CategoryGeneratorMock : CategoryProtocol {
     
-    func generateCategories() -> [Category] {
+    func getCategories() -> [Category] {
         var Categories = [Category]()
         
         let dummyCat = Category(name: "string", image: "Image")
