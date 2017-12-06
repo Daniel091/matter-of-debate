@@ -25,13 +25,16 @@ class ChatViewController: JSQMessagesViewController {
         return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }()
     
-    // user clicks back button
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set up back navigation
+        setupBackButton()
+        
+        // set up settings button for chat
+        setupSettingsChatButton()
+        
+        // get user object
         let user_obj = SingletonUser.sharedInstance.user
         
         senderId = user_obj.uid
@@ -60,6 +63,23 @@ class ChatViewController: JSQMessagesViewController {
         })
     }
     
+    func setupSettingsChatButton() {
+        let settingsButton = UIBarButtonItem(image: UIImage.jsq_defaultTypingIndicator(), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
+        navigationItem.rightBarButtonItem = settingsButton
+    }
+    
+    // TODO implement showing of chat settings
+    @objc func settingsButtonTapped(sender: UIBarButtonItem) {
+        print(":-) Implement mee")
+    }
+    
+    func setupBackButton() {
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backButtonTapped(sender:)))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    @objc func backButtonTapped(sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // User sends a message
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {

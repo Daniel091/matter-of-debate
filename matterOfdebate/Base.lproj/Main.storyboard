@@ -354,13 +354,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Kyk-XU-GXM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="buz-go-AHN">
-                        <barButtonItem key="leftBarButtonItem" image="back-chevron.png" landscapeImage="back-chevron.png" id="9TB-HO-JNH">
-                            <connections>
-                                <action selector="cancel:" destination="tSR-6a-hH9" id="6k1-fW-A5I"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="buz-go-AHN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7SK-6F-IP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -425,6 +419,7 @@
         <!--Navigation Controller-->
         <scene sceneID="USO-Zt-t0m">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ow-Tp-kif" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RqC-uM-Frl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jYG-2F-Ov1">
@@ -436,14 +431,10 @@
                         <segue destination="tSR-6a-hH9" kind="relationship" relationship="rootViewController" id="yZA-JB-rd1"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7ow-Tp-kif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5718.3999999999996" y="244.6776611694153"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="back-chevron.png" width="13" height="21"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v2a-te-Owv"/>
     </inferredMetricsTieBreakers>
