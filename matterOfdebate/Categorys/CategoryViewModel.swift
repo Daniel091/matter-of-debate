@@ -43,7 +43,6 @@ class CategoryViewModel
                 let cat = valuesToWant["categories"] as! [String]
                 for element in cat {
                     // TODO: save a new CategoriesList, get image from getCategories
-                    
                     if (!self.checkForDuplicates(categories: self.categories, element: element)) {
                         self.categories.append(Category(name: element, image: "Image"))
                     }
