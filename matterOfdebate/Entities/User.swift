@@ -13,6 +13,7 @@ struct User {
     let uid: String
     let email: String
     let user_name: String
+    let isAdmin: Bool
     
     
     // Inits a User with Data from Firebase
@@ -24,12 +25,14 @@ struct User {
         } else {
             email = ""
         }
+        self.isAdmin = false
     }
     
     init(uid: String, email: String, user_name: String) {
         self.user_name = user_name
         self.uid = uid
         self.email = email
+        self.isAdmin = false
     }
     
     

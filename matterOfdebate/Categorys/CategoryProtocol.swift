@@ -9,6 +9,6 @@
 import Foundation
 
 protocol CategoryProtocol {
-    func getCategories () -> [Category] 
+    func getCategories ()
     
 }

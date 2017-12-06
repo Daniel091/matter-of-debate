@@ -19,42 +19,38 @@ class CategoryViewModel
     
     // read from Database
     
-    func getCategories() -> [Category] {
+    // Admin speciefied view of Categories
+    func getCategories() {
+        print("im starting my getCategories now")
         self.ref.child("categories").observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
-            // TODO: do not use this cast!
-            let dummyBE = postDict as? Dictionary<String, Dictionary<String, String>> ?? NSDictionary() as! Dictionary<String, Dictionary<String, String>>
+            let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
             
-            for categoryElement in dummyBE {
-                // TODO: check if Categoriy already exists!
-                self.categories.append(Category(name: categoryElement.key, image: categoryElement.value["img-url"]!))
-            }
+            self.categories = categoriesFirebase.flatMap { Category(name: $0.key, image: $0.value["img-url"]!) }
+            
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
-        
-        // TODO: rewrite categoryprotocol, no return value necessary
-        return categories
     }
     
-    // get key and value from subtree in categoryname (ID)
-//    func getCategories() -> [Category] {
-//        var categories = [Category]()
-//        self.ref.child("categories").observe(.childAdded, with: { (snapshot) in
-//            let postDict = snapshot.value
-//                let dummyBE = postDict as? [String : String] ?? [:]
-//
-//            for categoryElement in dummyBE {
-//                categories.append(Category(name: categoryElement.key, image: categoryElement.value))
-//            }
-//        })
-//
-//        return categories
-//    }
+    // User specified View of Categories
+    func getTopicCategories() {
+        self.ref.child("themes").observe(.value, with: { (snapshot) in
+            let postDict = snapshot.value
+            let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
+
+            guard let categoryArray = categoriesFirebase.first(where: { $0.key == "categories"})?.value else { return }
+            categoryArray.forEach { category in
+                guard let castedCategory = category as? [String] else { return }
+                for element in castedCategory {
+                    // TODO: save a new CategoriesList, get image from getCategories
+                    self.categories.append(Category(name: element, image: "Image"))
+                }
+            }
+        })
+    }
     
     // push to Database
     func pushCatToDatabase(category : Category) {
-        
-        
         // TODO: name of category has to be unique
         let eventRefChild = self.ref.child("categories").child(category.title)
         eventRefChild.setValue(["img-url": category.image])

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CategoriesController: UICollectionViewController {
+    let mockIsAdmin = false
     
     @IBOutlet var categoriesCollectionView: UICollectionView!
     let categoryVM = CategoryViewModel()
@@ -19,7 +20,12 @@ class CategoriesController: UICollectionViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(categoriesUpdated), name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
     
-        categoryVM.getCategories()
+        // check if current user is Admin or not and set IF to true if finished
+        if (mockIsAdmin) {
+            categoryVM.getCategories()
+        } else {
+            categoryVM.getTopicCategories()
+        }
         
         //let categoryGenerator = CategoryGeneratorMock()
         //categories = categoryGenerator.getCategories()
@@ -30,7 +36,10 @@ class CategoriesController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryVM.categories.count + 1
+        if (mockIsAdmin) {
+            return categoryVM.categories.count + 1
+        }
+        return categoryVM.categories.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -38,7 +47,9 @@ class CategoriesController: UICollectionViewController {
             print("foobar add element")
             let catVM = CategoryViewModel()
             // TODO: dummy = userIput(AdminView)
-            catVM.pushCatToDatabase(category: Category(name: "dummy2", image: "Image"))
+            catVM.pushCatToDatabase(category: Category(name: "One", image: "Image"))
+            catVM.pushCatToDatabase(category: Category(name: "Two", image: "Image"))
+            catVM.pushCatToDatabase(category: Category(name: "Three", image: "Image"))
             return
         }
         

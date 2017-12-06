@@ -11,16 +11,16 @@ import Foundation
 struct Topic {
     
     let title : String
-    let image : String
+    let imageUrl : String
     let description : String
     let categories : [String]
     
     let isActive: Bool = true
     
-    init (name: String, description: String, categories: [String], image : String) {
+    init (name: String, description: String, categories: [String], imageUrl : String) {
         self.title = name
         self.description = description
         self.categories = categories
-        self.image = image
+        self.imageUrl = imageUrl
     }
 }
