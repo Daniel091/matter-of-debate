@@ -37,16 +37,29 @@ class CategoryViewModel
         self.ref.child("themes").observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
             let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
-
-            guard let categoryArray = categoriesFirebase.first(where: { $0.key == "categories"})?.value else { return }
-            categoryArray.forEach { category in
-                guard let castedCategory = category as? [String] else { return }
-                for element in castedCategory {
+            
+            for thisElement in categoriesFirebase {
+                let valuesToWant = thisElement.value
+                let cat = valuesToWant["categories"] as! [String]
+                for element in cat {
                     // TODO: save a new CategoriesList, get image from getCategories
-                    self.categories.append(Category(name: element, image: "Image"))
+                    
+                    if (!self.checkForDuplicates(categories: self.categories, element: element)) {
+                        self.categories.append(Category(name: element, image: "Image"))
+                    }
                 }
             }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
+    }
+    
+    func checkForDuplicates(categories : [Category], element : String) -> Bool {
+        for everything in categories {
+            if(everything.title == element) {
+                return true
+            }
+        }
+        return false
     }
     
     // push to Database
