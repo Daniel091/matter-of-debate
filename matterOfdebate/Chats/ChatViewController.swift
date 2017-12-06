@@ -8,8 +8,10 @@
 
 import UIKit
 import JSQMessagesViewController
+import Firebase
 
 class ChatViewController: JSQMessagesViewController {
+    
     // array that stores messages
     var messages = [JSQMessage]()
     
@@ -23,13 +25,17 @@ class ChatViewController: JSQMessagesViewController {
         return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }()
     
+    // user clicks back button
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let user_obj = SingletonUser.sharedInstance.user
         
-        senderId = "1234"
-        senderDisplayName = "..."
-        print("Yay")
+        senderId = user_obj.uid
+        senderDisplayName = user_obj.user_name
         
         // hide attachement button
         inputToolbar.contentView.leftBarButtonItem = nil
@@ -37,7 +43,36 @@ class ChatViewController: JSQMessagesViewController {
         // hidding avatar
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        
+        let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
+        _ = query.observe(.childAdded, with: { [weak self] snapshot in
+            if let data = snapshot.value as? [String: String] {
+                if let name = data["name"], let text = data["text"], let id = data["sender-id"], !text.isEmpty {
+                    
+                    // build a message from the snapshots data
+                    if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+                        self?.messages.append(message)
+                        self?.finishReceivingMessage()
+                    }
+                }
+            }
+        })
     }
+    
+    
+    // User sends a message
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        
+        // push text to firebase database
+        let ref = Constants.refs.databaseChats.childByAutoId()
+        let message = ["sender-id": senderId, "name": senderDisplayName, "text": text]
+        ref.setValue(message)
+        
+        // do a nice animation
+        finishSendingMessage()
+    }
+    
     
     // returns message from specific index
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -67,6 +102,20 @@ class ChatViewController: JSQMessagesViewController {
     // sets height of label
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
+    }
+    
+    // sets font color
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        let message = messages[indexPath.item]
+        
+        if message.senderId == senderId {
+            cell.textView?.textColor = UIColor.white
+        } else {
+            cell.textView?.textColor = UIColor.black
+        }
+        return cell
     }
     
 }

@@ -236,10 +236,10 @@
             </objects>
             <point key="canvasLocation" x="-156" y="-228"/>
         </scene>
-        <!--View Controller-->
+        <!--User Chats Controller-->
         <scene sceneID="vjW-bo-Zw8">
             <objects>
-                <viewController id="Jc2-kT-lIs" sceneMemberID="viewController">
+                <viewController id="Jc2-kT-lIs" customClass="UserChatsController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JTH-B8-Tik">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,7 +249,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="TO Chat"/>
                                 <connections>
-                                    <segue destination="RqC-uM-Frl" kind="show" id="z9J-So-JxE"/>
+                                    <segue destination="RqC-uM-Frl" kind="show" identifier="" id="z9J-So-JxE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -354,7 +354,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Kyk-XU-GXM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="buz-go-AHN"/>
+                    <navigationItem key="navigationItem" id="buz-go-AHN">
+                        <barButtonItem key="leftBarButtonItem" image="back-chevron.png" landscapeImage="back-chevron.png" id="9TB-HO-JNH">
+                            <connections>
+                                <action selector="cancel:" destination="tSR-6a-hH9" id="6k1-fW-A5I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7SK-6F-IP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -435,6 +441,9 @@
             <point key="canvasLocation" x="5718.3999999999996" y="244.6776611694153"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back-chevron.png" width="13" height="21"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v2a-te-Owv"/>
     </inferredMetricsTieBreakers>

@@ -11,7 +11,6 @@ import Firebase
 
 // TODO pass user_obj to sub views http://www.thomashanning.com/passing-data-between-view-controllers/
 class TabBarMainController: UITabBarController {
-    var user_obj: User? = nil
     var ref : DatabaseReference!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +26,11 @@ class TabBarMainController: UITabBarController {
         // Hide navigation Controller in Case user, came from EmailRegistrationController
         self.navigationController?.navigationBar.isHidden = true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(":-) prepare")
+        print(segue.identifier)
+    }
 
     
     func get_user() {
@@ -39,7 +43,8 @@ class TabBarMainController: UITabBarController {
                 let username = value?["username"] as? String ?? ""
                 let email = value?["email"] as? String ?? ""
                 
-                self.user_obj = User(uid: usr_uid, email: email, user_name: username)
+                SingletonUser.sharedInstance.user = User(uid: usr_uid, email: email, user_name: username)
+                
                 print(":-) Currently signed in User " + email)
             }) { (error) in
                 print(error.localizedDescription)

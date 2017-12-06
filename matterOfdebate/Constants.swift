@@ -14,5 +14,9 @@ struct Constants {
     struct refs {
         static let databaseRoot = Database.database().reference()
         static let databaseChats = databaseRoot.child("chats")
+        
+        static let curruserReference = Auth.auth().currentUser
+        static let databaseUsers = databaseRoot.child("users")
+        
     }
 }
