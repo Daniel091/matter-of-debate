@@ -23,8 +23,9 @@
 		6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4611FBB91BB00DFBE96 /* .gitignore */; };
 		6549E81B1FBDD58A00367D40 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549E81A1FBDD58A00367D40 /* User.swift */; };
 		654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654D95031FBC44BF0003C99D /* GoogleService-Info.plist */; };
-		656030DB1FD7050B0029C549 /* UserChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656030DA1FD7050B0029C549 /* UserChatsController.swift */; };
 		656030DD1FD874120029C549 /* SingletonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656030DC1FD874120029C549 /* SingletonUser.swift */; };
+		656030DF1FD89E840029C549 /* UserChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */; };
+		656030E11FD93EB30029C549 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656030E01FD93EB30029C549 /* Chat.swift */; };
 		656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656430361FC1A29C0019F9BE /* ActivitySpinner.swift */; };
 		6564303B1FC1C1F10019F9BE /* TabBarMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */; };
 		65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65693D6D1FCED7D3009FE995 /* Constants.swift */; };
@@ -51,8 +52,9 @@
 		6529A4611FBB91BB00DFBE96 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6549E81A1FBDD58A00367D40 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		654D95031FBC44BF0003C99D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		656030DA1FD7050B0029C549 /* UserChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatsController.swift; sourceTree = "<group>"; };
 		656030DC1FD874120029C549 /* SingletonUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonUser.swift; sourceTree = "<group>"; };
+		656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatsTableViewController.swift; sourceTree = "<group>"; };
+		656030E01FD93EB30029C549 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		656430361FC1A29C0019F9BE /* ActivitySpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySpinner.swift; sourceTree = "<group>"; };
 		6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMainController.swift; sourceTree = "<group>"; };
 		65693D6C1FCED5A8009FE995 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -159,8 +161,9 @@
 		65693D6F1FCED8B6009FE995 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
-				656030DA1FD7050B0029C549 /* UserChatsController.swift */,
 				65693D701FCED94C009FE995 /* ChatViewController.swift */,
+				656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */,
+				656030E01FD93EB30029C549 /* Chat.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656030DF1FD89E840029C549 /* UserChatsTableViewController.swift in Sources */,
 				656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */,
 				48AEEFCF1FCB7AA100726996 /* CategoryGeneratorMock.swift in Sources */,
 				65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */,
@@ -329,8 +333,8 @@
 				6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */,
 				48AEEFCB1FCB6B7200726996 /* Categories.swift in Sources */,
 				6549E81B1FBDD58A00367D40 /* User.swift in Sources */,
-				656030DB1FD7050B0029C549 /* UserChatsController.swift in Sources */,
 				65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */,
+				656030E11FD93EB30029C549 /* Chat.swift in Sources */,
 				65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */,
 				483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */,
 				65693D711FCED94C009FE995 /* ChatViewController.swift in Sources */,
