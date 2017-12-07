@@ -160,28 +160,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZhA-vv-ltB">
-                                <rect key="frame" x="20" y="70" width="335" height="168"/>
+                                <rect key="frame" x="20" y="70" width="335" height="167"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matter of Debate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-FL-OJU">
-                                        <rect key="frame" x="43.5" y="0.0" width="248.5" height="32.5"/>
+                                        <rect key="frame" x="65.5" y="0.0" width="204.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="Panton-BlackCaps" family="Panton" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSP-ue-GhG">
-                                        <rect key="frame" x="0.0" y="40.5" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="39.5" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-AR-pHw">
-                                        <rect key="frame" x="0.0" y="78.5" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="77.5" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WIX-mN-Hq6">
-                                        <rect key="frame" x="116" y="116.5" width="103" height="30"/>
+                                        <rect key="frame" x="116" y="115.5" width="103" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-JP-TfU">
                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
@@ -200,7 +200,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8A-Zc-p1K">
-                                        <rect key="frame" x="0.0" y="154.5" width="335" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="153.5" width="335" height="13.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13.5" id="5UA-4G-Prw"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13.5" id="uLy-Y3-RZH"/>
@@ -359,10 +359,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Diskussionen" id="Fdg-Yu-plQ"/>
+                    <connections>
+                        <segue destination="1J6-zo-Bq1" kind="show" identifier="showMessages" id="jzb-pW-uBl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qf-0f-3Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5332" y="157"/>
+            <point key="canvasLocation" x="5172" y="155"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Whm-PM-JW1">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="1J6-zo-Bq1" customClass="ChatViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZSa-ej-ZKS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="NTt-D9-L1e"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xa0-v1-28o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6273" y="156"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="WQ7-yA-HD3">

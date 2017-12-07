@@ -15,6 +15,9 @@ class ChatViewController: JSQMessagesViewController {
     // array that stores messages
     var messages = [JSQMessage]()
     
+    //
+    var chat: Chat?
+    
     // create colored message bubbles, outgoing is blue, incoming gray
     // lazy vars are only initialized once, when there accessed
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
@@ -29,10 +32,14 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
         
         // set up back navigation
-        setupBackButton()
+        //setupBackButton()
         
         // set up settings button for chat
         setupSettingsChatButton()
+        if let id = chat?.id {
+            print("Got a chat? " + id)
+        }
+        
         
         // get user object
         let user_obj = SingletonUser.sharedInstance.user
@@ -48,7 +55,7 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         
-        let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
+        let query = Constants.refs.databaseMessages.queryLimited(toLast: 10)
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
             if let data = snapshot.value as? [String: String] {
                 if let name = data["name"], let text = data["text"], let id = data["sender-id"], !text.isEmpty {

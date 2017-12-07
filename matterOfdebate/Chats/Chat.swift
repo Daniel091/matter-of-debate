@@ -9,14 +9,18 @@
 import Foundation
 
 class Chat {
-    var title:String
-    var lastMessage: String
-    var users : [String]
+    let title:String
+    let lastMessage: String
+    let users : Dictionary<String, Bool>
+    let id: String
+    let timestamp: Double
     
-    init(title: String, lastMessage: String, users: [String]) {
+    init(_ id: String,_ title: String,_ lastMessage: String,_ users: Dictionary<String, Bool>,_ timestamp: Double ) {
         self.title = title
         self.lastMessage = lastMessage
         self.users = users
+        self.id = id
+        self.timestamp = timestamp
     }
     
 }

@@ -7,48 +7,60 @@
 //
 
 import UIKit
-
+import Firebase
 class UserChatsTableViewController: UITableViewController {
 
     private var chats: [Chat] = []
+    private lazy var chatsRef = Constants.refs.databaseChats
+    private var chatsRefHandle: DatabaseHandle?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // Dummy data
-        chats = []
-        chats.append(Chat(title: "Chat1",lastMessage: "lastMessage1",users: ["uid1","uid2"]))
-        chats.append(Chat(title: "Chat2",lastMessage: "lastMessage2",users: ["uid1","uid3"]))
-        chats.append(Chat(title: "Chat3",lastMessage: "lastMessage3",users: ["uid1","uid4"]))
-
-        // trigger reload
-        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        observeChats()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func observeChats() {
+        chatsRefHandle = chatsRef.observe(.childAdded, with: { (snapshot) -> Void in
+            
+            let chatsData = snapshot.value as! Dictionary<String, AnyObject>
+            
+            // if title is set construct new Chat Object
+            if let title = chatsData["title"] as! String! {
+                let last_m = chatsData["lastMessage"] as? String ?? ""
+                let users = chatsData["users"] as! Dictionary<String, Bool>
+                let timestamp = chatsData["timestamp"] as? Double ?? 0
+                
+                self.chats.append(Chat(snapshot.key,title, last_m, users, timestamp))
+                self.tableView.reloadData()
+            } else {
+                print("Error! Could not decode chats data")
+            }
+        })
     }
-
-
-    // only one big section for all chats
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    
+    // click on chat row should show chat view
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chat = chats[indexPath.row]
+        print(":-) clicked " + chat.id)
+        self.performSegue(withIdentifier: "showMessages", sender: chat)
     }
-
-    // number of rows is equal to length of chats array
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chats.count
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        print(":_) called prepare")
+        if let chat = sender as? Chat {
+            let chatVc = segue.destination as! ChatViewController
+            chatVc.chat = chat
+        }
+        
     }
 
     // define whats in the cell
@@ -59,6 +71,16 @@ class UserChatsTableViewController: UITableViewController {
         cell.textLabel?.text = chats[indexPath.row].title
         
         return cell
+    }
+    
+    // only one big section for all chats
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // number of rows is equal to length of chats array
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return chats.count
     }
 
     /*
