@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 import Firebase
 
-class CategoryViewModel
-: CategoryProtocol
+class CategoryViewModel : CategoryProtocol
+    // https://krakendev.io/blog/the-right-way-to-write-a-singleton
+    // nice website for singletons in a swifty way :D
 {
+    static let sharedInstance = CategoryViewModel()
     var ref = Database.database().reference()
 
     var categories = [Category]()

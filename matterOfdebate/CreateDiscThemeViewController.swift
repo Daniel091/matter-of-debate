@@ -18,6 +18,8 @@ class CreateDiscThemeViewController: FormViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CategoryViewModel.sharedInstance.getCategories()
+        
         // Set Up Eureka GUI
         form +++ Section("Generelles")
             <<< TextRow("titel"){ row in
@@ -35,7 +37,7 @@ class CreateDiscThemeViewController: FormViewController{
             }
             <<< MultipleSelectorRow<String>("categories"){
                 $0.title = "Kategorien"
-                $0.options = ["One","Two","Three"]
+                $0.options = CategoryViewModel.sharedInstance.categories.map{$0.title}
             }
             
             +++ Section("Details")

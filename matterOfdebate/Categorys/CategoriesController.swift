@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 
 class CategoriesController: UICollectionViewController {
-    let mockIsAdmin = false
+    let mockIsAdmin = true
     
     @IBOutlet var categoriesCollectionView: UICollectionView!
-    let categoryVM = CategoryViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +21,9 @@ class CategoriesController: UICollectionViewController {
     
         // check if current user is Admin or not and set IF to true if finished
         if (mockIsAdmin) {
-            categoryVM.getCategories()
+            CategoryViewModel.sharedInstance.getCategories()
         } else {
-            categoryVM.getTopicCategories()
+            CategoryViewModel.sharedInstance.getTopicCategories()
         }
         
         //let categoryGenerator = CategoryGeneratorMock()
@@ -37,19 +36,17 @@ class CategoriesController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (mockIsAdmin) {
-            return categoryVM.categories.count + 1
+            return CategoryViewModel.sharedInstance.categories.count + 1
         }
-        return categoryVM.categories.count
+        return CategoryViewModel.sharedInstance.categories.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath.row < categoryVM.categories.count else {
+        guard indexPath.row < CategoryViewModel.sharedInstance.categories.count else {
             print("foobar add element")
             let catVM = CategoryViewModel()
             // TODO: dummy = userIput(AdminView)
-            catVM.pushCatToDatabase(category: Category(name: "One", image: "Image"))
-            catVM.pushCatToDatabase(category: Category(name: "Two", image: "Image"))
-            catVM.pushCatToDatabase(category: Category(name: "Three", image: "Image"))
+            catVM.pushCatToDatabase(category: Category(name: "test301", image: "Image"))
             return
         }
         
@@ -58,7 +55,7 @@ class CategoriesController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard indexPath.row < categoryVM.categories.count else {
+        guard indexPath.row < CategoryViewModel.sharedInstance.categories.count else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             
@@ -71,7 +68,7 @@ class CategoriesController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         
-        let category = categoryVM.categories[indexPath.row]
+        let category = CategoryViewModel.sharedInstance.categories[indexPath.row]
         
         if let image = UIImage(named: category.image) {
             cell.displayContent(image: image, title: category.title)
