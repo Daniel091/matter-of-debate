@@ -1,8 +1,8 @@
 //
-//  Categories.swift
+//  Category.swift
 //  matterOfdebate
 //
-//  Created by Stefanie Huber on 26.11.17.
+//  Created by Stefanie Huber on 03.12.17.
 //  Copyright © 2017 Gruppe7. All rights reserved.
 //
 
@@ -10,12 +10,12 @@ import Foundation
 
 struct Category {
     
-    let categoryName : String
-    let categoryImage : String
+    let title : String
+    let image : String
     let isAddButton: Bool = false
     
     init (name: String, image : String) {
-        self.categoryName = name
-        self.categoryImage = image
+        self.title = name
+        self.image = image
     }
 }

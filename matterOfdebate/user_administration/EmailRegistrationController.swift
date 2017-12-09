@@ -66,7 +66,7 @@ class EmailRegistrationController: UIViewController {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("users").child(usr.uid).setValue(["username": usr.user_name, "email": usr.email])
+        ref.child("users").child(usr.uid).setValue(usr.getUserStrings())
     }
     
 }

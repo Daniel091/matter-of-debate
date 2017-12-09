@@ -125,7 +125,7 @@
                                             <color key="backgroundColor" red="1" green="0.090483070946032473" blue="0.33321795948686217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8do-ZF-AP5" userLabel="CategoryTitle">
-                                            <rect key="frame" x="0.0" y="-1" width="176" height="128"/>
+                                            <rect key="frame" x="28" y="87" width="59.5" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <color key="textColor" red="0.0" green="0.036381998308925745" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,6 +146,9 @@
                     </collectionView>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="LVf-tD-OHm"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="categoriesCollectionView" destination="zHa-aO-9E5" id="K79-tq-xzd"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEo-h3-P1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

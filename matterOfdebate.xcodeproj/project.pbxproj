@@ -10,9 +10,10 @@
 		40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */; };
 		483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA51FC89FB100338945 /* CategoriesController.swift */; };
 		483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */; };
-		48AEEFCB1FCB6B7200726996 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AEEFCA1FCB6B7200726996 /* Categories.swift */; };
 		48AEEFCD1FCB79CE00726996 /* CategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AEEFCC1FCB79CE00726996 /* CategoryProtocol.swift */; };
-		48AEEFCF1FCB7AA100726996 /* CategoryGeneratorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AEEFCE1FCB7AA100726996 /* CategoryGeneratorMock.swift */; };
+		48B657CE1FD460EC0017266B /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B657CD1FD460EC0017266B /* Topic.swift */; };
+		48B657D01FD460FC0017266B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B657CF1FD460FC0017266B /* Category.swift */; };
+		48B657D21FD4658C0017266B /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B657D11FD4658C0017266B /* CategoryViewModel.swift */; };
 		55C462C404603813E59AA330 /* Pods_matterOfdebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */; };
 		65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65174D2F1FC072CE00E5B902 /* SettingsController.swift */; };
 		65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */; };
@@ -39,9 +40,10 @@
 		40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Panton-BlackCaps.otf"; sourceTree = "<group>"; };
 		483FEAA51FC89FB100338945 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		48AEEFCA1FCB6B7200726996 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		48AEEFCC1FCB79CE00726996 /* CategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProtocol.swift; sourceTree = "<group>"; };
-		48AEEFCE1FCB7AA100726996 /* CategoryGeneratorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGeneratorMock.swift; sourceTree = "<group>"; };
+		48B657CD1FD460EC0017266B /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		48B657CF1FD460FC0017266B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		48B657D11FD4658C0017266B /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		65174D2F1FC072CE00E5B902 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegistrationController.swift; sourceTree = "<group>"; };
 		6529A44C1FBB8DA000DFBE96 /* matterOfdebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = matterOfdebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,11 +95,20 @@
 			children = (
 				483FEAA51FC89FB100338945 /* CategoriesController.swift */,
 				483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */,
-				48AEEFCA1FCB6B7200726996 /* Categories.swift */,
 				48AEEFCC1FCB79CE00726996 /* CategoryProtocol.swift */,
-				48AEEFCE1FCB7AA100726996 /* CategoryGeneratorMock.swift */,
+				48B657D11FD4658C0017266B /* CategoryViewModel.swift */,
 			);
 			path = Categorys;
+			sourceTree = "<group>";
+		};
+		48B657CC1FD460A50017266B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				6549E81A1FBDD58A00367D40 /* User.swift */,
+				48B657CD1FD460EC0017266B /* Topic.swift */,
+				48B657CF1FD460FC0017266B /* Category.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		6529A4431FBB8DA000DFBE96 = {
@@ -123,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				65693D6F1FCED8B6009FE995 /* Chats */,
+				48B657CC1FD460A50017266B /* Entities */,
 				483FEAA41FC89F6300338945 /* Categorys */,
 				654D95031FBC44BF0003C99D /* GoogleService-Info.plist */,
 				6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */,
@@ -144,7 +156,6 @@
 		656430381FC1A4CF0019F9BE /* user_administration */ = {
 			isa = PBXGroup;
 			children = (
-				6549E81A1FBDD58A00367D40 /* User.swift */,
 				6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */,
 				65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */,
 				656030DC1FD874120029C549 /* SingletonUser.swift */,
@@ -326,7 +337,6 @@
 			files = (
 				656030DF1FD89E840029C549 /* UserChatsTableViewController.swift in Sources */,
 				656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */,
-				48AEEFCF1FCB7AA100726996 /* CategoryGeneratorMock.swift in Sources */,
 				65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */,
 				65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */,
 				657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */,
@@ -334,15 +344,17 @@
 				483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */,
 				656030DD1FD874120029C549 /* SingletonUser.swift in Sources */,
 				6564303B1FC1C1F10019F9BE /* TabBarMainController.swift in Sources */,
+				48B657D21FD4658C0017266B /* CategoryViewModel.swift in Sources */,
 				6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */,
-				48AEEFCB1FCB6B7200726996 /* Categories.swift in Sources */,
 				6549E81B1FBDD58A00367D40 /* User.swift in Sources */,
 				65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */,
+				48B657D01FD460FC0017266B /* Category.swift in Sources */,
 				656030E11FD93EB30029C549 /* Chat.swift in Sources */,
 				65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */,
 				483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */,
 				65693D711FCED94C009FE995 /* ChatViewController.swift in Sources */,
 				48AEEFCD1FCB79CE00726996 /* CategoryProtocol.swift in Sources */,
+				48B657CE1FD460EC0017266B /* Topic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

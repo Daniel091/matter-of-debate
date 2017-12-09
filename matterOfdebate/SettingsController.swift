@@ -19,10 +19,11 @@ class SettingsController: UIViewController {
     @IBAction func logoutUser(_ sender: UIButton) {
         print(":-) trying to logout")
         do {
-            try
-                Auth.auth().signOut()
-                self.performSegue(withIdentifier: "loggedOutUser", sender: self)
-                print(":-) logged out")
+            try Auth.auth().signOut()
+            self.performSegue(withIdentifier: "loggedOutUser", sender: self)
+            SingletonUser.sharedInstance.user = User(uid: "", email: "", user_name: "")
+            // TODO: clean Navigation Stack
+            print(":-) logged out")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
