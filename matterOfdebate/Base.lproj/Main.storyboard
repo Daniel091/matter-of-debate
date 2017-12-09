@@ -163,28 +163,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZhA-vv-ltB">
-                                <rect key="frame" x="20" y="70" width="335" height="168"/>
+                                <rect key="frame" x="20" y="70" width="335" height="167"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matter of Debate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-FL-OJU">
-                                        <rect key="frame" x="43.5" y="0.0" width="248.5" height="32.5"/>
+                                        <rect key="frame" x="65.5" y="0.0" width="204.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="Panton-BlackCaps" family="Panton" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSP-ue-GhG">
-                                        <rect key="frame" x="0.0" y="40.5" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="39.5" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-AR-pHw">
-                                        <rect key="frame" x="0.0" y="78.5" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="77.5" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WIX-mN-Hq6">
-                                        <rect key="frame" x="116" y="116.5" width="103" height="30"/>
+                                        <rect key="frame" x="116" y="115.5" width="103" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-JP-TfU">
                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
@@ -203,7 +203,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8A-Zc-p1K">
-                                        <rect key="frame" x="0.0" y="154.5" width="335" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="153.5" width="335" height="13.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13.5" id="5UA-4G-Prw"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13.5" id="uLy-Y3-RZH"/>
@@ -239,22 +239,6 @@
             </objects>
             <point key="canvasLocation" x="-156" y="-228"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="vjW-bo-Zw8">
-            <objects>
-                <viewController id="Jc2-kT-lIs" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JTH-B8-Tik">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="a26-vg-BWY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="tfH-41-ceg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rXK-BG-OHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4228" y="246"/>
-        </scene>
         <!--Einstellungen-->
         <scene sceneID="1qy-cs-6sl">
             <objects>
@@ -279,6 +263,14 @@
                                     <action selector="triggeredAdminCreateTheme:" destination="XJi-mA-luc" eventType="touchUpInside" id="PHM-m3-czV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGt-i3-hep">
+                                <rect key="frame" x="148" y="312" width="80" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Chat-Demo"/>
+                                <connections>
+                                    <segue destination="RqC-uM-Frl" kind="show" id="rGY-pm-eCt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="4v9-El-ZuV"/>
@@ -292,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvU-Vc-ah9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3145" y="877"/>
+            <point key="canvasLocation" x="3144.8000000000002" y="876.61169415292363"/>
         </scene>
         <!--Create Disc Theme View Controller-->
         <scene sceneID="MpY-pt-kNq">
@@ -319,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIV-9e-spt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5402" y="1206"/>
+            <point key="canvasLocation" x="4911" y="1619"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0BD-uS-GEO">
@@ -335,7 +327,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-mw-c6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4228" y="-477"/>
+            <point key="canvasLocation" x="4228" y="-645"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="eef-jA-7EX">
+            <objects>
+                <tableViewController title="Chats" id="w9X-s2-eKS" customClass="UserChatsTableViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="egN-Nc-hVk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" textLabel="Vw9-aq-TD7" style="IBUITableViewCellStyleDefault" id="hoE-Rz-qu8">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hoE-Rz-qu8" id="nT8-VK-UQi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vw9-aq-TD7">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w9X-s2-eKS" id="9Pr-TS-DML"/>
+                            <outlet property="delegate" destination="w9X-s2-eKS" id="sNg-2z-IfT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Diskussionen" id="Fdg-Yu-plQ"/>
+                    <connections>
+                        <segue destination="1J6-zo-Bq1" kind="show" identifier="showMessages" id="jzb-pW-uBl"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6qf-0f-3Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5172" y="155"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Whm-PM-JW1">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="1J6-zo-Bq1" customClass="ChatViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZSa-ej-ZKS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="NTt-D9-L1e"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xa0-v1-28o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6273" y="156"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="WQ7-yA-HD3">
+            <objects>
+                <viewController id="tSR-6a-hH9" customClass="ChatViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TkH-tB-l7f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Kyk-XU-GXM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="buz-go-AHN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7SK-6F-IP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5810" y="877"/>
         </scene>
         <!--MainController-->
         <scene sceneID="mDk-g9-K80">
@@ -349,7 +413,7 @@
                     <connections>
                         <segue destination="TY6-RK-409" kind="relationship" relationship="viewControllers" id="29D-kU-lI0"/>
                         <segue destination="yle-re-xOJ" kind="relationship" relationship="viewControllers" id="EPt-qI-ytz"/>
-                        <segue destination="Jc2-kT-lIs" kind="relationship" relationship="viewControllers" id="GZa-TH-EYt"/>
+                        <segue destination="PKh-20-UGy" kind="relationship" relationship="viewControllers" id="HnG-2p-uhY"/>
                         <segue destination="XJi-mA-luc" kind="relationship" relationship="viewControllers" id="86c-ay-x6u"/>
                     </connections>
                 </tabBarController>
@@ -391,7 +455,44 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lbo-5o-2FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4404.8000000000002" y="1206.296851574213"/>
+            <point key="canvasLocation" x="4054" y="1619"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="USO-Zt-t0m">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RqC-uM-Frl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jYG-2F-Ov1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tSR-6a-hH9" kind="relationship" relationship="rootViewController" id="yZA-JB-rd1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ow-Tp-kif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4910" y="877"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u4j-aA-yLd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PKh-20-UGy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="3Gw-O0-wyS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MWR-nr-en4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w9X-s2-eKS" kind="relationship" relationship="rootViewController" id="zPk-rE-LrD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bi5-MH-zGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4228" y="157"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
