@@ -42,8 +42,9 @@ class TabBarMainController: UITabBarController {
                 let value = snapshot.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 let email = value?["email"] as? String ?? ""
+                let isAdmin = value?["isAdmin"] as? Bool ?? false
                 
-                SingletonUser.sharedInstance.user = User(uid: usr_uid, email: email, user_name: username)
+                SingletonUser.sharedInstance.user = User(uid: usr_uid, email: email, user_name: username, isAdmin: isAdmin)
                 
                 print(":-) Currently signed in User " + email)
             }) { (error) in

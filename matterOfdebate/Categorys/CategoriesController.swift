@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class CategoriesController: UICollectionViewController {
-    let mockIsAdmin = true
     
     @IBOutlet var categoriesCollectionView: UICollectionView!
     
@@ -20,7 +19,7 @@ class CategoriesController: UICollectionViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(categoriesUpdated), name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
     
         // check if current user is Admin or not and set IF to true if finished
-        if (mockIsAdmin) {
+        if (SingletonUser.sharedInstance.user.isAdmin) {
             CategoryViewModel.sharedInstance.getCategories()
         } else {
             CategoryViewModel.sharedInstance.getTopicCategories()
@@ -35,7 +34,7 @@ class CategoriesController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (mockIsAdmin) {
+        if (SingletonUser.sharedInstance.user.isAdmin) {
             return CategoryViewModel.sharedInstance.categories.count + 1
         }
         return CategoryViewModel.sharedInstance.categories.count
