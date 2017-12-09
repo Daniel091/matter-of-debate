@@ -65,10 +65,19 @@ class UserChatsTableViewController: UITableViewController {
 
     // define whats in the cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath)
-
+        let cellIdentifier = "ChatCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChatTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of ChatTableViewCell.")
+        }
+        
+        let chat = chats[indexPath.row]
+        
         // set cell content
-        cell.textLabel?.text = chats[indexPath.row].title
+        cell.titelLabel.text = chat.title
+        let date = Date(timeIntervalSince1970: chat.timestamp)
+        cell.subtitelLabel.text = chat.lastMessage
+        cell.timeLabel.text = date.description
         
         return cell
     }
