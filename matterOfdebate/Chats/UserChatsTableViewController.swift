@@ -6,6 +6,8 @@
 //  Copyright © 2017 Gruppe7. All rights reserved.
 //
 
+// TODO detach listeners
+
 import UIKit
 import Firebase
 class UserChatsTableViewController: UITableViewController {
@@ -13,6 +15,8 @@ class UserChatsTableViewController: UITableViewController {
     private var chats: [Chat] = []
     private lazy var chatsRef = Constants.refs.databaseChats
     private var chatsRefHandle: DatabaseHandle?
+    private var chatsRefUpdateHandle: DatabaseHandle?
+    private let dateFormatter = DateFormatter()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -21,14 +25,32 @@ class UserChatsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup dateFormatter
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
         observeChats()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
     }
     
     private func observeChats() {
+        // Childs are added
         chatsRefHandle = chatsRef.observe(.childAdded, with: { (snapshot) -> Void in
+            let chatsData = snapshot.value as! Dictionary<String, AnyObject>
             
+            // if title is set construct new Chat Object
+            if let title = chatsData["title"] as! String! {
+                let last_m = chatsData["lastMessage"] as? String ?? ""
+                let users = chatsData["users"] as! Dictionary<String, Bool>
+                let timestamp = chatsData["timestamp"] as? Double ?? 0
+                
+                self.chats.append(Chat(snapshot.key,title, last_m, users, timestamp))
+                self.tableView.reloadData()
+            } else {
+                print("Error! Could not decode chats data")
+            }
+        })
+        
+        // Childs are changed
+        chatsRefUpdateHandle = chatsRef.observe(.childChanged, with: { (snapshot) -> Void in
             let chatsData = snapshot.value as! Dictionary<String, AnyObject>
             
             // if title is set construct new Chat Object
@@ -77,7 +99,7 @@ class UserChatsTableViewController: UITableViewController {
         cell.titelLabel.text = chat.title
         let date = Date(timeIntervalSince1970: chat.timestamp)
         cell.subtitelLabel.text = chat.lastMessage
-        cell.timeLabel.text = date.description
+        cell.timeLabel.text = dateFormatter.string(from: date)
         
         return cell
     }

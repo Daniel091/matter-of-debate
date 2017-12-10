@@ -263,14 +263,6 @@
                                     <action selector="triggeredAdminCreateTheme:" destination="XJi-mA-luc" eventType="touchUpInside" id="PHM-m3-czV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGt-i3-hep">
-                                <rect key="frame" x="148" y="312" width="80" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Chat-Demo"/>
-                                <connections>
-                                    <segue destination="RqC-uM-Frl" kind="show" id="rGY-pm-eCt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="4v9-El-ZuV"/>
@@ -353,7 +345,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Thema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w93-Rg-UKQ">
-                                            <rect key="frame" x="109" y="11" width="100" height="21"/>
+                                            <rect key="frame" x="109" y="11" width="190" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -418,22 +410,6 @@
             </objects>
             <point key="canvasLocation" x="6273" y="156"/>
         </scene>
-        <!--Chat View Controller-->
-        <scene sceneID="WQ7-yA-HD3">
-            <objects>
-                <viewController id="tSR-6a-hH9" customClass="ChatViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TkH-tB-l7f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="Kyk-XU-GXM"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="buz-go-AHN"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7SK-6F-IP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5810" y="877"/>
-        </scene>
         <!--MainController-->
         <scene sceneID="mDk-g9-K80">
             <objects>
@@ -489,24 +465,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lbo-5o-2FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4054" y="1619"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="USO-Zt-t0m">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RqC-uM-Frl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jYG-2F-Ov1">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tSR-6a-hH9" kind="relationship" relationship="rootViewController" id="yZA-JB-rd1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7ow-Tp-kif" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4910" y="877"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u4j-aA-yLd">
