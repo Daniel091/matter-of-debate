@@ -103,17 +103,14 @@ class ChatViewController: JSQMessagesViewController {
         let message = ["sender-id": senderId, "name": senderDisplayName, "text": text]
         ref.setValue(message)
         
-        // and set lastMessage of chat
-        let ref_lastMessage = Constants.refs.databaseChats.child(chat_id).child("lastMessage")
-        ref_lastMessage.setValue(senderDisplayName + ": " + text)
+        // and set lastMessage of chat; and update timestamp
+        let ref_chat = Constants.refs.databaseChats.child(chat_id)
+        let timestamp = Date().timeIntervalSince1970
         
-        // also timestamp
-        let d = Date()
-        let timestamp = d.timeIntervalSince1970
-        let ref_timestamp = Constants.refs.databaseChats.child(chat_id).child("timestamp")
-        ref_timestamp.setValue(timestamp)
+        let childUpdates = ["lastMessage": senderDisplayName + ": " + text,
+                            "timestamp": timestamp] as [String : Any]
+        ref_chat.updateChildValues(childUpdates)
         
-        print(timestamp)
         // do a nice animation
         finishSendingMessage()
     }
