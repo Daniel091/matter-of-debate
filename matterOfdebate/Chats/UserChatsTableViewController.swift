@@ -6,9 +6,6 @@
 //  Copyright © 2017 Gruppe7. All rights reserved.
 //
 
-// TODO detach listeners
-
-import UIKit
 import Firebase
 class UserChatsTableViewController: UITableViewController {
 
@@ -20,15 +17,25 @@ class UserChatsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
         // Setup dateFormatter
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
         observeChats()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // removes observers
+        chatsRef.removeAllObservers()
+        
+        // empty chats
+        chats = []
     }
     
     private func observeChats() {
@@ -45,7 +52,7 @@ class UserChatsTableViewController: UITableViewController {
                 self.chats.append(Chat(snapshot.key,title, last_m, users, timestamp))
                 self.tableView.reloadData()
             } else {
-                print("Error! Could not decode chats data")
+                print("Error! Could not decode chats data in child added")
             }
         })
         
@@ -56,13 +63,17 @@ class UserChatsTableViewController: UITableViewController {
             // if title is set construct new Chat Object
             if let title = chatsData["title"] as! String! {
                 let last_m = chatsData["lastMessage"] as? String ?? ""
-                let users = chatsData["users"] as! Dictionary<String, Bool>
                 let timestamp = chatsData["timestamp"] as? Double ?? 0
                 
-                self.chats.append(Chat(snapshot.key,title, last_m, users, timestamp))
+                // update specific objects in chats
+                let found_chat = self.chats.first(where: { $0.title == title })
+                found_chat?.timestamp = timestamp
+                found_chat?.lastMessage = last_m
+                
+                //self.chats.append(Chat(snapshot.key,title, last_m, users, timestamp))
                 self.tableView.reloadData()
             } else {
-                print("Error! Could not decode chats data")
+                print("Error! Could not decode chats data in child changed")
             }
         })
     }
@@ -77,7 +88,6 @@ class UserChatsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        print(":_) called prepare")
         if let chat = sender as? Chat {
             let chatVc = segue.destination as! ChatViewController
             chatVc.chat = chat
