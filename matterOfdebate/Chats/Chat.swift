@@ -10,10 +10,10 @@ import Foundation
 
 class Chat {
     let title:String
-    let lastMessage: String
+    var lastMessage: String
     let users : Dictionary<String, Bool>
     let id: String
-    let timestamp: Double
+    var timestamp: Double
     
     init(_ id: String,_ title: String,_ lastMessage: String,_ users: Dictionary<String, Bool>,_ timestamp: Double ) {
         self.title = title

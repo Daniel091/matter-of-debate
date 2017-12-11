@@ -15,7 +15,7 @@ class ChatViewController: JSQMessagesViewController {
     // array that stores messages
     var messages = [JSQMessage]()
     
-    //
+    // ChatViewController has a Chat object to display
     var chat: Chat?
     
     // create colored message bubbles, outgoing is blue, incoming gray
@@ -36,8 +36,11 @@ class ChatViewController: JSQMessagesViewController {
         
         // set up settings button for chat
         setupSettingsChatButton()
-        if let id = chat?.id {
-            print("Got a chat? " + id)
+        
+        // if no chat dismiss ChatView
+        guard let chat_id = chat?.id else {
+            dismiss(animated: true, completion: nil)
+            return
         }
         
         
@@ -54,12 +57,11 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        
-        let query = Constants.refs.databaseMessages.queryLimited(toLast: 10)
+        // Query Messages of chat_id
+        let query = Constants.refs.databaseMessages.child(chat_id).queryLimited(toLast: 10)
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
             if let data = snapshot.value as? [String: String] {
                 if let name = data["name"], let text = data["text"], let id = data["sender-id"], !text.isEmpty {
-                    
                     // build a message from the snapshots data
                     if let message = JSQMessage(senderId: id, displayName: name, text: text) {
                         self?.messages.append(message)
@@ -91,10 +93,23 @@ class ChatViewController: JSQMessagesViewController {
     // User sends a message
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-        // push text to firebase database
-        let ref = Constants.refs.databaseChats.childByAutoId()
+        guard let chat_id = chat?.id else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        // push text to firebase database messages
+        let ref = Constants.refs.databaseMessages.child(chat_id).childByAutoId()
         let message = ["sender-id": senderId, "name": senderDisplayName, "text": text]
         ref.setValue(message)
+        
+        // and set lastMessage of chat; and update timestamp
+        let ref_chat = Constants.refs.databaseChats.child(chat_id)
+        let timestamp = Date().timeIntervalSince1970
+        
+        let childUpdates = ["lastMessage": senderDisplayName + ": " + text,
+                            "timestamp": timestamp] as [String : Any]
+        ref_chat.updateChildValues(childUpdates)
         
         // do a nice animation
         finishSendingMessage()
@@ -121,22 +136,13 @@ class ChatViewController: JSQMessagesViewController {
         return nil
     }
     
-    // label for message bubble
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-        return messages[indexPath.item].senderId == senderId ? nil : NSAttributedString(string: messages[indexPath.item].senderDisplayName)
-    }
-    
-    // sets height of label
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
-        return messages[indexPath.item].senderId == senderId ? 0 : 15
-    }
-    
     // sets font color
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
         
+        // if sender id is the same as our logged in users sender id use a white bubble
         if message.senderId == senderId {
             cell.textView?.textColor = UIColor.white
         } else {
