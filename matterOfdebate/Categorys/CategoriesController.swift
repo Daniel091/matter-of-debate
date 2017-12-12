@@ -19,7 +19,8 @@ class CategoriesController: UICollectionViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(categoriesUpdated), name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
     
         // check if current user is Admin or not and set IF to true if finished
-        if (SingletonUser.sharedInstance.user.isAdmin) {
+        let user_obj = SingletonUser.sharedInstance.user
+        if (user_obj.isAdmin) {
             CategoryViewModel.sharedInstance.getCategories()
         } else {
             CategoryViewModel.sharedInstance.getTopicCategories()

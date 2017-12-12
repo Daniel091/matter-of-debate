@@ -21,7 +21,8 @@ class SettingsController: UIViewController {
         do {
             try Auth.auth().signOut()
             self.performSegue(withIdentifier: "loggedOutUser", sender: self)
-            SingletonUser.sharedInstance.user = User(uid: "", email: "", user_name: "")
+            
+            //SingletonUser.sharedInstance.user = User(uid: "", email: "", user_name: "")
             // TODO: clean Navigation Stack
             print(":-) logged out")
         } catch let signOutError as NSError {
