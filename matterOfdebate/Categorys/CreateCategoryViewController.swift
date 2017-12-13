@@ -90,8 +90,8 @@ class CreateCategoryViewController: FormViewController {
     func push_disc_database(_ downloadUrl: String,_ titel: String) {
        
         // Save Discussion Theme to firebase
-        let eventRefChild = Constants.refs.databaseCategories.childByAutoId()
-        eventRefChild.setValue(["titel": titel, "img-url": downloadUrl])
+        let eventRefChild = Constants.refs.databaseCategories.child(titel)
+        eventRefChild.setValue(["img-url": downloadUrl])
         
         // Dismiss View
         self.dismiss(animated: true, completion: nil)
