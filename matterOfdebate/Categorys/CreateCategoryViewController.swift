@@ -44,9 +44,8 @@ class CreateCategoryViewController: FormViewController {
         let valuesDictionary = form.values()
         
         // check that image and titel are there
-        guard let image = valuesDictionary["picture"] ,
-            let titel = valuesDictionary["titel"] else  {
-                return
+        guard let image = valuesDictionary["picture"]!, let titel = valuesDictionary["titel"]! else {
+            return
         }
         
         // cast image and titel
