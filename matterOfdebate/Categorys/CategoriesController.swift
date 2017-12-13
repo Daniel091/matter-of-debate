@@ -42,11 +42,10 @@ class CategoriesController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // trigger Seque showCreateCategoryView when user clicks on last element in collection
         guard indexPath.row < CategoryViewModel.sharedInstance.categories.count else {
-            print("foobar add element")
-            let catVM = CategoryViewModel()
-            // TODO: dummy = userIput(AdminView)
-            catVM.pushCatToDatabase(category: Category(name: "test301", image: "Image"))
+            self.performSegue(withIdentifier: "showCreateCategoryView", sender: self)
             return
         }
         
