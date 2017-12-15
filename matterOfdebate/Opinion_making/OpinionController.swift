@@ -35,12 +35,24 @@ class OpinionController : UIViewController {
     @IBAction func saveOpinionStartMatching(_ sender: UIButton) {
         Shared.opinionValue = self.opinionValue
         
+        searchForMatching()
+        
         // TODO: richtiges Topic irgendwo herbekommen
 //        let topic: Topic()
 //        let opinion = Opinion(topic: topic, user: SingletonUser.sharedInstance, opinionGroup: opinionValue)
-//        print(opinionValue)
+        print(opinionValue)
     }
     
+    func searchForMatching() {
+        switch Shared.opinionValue{
+        case 50, 49, 48:
+            print("50 pro")
+        case 40, 39, 38:
+            print("40 pro")
+        default:
+            print("give user some toast with fail")
+        }
+    }
     
 //    @IBAction func saveOpinion(_ sender: UIButton) {
 //        print("save Opinion .. match USer :)")

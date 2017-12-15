@@ -23,7 +23,17 @@ struct Constants {
         
     }
     
-    static var opinionGroup = ["negativ": [-50, -40],
-                               "positiv": 50,
-                               "neutral": 0] as [String : Any]
+    // neutral (0) is in pro List!!
+    public static var opinionPro = [4: [50, 49, 48],
+                                    3: [40, 39, 38],
+                                    2: [30, 29, 28],
+                                    1: [20, 19, 18],
+                                    0: [10, 9, 8, 0]] as [Int : Any]
+    
+    public static var opinionContra = [4: [-50, -49, -48],
+                                       3: [-40, -39, -38],
+                                       2: [-30, -29, -28],
+                                       1: [-20, -19, -18],
+                                       0: [-10, -9, -8]] as [Int : Any]
+    
 }
