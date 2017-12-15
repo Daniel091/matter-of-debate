@@ -21,4 +21,8 @@ struct Constants {
         static let databaseUsers = databaseRoot.child("users")
         
     }
+    
+    static var opinionGroup = ["negativ": [-50, -40],
+                               "positiv": 50,
+                               "neutral": 0] as [String : Any]
 }
