@@ -149,11 +149,12 @@
                     <connections>
                         <outlet property="categoriesCollectionView" destination="zHa-aO-9E5" id="K79-tq-xzd"/>
                         <segue destination="Xtm-E0-auN" kind="show" id="JOX-qL-Aol"/>
+                        <segue destination="0Ec-fW-D1d" kind="show" identifier="showCreateCategoryView" id="h4f-to-PjY"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEo-h3-P1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4053.5999999999999" y="-1397.4512743628186"/>
+            <point key="canvasLocation" x="4097" y="-1398"/>
         </scene>
         <!--Email Login Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -321,6 +322,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-mw-c6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4228" y="-645"/>
+        </scene>
+        <!--CreateCategoryViewController-->
+        <scene sceneID="CFk-0S-DD0">
+            <objects>
+                <viewController title="CreateCategoryViewController" id="G7F-ea-hVv" customClass="CreateCategoryViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2WZ-j9-aHN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="NcY-xe-OfK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qsk-EP-nHD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="puG-JS-5Bi">
+                            <connections>
+                                <action selector="cancel:" destination="G7F-ea-hVv" id="e4s-3V-qog"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UzN-OO-3C5">
+                            <connections>
+                                <action selector="save:" destination="G7F-ea-hVv" id="QfY-eN-3A0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mm7-EG-6KI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6064.8000000000002" y="-1398.0295566502464"/>
         </scene>
         <!--Chats-->
         <scene sceneID="eef-jA-7EX">
@@ -605,6 +633,24 @@
                 </navigationItem>
             </objects>
             <point key="canvasLocation" x="4228" y="157"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="woo-QX-kK4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ec-fW-D1d" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q6P-WS-HHO">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="G7F-ea-hVv" kind="relationship" relationship="rootViewController" id="wUE-pZ-yR1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JnL-XM-vOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5223" y="-1398"/>
         </scene>
     </scenes>
     <resources>

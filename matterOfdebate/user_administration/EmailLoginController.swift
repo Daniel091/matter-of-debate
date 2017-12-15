@@ -13,35 +13,42 @@ import Firebase
 // TODO compare with this:
 // https://github.com/firebase/quickstart-ios/blob/master/authentication/AuthenticationExampleSwift/EmailViewController.swift
 class EmailLoginController: UIViewController {
-
+    
     @IBOutlet weak var feedback_label: UILabel!
     @IBOutlet weak var email_login_field: UITextField!
     @IBOutlet weak var pw_login_field: UITextField!
+    
+    // Spinner
+    var sv : UIView = UIView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let fuser = user {
-                print("Already logged in \(String(describing: fuser.email))")
+                print("logged in \(String(describing: fuser.email))")
                 
-                self.performSegue(withIdentifier: "loginSuccessful", sender: self)
-                
+                self.get_user(fuser.uid)
             } else {
                 print("Not signed in")
             }
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+    }
+    
     
     // Triggered by Login Button
     @IBAction func loginEmail(_ sender: UIButton) {
-
+        
         // give feedback to user and return if email or pw fields are not set or ""
         guard let email = email_login_field.text, !email.isEmpty, let pw = pw_login_field.text, !pw.isEmpty else {
             user_SignIn_error_feedback()
@@ -49,16 +56,15 @@ class EmailLoginController: UIViewController {
         }
         
         // Do the Sign, show spinner, react to error
-        let sv = UIViewController.displaySpinner(onView: self.view)
+        self.sv = UIViewController.displaySpinner(onView: self.view)
         Auth.auth().signIn(withEmail: email, password: pw, completion: ({ (user, error) in
             
-            // remove spinner
-            UIViewController.removeSpinner(spinner: sv)
-            if let userMail = user?.email {
+            if let userMail = user?.email{
+                // AuthStateChange is being triggered automatically here
                 print(":-) " + userMail)
-                self.performSegue(withIdentifier: "loginSuccessful", sender: self)
                 
             } else {
+                UIViewController.removeSpinner(spinner: self.sv)
                 self.user_SignIn_error_feedback()
                 if let error_desc = error?.localizedDescription {
                     self.feedback_label.text = error_desc
@@ -80,6 +86,32 @@ class EmailLoginController: UIViewController {
         email_login_field.layer.borderWidth = 1.0
         pw_login_field.layer.borderWidth = 1.0
     }
-
+    
+    // gets user and makes
+    func get_user(_ usr_uid: String) {
+        // if SingletonUser is already there
+        if SingletonUser.sharedInstance.user.uid == usr_uid {
+            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+        }
+        
+        Constants.refs.databaseUsers.child(usr_uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            UIViewController.removeSpinner(spinner: self.sv)
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["username"] as? String ?? ""
+            let email = value?["email"] as? String ?? ""
+            let isAdmin = value?["isAdmin"] as? Bool ?? false
+            
+            SingletonUser.sharedInstance.user = User(uid: usr_uid, email: email, user_name: username, isAdmin: isAdmin)
+            
+            print(":-) Currently signed in User " + email)
+            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+        }) { (error) in
+            UIViewController.removeSpinner(spinner: self.sv)
+            print("Could not fetch user data from database")
+            print(error.localizedDescription)
+        }
+    }
 }
 

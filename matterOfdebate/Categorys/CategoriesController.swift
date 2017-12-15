@@ -19,7 +19,8 @@ class CategoriesController: UICollectionViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(categoriesUpdated), name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
     
         // check if current user is Admin or not and set IF to true if finished
-        if (SingletonUser.sharedInstance.user.isAdmin) {
+        let user_obj = SingletonUser.sharedInstance.user
+        if (user_obj.isAdmin) {
             CategoryViewModel.sharedInstance.getCategories()
         } else {
             CategoryViewModel.sharedInstance.getTopicCategories()
@@ -41,11 +42,10 @@ class CategoriesController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // trigger Seque showCreateCategoryView when user clicks on last element in collection
         guard indexPath.row < CategoryViewModel.sharedInstance.categories.count else {
-            print("foobar add element")
-            let catVM = CategoryViewModel()
-            // TODO: dummy = userIput(AdminView)
-            catVM.pushCatToDatabase(category: Category(name: "test301", image: "Image"))
+            self.performSegue(withIdentifier: "showCreateCategoryView", sender: self)
             return
         }
         

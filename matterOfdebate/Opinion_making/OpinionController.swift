@@ -36,9 +36,9 @@ class OpinionController : UIViewController {
         Shared.opinionValue = self.opinionValue
         
         // TODO: richtiges Topic irgendwo herbekommen
-        let topic: Topic()
-        let opinion = Opinion(topic: topic, user: SingletonUser.sharedInstance, opinionGroup: opinionValue)
-        print(opinionValue)
+//        let topic: Topic()
+//        let opinion = Opinion(topic: topic, user: SingletonUser.sharedInstance, opinionGroup: opinionValue)
+//        print(opinionValue)
     }
     
     

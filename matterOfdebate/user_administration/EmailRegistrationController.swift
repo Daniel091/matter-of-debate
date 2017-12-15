@@ -46,6 +46,7 @@ class EmailRegistrationController: UIViewController {
                 print(":-) Successfully created a user")
                 // Construct user object and push that to the firebase database
                 self.usr_obj = User(userData: user!, user_name: usr_name)
+                SingletonUser.sharedInstance.user = self.usr_obj!
                 
                 // Perform segue
                 self.performSegue(withIdentifier: "signedInSequeAfterRegistered", sender: self)
