@@ -567,7 +567,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0gO-Tx-atR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kxa-VE-aY4"/>
+                    <navigationItem key="navigationItem" id="Kxa-VE-aY4">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Dj9-JN-NYi">
+                            <connections>
+                                <action selector="backToTopicView:" destination="PgJ-hV-MVd" id="wHs-sh-X4D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="slider" destination="1oF-mh-Cep" id="Gwm-dD-GFl"/>
                         <outlet property="sliderVal" destination="fGN-OE-esZ" id="bvp-n3-YYw"/>

@@ -20,7 +20,12 @@ class OpinionController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    
+    @IBAction func backToTopicView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func changeOpinion(_ sender: UISlider) {
         opinionValue = Int(sender.value)
         sliderVal.isHidden = false
