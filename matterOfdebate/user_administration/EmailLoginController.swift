@@ -31,9 +31,10 @@ class EmailLoginController: UIViewController {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let fuser = user {
-                print("logged in \(String(describing: fuser.email))")
+                print("logged in \(String(describing: fuser.uid)) \(String(describing: fuser.email))")
                 
-                self.get_user(fuser.uid)
+                let isAnonymous = fuser.isAnonymous
+                self.get_user(fuser.uid, isAnonymous)
             } else {
                 print("Not signed in")
             }
@@ -45,6 +46,27 @@ class EmailLoginController: UIViewController {
         
     }
     
+    // Triggered by Sign In Anonymously Button
+    @IBAction func signInAnonymous(_ sender: UIButton) {
+        // show spinner
+        self.sv = UIViewController.displaySpinner(onView: self.view)
+        
+        // do sign in
+        Auth.auth().signInAnonymously(){ (user,error) in
+            if let uid = user?.uid {
+                let isAnonymous = user!.isAnonymous
+                print(uid + " " + String(describing: isAnonymous))
+                
+            } else {
+                if let error_desc = error?.localizedDescription {
+                    self.feedback_label.text = error_desc
+                }
+                print(error.debugDescription)
+            }
+            UIViewController.removeSpinner(spinner: self.sv)
+        }
+        
+    }
     
     // Triggered by Login Button
     @IBAction func loginEmail(_ sender: UIButton) {
@@ -69,7 +91,6 @@ class EmailLoginController: UIViewController {
                 if let error_desc = error?.localizedDescription {
                     self.feedback_label.text = error_desc
                 }
-                
                 print(error.debugDescription)
             }
             
@@ -87,16 +108,23 @@ class EmailLoginController: UIViewController {
         pw_login_field.layer.borderWidth = 1.0
     }
     
-    // gets user and makes
-    func get_user(_ usr_uid: String) {
-        // if SingletonUser is already there
+    // gets user to singleton instance
+    func get_user(_ usr_uid: String,_ isAnonymous: Bool) {
+        
+        // TODO do we really need this? if SingletonUser is already there
         if SingletonUser.sharedInstance.user.uid == usr_uid {
             self.performSegue(withIdentifier: "loginSuccessful", sender: self)
         }
         
+        isAnonymous ? constructAnonymousUser(usr_uid) : fetchUsrDatafromDatabase(usr_uid)
+    }
+    
+    // fetches user data from database, performs Seque
+    func fetchUsrDatafromDatabase(_ usr_uid: String) {
         Constants.refs.databaseUsers.child(usr_uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            
+            // remove spinner
             UIViewController.removeSpinner(spinner: self.sv)
+            
             // Get user value
             let value = snapshot.value as? NSDictionary
             let username = value?["username"] as? String ?? ""
@@ -112,6 +140,12 @@ class EmailLoginController: UIViewController {
             print("Could not fetch user data from database")
             print(error.localizedDescription)
         }
+    }
+    
+    // puts anonymous user obj in singleton, performs Seque
+    func constructAnonymousUser(_ usr_uid: String) {
+        SingletonUser.sharedInstance.user = User(uid: usr_uid, email: "", user_name: "Anonymous", isAdmin: false, isAnonymous: true)
+        self.performSegue(withIdentifier: "loginSuccessful", sender: self)
     }
 }
 

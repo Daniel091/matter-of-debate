@@ -8,7 +8,6 @@
 
 import UIKit
 
-// TODO pass user_obj to sub views http://www.thomashanning.com/passing-data-between-view-controllers/
 class TabBarMainController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,10 +20,6 @@ class TabBarMainController: UITabBarController {
         // Hide navigation Controller in Case user, came from EmailRegistrationController
         self.navigationController?.navigationBar.isHidden = true
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(":-) prepare")
-        print(segue.identifier)
-    }
+
 
 }
