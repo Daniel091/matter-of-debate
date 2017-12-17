@@ -10,6 +10,7 @@
 		40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */; };
 		483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA51FC89FB100338945 /* CategoriesController.swift */; };
 		483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */; };
+		4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846C5591FE6A99C00889779 /* MatchingFunction.swift */; };
 		486F6FD41FDF553C005376D8 /* OpinionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD31FDF553C005376D8 /* OpinionController.swift */; };
 		486F6FD61FDF57A8005376D8 /* OpinionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD51FDF57A8005376D8 /* OpinionView.swift */; };
 		486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */; };
@@ -48,6 +49,7 @@
 		40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Panton-BlackCaps.otf"; sourceTree = "<group>"; };
 		483FEAA51FC89FB100338945 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4846C5591FE6A99C00889779 /* MatchingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingFunction.swift; sourceTree = "<group>"; };
 		486F6FD31FDF553C005376D8 /* OpinionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionController.swift; sourceTree = "<group>"; };
 		486F6FD51FDF57A8005376D8 /* OpinionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionView.swift; sourceTree = "<group>"; };
 		486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionViewModel.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				486F6FD51FDF57A8005376D8 /* OpinionView.swift */,
 				486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */,
 				486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */,
+				4846C5591FE6A99C00889779 /* MatchingFunction.swift */,
 			);
 			path = Opinion_making;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 		48B657CC1FD460A50017266B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				656030E01FD93EB30029C549 /* Chat.swift */,
 				6549E81A1FBDD58A00367D40 /* User.swift */,
 				48B657CD1FD460EC0017266B /* Topic.swift */,
 				48B657CF1FD460FC0017266B /* Category.swift */,
@@ -215,7 +219,6 @@
 			children = (
 				65693D701FCED94C009FE995 /* ChatViewController.swift */,
 				656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */,
-				656030E01FD93EB30029C549 /* Chat.swift */,
 				657849C11FD972ED00936D5A /* ChatTableViewCell.swift */,
 				65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */,
 			);
@@ -381,6 +384,7 @@
 				65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */,
 				65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */,
 				657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */,
+				4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */,
 				6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */,
 				486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */,
 				483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */,

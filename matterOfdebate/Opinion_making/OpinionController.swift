@@ -30,10 +30,12 @@ class OpinionController : UIViewController {
     }
     
     
+    
     @IBAction func saveOpinionStartMatching(_ sender: UIButton) {
-        
+        let matchingFuction = MatchingFunction()
         saveOpinionInFirebaseDatabase(opinionValue: opinionValue)
-        if (searchForMatching()){
+        let opinionGroup = getOpinionGroup(opinion: opinionValue)
+        if (matchingFuction.searchForMatching(topicID: "-L-kN-4XVEASyFAR0asg", currUserID: "string", opinionGroup: opinionGroup)){
             //TODO: neuen Chat aufbauen
             
             
@@ -80,12 +82,5 @@ class OpinionController : UIViewController {
     
     public func getOpinionGroup(opinion: Int) -> Int {
         return opinion/Constants.opinionGroupDistance
-    }
-    
-    func searchForMatching() -> Bool {
-        
-        // TODO: outsource logic to Firebase functions .. return just true or false
-        
-        return true
     }
 }
