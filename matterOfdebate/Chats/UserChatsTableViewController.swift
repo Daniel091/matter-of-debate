@@ -43,6 +43,11 @@ class UserChatsTableViewController: UITableViewController {
         // gets user
         let user_obj = SingletonUser.sharedInstance.user
         
+        // is user isAnonymous he does not have any chats, so skip adding event handlers
+        if user_obj.isAnonymous {
+            return
+        }
+        
         // Childs are added
         chatsRefHandle = chatsRef
             .queryOrdered(byChild: "users/" + user_obj.uid)
@@ -126,9 +131,16 @@ class UserChatsTableViewController: UITableViewController {
         return cell
     }
     
-    // only one big section for all chats
+    // only one big section for all chats, if there are any
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        let isAnonymous = SingletonUser.sharedInstance.user.isAnonymous
+        
+        if !isAnonymous {
+            return 1
+        } else {
+            TableViewHelper.EmptyMessage(message: "Um mit anderen zu Diskutieren\nmusst du ein Konto erstellen.", viewController: self)
+            return 0
+        }
     }
     
     // number of rows is equal to length of chats array

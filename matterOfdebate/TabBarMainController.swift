@@ -20,6 +20,4 @@ class TabBarMainController: UITabBarController {
         // Hide navigation Controller in Case user, came from EmailRegistrationController
         self.navigationController?.navigationBar.isHidden = true
     }
-
-
 }
