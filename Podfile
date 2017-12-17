@@ -10,6 +10,9 @@ target 'matterOfdebate' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
+  
+  pod 'SDWebImage'
   pod 'Eureka'
   pod 'ImageRow', '~> 3.0'
   pod 'JSQMessagesViewController'

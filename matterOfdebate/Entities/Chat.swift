@@ -13,14 +13,16 @@ class Chat {
     var lastMessage: String
     let users : Dictionary<String, Bool>
     let id: String
+    let img_url: String
     var timestamp: Double
     
-    init(_ id: String,_ title: String,_ lastMessage: String,_ users: Dictionary<String, Bool>,_ timestamp: Double ) {
+    init(_ id: String,_ title: String,_ lastMessage: String,_ users: Dictionary<String, Bool>,_ timestamp: Double,_ img_url: String) {
         self.title = title
         self.lastMessage = lastMessage
         self.users = users
         self.id = id
         self.timestamp = timestamp
+        self.img_url = img_url
     }
     
 }

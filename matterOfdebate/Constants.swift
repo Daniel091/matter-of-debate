@@ -16,10 +16,13 @@ struct Constants {
         static let databaseChats = databaseRoot.child("chats")
         static let databaseMessages = databaseRoot.child("messages")
         static let databaseCategories = databaseRoot.child("categories")
-
+        static let databaseThemes = databaseRoot.child("themes")
         
         static let curruserReference = Auth.auth().currentUser
         static let databaseUsers = databaseRoot.child("users")
+        
+        static let storageRoot = Storage.storage().reference()
+        static let storageThemesImgs = storageRoot.child("theme-images")
     }
     
     // neutral (0) is in pro List!!
