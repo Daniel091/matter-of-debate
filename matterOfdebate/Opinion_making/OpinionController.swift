@@ -20,8 +20,6 @@ class OpinionController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
 
     @IBAction func changeOpinion(_ sender: UISlider) {
         opinionValue = Int(sender.value)
@@ -33,9 +31,18 @@ class OpinionController : UIViewController {
     
     
     @IBAction func saveOpinionStartMatching(_ sender: UIButton) {
-        Shared.opinionValue = self.opinionValue
         
-        searchForMatching()
+        saveOpinionInFirebaseDatabase(opinionValue: opinionValue)
+        if (searchForMatching()){
+            //TODO: neuen Chat aufbauen
+            
+            
+            
+            // TODO: just for testing:
+            showDialog()
+        } else {
+            showDialog()
+        }
         
         // TODO: richtiges Topic irgendwo herbekommen
 //        let topic: Topic()
@@ -43,24 +50,42 @@ class OpinionController : UIViewController {
         print(opinionValue)
     }
     
-    func searchForMatching() {
-        switch Shared.opinionValue{
-        case 50, 49, 48:
-            print("50 pro")
-        case 40, 39, 38:
-            print("40 pro")
-        default:
-            print("give user some toast with fail")
+    func showDialog() {
+        let dialogController = UIAlertController(title: "Es wird nach einem Match gesucht", message: "Das könnte etwas länger dauern ... Willst du hier bleiben, oder zurück zu der Themenübersicht?", preferredStyle: .alert)
+        
+        //going back to browse through themes
+        let confirmAction = UIAlertAction(title: "zurück", style: .default) { (_) in
+            //TODO: hier ThemenView wieder aufrufen
         }
+        
+        //stay at this view
+        let cancelAction = UIAlertAction(title: "bleiben", style: .cancel) { (_) in
+            //TODO: hier ladebalken anzeigen(Android: ProgressBar)
+            // mit dem Text: "search for matching"
+            // Slider und Button sperren auf dieser View
+        }
+        
+        //adding the action to dialogbox
+        dialogController.addAction(confirmAction)
+        dialogController.addAction(cancelAction)
+        
+        self.present(dialogController, animated: true, completion: nil)
     }
     
-//    @IBAction func saveOpinion(_ sender: UIButton) {
-//        print("save Opinion .. match USer :)")
-//    }
+    func saveOpinionInFirebaseDatabase(opinionValue: Int) {
+        //TODO: insert real ThemeID
+       let test = SingletonUser.sharedInstance.user.uid
+    Constants.refs.databaseUsers.child((test)).child("opinions").child("-L-kN-4XVEASyFAR0asg").setValue(getOpinionGroup(opinion: opinionValue))
+    }
     
-//    @IBAction func saveTest(_ sender: Any) {
-//        print("save Opinion .. match USer :)")
-//    }
+    public func getOpinionGroup(opinion: Int) -> Int {
+        return opinion/Constants.opinionGroupDistance
+    }
     
-    
+    func searchForMatching() -> Bool {
+        
+        // TODO: outsource logic to Firebase functions .. return just true or false
+        
+        return true
+    }
 }

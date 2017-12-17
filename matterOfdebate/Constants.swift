@@ -20,20 +20,10 @@ struct Constants {
         
         static let curruserReference = Auth.auth().currentUser
         static let databaseUsers = databaseRoot.child("users")
-        
     }
     
     // neutral (0) is in pro List!!
-    public static var opinionPro = [4: [50, 49, 48],
-                                    3: [40, 39, 38],
-                                    2: [30, 29, 28],
-                                    1: [20, 19, 18],
-                                    0: [10, 9, 8, 0]] as [Int : Any]
-    
-    public static var opinionContra = [4: [-50, -49, -48],
-                                       3: [-40, -39, -38],
-                                       2: [-30, -29, -28],
-                                       1: [-20, -19, -18],
-                                       0: [-10, -9, -8]] as [Int : Any]
-    
+    public static let opinionGroupNumber = 5;
+    public static let opinionMaximum = 50;
+    public static let opinionGroupDistance = opinionMaximum/opinionGroupNumber;
 }

@@ -50,6 +50,10 @@ class CategoriesController: UICollectionViewController {
         }
         
         print("foobar \(indexPath.row)")
+        
+        //TODO: insert TopicView here!
+        // trigger Seque showCreateCategoryView when user clicks on last element in collection
+        self.performSegue(withIdentifier: "showMatchOpinionView", sender: self)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

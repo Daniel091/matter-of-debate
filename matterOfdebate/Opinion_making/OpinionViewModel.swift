@@ -11,4 +11,5 @@ import Foundation
 class OpinionViewModel : OpinionProtocol {
     static let sharedInstance = OpinionViewModel()
     
+    
 }
