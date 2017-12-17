@@ -33,9 +33,9 @@ class MatchingFunction {
                             continue
                         }
                         if(-opinionGroup == opinion.value){
-                            if() {
-                                continue
-                            }
+//                            if() {
+//                                continue
+//                            }
                             self.createChat(topicID: topicID, currUserID: currUserID, matchedUserID: user.key)
                             print("eas passiert was :)")
                             return
