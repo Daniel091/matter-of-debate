@@ -61,9 +61,21 @@ class UserChatsTableViewController: UITableViewController {
                 let last_m = chatsData["lastMessage"] as? String ?? ""
                 let users = chatsData["users"] as! Dictionary<String, Bool>
                 let timestamp = chatsData["timestamp"] as? Double ?? 0
+                let chat_key = snapshot.key
                 
-                self.chats.append(Chat(snapshot.key,title, last_m, users, timestamp))
-                self.tableView.reloadData()
+                // get information to theme of chat
+                Constants.refs.databaseThemes.child(title).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let themeData = snapshot.value as! Dictionary<String, AnyObject>
+                    
+                    let theme_title = themeData["titel"] as? String ?? ""
+                    let img_url = themeData["img-url"] as? String ?? ""
+
+                    self.chats.append(Chat(chat_key, theme_title, last_m, users, timestamp, img_url))
+                    self.tableView.reloadData()
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+                
             } else {
                 print("Error! Could not decode chats data in child added")
             }
@@ -87,7 +99,6 @@ class UserChatsTableViewController: UITableViewController {
                 found_chat?.timestamp = timestamp
                 found_chat?.lastMessage = last_m
                 
-                //self.chats.append(Chat(snapshot.key,title, last_m, users, timestamp))
                 self.tableView.reloadData()
             } else {
                 print("Error! Could not decode chats data in child changed")
