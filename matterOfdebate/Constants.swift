@@ -20,6 +20,9 @@ struct Constants {
         
         static let curruserReference = Auth.auth().currentUser
         static let databaseUsers = databaseRoot.child("users")
+        
+        static let storageRoot = Storage.storage().reference()
+        static let storageThemesImgs = storageRoot.child("theme-images")
     }
     
     // neutral (0) is in pro List!!

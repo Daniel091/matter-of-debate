@@ -7,6 +7,9 @@
 //
 
 import Firebase
+import SDWebImage
+import FirebaseStorageUI
+
 class UserChatsTableViewController: UITableViewController {
 
     private let dateFormatter = DateFormatter()
@@ -15,6 +18,8 @@ class UserChatsTableViewController: UITableViewController {
     private lazy var chatsRef = Constants.refs.databaseChats
     private var chatsRefHandle: DatabaseHandle?
     private var chatsRefUpdateHandle: DatabaseHandle?
+    private let storage = Storage.storage()
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -138,6 +143,13 @@ class UserChatsTableViewController: UITableViewController {
         let date = Date(timeIntervalSince1970: chat.timestamp)
         cell.subtitelLabel.text = chat.lastMessage
         cell.timeLabel.text = dateFormatter.string(from: date)
+        
+        // use firebase and sd web image to load picture asnyc
+        let reference = self.storage.reference(forURL: chat.img_url)
+        
+        // steffis big bad wolf as default picture
+        let plImage = UIImage(named: "Image")
+        cell.photoImageView.sd_setImage(with: reference, placeholderImage: plImage)
         
         return cell
     }
