@@ -52,7 +52,7 @@ class CategoriesController: UICollectionViewController {
         print("foobar \(indexPath.row)")
         
         //TODO: insert TopicView here!
-        // trigger Seque showCreateCategoryView when user clicks on last element in collection
+        // trigger Seque showThemeView when user clicks on any element in collection
         self.performSegue(withIdentifier: "showMatchOpinionView", sender: self)
     }
     
