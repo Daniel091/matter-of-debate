@@ -54,7 +54,7 @@ class MatchingFunction {
     
     // checks if user has chat already for this Topic
     func userHasChat(userID: String, topicID: String) -> Bool {
-        
+        return false
     }
     
     // creates new Chat
