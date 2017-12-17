@@ -30,12 +30,18 @@ class OpinionController : UIViewController {
     }
     
     
+    
     @IBAction func saveOpinionStartMatching(_ sender: UIButton) {
-        
+        // TODO: check if there is a chat already with currTopicID
+//        if() {
+//            return
+//        }
+        let matchingFuction = MatchingFunction()
         saveOpinionInFirebaseDatabase(opinionValue: opinionValue)
-        if (searchForMatching()){
-            //TODO: neuen Chat aufbauen
-            
+        let opinionGroup = getOpinionGroup(opinion: opinionValue)
+        let currUserID = SingletonUser.sharedInstance.user.uid
+        // TODO: insert topicID
+        if (matchingFuction.searchForMatching(topicID: "-L-kN-4XVEASyFAR0asg", currUserID: currUserID, opinionGroup: opinionGroup)){
             
             
             // TODO: just for testing:
@@ -74,18 +80,11 @@ class OpinionController : UIViewController {
     
     func saveOpinionInFirebaseDatabase(opinionValue: Int) {
         //TODO: insert real ThemeID
-       let test = SingletonUser.sharedInstance.user.uid
-    Constants.refs.databaseUsers.child((test)).child("opinions").child("-L-kN-4XVEASyFAR0asg").setValue(getOpinionGroup(opinion: opinionValue))
+       let currUserID = SingletonUser.sharedInstance.user.uid
+    Constants.refs.databaseUsers.child(currUserID).child("opinions").child("-L-kN-4XVEASyFAR0asg").setValue(getOpinionGroup(opinion: opinionValue))
     }
     
     public func getOpinionGroup(opinion: Int) -> Int {
         return opinion/Constants.opinionGroupDistance
-    }
-    
-    func searchForMatching() -> Bool {
-        
-        // TODO: outsource logic to Firebase functions .. return just true or false
-        
-        return true
     }
 }
