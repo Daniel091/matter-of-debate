@@ -29,6 +29,8 @@ class SwipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        swipeText.text = "This is an example test and should be replaced by the time you see this view."
     }
 
     @IBAction func handleTapNo(_ sender: UITapGestureRecognizer) {
@@ -44,26 +46,32 @@ class SwipeViewController: UIViewController {
     }
     @IBAction func handleSwipe(_ sender: UIPanGestureRecognizer)
     {
-        var translation = sender.translation(in: self.view)
-        
+
         switch (sender.state) {
         case UIGestureRecognizerState.began:
-            break
+            print("BEEEEEEEEGAAAAAAAN")
         case .possible:
             break
         case .changed:
-            let translation = sender.translation(in: self.view)
+            let translation = sender.translation(in: topView)
             if let view = sender.view {
                 view.center = CGPoint(x:view.center.x + translation.x,
                                       y:view.center.y + translation.y)
             }
             sender.setTranslation(CGPoint.zero, in: self.view)
         case .ended:
-            break
+            print("velocity \(sender.velocity(in: self.view))")
         case .cancelled:
            break
         case .failed:
             break
         }
+    }
+    
+    func distanceBetweenPoints(one: CGPoint, two: CGPoint) ->CGFloat {
+        let deltaX = abs(one.x - two.x)
+        let deltaY = abs(one.y - two.y)
+        let distance: CGFloat = sqrt(pow(deltaX, 2)+pow(deltaY, 2))
+        return distance
     }
 }

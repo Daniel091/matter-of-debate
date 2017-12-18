@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4052F17C1FE73B3300D7912A /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052F17B1FE73B3300D7912A /* SwipeViewController.swift */; };
+		409B08241FE809B200389567 /* swipeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409B08231FE809B200389567 /* swipeCardView.xib */; };
 		40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */; };
 		55C462C404603813E59AA330 /* Pods_matterOfdebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */; };
 		65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65174D2F1FC072CE00E5B902 /* SettingsController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		176893BE42F27B08E96B003B /* Pods-matterOfdebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.release.xcconfig"; sourceTree = "<group>"; };
 		4052F17B1FE73B3300D7912A /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		409B08231FE809B200389567 /* swipeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = swipeCardView.xib; sourceTree = "<group>"; };
 		40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Panton-BlackCaps.otf"; sourceTree = "<group>"; };
 		65174D2F1FC072CE00E5B902 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		65174D311FC0817F00E5B902 /* EmailRegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegistrationController.swift; sourceTree = "<group>"; };
@@ -97,10 +99,11 @@
 				65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */,
 				6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */,
 				65174D2F1FC072CE00E5B902 /* SettingsController.swift */,
+				4052F17B1FE73B3300D7912A /* SwipeViewController.swift */,
 				6529A4561FBB8DA000DFBE96 /* Assets.xcassets */,
 				6529A45B1FBB8DA000DFBE96 /* Info.plist */,
 				40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */,
-				4052F17B1FE73B3300D7912A /* SwipeViewController.swift */,
+				409B08231FE809B200389567 /* swipeCardView.xib */,
 			);
 			path = matterOfdebate;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
+				409B08241FE809B200389567 /* swipeCardView.xib in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
 				6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */,
 			);
