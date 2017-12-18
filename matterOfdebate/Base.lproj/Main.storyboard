@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -264,70 +265,124 @@
             </objects>
             <point key="canvasLocation" x="5402" y="1206"/>
         </scene>
-        <!--View Controller-->
+        <!--Swipe View Controller-->
         <scene sceneID="0BD-uS-GEO">
             <objects>
-                <viewController id="yle-re-xOJ" sceneMemberID="viewController">
+                <viewController id="yle-re-xOJ" customClass="SwipeViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u4k-q9-6O5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-bo-7nM">
-                                <rect key="frame" x="10" y="30" width="355" height="360"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFR-Me-oH2">
+                                <rect key="frame" x="16" y="20" width="343" height="425"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderSubjectImg" translatesAutoresizingMaskIntoConstraints="NO" id="6Fs-6H-9E4">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="300"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="PlaceholderSubjectImg" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-j8-Mt1">
+                                        <rect key="frame" x="8" y="8" width="327" height="244"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="mJS-tS-avd"/>
+                                            <constraint firstAttribute="height" constant="244" id="cSL-So-kGV"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diskussionsthema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-oH-hF9">
-                                        <rect key="frame" x="0.0" y="304" width="355" height="31.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55f-I8-a5d">
+                                        <rect key="frame" x="8" y="260" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92V-Ur-rs8">
-                                        <rect key="frame" x="0.0" y="339.5" width="355" height="20.5"/>
-                                        <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpl-lK-n3r">
+                                        <rect key="frame" x="8" y="289" width="327" height="128"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <viewLayoutGuide key="safeArea" id="nbP-0a-KWh"/>
                                         <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeNo" translatesAutoresizingMaskIntoConstraints="NO" id="v4d-CI-e4y">
-                                <rect key="frame" x="16" y="477" width="125" height="125"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="v4d-CI-e4y" secondAttribute="height" multiplier="1:1" id="JAo-ao-89B"/>
+                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="trailing" secondItem="QFR-Me-oH2" secondAttribute="trailingMargin" id="0c2-WG-mJe"/>
+                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="trailing" secondItem="Sxn-j8-Mt1" secondAttribute="trailing" id="6P7-4l-y0D"/>
+                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="bottom" secondItem="QFR-Me-oH2" secondAttribute="bottomMargin" id="7kv-eo-oDe"/>
+                                    <constraint firstItem="Sxn-j8-Mt1" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="topMargin" id="BZy-4r-5zz"/>
+                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="leading" secondItem="QFR-Me-oH2" secondAttribute="leadingMargin" id="GiJ-VI-spn"/>
+                                    <constraint firstItem="55f-I8-a5d" firstAttribute="leading" secondItem="rpl-lK-n3r" secondAttribute="leading" id="a4B-PM-RMR"/>
+                                    <constraint firstItem="55f-I8-a5d" firstAttribute="top" secondItem="Sxn-j8-Mt1" secondAttribute="bottom" constant="8" symbolic="YES" id="bJp-jJ-YsL"/>
+                                    <constraint firstItem="55f-I8-a5d" firstAttribute="leading" secondItem="Sxn-j8-Mt1" secondAttribute="leading" id="vQE-eR-CN6"/>
+                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="top" secondItem="55f-I8-a5d" secondAttribute="bottom" constant="8" symbolic="YES" id="ygi-8C-VgQ"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeYes" translatesAutoresizingMaskIntoConstraints="NO" id="Xld-7E-bC3">
-                                <rect key="frame" x="234" y="477" width="125" height="125"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NQh-ga-94A" appends="YES" id="3SF-1s-XQc"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAP-Lz-5eQ">
+                                <rect key="frame" x="16" y="478" width="124" height="124"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Xld-7E-bC3" secondAttribute="height" multiplier="1:1" id="qrF-ly-vlO"/>
+                                    <constraint firstAttribute="width" secondItem="dAP-Lz-5eQ" secondAttribute="height" multiplier="1:1" id="cde-du-Fo6"/>
+                                    <constraint firstAttribute="height" constant="124" id="mMV-HV-So3"/>
+                                    <constraint firstAttribute="width" constant="124" id="nhV-3h-Pxw"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="swipeNo"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="i6h-V7-ryA" appends="YES" id="chs-FQ-2Jb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVv-aZ-FFW">
+                                <rect key="frame" x="235" y="478" width="124" height="124"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SVv-aZ-FFW" secondAttribute="height" multiplier="1:1" id="1sL-1x-PAA"/>
+                                    <constraint firstAttribute="height" constant="124" id="RX9-Cy-QyA"/>
+                                    <constraint firstAttribute="width" constant="124" id="ZBQ-TV-DRe"/>
+                                    <constraint firstAttribute="width" secondItem="SVv-aZ-FFW" secondAttribute="height" multiplier="1:1" id="mdn-sX-K72"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="swipeYes"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Mfz-oO-JSn" appends="YES" id="YGX-rf-btv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="trailing" secondItem="Xld-7E-bC3" secondAttribute="trailing" constant="16" id="53r-hp-xhG"/>
-                            <constraint firstItem="v4d-CI-e4y" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="16" id="5Qj-Zc-5ez"/>
-                            <constraint firstItem="t9v-bo-7nM" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="10" id="7gx-2V-h1W"/>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="bottom" secondItem="Xld-7E-bC3" secondAttribute="bottom" constant="16" id="AW4-R7-KVn"/>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="trailing" secondItem="t9v-bo-7nM" secondAttribute="trailing" constant="10" id="CmB-Qo-pOE"/>
-                            <constraint firstItem="t9v-bo-7nM" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="10" id="J0E-Mb-r2L"/>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="trailing" secondItem="t9v-bo-7nM" secondAttribute="trailing" constant="10" id="KRI-D9-5dU"/>
-                            <constraint firstItem="t9v-bo-7nM" firstAttribute="top" secondItem="XQt-fv-gpb" secondAttribute="top" constant="10" id="iKy-bl-ae8"/>
-                            <constraint firstItem="t9v-bo-7nM" firstAttribute="top" secondItem="XQt-fv-gpb" secondAttribute="top" constant="10" id="icE-So-hgE"/>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="bottom" secondItem="v4d-CI-e4y" secondAttribute="bottom" constant="16" id="j3b-Gu-Exa"/>
+                            <constraint firstItem="XQt-fv-gpb" firstAttribute="bottom" secondItem="SVv-aZ-FFW" secondAttribute="bottom" constant="16" id="1QG-ew-N44"/>
+                            <constraint firstItem="dAP-Lz-5eQ" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="bottom" constant="33" id="EDD-Yj-9rg"/>
+                            <constraint firstItem="QFR-Me-oH2" firstAttribute="centerX" secondItem="XQt-fv-gpb" secondAttribute="centerX" id="HG5-07-cy2"/>
+                            <constraint firstItem="SVv-aZ-FFW" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="bottom" constant="33" id="LhZ-Og-DsE"/>
+                            <constraint firstItem="XQt-fv-gpb" firstAttribute="bottom" secondItem="dAP-Lz-5eQ" secondAttribute="bottom" constant="16" id="aLt-Rr-Njh"/>
+                            <constraint firstItem="XQt-fv-gpb" firstAttribute="trailing" secondItem="SVv-aZ-FFW" secondAttribute="trailing" constant="16" id="bdz-mK-b89"/>
+                            <constraint firstItem="XQt-fv-gpb" firstAttribute="trailing" secondItem="QFR-Me-oH2" secondAttribute="trailing" constant="16" id="bsB-Pi-UbH"/>
+                            <constraint firstItem="QFR-Me-oH2" firstAttribute="top" secondItem="XQt-fv-gpb" secondAttribute="top" id="crI-tY-rN8"/>
+                            <constraint firstItem="dAP-Lz-5eQ" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="16" id="fAN-ys-cWx"/>
+                            <constraint firstItem="QFR-Me-oH2" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="16" id="udR-xP-yan"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XQt-fv-gpb"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="zNP-NP-cDH"/>
+                    <connections>
+                        <outlet property="imgSwipe" destination="Sxn-j8-Mt1" id="do3-20-hxw"/>
+                        <outlet property="labelSwipe" destination="55f-I8-a5d" id="6kn-lR-cac"/>
+                        <outlet property="swipeContainer" destination="QFR-Me-oH2" id="d7H-3x-uaW"/>
+                        <outlet property="swipeText" destination="rpl-lK-n3r" id="fVH-xE-CPQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-mw-c6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="NQh-ga-94A"/>
+                <tapGestureRecognizer id="i6h-V7-ryA">
+                    <connections>
+                        <action selector="handleTapNo:" destination="yle-re-xOJ" id="DbN-LN-XFu"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Mfz-oO-JSn">
+                    <connections>
+                        <action selector="handleTapYes:" destination="yle-re-xOJ" id="N3T-7Y-Wko"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4228" y="-477.21139430284859"/>
         </scene>
