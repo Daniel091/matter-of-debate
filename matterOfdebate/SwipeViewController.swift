@@ -21,11 +21,14 @@ class SwipeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        swipeContainer.layer.shadowColor = UIColor.black.cgColor
+        swipeContainer.layer.shadowOpacity = 0.3
+        swipeContainer.layer.shadowOffset = CGSize.init(width: 0, height: 6)
+        swipeContainer.layer.shadowRadius = 15
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     @IBAction func handleTapNo(_ sender: UITapGestureRecognizer) {
