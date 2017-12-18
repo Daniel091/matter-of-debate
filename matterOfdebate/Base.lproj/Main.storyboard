@@ -288,7 +288,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpl-lK-n3r">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpl-lK-n3r">
                                         <rect key="frame" x="8" y="289" width="327" height="128"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <viewLayoutGuide key="safeArea" id="nbP-0a-KWh"/>
@@ -301,6 +301,7 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="rpl-lK-n3r" firstAttribute="trailing" secondItem="QFR-Me-oH2" secondAttribute="trailingMargin" id="0c2-WG-mJe"/>
+                                    <constraint firstItem="Sxn-j8-Mt1" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="top" constant="8" id="2MY-Th-koi"/>
                                     <constraint firstItem="rpl-lK-n3r" firstAttribute="trailing" secondItem="Sxn-j8-Mt1" secondAttribute="trailing" id="6P7-4l-y0D"/>
                                     <constraint firstItem="rpl-lK-n3r" firstAttribute="bottom" secondItem="QFR-Me-oH2" secondAttribute="bottomMargin" id="7kv-eo-oDe"/>
                                     <constraint firstItem="Sxn-j8-Mt1" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="topMargin" id="BZy-4r-5zz"/>
@@ -368,11 +369,18 @@
                         <outlet property="imgSwipe" destination="Sxn-j8-Mt1" id="do3-20-hxw"/>
                         <outlet property="labelSwipe" destination="55f-I8-a5d" id="6kn-lR-cac"/>
                         <outlet property="swipeContainer" destination="QFR-Me-oH2" id="d7H-3x-uaW"/>
+                        <outlet property="swipeNo" destination="dAP-Lz-5eQ" id="mv9-Qe-WVL"/>
                         <outlet property="swipeText" destination="rpl-lK-n3r" id="fVH-xE-CPQ"/>
+                        <outlet property="swipeYes" destination="SVv-aZ-FFW" id="dif-d3-5Pb"/>
+                        <outlet property="topView" destination="u4k-q9-6O5" id="u6V-FW-coW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-mw-c6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="NQh-ga-94A"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="NQh-ga-94A">
+                    <connections>
+                        <action selector="handleSwipe:" destination="yle-re-xOJ" id="hfh-2E-62t"/>
+                    </connections>
+                </panGestureRecognizer>
                 <tapGestureRecognizer id="i6h-V7-ryA">
                     <connections>
                         <action selector="handleTapNo:" destination="yle-re-xOJ" id="DbN-LN-XFu"/>
