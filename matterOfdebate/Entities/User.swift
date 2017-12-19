@@ -14,10 +14,11 @@ struct User {
     let email: String
     let user_name: String
     let isAdmin: Bool
+    let isAnonymous: Bool
     
     
     // Inits a User with Data from Firebase
-    init(userData: FirebaseAuth.User, user_name: String, isAdmin: Bool = false) {
+    init(userData: FirebaseAuth.User, user_name: String, isAdmin: Bool = false, isAnonymous: Bool = false) {
         self.user_name = user_name
         uid = userData.uid
         if let mail = userData.providerData.first?.email {
@@ -26,13 +27,15 @@ struct User {
             email = ""
         }
         self.isAdmin = isAdmin
+        self.isAnonymous = isAnonymous
     }
     
-    init(uid: String, email: String, user_name: String, isAdmin: Bool = false) {
+    init(uid: String, email: String, user_name: String, isAdmin: Bool = false, isAnonymous: Bool = false) {
         self.user_name = user_name
         self.uid = uid
         self.email = email
         self.isAdmin = isAdmin
+        self.isAnonymous = isAnonymous
     }
     
     func getUserStrings() -> Dictionary<String, Any> {

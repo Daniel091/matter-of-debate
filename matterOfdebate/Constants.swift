@@ -15,10 +15,18 @@ struct Constants {
         static let databaseRoot = Database.database().reference()
         static let databaseChats = databaseRoot.child("chats")
         static let databaseMessages = databaseRoot.child("messages")
-
+        static let databaseCategories = databaseRoot.child("categories")
+        static let databaseThemes = databaseRoot.child("themes")
         
         static let curruserReference = Auth.auth().currentUser
         static let databaseUsers = databaseRoot.child("users")
         
+        static let storageRoot = Storage.storage().reference()
+        static let storageThemesImgs = storageRoot.child("theme-images")
     }
+    
+    // neutral (0) is in pro List!!
+    public static let opinionGroupNumber = 5;
+    public static let opinionMaximum = 50;
+    public static let opinionGroupDistance = opinionMaximum/opinionGroupNumber;
 }
