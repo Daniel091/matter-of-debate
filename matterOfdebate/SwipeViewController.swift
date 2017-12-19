@@ -36,7 +36,7 @@ class SwipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        defaultPos = swipeContainer.center
         swipeText.text = "This is an example test and should be replaced by the time you see this view."
     }
 
@@ -51,13 +51,14 @@ class SwipeViewController: UIViewController {
             print("you tapped yes");
         }
     }
+    
+
     @IBAction func handleSwipe(_ sender: UIPanGestureRecognizer)
     {
 
         switch (sender.state) {
         case UIGestureRecognizerState.began:
-            gestureStart = sender.translation(in: topView)
-            print(gestureStart!)
+            gestureStart = sender.translation(in: sender.view)
             break
         case .possible:
             break
@@ -70,19 +71,13 @@ class SwipeViewController: UIViewController {
             sender.setTranslation(CGPoint.zero, in: self.view)
             break
         case .ended:
-            gestureEnd = sender.translation(in: topView)
-            // entscheide ob richtige gesture
-            if isGestureValid(begin: gestureStart!, end: gestureEnd!) {
-                let dir = Direction.init(one: gestureStart!, two: gestureEnd!).getDirection()
-                switch dir {
-                case Direction.downLeft:
-                    swipeNo()
-                case Direction.downRight:
-                    swipeYes()
-                default:
-                    view.center = CGPoint(x:view.center.x + (defaultPos?.x)!, y:view.center.y + (defaultPos?.y)!)
-                }
-            }
+            gestureEnd = sender.translation(in: sender.view)
+            
+            print(gestureStart!)
+            
+            UIViewPropertyAnimator.init(duration: 0.3, curve: UIViewAnimationCurve.easeIn, animations: {
+                self.swipeContainer.center = CGPoint(x:(self.defaultPos?.x)!, y:(self.defaultPos?.y)!)
+            }).startAnimation()
             break
         case .cancelled:
            break
@@ -90,15 +85,15 @@ class SwipeViewController: UIViewController {
             break
         }
     }
-    
+
     func swipeYes() {
-        
+
     }
-    
+
     func swipeNo() {
-        
+
     }
-    
+
     func isGestureValid(begin: CGPoint, end: CGPoint) -> Bool {
         let direction = Direction.init(one: begin, two: end).getDirection()
         if distanceBetweenPoints(one: begin, two: end) >= (swipeContainer.frame.width/2) {

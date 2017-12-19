@@ -327,7 +327,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFR-Me-oH2">
-                                <rect key="frame" x="16" y="20" width="343" height="425"/>
+                                <rect key="frame" x="16" y="44" width="343" height="512"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="PlaceholderSubjectImg" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-j8-Mt1">
                                         <rect key="frame" x="8" y="8" width="327" height="244"/>
@@ -342,7 +342,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="kjnkjklhljhihsjrtpoihjeaopihgersiohgpoeijgs" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpl-lK-n3r">
-                                        <rect key="frame" x="8" y="289" width="327" height="128"/>
+                                        <rect key="frame" x="8" y="289" width="327" height="215"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -372,7 +372,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAP-Lz-5eQ">
-                                <rect key="frame" x="16" y="478" width="124" height="124"/>
+                                <rect key="frame" x="16" y="589" width="124" height="124"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
@@ -388,7 +388,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVv-aZ-FFW">
-                                <rect key="frame" x="235" y="478" width="124" height="124"/>
+                                <rect key="frame" x="235" y="589" width="124" height="124"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
@@ -406,6 +406,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="XQt-fv-gpb" firstAttribute="bottom" secondItem="SVv-aZ-FFW" secondAttribute="bottom" constant="16" id="1QG-ew-N44"/>
                             <constraint firstItem="dAP-Lz-5eQ" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="bottom" constant="33" id="EDD-Yj-9rg"/>
@@ -419,6 +420,9 @@
                             <constraint firstItem="QFR-Me-oH2" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="16" id="udR-xP-yan"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XQt-fv-gpb"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XL6-sE-oQl" appends="YES" id="f0B-rx-jIN"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="zNP-NP-cDH"/>
                     <connections>
@@ -447,6 +451,11 @@
                         <action selector="handleTapYes:" destination="yle-re-xOJ" id="N3T-7Y-Wko"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="XL6-sE-oQl">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="yle-re-xOJ" id="J76-4L-Hoz"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4228" y="-645"/>
         </scene>
@@ -781,7 +790,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PlaceholderSubjectImg" width="600" height="314"/>
+        <image name="PlaceholderSubjectImg" width="400" height="209"/>
         <image name="swipeNo" width="125" height="125"/>
         <image name="swipeYes" width="125" height="125"/>
     </resources>
