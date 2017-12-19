@@ -18,6 +18,8 @@ class CreateDiscThemeViewController: FormViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CategoryViewModel.sharedInstance.getCategories()
+        
         // Set Up Eureka GUI
         form +++ Section("Generelles")
             <<< TextRow("titel"){ row in
@@ -35,7 +37,7 @@ class CreateDiscThemeViewController: FormViewController{
             }
             <<< MultipleSelectorRow<String>("categories"){
                 $0.title = "Kategorien"
-                $0.options = ["One","Two","Three"]
+                $0.options = CategoryViewModel.sharedInstance.categories.map{$0.title}
             }
             
             +++ Section("Details")
@@ -111,6 +113,7 @@ class CreateDiscThemeViewController: FormViewController{
         let image = valuesDictionary["picture"] as! UIImage
         let titel = valuesDictionary["titel"]! as! String
         upload_img_to_storage(image, titel, valuesDictionary)
+        dismiss(animated: true, completion: nil)
     }
     
     // simple check if Values in Dictionary are not nil or empty Strings
