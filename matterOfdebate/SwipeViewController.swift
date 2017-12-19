@@ -15,9 +15,12 @@ class SwipeViewController: UIViewController {
     @IBOutlet weak var imgSwipe: UIImageView!
     @IBOutlet weak var labelSwipe: UILabel!
     @IBOutlet weak var swipeText: UITextField!
-    @IBOutlet weak var swipeNo: UIButton!
-    @IBOutlet weak var swipeYes: UIButton!
+    @IBOutlet weak var swipeNoButton: UIButton!
+    @IBOutlet weak var swipeYesButton: UIButton!
     @IBOutlet var topView: UIView!
+    var gestureStart: CGPoint?
+    var gestureEnd: CGPoint?
+    var defaultPos: CGPoint?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,6 +28,10 @@ class SwipeViewController: UIViewController {
         swipeContainer.layer.shadowOpacity = 0.3
         swipeContainer.layer.shadowOffset = CGSize.init(width: 0, height: 6)
         swipeContainer.layer.shadowRadius = 15
+        topView.sendSubview(toBack: swipeNoButton)
+        topView.sendSubview(toBack: swipeYesButton)
+        
+        
     }
     
     override func viewDidLoad() {
@@ -49,7 +56,7 @@ class SwipeViewController: UIViewController {
 
         switch (sender.state) {
         case UIGestureRecognizerState.began:
-            print("BEEEEEEEEGAAAAAAAN")
+            break
         case .possible:
             break
         case .changed:
@@ -60,7 +67,7 @@ class SwipeViewController: UIViewController {
             }
             sender.setTranslation(CGPoint.zero, in: self.view)
         case .ended:
-            print("velocity \(sender.velocity(in: self.view))")
+            break
         case .cancelled:
            break
         case .failed:
