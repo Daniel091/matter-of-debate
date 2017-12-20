@@ -17,6 +17,7 @@ class SettingsController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // if user is not Anonymus show change user data options
         if !user_obj.isAnonymous {
             form +++ Section("Benutzer Informationen")
                 <<< TextRow("username"){ row in
@@ -34,13 +35,14 @@ class SettingsController: FormViewController {
                     })
         }
         
+        // Logout button
         form +++ Section("Weitere Einstellungen")
             <<< ButtonRow("logout"){
                 $0.title = "Logout"
                 }.onCellSelection({ (cell, row) in
                     self.logoutUser()
                 })
-        
+        // if user is Admin show create theme section
         if user_obj.isAdmin && !user_obj.isAnonymous{
             form +++ Section("Admin-Panel")
                 <<< ButtonRow("create Theme"){
@@ -70,6 +72,11 @@ class SettingsController: FormViewController {
                 print("Username already exists")
                 
                 // TODO: benachrichtige den user.
+                let usernameAlert = UIAlertController(title: "", message: "Username already exists", preferredStyle: .alert)
+                usernameAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                    NSLog("The duplicate username alert occured.")
+                }))
+                self.present(usernameAlert, animated: true, completion: nil)
                 
             } else {
 
@@ -89,6 +96,12 @@ class SettingsController: FormViewController {
                 print("email already exists")
                 
                 // TODO: benachrichtige den user.
+                let emailAlert = UIAlertController(title: "", message: "email already exists", preferredStyle: .alert)
+                emailAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                    NSLog("The duplicate email alert occured.")
+                }))
+                self.present(emailAlert, animated: true, completion: nil)
+                
                 
             } else {
                 
@@ -104,6 +117,7 @@ class SettingsController: FormViewController {
         }
     }
     
+    // logs out the current user
     func logoutUser() {
         print(":-) trying to logout")
         do {
