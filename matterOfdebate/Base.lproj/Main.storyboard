@@ -687,7 +687,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0gO-Tx-atR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kxa-VE-aY4"/>
+                    <navigationItem key="navigationItem" id="Kxa-VE-aY4">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="w6B-Cx-wZB">
+                            <connections>
+                                <segue destination="TY6-RK-409" kind="show" id="ZTE-U6-2Vf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="slider" destination="1oF-mh-Cep" id="Gwm-dD-GFl"/>
                         <outlet property="sliderVal" destination="fGN-OE-esZ" id="bvp-n3-YYw"/>
@@ -789,5 +795,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v2a-te-Owv"/>
+        <segue reference="ZTE-U6-2Vf"/>
     </inferredMetricsTieBreakers>
 </document>
