@@ -36,33 +36,39 @@ class SwipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaultPos = swipeContainer.center
+        
         swipeText.text = "This is an example test and should be replaced by the time you see this view."
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        defaultPos = swipeContainer.center
     }
 
     @IBAction func handleTapNo(_ sender: UITapGestureRecognizer) {
         if(sender.state == UIGestureRecognizerState.ended)
         {
-            print("you tapped no")
+            swipeNo()
         }
     }
     @IBAction func handleTapYes(_ sender: UITapGestureRecognizer){
         if(sender.state == UIGestureRecognizerState.ended) {
-            print("you tapped yes");
+            swipeYes()
         }
     }
     
 
     @IBAction func handleSwipe(_ sender: UIPanGestureRecognizer)
     {
-
+        var velocity = sender.velocity(in: sender.view)
         switch (sender.state) {
         case UIGestureRecognizerState.began:
-            gestureStart = sender.translation(in: sender.view)
             break
         case .possible:
             break
         case .changed:
+//            print(sender.velocity(in: sender.view))
+            //moving the card
             let translation = sender.translation(in: topView)
             if let view = sender.view {
                 view.center = CGPoint(x:view.center.x + translation.x,
@@ -71,13 +77,17 @@ class SwipeViewController: UIViewController {
             sender.setTranslation(CGPoint.zero, in: self.view)
             break
         case .ended:
-            gestureEnd = sender.translation(in: sender.view)
-            
-            print(gestureStart!)
-            
-            UIViewPropertyAnimator.init(duration: 0.3, curve: UIViewAnimationCurve.easeIn, animations: {
-                self.swipeContainer.center = CGPoint(x:(self.defaultPos?.x)!, y:(self.defaultPos?.y)!)
-            }).startAnimation()
+            if(isGestureValid(velocity: velocity)) {
+                if(velocity.x > 0) {
+                    swipeYes()
+                } else {
+                    swipeNo()
+                }
+            } else {
+                UIViewPropertyAnimator.init(duration: 0.3, curve: UIViewAnimationCurve.easeIn, animations: {
+                    self.swipeContainer.center = CGPoint(x:(self.defaultPos?.x)!, y:(self.defaultPos?.y)!)
+                }).startAnimation()
+            }
             break
         case .cancelled:
            break
@@ -87,29 +97,21 @@ class SwipeViewController: UIViewController {
     }
 
     func swipeYes() {
-
+        print("yes")
     }
 
     func swipeNo() {
-
+        print("NO")
     }
 
-    func isGestureValid(begin: CGPoint, end: CGPoint) -> Bool {
-        let direction = Direction.init(one: begin, two: end).getDirection()
-        if distanceBetweenPoints(one: begin, two: end) >= (swipeContainer.frame.width/2) {
-            if(direction != Direction.up) {
-                return true;
-            }
+    // Ist die Geste lange und schnell genug um unmissverständlich zu sein?
+    func isGestureValid(velocity: CGPoint) -> Bool {
+        if (velocity.y > 300) {
+                return true
         }
         return false
     }
     
-    func distanceBetweenPoints(one: CGPoint, two: CGPoint) ->CGFloat {
-        let deltaX = abs(one.x - two.x)
-        let deltaY = abs(one.y - two.y)
-        let distance: CGFloat = sqrt(pow(deltaX, 2)+pow(deltaY, 2))
-        return distance
-    }
     
     class Direction {
         // direction is one for downleft
@@ -119,8 +121,8 @@ class SwipeViewController: UIViewController {
         static let up: Int = 0
         let direction: CGVector
         
-        init(one: CGPoint, two: CGPoint) {
-            direction = CGVector.init(dx: one.x-two.y, dy: one.y-two.y)
+        init(velocity: CGPoint) {
+            direction = CGVector.init(dx: velocity.x, dy: velocity.y)
         }
         
         func getDirection() -> Int {

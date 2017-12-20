@@ -167,9 +167,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZhA-vv-ltB">
-                                <rect key="frame" x="20" y="94.000000000000014" width="335" height="206.33333333333337"/>
+                                <rect key="frame" x="20" y="93.999999999999986" width="335" height="206.66666666666663"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matter of Debate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-FL-OJU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Matter of Debate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-FL-OJU">
                                         <rect key="frame" x="43.333333333333329" y="0.0" width="248.33333333333337" height="32.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Panton-BlackCaps" family="Panton" pointSize="27"/>
                                         <nil key="textColor"/>
@@ -207,7 +207,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8A-Zc-p1K">
-                                        <rect key="frame" x="0.0" y="154.66666666666666" width="335" height="13.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="154.66666666666666" width="335" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13.5" id="5UA-4G-Prw"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13.5" id="uLy-Y3-RZH"/>
@@ -217,7 +217,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hH-TK-Nee">
-                                        <rect key="frame" x="96" y="176.33333333333331" width="143" height="30"/>
+                                        <rect key="frame" x="96" y="176.66666666666669" width="143" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Sign in Anonymously"/>
                                         <connections>
@@ -226,7 +226,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1hH-TK-Nee" firstAttribute="top" secondItem="q8A-Zc-p1K" secondAttribute="bottom" constant="30" id="Rqt-5C-2VT"/>
+                                    <constraint firstItem="1hH-TK-Nee" firstAttribute="top" secondItem="nRl-Z8-TrE" secondAttribute="bottom" constant="30" id="1Aw-Pb-V33"/>
                                     <constraint firstAttribute="trailing" secondItem="OSP-ue-GhG" secondAttribute="trailing" id="UnW-Eh-QXW"/>
                                     <constraint firstAttribute="trailing" secondItem="Nji-AR-pHw" secondAttribute="trailing" id="qUK-sY-10x"/>
                                 </constraints>
@@ -237,6 +237,7 @@
                             <constraint firstItem="ZhA-vv-ltB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="dJD-X0-dGM"/>
                             <constraint firstItem="ZhA-vv-ltB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oGn-ON-7da"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZhA-vv-ltB" secondAttribute="trailing" constant="20" id="rwB-D7-yUW"/>
+                            <constraint firstItem="1hH-TK-Nee" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xM1-J7-02l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -335,8 +336,8 @@
                                             <constraint firstAttribute="height" constant="244" id="cSL-So-kGV"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55f-I8-a5d">
-                                        <rect key="frame" x="8" y="260" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Merkel - Hot or Not?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55f-I8-a5d">
+                                        <rect key="frame" x="8" y="260" width="156.33333333333334" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -420,9 +421,6 @@
                             <constraint firstItem="QFR-Me-oH2" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="16" id="udR-xP-yan"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XQt-fv-gpb"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="XL6-sE-oQl" appends="YES" id="f0B-rx-jIN"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="zNP-NP-cDH"/>
                     <connections>
@@ -451,11 +449,6 @@
                         <action selector="handleTapYes:" destination="yle-re-xOJ" id="N3T-7Y-Wko"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="XL6-sE-oQl">
-                    <connections>
-                        <action selector="handlePanGesture:" destination="yle-re-xOJ" id="J76-4L-Hoz"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4228" y="-645"/>
         </scene>
