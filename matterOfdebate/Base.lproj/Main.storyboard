@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -670,13 +670,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0gO-Tx-atR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kxa-VE-aY4">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="w6B-Cx-wZB">
-                            <connections>
-                                <segue destination="TY6-RK-409" kind="show" id="ZTE-U6-2Vf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Kxa-VE-aY4"/>
                     <connections>
                         <outlet property="slider" destination="1oF-mh-Cep" id="Gwm-dD-GFl"/>
                         <outlet property="sliderVal" destination="fGN-OE-esZ" id="bvp-n3-YYw"/>
@@ -778,6 +772,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v2a-te-Owv"/>
-        <segue reference="ZTE-U6-2Vf"/>
     </inferredMetricsTieBreakers>
 </document>
