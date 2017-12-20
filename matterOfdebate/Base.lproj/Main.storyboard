@@ -260,28 +260,11 @@
                     <view key="view" contentMode="scaleToFill" id="Ac6-u5-fAQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3U-Cw-CeZ">
-                                <rect key="frame" x="119" y="151" width="137" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutUser:" destination="XJi-mA-luc" eventType="touchUpInside" id="PdL-IP-6nR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxx-Yn-oY0">
-                                <rect key="frame" x="100" y="241" width="174" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Admin Create DiscTheme"/>
-                                <connections>
-                                    <action selector="triggeredAdminCreateTheme:" destination="XJi-mA-luc" eventType="touchUpInside" id="PHM-m3-czV"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="4v9-El-ZuV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="mm4-MB-MXV"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="TU5-89-3I2"/>
+                    <navigationItem key="navigationItem" id="N7y-eH-QmQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loggedOutUser" id="psF-Ly-k65"/>
@@ -290,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvU-Vc-ah9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3144.8000000000002" y="876.61169415292363"/>
+            <point key="canvasLocation" x="3540" y="833"/>
         </scene>
         <!--Create Disc Theme View Controller-->
         <scene sceneID="MpY-pt-kNq">
@@ -581,7 +564,7 @@
                         <segue destination="TY6-RK-409" kind="relationship" relationship="viewControllers" id="29D-kU-lI0"/>
                         <segue destination="yle-re-xOJ" kind="relationship" relationship="viewControllers" id="EPt-qI-ytz"/>
                         <segue destination="PKh-20-UGy" kind="relationship" relationship="viewControllers" id="HnG-2p-uhY"/>
-                        <segue destination="XJi-mA-luc" kind="relationship" relationship="viewControllers" id="86c-ay-x6u"/>
+                        <segue destination="XJi-mA-luc" kind="relationship" relationship="viewControllers" id="4If-TG-lU2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hz-1H-TCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
