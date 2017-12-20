@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -299,21 +300,83 @@
             </objects>
             <point key="canvasLocation" x="4911" y="1619"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0BD-uS-GEO">
+        <!--Alle Diskussionen-->
+        <scene sceneID="iYV-ZQ-lZy">
             <objects>
-                <viewController id="yle-re-xOJ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u4k-q9-6O5">
+                <tableViewController title="Alle Diskussionen" id="2bo-xB-0LQ" customClass="AllChatsTableView" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MVK-Ce-mC4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="XQt-fv-gpb"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="zNP-NP-cDH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-mw-c6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CategoryCell" id="Ij2-Ij-jwV" customClass="CategoryCell" customModule="matterOfdebate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ij2-Ij-jwV" id="5b2-wh-rWU">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btF-gj-MC9">
+                                            <rect key="frame" x="36" y="11" width="41.666666666666657" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="btF-gj-MC9" firstAttribute="centerY" secondItem="5b2-wh-rWU" secondAttribute="centerY" id="JuA-M3-UZg"/>
+                                        <constraint firstItem="btF-gj-MC9" firstAttribute="leading" secondItem="5b2-wh-rWU" secondAttribute="leadingMargin" constant="20" id="K00-oE-K4x"/>
+                                        <constraint firstItem="btF-gj-MC9" firstAttribute="top" secondItem="5b2-wh-rWU" secondAttribute="topMargin" constant="20" id="ObN-Vb-oCG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="btF-gj-MC9" secondAttribute="bottom" constant="20" id="ouD-52-ZXB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="topicText" destination="btF-gj-MC9" id="6aP-xW-Yu7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="2bo-xB-0LQ" id="81P-oz-XCA"/>
+                            <outlet property="delegate" destination="2bo-xB-0LQ" id="MXn-pe-ith"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Alle Diskussionen" id="0ON-LV-FHq"/>
+                    <connections>
+                        <segue destination="K8Z-bb-HeE" kind="show" identifier="showThemes" id="lL2-S5-a6G"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ksa-Fe-1yL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4228" y="-645"/>
+            <point key="canvasLocation" x="5073" y="-576"/>
+        </scene>
+        <!--All Themes Of Category Table-->
+        <scene sceneID="9hh-lq-yZE">
+            <objects>
+                <tableViewController id="K8Z-bb-HeE" customClass="AllThemesOfCategoryTable" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WCk-fI-EjK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="w57-cc-lg3">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w57-cc-lg3" id="EuP-4Q-gqP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="K8Z-bb-HeE" id="8SN-BQ-uCz"/>
+                            <outlet property="delegate" destination="K8Z-bb-HeE" id="t8n-TN-rav"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKY-p6-hYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5977" y="-569"/>
         </scene>
         <!--CreateCategoryViewController-->
         <scene sceneID="CFk-0S-DD0">
@@ -407,7 +470,7 @@
                             <outlet property="delegate" destination="w9X-s2-eKS" id="sNg-2z-IfT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Diskussionen" id="Fdg-Yu-plQ"/>
+                    <navigationItem key="navigationItem" title="Eigene Diskussionen" id="Fdg-Yu-plQ"/>
                     <connections>
                         <segue destination="1J6-zo-Bq1" kind="show" identifier="showMessages" id="jzb-pW-uBl"/>
                     </connections>
@@ -442,7 +505,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="TY6-RK-409" kind="relationship" relationship="viewControllers" id="29D-kU-lI0"/>
-                        <segue destination="yle-re-xOJ" kind="relationship" relationship="viewControllers" id="EPt-qI-ytz"/>
+                        <segue destination="cUT-tS-5XS" kind="relationship" relationship="viewControllers" id="EPt-qI-ytz"/>
                         <segue destination="PKh-20-UGy" kind="relationship" relationship="viewControllers" id="HnG-2p-uhY"/>
                         <segue destination="XJi-mA-luc" kind="relationship" relationship="viewControllers" id="4If-TG-lU2"/>
                     </connections>
@@ -566,7 +629,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozH-Nh-4zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="i05-hG-bJo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6144.8000000000002" y="-1236.2068965517242"/>
+            <point key="canvasLocation" x="6487.1999999999998" y="-1236.2068965517242"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eQx-IL-T1a">
@@ -582,7 +645,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhZ-WN-sD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5153" y="-1236"/>
+            <point key="canvasLocation" x="5495.1999999999998" y="-1236.2068965517242"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qgp-eT-xf6">
@@ -650,6 +713,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnL-XM-vOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5153" y="-2086"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KCe-fj-Ioa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cUT-tS-5XS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="zNP-NP-cDH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="527-Tb-HFJ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2bo-xB-0LQ" kind="relationship" relationship="rootViewController" id="A33-Lm-1qy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UYC-Zp-whc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4228" y="-575"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
