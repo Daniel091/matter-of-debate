@@ -32,6 +32,7 @@
 		652FA64C1FEACD9D007A9A33 /* AllChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */; };
 		652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64D1FEACE36007A9A33 /* CategoryCell.swift */; };
 		652FA6501FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */; };
+		652FA6521FEEBFD9007A9A33 /* detailThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */; };
 		6549E81B1FBDD58A00367D40 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549E81A1FBDD58A00367D40 /* User.swift */; };
 		654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654D95031FBC44BF0003C99D /* GoogleService-Info.plist */; };
 		656030DD1FD874120029C549 /* SingletonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656030DC1FD874120029C549 /* SingletonUser.swift */; };
@@ -75,6 +76,7 @@
 		652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsTableView.swift; sourceTree = "<group>"; };
 		652FA64D1FEACE36007A9A33 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllThemesOfCategoryTable.swift; sourceTree = "<group>"; };
+		652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailThemeCell.swift; sourceTree = "<group>"; };
 		6549E81A1FBDD58A00367D40 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		654D95031FBC44BF0003C99D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		656030DC1FD874120029C549 /* SingletonUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonUser.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */,
 				652FA64D1FEACE36007A9A33 /* CategoryCell.swift */,
 				652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */,
+				652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */,
 				65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */,
 				48B657D01FD460FC0017266B /* Category.swift in Sources */,
+				652FA6521FEEBFD9007A9A33 /* detailThemeCell.swift in Sources */,
 				656030E11FD93EB30029C549 /* Chat.swift in Sources */,
 				65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */,
 				483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */,
