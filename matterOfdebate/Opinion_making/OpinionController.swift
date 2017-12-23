@@ -48,18 +48,13 @@ class OpinionController : UIViewController {
         saveOpinionInFirebaseDatabase(opinionValue: opinionValue)
         let opinionGroup = getOpinionGroup(opinion: opinionValue)
         let currUserID = SingletonUser.sharedInstance.user.uid
-        if (matchingFuction.searchForMatching(topicID: topicID, currUserID: currUserID, opinionGroup: opinionGroup)){
-            
-            
-            // TODO: just for testing:
-            showDialog()
-        } else {
-            showDialog()
+        
+        showDialog()
+        
+        DispatchQueue.global(qos: .background).async {
+            matchingFuction.searchForMatching(topicID: self.topicID, currUserID: currUserID, opinionGroup: opinionGroup)
         }
         
-        // TODO: richtiges Topic irgendwo herbekommen
-//        let topic: Topic()
-//        let opinion = Opinion(topic: topic, user: SingletonUser.sharedInstance, opinionGroup: opinionValue)
         print(opinionValue)
     }
     
@@ -73,9 +68,7 @@ class OpinionController : UIViewController {
         
         //stay at this view
         let cancelAction = UIAlertAction(title: "Stay", style: .cancel) { (_) in
-            //TODO: hier ladebalken anzeigen(Android: ProgressBar)
-            // mit dem Text: "search for matching"
-            // Slider und Button sperren auf dieser View
+            //TODO: hier userChatView aufrufen
             
         }
         
