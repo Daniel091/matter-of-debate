@@ -127,7 +127,6 @@
 				486F6FD51FDF57A8005376D8 /* OpinionView.swift */,
 				486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */,
 				486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */,
-				4846C5591FE6A99C00889779 /* MatchingFunction.swift */,
 			);
 			path = Opinion_making;
 			sourceTree = "<group>";
@@ -135,6 +134,7 @@
 		486FC5B21FE08996008DBDAB /* Usermatching */ = {
 			isa = PBXGroup;
 			children = (
+				4846C5591FE6A99C00889779 /* MatchingFunction.swift */,
 				486FC5B31FE089AF008DBDAB /* matchUser.swift */,
 			);
 			path = Usermatching;

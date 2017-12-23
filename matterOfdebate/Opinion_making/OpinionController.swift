@@ -40,10 +40,6 @@ class OpinionController : UIViewController {
     
     
     @IBAction func saveOpinionStartMatching(_ sender: UIButton) {
-        // TODO: check if there is a chat already with currTopicID
-//        if() {
-//            return
-//        }
         let matchingFuction = MatchingFunction()
         saveOpinionInFirebaseDatabase(opinionValue: opinionValue)
         let opinionGroup = getOpinionGroup(opinion: opinionValue)
@@ -62,19 +58,19 @@ class OpinionController : UIViewController {
         let dialogController = UIAlertController(title: "Searching for match", message: "This could take bit longer ... Do you want to change to your Chats or go back to browse in Topics ?", preferredStyle: .alert)
         
         //going back to browse through themes
-        let confirmAction = UIAlertAction(title: "Back", style: .default) { (_) in
-            //TODO: hier ThemenView wieder aufrufen
+        let backToTopicView = UIAlertAction(title: "Theme View", style: .default) { (_) in
+            //TODO: mal draufgucken lassen obs vom Navigationstack her stimmt was ich da tue :D
+            self.backToTopicView(self)
         }
         
         //stay at this view
-        let cancelAction = UIAlertAction(title: "Stay", style: .cancel) { (_) in
-            //TODO: hier userChatView aufrufen
-            
+        let gotToChatsView = UIAlertAction(title: "Chat View", style: .cancel) { (_) in
+            self.performSegue(withIdentifier: "showChatsView", sender: self)
         }
         
         //adding the action to dialogbox
-        dialogController.addAction(confirmAction)
-        dialogController.addAction(cancelAction)
+        dialogController.addAction(backToTopicView)
+        dialogController.addAction(gotToChatsView)
         
         self.present(dialogController, animated: true, completion: nil)
     }

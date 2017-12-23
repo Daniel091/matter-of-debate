@@ -599,6 +599,7 @@
                     <connections>
                         <outlet property="slider" destination="1oF-mh-Cep" id="Gwm-dD-GFl"/>
                         <outlet property="sliderVal" destination="fGN-OE-esZ" id="bvp-n3-YYw"/>
+                        <segue destination="w9X-s2-eKS" kind="show" id="rWq-Oq-Lt6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozH-Nh-4zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -675,5 +676,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="v2a-te-Owv"/>
+        <segue reference="rWq-Oq-Lt6"/>
     </inferredMetricsTieBreakers>
 </document>
