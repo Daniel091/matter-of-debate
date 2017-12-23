@@ -112,9 +112,9 @@ class EmailLoginController: UIViewController {
     func get_user(_ usr_uid: String,_ isAnonymous: Bool) {
         
         // TODO do we really need this? if SingletonUser is already there
-        if SingletonUser.sharedInstance.user.uid == usr_uid {
-            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
-        }
+//        if SingletonUser.sharedInstance.user.uid == usr_uid {
+//            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+//        }
         
         isAnonymous ? constructAnonymousUser(usr_uid) : fetchUsrDatafromDatabase(usr_uid)
     }
