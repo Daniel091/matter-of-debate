@@ -90,13 +90,22 @@ class CreateDiscThemeViewController: FormViewController{
         let titel = values_dict["titel"]! as! String
         let desc = values_dict["description"] as! String
         let cats = values_dict["categories"] as! NSSet
-        let cats_array = Array(cats)
+        let cats_dictionary = reformatCategoriesDictionary(cats)
         
         // Save Discussion Theme to firebase
         self.ref = Database.database().reference()
         let eventRefChild = self.ref.child("themes").childByAutoId()
-        eventRefChild.setValue(["titel": titel,"description": desc, "categories": cats_array, "img-url": downloadUrl])
+        eventRefChild.setValue(["titel": titel,"description": desc, "categories": cats_dictionary, "img-url": downloadUrl])
+    }
+    
+    // makes categories dicitionary from a set, e.g title : true
+    func reformatCategoriesDictionary(_ categories: NSSet) -> NSDictionary{
+        var titles = [String: Bool]()
+        for case let title as String in categories {
+            titles[title] = true
+        }
         
+        return titles as NSDictionary
     }
     
     // User clicks Save
