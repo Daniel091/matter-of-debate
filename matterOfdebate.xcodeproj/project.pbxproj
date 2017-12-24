@@ -33,6 +33,9 @@
 		652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64D1FEACE36007A9A33 /* CategoryCell.swift */; };
 		652FA6501FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */; };
 		652FA6521FEEBFD9007A9A33 /* detailThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */; };
+		652FA6551FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6541FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift */; };
+		652FA6571FEFCB65007A9A33 /* ChatsOfTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6561FEFCB65007A9A33 /* ChatsOfTopicCell.swift */; };
+		652FA6591FEFCE6A007A9A33 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6581FEFCE6A007A9A33 /* MessagesView.swift */; };
 		6549E81B1FBDD58A00367D40 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549E81A1FBDD58A00367D40 /* User.swift */; };
 		654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654D95031FBC44BF0003C99D /* GoogleService-Info.plist */; };
 		656030DD1FD874120029C549 /* SingletonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656030DC1FD874120029C549 /* SingletonUser.swift */; };
@@ -77,6 +80,9 @@
 		652FA64D1FEACE36007A9A33 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllThemesOfCategoryTable.swift; sourceTree = "<group>"; };
 		652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailThemeCell.swift; sourceTree = "<group>"; };
+		652FA6541FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsOfTopicTableVC.swift; sourceTree = "<group>"; };
+		652FA6561FEFCB65007A9A33 /* ChatsOfTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsOfTopicCell.swift; sourceTree = "<group>"; };
+		652FA6581FEFCE6A007A9A33 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		6549E81A1FBDD58A00367D40 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		654D95031FBC44BF0003C99D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		656030DC1FD874120029C549 /* SingletonUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonUser.swift; sourceTree = "<group>"; };
@@ -204,6 +210,16 @@
 			path = matterOfdebate;
 			sourceTree = "<group>";
 		};
+		652FA6531FEFCAD9007A9A33 /* ChatsOfTopic */ = {
+			isa = PBXGroup;
+			children = (
+				652FA6541FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift */,
+				652FA6561FEFCB65007A9A33 /* ChatsOfTopicCell.swift */,
+				652FA6581FEFCE6A007A9A33 /* MessagesView.swift */,
+			);
+			path = ChatsOfTopic;
+			sourceTree = "<group>";
+		};
 		656430381FC1A4CF0019F9BE /* user_administration */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +241,7 @@
 		65693D6F1FCED8B6009FE995 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				652FA6531FEFCAD9007A9A33 /* ChatsOfTopic */,
 				65693D701FCED94C009FE995 /* ChatViewController.swift */,
 				656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */,
 				657849C11FD972ED00936D5A /* ChatTableViewCell.swift */,
@@ -400,6 +417,7 @@
 				65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */,
 				657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */,
 				4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */,
+				652FA6551FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift in Sources */,
 				6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */,
 				486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */,
 				483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */,
@@ -408,8 +426,10 @@
 				6564303B1FC1C1F10019F9BE /* TabBarMainController.swift in Sources */,
 				48B657D21FD4658C0017266B /* CategoryViewModel.swift in Sources */,
 				6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */,
+				652FA6571FEFCB65007A9A33 /* ChatsOfTopicCell.swift in Sources */,
 				65BF4F3D1FE68C4800FF8865 /* TableViewHelper.swift in Sources */,
 				6549E81B1FBDD58A00367D40 /* User.swift in Sources */,
+				652FA6591FEFCE6A007A9A33 /* MessagesView.swift in Sources */,
 				652FA64C1FEACD9D007A9A33 /* AllChatsTableView.swift in Sources */,
 				652FA6501FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift in Sources */,
 				65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */,

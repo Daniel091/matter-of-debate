@@ -407,10 +407,83 @@
                             <outlet property="delegate" destination="K8Z-bb-HeE" id="t8n-TN-rav"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VuC-DX-9CJ" kind="show" identifier="showChatsOfTopic" id="tnp-JY-m5x"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKY-p6-hYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5976.8000000000002" y="-569.70443349753702"/>
+        </scene>
+        <!--Chats Of Topic TableVC-->
+        <scene sceneID="ISS-OV-ddI">
+            <objects>
+                <tableViewController id="VuC-DX-9CJ" customClass="ChatsOfTopicTableVC" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pjp-CO-Q9V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell2" rowHeight="90" id="ENc-JL-TAj" customClass="ChatsOfTopicCell" customModule="matterOfdebate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ENc-JL-TAj" id="mYT-nv-Wqv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username1 - Username2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbP-gn-nDX">
+                                            <rect key="frame" x="36" y="21" width="323" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nL-9v-JY2">
+                                            <rect key="frame" x="36" y="52" width="323" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JbP-gn-nDX" firstAttribute="top" secondItem="mYT-nv-Wqv" secondAttribute="topMargin" constant="10" id="IXk-ST-4yr"/>
+                                        <constraint firstItem="3nL-9v-JY2" firstAttribute="top" secondItem="JbP-gn-nDX" secondAttribute="bottom" constant="10" id="KJu-Ix-nTg"/>
+                                        <constraint firstItem="3nL-9v-JY2" firstAttribute="leading" secondItem="mYT-nv-Wqv" secondAttribute="leadingMargin" constant="20" id="dg8-jc-JS3"/>
+                                        <constraint firstItem="JbP-gn-nDX" firstAttribute="leading" secondItem="mYT-nv-Wqv" secondAttribute="leadingMargin" constant="20" id="odZ-tp-M7z"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lastMsgLabel" destination="3nL-9v-JY2" id="4ki-pe-27A"/>
+                                    <outlet property="titleLabel" destination="JbP-gn-nDX" id="Iww-O7-71v"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VuC-DX-9CJ" id="o0b-je-TaM"/>
+                            <outlet property="delegate" destination="VuC-DX-9CJ" id="UQY-fo-O5h"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="6el-ma-k3A" kind="show" identifier="showMessages2" id="UfS-8a-5Ha"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p2W-3h-pM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6837.6000000000004" y="-570.44334975369463"/>
+        </scene>
+        <!--Messages View-->
+        <scene sceneID="shq-Ms-tBc">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="6el-ma-k3A" customClass="MessagesView" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iIb-fU-b5w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="yK4-Q6-KNP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ag-58-ZZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7860" y="-576"/>
         </scene>
         <!--CreateCategoryViewController-->
         <scene sceneID="CFk-0S-DD0">

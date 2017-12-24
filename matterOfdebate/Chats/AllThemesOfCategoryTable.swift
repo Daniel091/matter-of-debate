@@ -26,11 +26,14 @@ class AllThemesOfCategoryTable: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // empty topics object
+        topics = []
+        
         // unwrap category object
         guard let category_obj = self.category else {
             return
         }
-        print("Now displaying chats of " + category_obj.title)
+        print("Now displaying themes of " + category_obj.title)
         
         // set title of table view controller
         self.title = category_obj.title
@@ -80,8 +83,20 @@ class AllThemesOfCategoryTable: UITableViewController {
     // click on chat row should show all chats of that theme
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topic = topics[indexPath.row]
-        print(topic.id)
+        self.performSegue(withIdentifier: "showChatsOfTopic", sender: topic)
     }
+    
+    // give topic to next controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let topic = sender as? Topic {
+            let chatsTableView = segue.destination as! ChatsOfTopicTableVC
+            chatsTableView.topic = topic
+        }
+        
+    }
+    
 
     // define whats in the cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
