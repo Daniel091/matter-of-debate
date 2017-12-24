@@ -46,6 +46,7 @@
 		65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65693D6D1FCED7D3009FE995 /* Constants.swift */; };
 		65693D711FCED94C009FE995 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65693D701FCED94C009FE995 /* ChatViewController.swift */; };
 		657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657849C11FD972ED00936D5A /* ChatTableViewCell.swift */; };
+		657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657F43F81FEFEA25003497B3 /* AllChats.storyboard */; };
 		65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */; };
 		65BF4F3D1FE68C4800FF8865 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
@@ -94,6 +95,7 @@
 		65693D6D1FCED7D3009FE995 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65693D701FCED94C009FE995 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		657849C11FD972ED00936D5A /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		657F43F81FEFEA25003497B3 /* AllChats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllChats.storyboard; sourceTree = "<group>"; };
 		65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		6529A44E1FBB8DA000DFBE96 /* matterOfdebate */ = {
 			isa = PBXGroup;
 			children = (
+				657F43F71FEFEA25003497B3 /* storyboards */,
 				486FC5B21FE08996008DBDAB /* Usermatching */,
 				486F6FD21FDF549D005376D8 /* Opinion_making */,
 				65693D6F1FCED8B6009FE995 /* Chats */,
@@ -252,6 +255,14 @@
 				652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */,
 			);
 			path = Chats;
+			sourceTree = "<group>";
+		};
+		657F43F71FEFEA25003497B3 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				657F43F81FEFEA25003497B3 /* AllChats.storyboard */,
+			);
+			path = storyboards;
 			sourceTree = "<group>";
 		};
 		92EA0741799855B3C1B39597 /* Frameworks */ = {
@@ -326,6 +337,7 @@
 			files = (
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
+				657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
 				6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */,
