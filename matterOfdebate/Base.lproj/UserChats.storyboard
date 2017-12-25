@@ -94,10 +94,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="NTt-D9-L1e"/>
                     </view>
+                    <connections>
+                        <segue destination="kPJ-Jk-5NE" kind="show" identifier="chatSettings" id="0GQ-6Z-9Xq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xa0-v1-28o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6273" y="156"/>
+        </scene>
+        <!--Chat Settings-->
+        <scene sceneID="388-O5-iHw">
+            <objects>
+                <viewController title="Chat Settings" id="kPJ-Jk-5NE" customClass="UserChatSettings" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1tx-11-VZA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="91R-TQ-mkG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5L-wb-7MJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5735" y="-748"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u4j-aA-yLd">

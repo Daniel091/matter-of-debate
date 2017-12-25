@@ -50,6 +50,7 @@
 		65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */; };
 		65BF4F3D1FE68C4800FF8865 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */; };
 		65DD4A7C1FF15B5800233187 /* UserChats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD4A7A1FF15B5800233187 /* UserChats.storyboard */; };
+		65DD4A7F1FF15DA000233187 /* UserChatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD4A7E1FF15DA000233187 /* UserChatSettings.swift */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		65DD4A7B1FF15B5800233187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = matterOfdebate/Base.lproj/UserChats.storyboard; sourceTree = SOURCE_ROOT; };
+		65DD4A7E1FF15DA000233187 /* UserChatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatSettings.swift; sourceTree = "<group>"; };
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
 		E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,9 +220,13 @@
 		652FA6531FEFCAD9007A9A33 /* ChatsOfTopic */ = {
 			isa = PBXGroup;
 			children = (
+				652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */,
 				652FA6541FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift */,
 				652FA6561FEFCB65007A9A33 /* ChatsOfTopicCell.swift */,
 				652FA6581FEFCE6A007A9A33 /* MessagesView.swift */,
+				652FA64D1FEACE36007A9A33 /* CategoryCell.swift */,
+				652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */,
+				652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */,
 			);
 			path = ChatsOfTopic;
 			sourceTree = "<group>";
@@ -246,15 +252,9 @@
 		65693D6F1FCED8B6009FE995 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				65DD4A7D1FF15D6B00233187 /* UserChats */,
 				652FA6531FEFCAD9007A9A33 /* ChatsOfTopic */,
-				65693D701FCED94C009FE995 /* ChatViewController.swift */,
-				656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */,
-				657849C11FD972ED00936D5A /* ChatTableViewCell.swift */,
 				65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */,
-				652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */,
-				652FA64D1FEACE36007A9A33 /* CategoryCell.swift */,
-				652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */,
-				652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -266,6 +266,17 @@
 				657F43F81FEFEA25003497B3 /* AllChats.storyboard */,
 			);
 			path = storyboards;
+			sourceTree = "<group>";
+		};
+		65DD4A7D1FF15D6B00233187 /* UserChats */ = {
+			isa = PBXGroup;
+			children = (
+				65693D701FCED94C009FE995 /* ChatViewController.swift */,
+				656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */,
+				657849C11FD972ED00936D5A /* ChatTableViewCell.swift */,
+				65DD4A7E1FF15DA000233187 /* UserChatSettings.swift */,
+			);
+			path = UserChats;
 			sourceTree = "<group>";
 		};
 		92EA0741799855B3C1B39597 /* Frameworks */ = {
@@ -461,6 +472,7 @@
 				652FA64C1FEACD9D007A9A33 /* AllChatsTableView.swift in Sources */,
 				652FA6501FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift in Sources */,
 				65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */,
+				65DD4A7F1FF15DA000233187 /* UserChatSettings.swift in Sources */,
 				65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */,
 				48B657D01FD460FC0017266B /* Category.swift in Sources */,
 				652FA6521FEEBFD9007A9A33 /* detailThemeCell.swift in Sources */,

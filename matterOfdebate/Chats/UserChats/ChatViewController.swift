@@ -77,9 +77,23 @@ class ChatViewController: JSQMessagesViewController {
         navigationItem.rightBarButtonItem = settingsButton
     }
     
-    // TODO implement showing of chat settings
     @objc func settingsButtonTapped(sender: UIBarButtonItem) {
-        print(":-) Implement mee")
+        guard let chat_obj = self.chat else {
+            return
+        }
+        
+        self.performSegue(withIdentifier: "chatSettings", sender: chat_obj)
+    }
+    
+    // give chat to ChatSettings controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let chat_obj = sender as? Chat {
+            let chatSettingsController = segue.destination as! UserChatSettings
+            chatSettingsController.chat = chat_obj
+        }
+        
     }
     
     func setupBackButton() {
