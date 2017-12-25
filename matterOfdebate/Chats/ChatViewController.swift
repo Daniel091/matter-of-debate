@@ -58,7 +58,7 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         // Query Messages of chat_id
-        let query = Constants.refs.databaseMessages.child(chat_id).queryLimited(toLast: 10)
+        let query = Constants.refs.databaseMessages.child(chat_id)
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
             if let data = snapshot.value as? [String: String] {
                 if let name = data["name"], let text = data["text"], let id = data["sender-id"], !text.isEmpty {
