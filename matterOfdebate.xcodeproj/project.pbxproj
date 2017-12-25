@@ -49,6 +49,7 @@
 		657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657F43F81FEFEA25003497B3 /* AllChats.storyboard */; };
 		65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */; };
 		65BF4F3D1FE68C4800FF8865 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */; };
+		65DD4A7C1FF15B5800233187 /* UserChats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD4A7A1FF15B5800233187 /* UserChats.storyboard */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		657F43F81FEFEA25003497B3 /* AllChats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllChats.storyboard; sourceTree = "<group>"; };
 		65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
+		65DD4A7B1FF15B5800233187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = matterOfdebate/Base.lproj/UserChats.storyboard; sourceTree = SOURCE_ROOT; };
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
 		E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,6 +262,7 @@
 		657F43F71FEFEA25003497B3 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				65DD4A7A1FF15B5800233187 /* UserChats.storyboard */,
 				657F43F81FEFEA25003497B3 /* AllChats.storyboard */,
 			);
 			path = storyboards;
@@ -335,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DD4A7C1FF15B5800233187 /* UserChats.storyboard in Resources */,
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
 				657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */,
@@ -481,6 +485,14 @@
 				6529A4541FBB8DA000DFBE96 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65DD4A7A1FF15B5800233187 /* UserChats.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65DD4A7B1FF15B5800233187 /* Base */,
+			);
+			name = UserChats.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

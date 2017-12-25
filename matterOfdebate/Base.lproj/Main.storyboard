@@ -337,95 +337,6 @@
             </objects>
             <point key="canvasLocation" x="5034" y="-544"/>
         </scene>
-        <!--Chats-->
-        <scene sceneID="eef-jA-7EX">
-            <objects>
-                <tableViewController title="Chats" id="w9X-s2-eKS" customClass="UserChatsTableViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="egN-Nc-hVk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="90" id="hoE-Rz-qu8" customClass="ChatTableViewCell" customModule="matterOfdebate" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hoE-Rz-qu8" id="nT8-VK-UQi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.666666666666671"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pvi-MV-1jr">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="90" id="MQ0-Bu-hTJ"/>
-                                                <constraint firstAttribute="width" constant="100" id="nPQ-zC-5oV"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Thema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w93-Rg-UKQ">
-                                            <rect key="frame" x="109" y="11" width="190" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is a text message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GF-6t-gjW">
-                                            <rect key="frame" x="109" y="48" width="266" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.66248380829015541" green="0.66248380829015541" blue="0.66248380829015541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-NS-Hbx">
-                                            <rect key="frame" x="318" y="10" width="47" height="12"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" red="0.66248380829999998" green="0.66248380829999998" blue="0.66248380829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Pvi-MV-1jr" secondAttribute="bottom" id="28j-pF-6UY"/>
-                                        <constraint firstItem="Pvi-MV-1jr" firstAttribute="leading" secondItem="nT8-VK-UQi" secondAttribute="leading" id="8cA-Sa-Jy7"/>
-                                        <constraint firstItem="Pvi-MV-1jr" firstAttribute="top" secondItem="nT8-VK-UQi" secondAttribute="top" id="Pp6-wQ-Y2p"/>
-                                        <constraint firstItem="JbU-NS-Hbx" firstAttribute="top" secondItem="nT8-VK-UQi" secondAttribute="top" constant="10" id="ceM-fb-uYo"/>
-                                        <constraint firstAttribute="trailing" secondItem="JbU-NS-Hbx" secondAttribute="trailing" constant="10" id="wVu-fA-9G9"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="photoImageView" destination="Pvi-MV-1jr" id="Jwg-wb-luh"/>
-                                    <outlet property="subtitelLabel" destination="1GF-6t-gjW" id="ep4-F6-LBT"/>
-                                    <outlet property="timeLabel" destination="JbU-NS-Hbx" id="fEf-h4-6tM"/>
-                                    <outlet property="titelLabel" destination="w93-Rg-UKQ" id="5fJ-TE-z0S"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="w9X-s2-eKS" id="9Pr-TS-DML"/>
-                            <outlet property="delegate" destination="w9X-s2-eKS" id="sNg-2z-IfT"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Diskussionen" id="Fdg-Yu-plQ"/>
-                    <connections>
-                        <segue destination="1J6-zo-Bq1" kind="show" identifier="showMessages" id="jzb-pW-uBl"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6qf-0f-3Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5172" y="153.69458128078819"/>
-        </scene>
-        <!--Chat View Controller-->
-        <scene sceneID="Whm-PM-JW1">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="1J6-zo-Bq1" customClass="ChatViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZSa-ej-ZKS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="NTt-D9-L1e"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xa0-v1-28o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6273" y="156"/>
-        </scene>
         <!--MainController-->
         <scene sceneID="mDk-g9-K80">
             <objects>
@@ -438,7 +349,7 @@
                     <connections>
                         <segue destination="Xtm-E0-auN" kind="relationship" relationship="viewControllers" id="lGr-Zs-gnq"/>
                         <segue destination="sF3-em-nqs" kind="relationship" relationship="viewControllers" id="xup-VB-djt"/>
-                        <segue destination="PKh-20-UGy" kind="relationship" relationship="viewControllers" id="HnG-2p-uhY"/>
+                        <segue destination="Kgf-mq-Kuw" kind="relationship" relationship="viewControllers" id="HnG-2p-uhY"/>
                         <segue destination="XJi-mA-luc" kind="relationship" relationship="viewControllers" id="4If-TG-lU2"/>
                     </connections>
                 </tabBarController>
@@ -550,7 +461,7 @@
                     <connections>
                         <outlet property="slider" destination="1oF-mh-Cep" id="Gwm-dD-GFl"/>
                         <outlet property="sliderVal" destination="fGN-OE-esZ" id="bvp-n3-YYw"/>
-                        <segue destination="w9X-s2-eKS" kind="show" identifier="showChatsView" id="rWq-Oq-Lt6"/>
+                        <segue destination="D0E-Fb-9gb" kind="show" identifier="showChatsView" id="rWq-Oq-Lt6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozH-Nh-4zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -593,40 +504,26 @@
             </objects>
             <point key="canvasLocation" x="4054" y="1619"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="u4j-aA-yLd">
+        <!--UINavigationController-PKh-20-UGy-->
+        <scene sceneID="muE-nA-zS6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PKh-20-UGy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="3Gw-O0-wyS"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MWR-nr-en4">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="w9X-s2-eKS" kind="relationship" relationship="rootViewController" id="zPk-rE-LrD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bi5-MH-zGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationItem id="2wB-FZ-uhO">
-                    <barButtonItem key="leftBarButtonItem" title="Cancel" id="3cG-74-Kig">
-                        <connections>
-                            <action selector="cancel:" destination="7cJ-ug-VX9" id="ggV-o7-FzF"/>
-                        </connections>
-                    </barButtonItem>
-                    <barButtonItem key="rightBarButtonItem" title="Save" id="edG-3x-zLK">
-                        <connections>
-                            <action selector="saveDiscTheme:" destination="7cJ-ug-VX9" id="eTl-cL-Xkq"/>
-                        </connections>
-                    </barButtonItem>
-                </navigationItem>
+                <viewControllerPlaceholder storyboardName="UserChats" referencedIdentifier="UINavigationController-PKh-20-UGy" id="Kgf-mq-Kuw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="fEK-z0-03T"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="huC-RM-DuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4228" y="157"/>
+        </scene>
+        <!--UITableViewController-w9X-s2-eKS-->
+        <scene sceneID="kCk-7x-Ri8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserChats" referencedIdentifier="UITableViewController-w9X-s2-eKS" id="D0E-Fb-9gb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VvS-Xx-JlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5172" y="153.69458128078819"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="v2a-te-Owv"/>
-        <segue reference="rWq-Oq-Lt6"/>
     </inferredMetricsTieBreakers>
 </document>
