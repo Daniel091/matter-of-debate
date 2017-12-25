@@ -14,9 +14,11 @@ class ChatsOfTopicTableVC: UITableViewController {
     private var chatsUpdateHandleAdd: DatabaseHandle?
     private var chatsRef : DatabaseReference?
     private var chats : [Chat] = []
+    private var dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,11 +53,12 @@ class ChatsOfTopicTableVC: UITableViewController {
                 let users = chatsData["users"] as? Dictionary<String, Bool> ?? [String: Bool]()
                 
                 self.chats.append(Chat(snapshot.key, theme_id, lastMessage, users, timestamp, ""))
+                self.chats.sort(by: Chat.sortChatsbyTimestamp)
                 self.tableView.reloadData()
             })
         
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -75,7 +78,8 @@ class ChatsOfTopicTableVC: UITableViewController {
         let chat = chats[indexPath.row]
         
         // set cell content
-        cell.titleLabel.text = chat.id
+        let date = Date(timeIntervalSince1970: chat.timestamp)
+        cell.titleLabel.text = self.dateFormatter.string(from: date)
         cell.lastMsgLabel.text = chat.lastMessage
         
         return cell

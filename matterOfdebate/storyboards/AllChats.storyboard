@@ -142,24 +142,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username1 - Username2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbP-gn-nDX">
-                                            <rect key="frame" x="36" y="21" width="323" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nL-9v-JY2">
-                                            <rect key="frame" x="36" y="52" width="323" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-HK-SKd">
+                                            <rect key="frame" x="10" y="10" width="363" height="59.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Username1 - Username2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbP-gn-nDX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="363" height="45"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Last Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nL-9v-JY2">
+                                                    <rect key="frame" x="0.0" y="45" width="363" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.66248380829999998" green="0.66248380829999998" blue="0.66248380829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="JbP-gn-nDX" firstAttribute="top" secondItem="mYT-nv-Wqv" secondAttribute="topMargin" constant="10" id="IXk-ST-4yr"/>
-                                        <constraint firstItem="3nL-9v-JY2" firstAttribute="top" secondItem="JbP-gn-nDX" secondAttribute="bottom" constant="10" id="KJu-Ix-nTg"/>
-                                        <constraint firstItem="3nL-9v-JY2" firstAttribute="leading" secondItem="mYT-nv-Wqv" secondAttribute="leadingMargin" constant="20" id="dg8-jc-JS3"/>
-                                        <constraint firstItem="JbP-gn-nDX" firstAttribute="leading" secondItem="mYT-nv-Wqv" secondAttribute="leadingMargin" constant="20" id="odZ-tp-M7z"/>
+                                        <constraint firstAttribute="trailing" secondItem="fRl-HK-SKd" secondAttribute="trailing" constant="2" id="4Cb-Wh-sXe"/>
+                                        <constraint firstAttribute="bottom" secondItem="fRl-HK-SKd" secondAttribute="bottom" constant="20" id="Tqa-LD-NWe"/>
+                                        <constraint firstItem="fRl-HK-SKd" firstAttribute="leading" secondItem="mYT-nv-Wqv" secondAttribute="leading" constant="10" id="Y7h-cM-ekO"/>
+                                        <constraint firstItem="fRl-HK-SKd" firstAttribute="top" secondItem="mYT-nv-Wqv" secondAttribute="top" constant="10" id="xL1-B6-0D4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -179,7 +184,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2W-3h-pM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6837.6000000000004" y="-570.44334975369463"/>
+            <point key="canvasLocation" x="6837.6000000000004" y="-570.76461769115451"/>
         </scene>
         <!--Messages View-->
         <scene sceneID="shq-Ms-tBc">
@@ -200,8 +205,9 @@
         <scene sceneID="KCe-fj-Ioa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cUT-tS-5XS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="zNP-NP-cDH"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="PVj-dv-SB7"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="527-Tb-HFJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

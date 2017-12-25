@@ -29,6 +29,10 @@ class MessagesView: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // hide input bar
+        self.inputToolbar.removeFromSuperview()
+        
         setupSettingsChatButton()
         
         
@@ -36,9 +40,8 @@ class MessagesView: JSQMessagesViewController {
             return
         }
         
-        print(chat_obj.lastMessage)
         senderId = users.keys.first
-        senderDisplayName = "___TODO__"
+        senderDisplayName = "Not needed here, but has to be set"
         
         // hide attachement button
         inputToolbar.contentView.leftBarButtonItem = nil

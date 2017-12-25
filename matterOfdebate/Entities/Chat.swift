@@ -24,5 +24,8 @@ class Chat {
         self.timestamp = timestamp
         self.img_url = img_url
     }
-    
+ 
+    class func sortChatsbyTimestamp(this:Chat, that:Chat) -> Bool {
+        return this.timestamp > that.timestamp
+    }
 }
