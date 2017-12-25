@@ -76,6 +76,7 @@ class UserChatsTableViewController: UITableViewController {
                     let img_url = themeData["img-url"] as? String ?? ""
 
                     self.chats.append(Chat(chat_key, theme_title, last_m, users, timestamp, img_url))
+                    self.chats.sort(by: Chat.sortChatsbyTimestamp)
                     self.tableView.reloadData()
                 }) { (error) in
                     print(error.localizedDescription)
@@ -104,6 +105,7 @@ class UserChatsTableViewController: UITableViewController {
                 found_chat?.timestamp = timestamp
                 found_chat?.lastMessage = last_m
                 
+                self.chats.sort(by: Chat.sortChatsbyTimestamp)
                 self.tableView.reloadData()
             } else {
                 print("Error! Could not decode chats data in child changed")

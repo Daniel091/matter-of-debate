@@ -29,6 +29,13 @@
 		6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4531FBB8DA000DFBE96 /* Main.storyboard */; };
 		6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4561FBB8DA000DFBE96 /* Assets.xcassets */; };
 		6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4611FBB91BB00DFBE96 /* .gitignore */; };
+		652FA64C1FEACD9D007A9A33 /* AllChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */; };
+		652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64D1FEACE36007A9A33 /* CategoryCell.swift */; };
+		652FA6501FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */; };
+		652FA6521FEEBFD9007A9A33 /* detailThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */; };
+		652FA6551FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6541FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift */; };
+		652FA6571FEFCB65007A9A33 /* ChatsOfTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6561FEFCB65007A9A33 /* ChatsOfTopicCell.swift */; };
+		652FA6591FEFCE6A007A9A33 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA6581FEFCE6A007A9A33 /* MessagesView.swift */; };
 		6549E81B1FBDD58A00367D40 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549E81A1FBDD58A00367D40 /* User.swift */; };
 		654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654D95031FBC44BF0003C99D /* GoogleService-Info.plist */; };
 		656030DD1FD874120029C549 /* SingletonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656030DC1FD874120029C549 /* SingletonUser.swift */; };
@@ -39,6 +46,7 @@
 		65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65693D6D1FCED7D3009FE995 /* Constants.swift */; };
 		65693D711FCED94C009FE995 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65693D701FCED94C009FE995 /* ChatViewController.swift */; };
 		657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657849C11FD972ED00936D5A /* ChatTableViewCell.swift */; };
+		657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657F43F81FEFEA25003497B3 /* AllChats.storyboard */; };
 		65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */; };
 		65BF4F3D1FE68C4800FF8865 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
@@ -69,6 +77,13 @@
 		6529A4561FBB8DA000DFBE96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6529A45B1FBB8DA000DFBE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6529A4611FBB91BB00DFBE96 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsTableView.swift; sourceTree = "<group>"; };
+		652FA64D1FEACE36007A9A33 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllThemesOfCategoryTable.swift; sourceTree = "<group>"; };
+		652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailThemeCell.swift; sourceTree = "<group>"; };
+		652FA6541FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsOfTopicTableVC.swift; sourceTree = "<group>"; };
+		652FA6561FEFCB65007A9A33 /* ChatsOfTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsOfTopicCell.swift; sourceTree = "<group>"; };
+		652FA6581FEFCE6A007A9A33 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		6549E81A1FBDD58A00367D40 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		654D95031FBC44BF0003C99D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		656030DC1FD874120029C549 /* SingletonUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonUser.swift; sourceTree = "<group>"; };
@@ -80,6 +95,7 @@
 		65693D6D1FCED7D3009FE995 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65693D701FCED94C009FE995 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		657849C11FD972ED00936D5A /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		657F43F81FEFEA25003497B3 /* AllChats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllChats.storyboard; sourceTree = "<group>"; };
 		65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +190,7 @@
 		6529A44E1FBB8DA000DFBE96 /* matterOfdebate */ = {
 			isa = PBXGroup;
 			children = (
+				657F43F71FEFEA25003497B3 /* storyboards */,
 				486FC5B21FE08996008DBDAB /* Usermatching */,
 				486F6FD21FDF549D005376D8 /* Opinion_making */,
 				65693D6F1FCED8B6009FE995 /* Chats */,
@@ -194,6 +211,16 @@
 				65693D6D1FCED7D3009FE995 /* Constants.swift */,
 			);
 			path = matterOfdebate;
+			sourceTree = "<group>";
+		};
+		652FA6531FEFCAD9007A9A33 /* ChatsOfTopic */ = {
+			isa = PBXGroup;
+			children = (
+				652FA6541FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift */,
+				652FA6561FEFCB65007A9A33 /* ChatsOfTopicCell.swift */,
+				652FA6581FEFCE6A007A9A33 /* MessagesView.swift */,
+			);
+			path = ChatsOfTopic;
 			sourceTree = "<group>";
 		};
 		656430381FC1A4CF0019F9BE /* user_administration */ = {
@@ -217,12 +244,25 @@
 		65693D6F1FCED8B6009FE995 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				652FA6531FEFCAD9007A9A33 /* ChatsOfTopic */,
 				65693D701FCED94C009FE995 /* ChatViewController.swift */,
 				656030DE1FD89E840029C549 /* UserChatsTableViewController.swift */,
 				657849C11FD972ED00936D5A /* ChatTableViewCell.swift */,
 				65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */,
+				652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */,
+				652FA64D1FEACE36007A9A33 /* CategoryCell.swift */,
+				652FA64F1FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift */,
+				652FA6511FEEBFD9007A9A33 /* detailThemeCell.swift */,
 			);
 			path = Chats;
+			sourceTree = "<group>";
+		};
+		657F43F71FEFEA25003497B3 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				657F43F81FEFEA25003497B3 /* AllChats.storyboard */,
+			);
+			path = storyboards;
 			sourceTree = "<group>";
 		};
 		92EA0741799855B3C1B39597 /* Frameworks */ = {
@@ -297,6 +337,7 @@
 			files = (
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
+				657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
 				6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */,
@@ -396,9 +437,11 @@
 				486F6FD61FDF57A8005376D8 /* OpinionView.swift in Sources */,
 				656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */,
 				65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */,
+				652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */,
 				65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */,
 				657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */,
 				4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */,
+				652FA6551FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift in Sources */,
 				6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */,
 				486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */,
 				483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */,
@@ -407,11 +450,16 @@
 				6564303B1FC1C1F10019F9BE /* TabBarMainController.swift in Sources */,
 				48B657D21FD4658C0017266B /* CategoryViewModel.swift in Sources */,
 				6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */,
+				652FA6571FEFCB65007A9A33 /* ChatsOfTopicCell.swift in Sources */,
 				65BF4F3D1FE68C4800FF8865 /* TableViewHelper.swift in Sources */,
 				6549E81B1FBDD58A00367D40 /* User.swift in Sources */,
+				652FA6591FEFCE6A007A9A33 /* MessagesView.swift in Sources */,
+				652FA64C1FEACD9D007A9A33 /* AllChatsTableView.swift in Sources */,
+				652FA6501FEAEF94007A9A33 /* AllThemesOfCategoryTable.swift in Sources */,
 				65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */,
 				65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */,
 				48B657D01FD460FC0017266B /* Category.swift in Sources */,
+				652FA6521FEEBFD9007A9A33 /* detailThemeCell.swift in Sources */,
 				656030E11FD93EB30029C549 /* Chat.swift in Sources */,
 				65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */,
 				483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */,
