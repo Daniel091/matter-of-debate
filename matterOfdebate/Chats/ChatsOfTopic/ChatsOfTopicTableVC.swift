@@ -60,7 +60,12 @@ class ChatsOfTopicTableVC: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if chats.count>0 {
+            return 1
+        } else {
+            TableViewHelper.EmptyMessage(message: "Keine Chats zu diesem Thema vorhanden.", viewController: self)
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
