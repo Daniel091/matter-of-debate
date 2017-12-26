@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oy5-LK-Cgw">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -238,6 +238,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIV-9e-spt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4911" y="1619"/>
+        </scene>
+        <!--Statistics Controller-->
+        <scene sceneID="Pxi-JO-T8M">
+            <objects>
+                <viewController id="Oy5-LK-Cgw" customClass="StatisticsController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gpi-xI-DVX" customClass="StatisticsView" customModule="matterOfdebate" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hac-Xd-OXo">
+                                <rect key="frame" x="59" y="305" width="46" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="pro"/>
+                                <connections>
+                                    <action selector="voteForPro:" destination="Oy5-LK-Cgw" eventType="touchUpInside" id="wfz-W1-ZDd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMh-J1-NWF">
+                                <rect key="frame" x="251" y="375" width="46" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="contra"/>
+                                <connections>
+                                    <action selector="voteForContra:" destination="Oy5-LK-Cgw" eventType="touchUpInside" id="8yX-aH-JTV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="c7K-vV-Q6c"/>
+                    </view>
+                    <connections>
+                        <outlet property="ContraButton" destination="IMh-J1-NWF" id="REF-l5-K4N"/>
+                        <outlet property="proButton" destination="hac-Xd-OXo" id="h6C-to-8Bn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HqT-GN-16w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5954.3999999999996" y="-1341.1330049261085"/>
         </scene>
         <!--AllChats-->
         <scene sceneID="XsU-9i-m0l">

@@ -16,6 +16,10 @@
 		486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */; };
 		486F6FDA1FDF5808005376D8 /* OpinionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */; };
 		486FC5B41FE089AF008DBDAB /* matchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486FC5B31FE089AF008DBDAB /* matchUser.swift */; };
+		48A6C6831FF2F1EC006CA003 /* StatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */; };
+		48A6C6851FF2F785006CA003 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6841FF2F785006CA003 /* StatisticsView.swift */; };
+		48A6C6871FF2F9E3006CA003 /* CreatingCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */; };
+		48A6C6891FF2FAA9006CA003 /* StatisticCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6881FF2FAA9006CA003 /* StatisticCalculations.swift */; };
 		48AEEFCD1FCB79CE00726996 /* CategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AEEFCC1FCB79CE00726996 /* CategoryProtocol.swift */; };
 		48B657CE1FD460EC0017266B /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B657CD1FD460EC0017266B /* Topic.swift */; };
 		48B657D01FD460FC0017266B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B657CF1FD460FC0017266B /* Category.swift */; };
@@ -66,6 +70,10 @@
 		486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionProtocol.swift; sourceTree = "<group>"; };
 		486FC5B31FE089AF008DBDAB /* matchUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchUser.swift; sourceTree = "<group>"; };
 		48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CategoryStoryboard.storyboard; path = /Users/stefaniehuber/Documents/UNI_LMU/Semester9/IOSPraktikum/Repository/MatterOfDebate/matterOfdebate/storyboards/CategoryStoryboard.storyboard; sourceTree = "<absolute>"; };
+		48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsController.swift; sourceTree = "<group>"; };
+		48A6C6841FF2F785006CA003 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingCharts.swift; sourceTree = "<group>"; };
+		48A6C6881FF2FAA9006CA003 /* StatisticCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCalculations.swift; sourceTree = "<group>"; };
 		48AEEFCC1FCB79CE00726996 /* CategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProtocol.swift; sourceTree = "<group>"; };
 		48B657CD1FD460EC0017266B /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		48B657CF1FD460FC0017266B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -161,6 +169,18 @@
 			path = Usermatching;
 			sourceTree = "<group>";
 		};
+		48A6C6811FF2F1CA006CA003 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */,
+				48A6C6841FF2F785006CA003 /* StatisticsView.swift */,
+				48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */,
+				48A6C6881FF2FAA9006CA003 /* StatisticCalculations.swift */,
+			);
+			name = Statistics;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		48B657CC1FD460A50017266B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +215,7 @@
 		6529A44E1FBB8DA000DFBE96 /* matterOfdebate */ = {
 			isa = PBXGroup;
 			children = (
+				48A6C6811FF2F1CA006CA003 /* Statistics */,
 				657F43F71FEFEA25003497B3 /* storyboards */,
 				486FC5B21FE08996008DBDAB /* Usermatching */,
 				486F6FD21FDF549D005376D8 /* Opinion_making */,
@@ -451,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656030DF1FD89E840029C549 /* UserChatsTableViewController.swift in Sources */,
+				48A6C6871FF2F9E3006CA003 /* CreatingCharts.swift in Sources */,
 				486F6FD61FDF57A8005376D8 /* OpinionView.swift in Sources */,
 				656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */,
 				65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */,
@@ -463,6 +485,7 @@
 				486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */,
 				483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */,
 				656030DD1FD874120029C549 /* SingletonUser.swift in Sources */,
+				48A6C6891FF2FAA9006CA003 /* StatisticCalculations.swift in Sources */,
 				486F6FD41FDF553C005376D8 /* OpinionController.swift in Sources */,
 				6564303B1FC1C1F10019F9BE /* TabBarMainController.swift in Sources */,
 				48B657D21FD4658C0017266B /* CategoryViewModel.swift in Sources */,
@@ -476,10 +499,12 @@
 				65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */,
 				65DD4A7F1FF15DA000233187 /* UserChatSettings.swift in Sources */,
 				65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */,
+				48A6C6831FF2F1EC006CA003 /* StatisticsController.swift in Sources */,
 				48B657D01FD460FC0017266B /* Category.swift in Sources */,
 				652FA6521FEEBFD9007A9A33 /* detailThemeCell.swift in Sources */,
 				656030E11FD93EB30029C549 /* Chat.swift in Sources */,
 				65693D6E1FCED7D3009FE995 /* Constants.swift in Sources */,
+				48A6C6851FF2F785006CA003 /* StatisticsView.swift in Sources */,
 				483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */,
 				65693D711FCED94C009FE995 /* ChatViewController.swift in Sources */,
 				48AEEFCD1FCB79CE00726996 /* CategoryProtocol.swift in Sources */,
