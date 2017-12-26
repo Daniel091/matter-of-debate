@@ -56,6 +56,13 @@ class CategoryViewModel : CategoryProtocol
                 let cat = valuesToWant["categories"] as! [String:Bool]
                 for element in cat.keys {
                     // TODO: save a new CategoriesList, get image from getCategories
+                    
+                    //let reference = Storage.storage().reference(forURL: )
+                    
+                    // TODO: Controller und Entity umbauen, dass sie eine reference bekommen und kein Bild mehr
+                    //cell.cellTheme_1.sd_setImage(with: reference)
+
+                    
                     if (!self.checkForDuplicates(categories: self.categories, element: element)) {
                         // TODO get image from category and storage
                         
