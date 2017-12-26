@@ -14,6 +14,8 @@ import AwaitKit
 // TODO: for publishing push this to server backend 
 class MatchingFunction {
     
+    public var asyncBool = false
+    
     var ref = Database.database().reference()
     
     // searches for matches
@@ -36,10 +38,11 @@ class MatchingFunction {
                         }
                         if(-opinionGroup == opinion.value){
 //                            let userHasAChat = self.userHasChat(userID: user.key,topicID: topicID)
-//                            if(userHasAChat) {
-//                                print("there is a chat already")
-//                                continue
-//                            }
+                            self.userHasChat(userID: user.key, topicID: topicID)
+                            if(self.asyncBool) {
+                                print("there is a chat already")
+                                continue
+                            }
                             
                             self.createChat(topicID: topicID, currUserID: currUserID, matchedUserID: user.key)
                             print("user konnte gematched werden :D")
@@ -57,11 +60,13 @@ class MatchingFunction {
     
     // checks if user has chat already for this Topic
     // TODO: implement futures oder so
-    func userHasChat(userID: String, topicID: String) -> Bool {
+    func userHasChat(userID: String, topicID: String)
+        //-> Bool
+    {
             
-        var (promiseResult, fulfill, _) = Promise<Bool>.pending()
+        //var (promiseResult, fulfill, _) = Promise<Bool>.pending()
 
-        DispatchQueue.global(qos: .background).async {
+        //DispatchQueue.global(qos: .background).async {
             self.ref.child("chats").observeSingleEvent(of: .value, with: { (snapshot) in
                 let postDict = snapshot.value
                 let chatsFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
@@ -76,16 +81,18 @@ class MatchingFunction {
                         for user in users {
                             
                             if(user.key == userID) {
-                                fulfill(true)
+                                self.asyncBool = true
+                                //fulfill(true)
                             }
                         }
                     }
                 }
-                fulfill(false)
+                self.asyncBool = false
+                //fulfill(false)
             })
-        }
+        //}
         
-        do {return try await (promiseResult)} catch {return false}
+        //do {return try await (promiseResult)} catch {return false}
     }
     
     // creates new Chat

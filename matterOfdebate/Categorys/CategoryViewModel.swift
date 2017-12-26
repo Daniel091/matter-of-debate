@@ -54,6 +54,26 @@ class CategoryViewModel : CategoryProtocol
         })
     }
     
+//    func getThemesOfCategory(_ theme_id: String) {
+//
+//        themesRef = Constants.refs.databaseThemes
+//        themesUpdateHandle = themesRef!.queryOrdered(byChild: "categories/" + theme_id)
+//            .queryEqual(toValue: true)
+//            .observe(.childAdded, with: { (snapshot) -> Void in
+//
+//                let themesData = snapshot.value as! Dictionary<String, AnyObject>
+//                let t_title = themesData["titel"] as? String ?? ""
+//                let img_url = themesData["img-url"] as? String ?? ""
+//                let description = themesData["description"] as? String ?? ""
+//
+//                let topic = Topic(name: t_title, description: description, categories: [theme_id], imageUrl: img_url, id: snapshot.key)
+//
+//                self.topics.append(topic)
+//                self.tableView.reloadData()
+//            })
+//
+//    }
+    
     func checkForDuplicates(categories : [Category], element : String) -> Bool {
         for everything in categories {
             if(everything.title == element) {
