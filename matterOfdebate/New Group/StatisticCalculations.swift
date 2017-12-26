@@ -10,14 +10,12 @@ import Foundation
 
 class StatisticCalculations {
     var allVotes = 0
-    let statisticsController: StatisticsController = StatisticsController()
-    
-//    init(statisticsController: StatisticsController) {
-//        self.statisticsController = statisticsController
-//    }
+    let statisticsController = StatisticsController()
     
     func provideChartData() {
         allVotes = statisticsController.getProVotes() + statisticsController.getContraVotes()
+        
+        
     }
     
 }
