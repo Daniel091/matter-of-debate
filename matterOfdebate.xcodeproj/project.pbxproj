@@ -65,6 +65,7 @@
 		486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionViewModel.swift; sourceTree = "<group>"; };
 		486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionProtocol.swift; sourceTree = "<group>"; };
 		486FC5B31FE089AF008DBDAB /* matchUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchUser.swift; sourceTree = "<group>"; };
+		48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CategoryStoryboard.storyboard; path = /Users/stefaniehuber/Documents/UNI_LMU/Semester9/IOSPraktikum/Repository/MatterOfDebate/matterOfdebate/storyboards/CategoryStoryboard.storyboard; sourceTree = "<absolute>"; };
 		48AEEFCC1FCB79CE00726996 /* CategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProtocol.swift; sourceTree = "<group>"; };
 		48B657CD1FD460EC0017266B /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		48B657CF1FD460FC0017266B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -262,6 +263,7 @@
 		657F43F71FEFEA25003497B3 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */,
 				65DD4A7A1FF15B5800233187 /* UserChats.storyboard */,
 				657F43F81FEFEA25003497B3 /* AllChats.storyboard */,
 			);
