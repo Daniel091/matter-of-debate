@@ -73,9 +73,11 @@ class UserChatsTableViewController: UITableViewController {
                     let themeData = snapshot.value as! Dictionary<String, AnyObject>
                     
                     let theme_title = themeData["titel"] as? String ?? ""
+                    let descr = themeData["description"] as? String ?? ""
                     let img_url = themeData["img-url"] as? String ?? ""
-
-                    self.chats.append(Chat(chat_key, theme_title, last_m, users, timestamp, img_url))
+                    let topic = Topic(name: theme_title, description: descr, categories: [], imageUrl: "")
+                    
+                    self.chats.append(Chat(chat_key, theme_title, last_m, users, timestamp, img_url, topic))
                     self.chats.sort(by: Chat.sortChatsbyTimestamp)
                     self.tableView.reloadData()
                 }) { (error) in
@@ -149,9 +151,8 @@ class UserChatsTableViewController: UITableViewController {
         // use firebase and sd web image to load picture asnyc
         let reference = self.storage.reference(forURL: chat.img_url)
         
-        // steffis big bad wolf as default picture
-        let plImage = UIImage(named: "Image")
-        cell.photoImageView.sd_setImage(with: reference, placeholderImage: plImage)
+        // no placeholder image
+        cell.photoImageView.sd_setImage(with: reference, placeholderImage: nil)
         
         return cell
     }

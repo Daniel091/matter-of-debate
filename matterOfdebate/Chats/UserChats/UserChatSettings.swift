@@ -16,7 +16,24 @@ class UserChatSettings: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Logout button
+        guard let chat_obj = chat else {
+            return
+        }
+        
+        // Information Section
+        form +++ Section("Informationen")
+            <<< LabelRow("topicTitel"){
+                $0.title = "Thema"
+                $0.value = chat_obj.topic.title
+                $0.disabled = true
+            }
+            <<< TextAreaRow("topicDescription"){
+                $0.title = "Themen Beschreibung"
+                $0.value = chat_obj.topic.description
+                $0.disabled = true
+            }
+        
+        // Settings Section
         form +++ Section("Einstellungen")
             <<< ButtonRow("deleteChat"){
                 $0.title = "Chat beenden"

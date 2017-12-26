@@ -15,14 +15,21 @@ class Chat {
     let id: String
     let img_url: String
     var timestamp: Double
+    var topic: Topic
     
-    init(_ id: String,_ title: String,_ lastMessage: String,_ users: Dictionary<String, Bool>,_ timestamp: Double,_ img_url: String) {
+    init(_ id: String,_ title: String,_ lastMessage: String,
+         _ users: Dictionary<String, Bool>,
+         _ timestamp: Double,
+         _ img_url: String,
+         _ topic: Topic = Topic(name: "", description: "", categories: [], imageUrl: "")) {
+        
         self.title = title
         self.lastMessage = lastMessage
         self.users = users
         self.id = id
         self.timestamp = timestamp
         self.img_url = img_url
+        self.topic = topic
     }
  
     class func sortChatsbyTimestamp(this:Chat, that:Chat) -> Bool {
