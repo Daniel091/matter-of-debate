@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Firebase
+import SDWebImage
+import FirebaseStorageUI
 
 class CategoryViewModel : CategoryProtocol
     // https://krakendev.io/blog/the-right-way-to-write-a-singleton
@@ -36,6 +38,15 @@ class CategoryViewModel : CategoryProtocol
     
     // User specified View of Categories
     func getTopicCategories() {
+        
+//        var themesRef = Constants.refs.databaseThemes
+//        var themesHandle = themesRef.queryOrdered(byChild: "categories/")
+//                .queryEqual(toValue: true)
+//                .observe(.childAdded, with: { (snapshot) -> Void in
+        //)
+        
+        
+        
         self.ref.child("themes").observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
             let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
@@ -46,6 +57,8 @@ class CategoryViewModel : CategoryProtocol
                 for element in cat.keys {
                     // TODO: save a new CategoriesList, get image from getCategories
                     if (!self.checkForDuplicates(categories: self.categories, element: element)) {
+                        // TODO get image from category and storage
+                        
                         self.categories.append(Category(name: element, image: "Image"))
                     }
                 }
@@ -53,26 +66,6 @@ class CategoryViewModel : CategoryProtocol
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
     }
-    
-//    func getThemesOfCategory(_ theme_id: String) {
-//
-//        themesRef = Constants.refs.databaseThemes
-//        themesUpdateHandle = themesRef!.queryOrdered(byChild: "categories/" + theme_id)
-//            .queryEqual(toValue: true)
-//            .observe(.childAdded, with: { (snapshot) -> Void in
-//
-//                let themesData = snapshot.value as! Dictionary<String, AnyObject>
-//                let t_title = themesData["titel"] as? String ?? ""
-//                let img_url = themesData["img-url"] as? String ?? ""
-//                let description = themesData["description"] as? String ?? ""
-//
-//                let topic = Topic(name: t_title, description: description, categories: [theme_id], imageUrl: img_url, id: snapshot.key)
-//
-//                self.topics.append(topic)
-//                self.tableView.reloadData()
-//            })
-//
-//    }
     
     func checkForDuplicates(categories : [Category], element : String) -> Bool {
         for everything in categories {
