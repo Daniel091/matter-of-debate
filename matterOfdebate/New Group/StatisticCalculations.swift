@@ -7,15 +7,25 @@
 //
 
 import Foundation
+import Charts
 
 class StatisticCalculations {
-    var allVotes = 0
-    let statisticsController = StatisticsController()
     
-    func provideChartData() {
-        allVotes = statisticsController.getProVotes() + statisticsController.getContraVotes()
+    func provideChartData(proVotes: Int, contraVotes: Int) -> Int {
+        return proVotes + contraVotes
+    }
+    
+    func setChart(months: [String], ui: [Double]) -> BarChartData{
+        var dataEntries: [BarChartDataEntry] = []
         
+        for i in 0..<months.count {
+            let dataEntry = BarChartDataEntry()
+            dataEntries.append(dataEntry)
+        }
         
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
+        let chartData = BarChartData()
+        return chartData
     }
     
 }
