@@ -74,6 +74,12 @@ class ChatViewController: JSQMessagesViewController {
         })
     }
     
+    override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // limitation of characters && disable copypaste
+        //TODO Constante einsetzen
+        return textView.text.count <= 200 && text.count <= 1
+    }
+    
     func setupSettingsChatButton() {
         // TODO: Steffi, neuer Button
         let settingsButton = UIBarButtonItem(image: UIImage.jsq_defaultTypingIndicator(), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
@@ -109,6 +115,11 @@ class ChatViewController: JSQMessagesViewController {
     
     // User sends a message
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        
+        // TODO: in den letzten 3 nachrichten, wenn nicht alle 3 nachrichten von mir sind .. dann weiter
+        guard true else {
+            return
+        }
         
         guard let chat_id = chat?.id else {
             dismiss(animated: true, completion: nil)

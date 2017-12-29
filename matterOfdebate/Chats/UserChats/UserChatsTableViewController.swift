@@ -115,6 +115,7 @@ class UserChatsTableViewController: UITableViewController {
         })
     }
     
+    //TODO: wenn man zu schnell zwischen den Chats wechselt gibts ne exception..
     // click on chat row should show chat view
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chat = chats[indexPath.row]
