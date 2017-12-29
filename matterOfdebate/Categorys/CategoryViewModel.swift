@@ -26,11 +26,18 @@ class CategoryViewModel : CategoryProtocol
     // Admin speciefied view of Categories
     func getCategories() {
         print("im starting my getCategories now")
-        self.ref.child("categories").observe(.value, with: { (snapshot) in
+        self.ref.child("categories")
+            .observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
             let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
             
-            self.categories = categoriesFirebase.flatMap { Category(name: $0.key, image: $0.value["img-url"]!) }
+            self.categories = categoriesFirebase.flatMap { category in
+                Category(name: category.key, image: category.value["img-url"]!)
+            }
+            
+            self.categories.forEach{ category in
+                
+            }
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
@@ -39,34 +46,21 @@ class CategoryViewModel : CategoryProtocol
     // User specified View of Categories
     func getTopicCategories() {
         
-//        var themesRef = Constants.refs.databaseThemes
-//        var themesHandle = themesRef.queryOrdered(byChild: "categories/")
-//                .queryEqual(toValue: true)
-//                .observe(.childAdded, with: { (snapshot) -> Void in
-        //)
-        
-        
-        
         self.ref.child("themes").observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
             let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
             
             for thisElement in categoriesFirebase {
-                let valuesToWant = thisElement.value
-                let cat = valuesToWant["categories"] as! [String:Bool]
-                for element in cat.keys {
+                let themeData = thisElement.value
+                let cat = themeData["categories"] as! [String:Bool]
+                for categoryName in cat.keys {
                     // TODO: save a new CategoriesList, get image from getCategories
-                    
-                    //let reference = Storage.storage().reference(forURL: )
-                    
-                    // TODO: Controller und Entity umbauen, dass sie eine reference bekommen und kein Bild mehr
-                    //cell.cellTheme_1.sd_setImage(with: reference)
 
                     
-                    if (!self.checkForDuplicates(categories: self.categories, element: element)) {
+                    if (!self.checkForDuplicates(categories: self.categories, categoryName: categoryName)) {
                         // TODO get image from category and storage
                         
-                        self.categories.append(Category(name: element, image: "Image"))
+                        self.categories.append(Category(name: categoryName, image: "http//:blaa"))
                     }
                 }
             }
@@ -74,9 +68,13 @@ class CategoryViewModel : CategoryProtocol
         })
     }
     
-    func checkForDuplicates(categories : [Category], element : String) -> Bool {
+    func displayImages(imgURL: String) {
+        let reference = Storage.storage().reference(forURL: imgURL)
+    }
+    
+    func checkForDuplicates(categories : [Category], categoryName : String) -> Bool {
         for everything in categories {
-            if(everything.title == element) {
+            if(everything.title == categoryName) {
                 return true
             }
         }

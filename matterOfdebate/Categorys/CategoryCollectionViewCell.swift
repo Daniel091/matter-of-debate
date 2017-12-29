@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var cellTheme_1 : UIImageView!
-    @IBOutlet var theme_1_label : UILabel!
+    @IBOutlet var imageView : UIImageView!
+    @IBOutlet var themeLabel : UILabel!
     
     func displayContent(image: UIImage, title: String) {
-        cellTheme_1.image = image
-        theme_1_label.text = title
+        imageView.image = image
+        themeLabel.text = title
     }
 }

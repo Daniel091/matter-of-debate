@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseStorageUI
 
 class CategoriesController: UICollectionViewController {
     
+    private let storage = Storage.storage()
     @IBOutlet var categoriesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -25,9 +28,6 @@ class CategoriesController: UICollectionViewController {
         } else {
             CategoryViewModel.sharedInstance.getTopicCategories()
         }
-        
-        //let categoryGenerator = CategoryGeneratorMock()
-        //categories = categoryGenerator.getCategories()
     }
     
     @objc private func categoriesUpdated () {
@@ -73,12 +73,9 @@ class CategoriesController: UICollectionViewController {
         
         let category = CategoryViewModel.sharedInstance.categories[indexPath.row]
         
-        if let image = UIImage(named: category.image) {
-            cell.displayContent(image: image, title: category.title)
-        } else {
-            // TODO: actual dummy image
-            cell.displayContent(image: UIImage(named: "Image")!, title: category.title)
-        }
+        let reference = storage.reference(forURL: category.image)
+        cell.imageView.sd_setImage(with: reference, placeholderImage: UIImage(named: "Image"))
+        cell.themeLabel.text = category.title
         
         return cell
     }
