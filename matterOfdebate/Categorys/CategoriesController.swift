@@ -36,6 +36,12 @@ class CategoriesController: UICollectionViewController {
         categoriesCollectionView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? OpinionController {
+            viewController.delegate = self
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (SingletonUser.sharedInstance.user.isAdmin) {
             return CategoryViewModel.sharedInstance.categories.count + 1
@@ -81,6 +87,11 @@ class CategoriesController: UICollectionViewController {
         
         return cell
     }
+}
+
+extension CategoriesController: TabBarDelegate {
     
-    
+    func switchToTab(_ index: Int) {
+        tabBarController?.selectedIndex = index
+    }
 }

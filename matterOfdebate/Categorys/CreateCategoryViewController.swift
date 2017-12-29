@@ -99,6 +99,6 @@ class CreateCategoryViewController: FormViewController {
     
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }

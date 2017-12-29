@@ -122,6 +122,7 @@ class SettingsController: FormViewController {
         print(":-) trying to logout")
         do {
             try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: false)
             self.performSegue(withIdentifier: "loggedOutUser", sender: self)
             
             //SingletonUser.sharedInstance.user = User(uid: "", email: "", user_name: "")

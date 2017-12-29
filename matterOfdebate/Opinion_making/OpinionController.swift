@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol TabBarDelegate: class {
+    func switchToTab(_ index: Int)
+}
+
 class OpinionController : UIViewController {
     
     @IBOutlet var opinionView : UIView!
@@ -19,6 +23,7 @@ class OpinionController : UIViewController {
     
     var opinionValue: Int = 0
     
+    weak var delegate: TabBarDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,7 @@ class OpinionController : UIViewController {
     
     
     @IBAction func backToTopicView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: false)
     }
     
     @IBAction func changeOpinion(_ sender: UISlider) {
@@ -66,7 +71,9 @@ class OpinionController : UIViewController {
         
         //stay at this view
         let gotToChatsView = UIAlertAction(title: "Chat View", style: .cancel) { (_) in
-            self.performSegue(withIdentifier: "showChatsView", sender: self)
+            self.navigationController?.popToRootViewController(animated: false)
+            self.delegate?.switchToTab(2)
+            //self.performSegue(withIdentifier: "showChatsView", sender: self)
         }
         
         //adding the action to dialogbox
