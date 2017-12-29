@@ -64,7 +64,7 @@ class CreateCategoryViewController: FormViewController {
         // Image to Data
         var data = Data()
         data = UIImageJPEGRepresentation(image, 0.5)!
-        
+         
         // set MetaData
         metadata.contentType = "image/jpeg"
         
