@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */; };
+		4832EC811FF630CE003A9693 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */; };
 		483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA51FC89FB100338945 /* CategoriesController.swift */; };
 		483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */; };
 		4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846C5591FE6A99C00889779 /* MatchingFunction.swift */; };
@@ -15,7 +16,6 @@
 		486F6FD61FDF57A8005376D8 /* OpinionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD51FDF57A8005376D8 /* OpinionView.swift */; };
 		486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */; };
 		486F6FDA1FDF5808005376D8 /* OpinionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */; };
-		486FC5B41FE089AF008DBDAB /* matchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486FC5B31FE089AF008DBDAB /* matchUser.swift */; };
 		48A6C6831FF2F1EC006CA003 /* StatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */; };
 		48A6C6851FF2F785006CA003 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6841FF2F785006CA003 /* StatisticsView.swift */; };
 		48A6C6871FF2F9E3006CA003 /* CreatingCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */; };
@@ -68,7 +68,6 @@
 		486F6FD51FDF57A8005376D8 /* OpinionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionView.swift; sourceTree = "<group>"; };
 		486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionViewModel.swift; sourceTree = "<group>"; };
 		486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionProtocol.swift; sourceTree = "<group>"; };
-		486FC5B31FE089AF008DBDAB /* matchUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchUser.swift; sourceTree = "<group>"; };
 		48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CategoryStoryboard.storyboard; path = /Users/stefaniehuber/Documents/UNI_LMU/Semester9/IOSPraktikum/Repository/MatterOfDebate/matterOfdebate/storyboards/CategoryStoryboard.storyboard; sourceTree = "<absolute>"; };
 		48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsController.swift; sourceTree = "<group>"; };
 		48A6C6841FF2F785006CA003 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
@@ -164,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				4846C5591FE6A99C00889779 /* MatchingFunction.swift */,
-				486FC5B31FE089AF008DBDAB /* matchUser.swift */,
 			);
 			path = Usermatching;
 			sourceTree = "<group>";
@@ -375,6 +373,7 @@
 				65DD4A7C1FF15B5800233187 /* UserChats.storyboard in Resources */,
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
+				4832EC811FF630CE003A9693 /* CategoryStoryboard.storyboard in Resources */,
 				657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
@@ -510,7 +509,6 @@
 				48AEEFCD1FCB79CE00726996 /* CategoryProtocol.swift in Sources */,
 				48EA29EC1FE00AD700518C8D /* Opinion.swift in Sources */,
 				486F6FDA1FDF5808005376D8 /* OpinionProtocol.swift in Sources */,
-				486FC5B41FE089AF008DBDAB /* matchUser.swift in Sources */,
 				48B657CE1FD460EC0017266B /* Topic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
