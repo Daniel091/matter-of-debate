@@ -219,9 +219,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fld-fV-46D"/>
                     <connections>
+                        <outlet property="adminButton" destination="2P4-WK-4ag" id="ihL-yg-Z7J"/>
                         <outlet property="email_login_field" destination="OSP-ue-GhG" id="uiP-D7-1Ay"/>
                         <outlet property="feedback_label" destination="q8A-Zc-p1K" id="eTE-gz-kzL"/>
                         <outlet property="pw_login_field" destination="Nji-AR-pHw" id="VUR-ah-92t"/>
+                        <outlet property="userButton" destination="6Fs-Pz-WPS" id="Me1-ge-h5Z"/>
                         <segue destination="ONY-12-BDX" kind="show" identifier="loginSuccessful" id="v2a-te-Owv"/>
                         <segue destination="iBi-zS-QO0" kind="show" identifier="showRegistration" id="PwT-EQ-knS"/>
                     </connections>

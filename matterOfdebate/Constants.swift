@@ -29,4 +29,5 @@ struct Constants {
     public static let opinionGroupNumber = 5;
     public static let opinionMaximum = 50;
     public static let opinionGroupDistance = opinionMaximum/opinionGroupNumber;
+    public static let isInDebugMode = true;
 }

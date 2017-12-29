@@ -18,12 +18,16 @@ class EmailLoginController: UIViewController {
     @IBOutlet weak var email_login_field: UITextField!
     @IBOutlet weak var pw_login_field: UITextField!
     
+    @IBOutlet weak var adminButton: UIButton!
+    @IBOutlet weak var userButton: UIButton!
+    
     // Spinner
     var sv : UIView = UIView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        adminButton.isHidden = !Constants.isInDebugMode
+        userButton.isHidden = !Constants.isInDebugMode
     }
     
     override func viewDidAppear(_ animated: Bool) {
