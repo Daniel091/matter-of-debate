@@ -8,13 +8,9 @@
 
 import Foundation
 import Firebase
-import PromiseKit
-import AwaitKit
 
 // TODO: for publishing push this to server backend 
 class MatchingFunction {
-    
-    public var asyncBool = false
     
     var ref = Database.database().reference()
     
@@ -25,32 +21,46 @@ class MatchingFunction {
             let postDict = snapshot.value
             let usersFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
             
+            let dispatchGroup = DispatchGroup()
+            var chatInfo: (String, String)?
+            
             for user in usersFirebase {
                 if(user.key == currUserID) {
                     continue
                 }
-                let valuesToWant = user.value
-                if let opinions = valuesToWant["opinions"] as? Dictionary<String,Int> {
+                print("test")
+                let userData = user.value
+                if let opinions = userData["opinions"] as? Dictionary<String,Int> {
                     for opinion in opinions {
                         
                         if(topicID != opinion.key) {
                             continue
                         }
+                        print("found topic with opinionGroup: \(opinionGroup) opinionValue: \(opinion.value)")
                         if(-opinionGroup == opinion.value){
-//                            let userHasAChat = self.userHasChat(userID: user.key,topicID: topicID)
-                            self.userHasChat(userID: user.key, topicID: topicID)
-                            if(self.asyncBool) {
-                                print("there is a chat already")
-                                continue
-                            }
+                            print("opinionmatch")
                             
-                            self.createChat(topicID: topicID, currUserID: currUserID, matchedUserID: user.key)
-                            print("user konnte gematched werden :D")
-                            return
-    
-                            //TODO: wie teilen wir dem User mit, dass er gematched wurde?
+                            dispatchGroup.enter()
+                            self.userHasChat(userID: user.key, topicID: topicID) { result in
+                                guard(!result) else {
+                                    print("user hat schon einen chat")
+                                    dispatchGroup.leave()
+                                    return
+                                }
+                                chatInfo = (topicID, user.key)
+                                dispatchGroup.leave()
+                                
+                                
+                            }
                         }
                     }
+                }
+            }
+            dispatchGroup.notify(queue: .main) {
+                if let chatInfo = chatInfo {
+                    
+                    self.createChat(topicID: chatInfo.0, currUserID: currUserID, matchedUserID: chatInfo.1)
+                    print("es wird ein chat erstellt :D")
                 }
             }
             //TODO: handle no result
@@ -60,13 +70,9 @@ class MatchingFunction {
     
     // checks if user has chat already for this Topic
     // TODO: implement futures oder so
-    func userHasChat(userID: String, topicID: String)
-        //-> Bool
+    func userHasChat(userID: String, topicID: String, completion: @escaping (Bool) -> Void)
     {
-            
-        //var (promiseResult, fulfill, _) = Promise<Bool>.pending()
-
-        //DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .background).async {
             self.ref.child("chats").observeSingleEvent(of: .value, with: { (snapshot) in
                 let postDict = snapshot.value
                 let chatsFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
@@ -76,21 +82,25 @@ class MatchingFunction {
                     if(chat.value["title"] as! String != topicID) {
                         continue
                     }
-                    let valuesToWant = chat.value
-                    if let users = valuesToWant["users"] as? Dictionary<String,Bool> {
-                        for user in users {
+                    print("hrrrg found topic \(topicID)")
+                    let chatData = chat.value
+                    if let chattingUsers = chatData["users"] as? Dictionary<String,Bool> {
+                        print("hrrrg found chatting users: \(chattingUsers.count)")
+                        for user in chattingUsers {
                             
                             if(user.key == userID) {
-                                self.asyncBool = true
-                                //fulfill(true)
+                                print("hrrrg found match, userID: \(userID)")
+                                completion(true)
+                                return
                             }
                         }
                     }
                 }
-                self.asyncBool = false
-                //fulfill(false)
+                print("hrrrg no match")
+                completion(false)
+                
             })
-        //}
+        }
         
         //do {return try await (promiseResult)} catch {return false}
     }
