@@ -19,6 +19,8 @@ class CategoriesController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Categories"
+        
         NotificationCenter.default.addObserver(self, selector: #selector(categoriesUpdated), name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
     
         // check if current user is Admin or not and set IF to true if finished

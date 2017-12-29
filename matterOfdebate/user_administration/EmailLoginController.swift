@@ -147,5 +147,22 @@ class EmailLoginController: UIViewController {
         SingletonUser.sharedInstance.user = User(uid: usr_uid, email: "", user_name: "Anonymous", isAdmin: false, isAnonymous: true)
         self.performSegue(withIdentifier: "loginSuccessful", sender: self)
     }
+    
+    @IBAction func adminLoginPressed(_ sender: Any) {
+        self.sv = UIViewController.displaySpinner(onView: self.view)
+        Auth.auth().signIn(withEmail: "s.admin@test.de", password: "passwort", completion: ({ (user, error) in
+            
+        }))
+    }
+    @IBAction func userLoginPressed(_ sender: Any) {
+        self.sv = UIViewController.displaySpinner(onView: self.view)
+        Auth.auth().signIn(withEmail: "s.user@test.de", password: "passwort", completion: ({ (user, error) in
+            
+        }))
+    }
+    
+    @IBAction func registerButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "showRegistration", sender: self)
+    }
 }
 
