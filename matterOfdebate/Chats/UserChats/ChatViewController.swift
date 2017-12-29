@@ -60,19 +60,22 @@ class ChatViewController: JSQMessagesViewController {
         // Query Messages of chat_id
         let query = Constants.refs.databaseMessages.child(chat_id)
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
-            if let data = snapshot.value as? [String: String] {
-                if let name = data["name"], let text = data["text"], let id = data["sender-id"], !text.isEmpty {
-                    // build a message from the snapshots data
-                    if let message = JSQMessage(senderId: id, displayName: name, text: text) {
-                        self?.messages.append(message)
-                        self?.finishReceivingMessage()
-                    }
-                }
+            
+            guard let data = snapshot.value as? [String: String],
+                let name = data["name"],
+                let text = data["text"],
+                let id = data["sender-id"],
+                !text.isEmpty,
+                let message = JSQMessage(senderId: id, displayName: name, text: text) else { return
             }
+            
+            self?.messages.append(message)
+            self?.finishReceivingMessage()
         })
     }
     
     func setupSettingsChatButton() {
+        // TODO: Steffi, neuer Button
         let settingsButton = UIBarButtonItem(image: UIImage.jsq_defaultTypingIndicator(), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
         navigationItem.rightBarButtonItem = settingsButton
     }
