@@ -22,7 +22,8 @@ class MatchingFunction {
             let usersFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
             
             let dispatchGroup = DispatchGroup()
-            var chatInfo: (String, String)?
+            var topicIDData: String?
+            var matchedUserData: String?
             
             for user in usersFirebase {
                 if(user.key == currUserID) {
@@ -36,9 +37,7 @@ class MatchingFunction {
                         if(topicID != opinion.key) {
                             continue
                         }
-                        print("found topic with opinionGroup: \(opinionGroup) opinionValue: \(opinion.value)")
                         if(-opinionGroup == opinion.value){
-                            print("opinionmatch")
                             
                             dispatchGroup.enter()
                             self.userHasChat(userID: user.key, topicID: topicID) { result in
@@ -47,7 +46,8 @@ class MatchingFunction {
                                     dispatchGroup.leave()
                                     return
                                 }
-                                chatInfo = (topicID, user.key)
+                                topicIDData = topicID
+                                matchedUserData = user.key
                                 dispatchGroup.leave()
                                 
                                 
@@ -57,14 +57,12 @@ class MatchingFunction {
                 }
             }
             dispatchGroup.notify(queue: .main) {
-                if let chatInfo = chatInfo {
+                if let topicIDData = topicIDData, let matchedUserData = matchedUserData {
                     
-                    self.createChat(topicID: chatInfo.0, currUserID: currUserID, matchedUserID: chatInfo.1)
+                    self.createChat(topicID: topicIDData, currUserID: currUserID, matchedUserID: matchedUserData)
                     print("es wird ein chat erstellt :D")
                 }
             }
-            //TODO: handle no result
-            print("no result")
         })
     }
     
@@ -82,27 +80,21 @@ class MatchingFunction {
                     if(chat.value["title"] as! String != topicID) {
                         continue
                     }
-                    print("hrrrg found topic \(topicID)")
                     let chatData = chat.value
                     if let chattingUsers = chatData["users"] as? Dictionary<String,Bool> {
-                        print("hrrrg found chatting users: \(chattingUsers.count)")
                         for user in chattingUsers {
                             
                             if(user.key == userID) {
-                                print("hrrrg found match, userID: \(userID)")
                                 completion(true)
                                 return
                             }
                         }
                     }
                 }
-                print("hrrrg no match")
                 completion(false)
                 
             })
         }
-        
-        //do {return try await (promiseResult)} catch {return false}
     }
     
     // creates new Chat
