@@ -31,8 +31,9 @@ struct Constants {
     public static let opinionGroupDistance = opinionMaximum/opinionGroupNumber;
     
     // chat configurations
-    public static let maxNumberOfCharacters = 52
+    public static let maxNumberOfCharacters = 250
     public static let maxNumberCopyPaste = 1
+    public static let maxNumberOfChatmessages = 3
     
     // controll debug mode
     public static let isInDebugMode = true;

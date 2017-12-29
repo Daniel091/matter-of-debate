@@ -114,7 +114,7 @@ class ChatViewController: JSQMessagesViewController {
     // User sends a message
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-        guard !spamFilter() else {
+        guard !spamFilter(senderId) else {
             // TODO: implement a notification for user
             print("du kannst keinen neuen chat erstellen, erst musst du warten bis der Gegner eine Nachricht geschrieben hat")
             return
@@ -143,12 +143,23 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     // spam filter for chat -- checks if the last messages are from current user and disables him from sending another
-    func spamFilter() -> Bool {
-        // TODO: in den letzten 3 nachrichten, wenn nicht alle 3 nachrichten von mir sind .. dann weiter
-        print(messages.count)
-        let lastMessage = messages[messages.count-1]
-        print(lastMessage)
-        return true
+    func spamFilter(_ curSenderID : String) -> Bool {
+        
+        guard messages.count >= 3 else {
+            return false
+        }
+        for index in 1 ... Constants.maxNumberOfChatmessages {
+            let lastMessage = messages[messages.count - index]
+            let lastlastMessage = messages[messages.count - index]
+            let lastlastlastMessage = messages[messages.count - index]
+            
+            if lastMessage.senderId == lastlastMessage.senderId
+                && lastlastlastMessage.senderId == curSenderID
+                && lastMessage.senderId == curSenderID{
+                return true
+            }
+        }
+        return false
     }
     
     // returns message from specific index
