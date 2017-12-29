@@ -35,10 +35,6 @@ class CategoryViewModel : CategoryProtocol
                 Category(name: category.key, image: category.value["img-url"]!)
             }
             
-            self.categories.forEach{ category in
-                
-            }
-            
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
     }
@@ -46,7 +42,17 @@ class CategoryViewModel : CategoryProtocol
     // User specified View of Categories
     func getThemeCategories() {
         
-        self.ref.child("themes").observe(.value, with: { (snapshot) in
+        var imageURLs = Dictionary<String, String>()
+        Constants.refs.databaseCategories.observe(.value, with: { (snapshot) in
+            let postDict = snapshot.value
+            let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
+            
+            categoriesFirebase.forEach{category in
+                imageURLs[category.key] = category.value["img-url"]
+            }
+        })
+        
+        Constants.refs.databaseThemes.observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
             let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
             
@@ -60,16 +66,15 @@ class CategoryViewModel : CategoryProtocol
                     if (!self.checkForDuplicates(categories: self.categories, categoryName: categoryName)) {
                         // TODO get image from category and storage
                         
-                        self.categories.append(Category(name: categoryName, image: "https://firebasestorage.googleapis.com/v0/b/matterofdebate-e6a82.appspot.com/o/theme-images%2FJust%20a%20test%20theme.jpg?alt=media&token=ce591dda-70f8-46fa-b76e-22291b8e9d17"))
+                        if let imageURL = imageURLs[categoryName] {
+                            
+                            self.categories.append(Category(name: categoryName, image: imageURL))
+                        }
                     }
                 }
             }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
-    }
-    
-    func displayImages(imgURL: String) {
-        let reference = Storage.storage().reference(forURL: imgURL)
     }
     
     func checkForDuplicates(categories : [Category], categoryName : String) -> Bool {

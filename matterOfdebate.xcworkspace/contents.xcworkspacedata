@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/stefaniehuber/Documents/UNI_LMU/Semester9/IOSPraktikum/Repository/MatterOfDebate/matterOfdebate/storyboards/CategoryStoryboard.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:matterOfdebate.xcodeproj">
    </FileRef>
    <FileRef

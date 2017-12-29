@@ -14,7 +14,7 @@
         <scene sceneID="rGC-cT-uVe">
             <objects>
                 <collectionViewController id="TY6-RK-409" customClass="CategoriesController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zHa-aO-9E5" customClass="Category">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zHa-aO-9E5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,8 +49,8 @@
                                 </view>
                                 <size key="customSize" width="176" height="127"/>
                                 <connections>
-                                    <outlet property="imageView" destination="bh6-Lt-4W4" id="FNL-km-qWz"/>
-                                    <outlet property="themeLabel" destination="8do-ZF-AP5" id="5v0-Gg-cOm"/>
+                                    <outlet property="imageView" destination="bh6-Lt-4W4" id="EjS-FI-4o3"/>
+                                    <outlet property="themeLabel" destination="8do-ZF-AP5" id="Cqs-jf-hJF"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
