@@ -34,6 +34,7 @@ class UserChatSettings: FormViewController {
             }
         
         // Settings Section
+        // TODO: Steffi, neuer Button
         form +++ Section("Einstellungen")
             <<< ButtonRow("deleteChat"){
                 $0.title = "Chat beenden"

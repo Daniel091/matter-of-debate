@@ -25,9 +25,15 @@ struct Constants {
         static let storageThemesImgs = storageRoot.child("theme-images")
     }
     
-    // neutral (0) is in pro List!!
+    // matching user -- neutral (0) is in pro List!!
     public static let opinionGroupNumber = 5;
     public static let opinionMaximum = 50;
     public static let opinionGroupDistance = opinionMaximum/opinionGroupNumber;
+    
+    // chat configurations
+    public static let maxNumberOfCharacters = 52
+    public static let maxNumberCopyPaste = 1
+    
+    // controll debug mode
     public static let isInDebugMode = true;
 }

@@ -76,12 +76,10 @@ class ChatViewController: JSQMessagesViewController {
     
     override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         // limitation of characters && disable copypaste
-        //TODO Constante einsetzen
-        return textView.text.count <= 200 && text.count <= 1
+        return textView.text.count <= Constants.maxNumberOfCharacters && text.count <= Constants.maxNumberCopyPaste
     }
     
     func setupSettingsChatButton() {
-        // TODO: Steffi, neuer Button
         let settingsButton = UIBarButtonItem(image: UIImage.jsq_defaultTypingIndicator(), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
         navigationItem.rightBarButtonItem = settingsButton
     }
@@ -116,8 +114,9 @@ class ChatViewController: JSQMessagesViewController {
     // User sends a message
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-        // TODO: in den letzten 3 nachrichten, wenn nicht alle 3 nachrichten von mir sind .. dann weiter
-        guard true else {
+        guard !spamFilter() else {
+            // TODO: implement a notification for user
+            print("du kannst keinen neuen chat erstellen, erst musst du warten bis der Gegner eine Nachricht geschrieben hat")
             return
         }
         
@@ -143,6 +142,14 @@ class ChatViewController: JSQMessagesViewController {
         finishSendingMessage()
     }
     
+    // spam filter for chat -- checks if the last messages are from current user and disables him from sending another
+    func spamFilter() -> Bool {
+        // TODO: in den letzten 3 nachrichten, wenn nicht alle 3 nachrichten von mir sind .. dann weiter
+        print(messages.count)
+        let lastMessage = messages[messages.count-1]
+        print(lastMessage)
+        return true
+    }
     
     // returns message from specific index
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
