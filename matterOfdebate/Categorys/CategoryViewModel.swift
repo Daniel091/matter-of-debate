@@ -44,7 +44,7 @@ class CategoryViewModel : CategoryProtocol
     }
     
     // User specified View of Categories
-    func getTopicCategories() {
+    func getThemeCategories() {
         
         self.ref.child("themes").observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
@@ -60,7 +60,7 @@ class CategoryViewModel : CategoryProtocol
                     if (!self.checkForDuplicates(categories: self.categories, categoryName: categoryName)) {
                         // TODO get image from category and storage
                         
-                        self.categories.append(Category(name: categoryName, image: "http//:blaa"))
+                        self.categories.append(Category(name: categoryName, image: "https://firebasestorage.googleapis.com/v0/b/matterofdebate-e6a82.appspot.com/o/theme-images%2FJust%20a%20test%20theme.jpg?alt=media&token=ce591dda-70f8-46fa-b76e-22291b8e9d17"))
                     }
                 }
             }

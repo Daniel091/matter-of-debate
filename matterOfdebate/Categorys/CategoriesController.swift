@@ -26,7 +26,7 @@ class CategoriesController: UICollectionViewController {
         if (user_obj.isAdmin) {
             CategoryViewModel.sharedInstance.getCategories()
         } else {
-            CategoryViewModel.sharedInstance.getTopicCategories()
+            CategoryViewModel.sharedInstance.getThemeCategories()
         }
     }
     
