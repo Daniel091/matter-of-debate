@@ -175,6 +175,31 @@ class ChatViewController: JSQMessagesViewController {
         return false
     }
     
+    func isChatTooOld() -> Bool{
+        let lastMessage = messages[messages.count - 1]
+        
+        // TODO: check what lastMessage.date returns
+        let dateThreeDaysBefore = (String(describing: lastMessage.date!))
+        let dateMessage = (String(describing: Date().yesterday))
+        
+        // TODO: Eventually check for range also by comparing days and month seperated
+        var dateMessageArray = dateMessage.components(separatedBy: " ")
+        let dateMessageDay = dateMessageArray[0]
+        
+        var dateThreeDaysBeforeArray = dateThreeDaysBefore.components(separatedBy: " ")
+        let dateThreeDaysBeforeDay = dateThreeDaysBeforeArray[0]
+        
+        print(dateThreeDaysBeforeDay)
+        print(dateMessageDay)
+        print(dateThreeDaysBeforeDay == dateMessageDay)
+        
+        // Chat should be deleted when more then 3 days old -- check every day !
+        if (dateThreeDaysBeforeDay == dateMessageDay) {
+            return true
+        }
+        return false
+    }
+    
     // returns message from specific index
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
@@ -210,4 +235,26 @@ class ChatViewController: JSQMessagesViewController {
         return cell
     }
     
+}
+
+// counting all dates in timestamps
+extension Date {
+    var yesterday: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var threeDaysBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -3, to: noon)!
+    }
+    var tomorrow: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return tomorrow.month != month
+    }
 }
