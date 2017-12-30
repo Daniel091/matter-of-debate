@@ -115,8 +115,7 @@ class ChatViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
         guard !spamFilter(senderId) else {
-            // TODO: implement a notification for user
-            print("du kannst keinen neuen chat erstellen, erst musst du warten bis der Gegner eine Nachricht geschrieben hat")
+            showDialog()
             return
         }
         
@@ -140,6 +139,20 @@ class ChatViewController: JSQMessagesViewController {
         
         // do a nice animation
         finishSendingMessage()
+    }
+    
+    // notification for user about chatmessages
+    func showDialog() {
+        let dialogController = UIAlertController(title: "", message: "You have to wait for your contrahent to answer your messages", preferredStyle: .alert)
+        
+        //stay at this view
+        let gotToChatsView = UIAlertAction(title: "ok", style: .cancel) { (_) in
+        }
+        
+        //adding the action to dialogbox
+        dialogController.addAction(gotToChatsView)
+        
+        self.present(dialogController, animated: true, completion: nil)
     }
     
     // spam filter for chat -- checks if the last messages are from current user and disables him from sending another
