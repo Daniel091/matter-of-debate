@@ -71,8 +71,8 @@ class CategoriesController: UICollectionViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             
             // TODO: plus icon
-            if let image = UIImage(named: "Image")?.withHorizontallyFlippedOrientation() {
-                cell.displayContent(image: image, title: "+")
+            if let image = UIImage(named: "PlusCategory")?.withHorizontallyFlippedOrientation() {
+                cell.displayContent(image: image, title: "")
             }
             return cell
         }
