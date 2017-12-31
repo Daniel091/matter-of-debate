@@ -12,6 +12,7 @@ import Firebase
 
 class UserChatSettings: FormViewController {
     var chat:Chat?
+    let matchingFunction = MatchingFunction()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,21 @@ class UserChatSettings: FormViewController {
             }
         
         // Settings Section
-        // TODO: Steffi, neuer Button
         form +++ Section("Einstellungen")
             <<< ButtonRow("deleteChat"){
                 $0.title = "Chat beenden"
                 }.onCellSelection({ (cell, row) in
                     self.endChat()
+                })
+            <<< ButtonRow("nextUser"){
+                $0.title = "Select next user"
+                }.onCellSelection({ (cell, row) in
+                    self.nextUser()
+                })
+            <<< ButtonRow("reportUser"){
+                $0.title = "Report user"
+                }.onCellSelection({ (cell, row) in
+                    self.reportUser()
                 })
     }
 
@@ -65,5 +75,74 @@ class UserChatSettings: FormViewController {
         if let navController = self.navigationController {
             navController.popToRootViewController(animated: true)
         }
+    }
+    
+    func nextUser() {
+        guard let chatObject = chat else {
+            return
+        }
+        
+        self.endChat()
+        
+        // TODO: get real Opinion!!
+        matchingFunction.searchForMatching(topicID: chatObject.topic.id, currUserID: SingletonUser.sharedInstance.user.uid, opinionGroup: 3)
+    }
+    
+    func reportUser() {
+        guard let chatObject = chat else {
+            return
+        }
+        let title = "Reported user"
+        let message = "You reported your chatpartner, the admins will get a notification"
+        var chatPartner = ""
+        
+        for user in chatObject.users.keys {
+            if (!(user == SingletonUser.sharedInstance.user.uid)) {
+                chatPartner = user
+            }
+        }
+        
+        // TODO: einbauen weger was reported wird ?
+        // checklist .. - flaming
+        //              - some else
+        
+        showDialog(title: title, message: message)
+        sendReportsToDatabase(chatPartner)
+        print("reportet user")
+    }
+    
+    func getNumberOfReportsOfUser(_ userID: String)  {
+        
+    }
+    
+    func sendReportsToDatabase(_ reportedUserID: String) {
+        let numberOfReports = 1
+        
+        let dataRef = Constants.refs.reportedUsers
+            .child(reportedUserID)
+        
+        guard dataRef.isAccessibilityElement else {
+            dataRef.child("numberReports").setValue(numberOfReports)
+            let reportingUseresRef = dataRef.child("reportingUsers")
+            reportingUseresRef.child(SingletonUser.sharedInstance.user.uid).setValue(true)
+            return
+        }
+        
+        dataRef.child("numberReports").setValue(numberOfReports+1)
+        let reportingUseresRef = dataRef.child("reportingUsers")
+        reportingUseresRef.child(SingletonUser.sharedInstance.user.uid).setValue(true)
+    }
+    
+    func showDialog(title: String, message: String) {
+        let dialogController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        //going back to browse through themes
+        let backToTopicView = UIAlertAction(title: "OK", style: .default) { (_) in
+        }
+        
+        //adding the action to dialogbox
+        dialogController.addAction(backToTopicView)
+        
+        self.present(dialogController, animated: true, completion: nil)
     }
 }

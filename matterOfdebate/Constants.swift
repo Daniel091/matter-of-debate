@@ -20,6 +20,7 @@ struct Constants {
         
         static let curruserReference = Auth.auth().currentUser
         static let databaseUsers = databaseRoot.child("users")
+        static let reportedUsers = databaseRoot.child("reportedUsers")
         
         static let storageRoot = Storage.storage().reference()
         static let storageThemesImgs = storageRoot.child("theme-images")
