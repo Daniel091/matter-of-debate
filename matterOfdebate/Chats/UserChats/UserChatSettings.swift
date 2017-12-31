@@ -111,26 +111,54 @@ class UserChatSettings: FormViewController {
         print("reportet user")
     }
     
-    func getNumberOfReportsOfUser(_ userID: String)  {
-        
+    func getNumberOfReportsOfUser(userID: String, completion: @escaping (Int) -> Void)  {
+        DispatchQueue.global(qos: .background).async {
+            Constants.refs.reportedUsers
+                .child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+                let postDict = snapshot.value
+                
+                let reportedUserDatabase = postDict as? Dictionary<String, AnyObject> ?? [String : AnyObject]()
+                
+                for key in reportedUserDatabase.keys {
+                    if (key == "numberReports") {
+                        print(reportedUserDatabase[key]!)
+                        completion(reportedUserDatabase[key] as! Int)
+                    }
+                }
+            })
+        }
     }
     
+    // TODO: fix abfrage nach number of reports
+    // TODO: insert real abfrage ob der User im baum schon existiert
     func sendReportsToDatabase(_ reportedUserID: String) {
+//        let dispatchGroup = DispatchGroup()
+//        var currentNumberOfReports: Int?
         let numberOfReports = 1
         
-        let dataRef = Constants.refs.reportedUsers
-            .child(reportedUserID)
+//        dispatchGroup.enter()
+//        self.getNumberOfReportsOfUser(userID: reportedUserID) { result in
+//            currentNumberOfReports = result
+//            dispatchGroup.leave()
+//        }
+//
+//        dispatchGroup.notify(queue: .main) {
+//            numberOfReports = currentNumberOfReports!
         
-        guard dataRef.isAccessibilityElement else {
-            dataRef.child("numberReports").setValue(numberOfReports)
+            let dataRef = Constants.refs.reportedUsers
+                .child(reportedUserID)
+            
+            guard dataRef.isAccessibilityElement else {
+                dataRef.child("numberReports").setValue(numberOfReports)
+                let reportingUseresRef = dataRef.child("reportingUsers")
+                reportingUseresRef.child(SingletonUser.sharedInstance.user.uid).setValue(true)
+                return
+            }
+            
+            dataRef.child("numberReports").setValue(numberOfReports+1)
             let reportingUseresRef = dataRef.child("reportingUsers")
             reportingUseresRef.child(SingletonUser.sharedInstance.user.uid).setValue(true)
-            return
-        }
-        
-        dataRef.child("numberReports").setValue(numberOfReports+1)
-        let reportingUseresRef = dataRef.child("reportingUsers")
-        reportingUseresRef.child(SingletonUser.sharedInstance.user.uid).setValue(true)
+        //}
     }
     
     func showDialog(title: String, message: String) {
