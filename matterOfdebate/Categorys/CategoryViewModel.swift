@@ -60,14 +60,8 @@ class CategoryViewModel : CategoryProtocol
                 let themeData = thisElement.value
                 let cat = themeData["categories"] as! [String:Bool]
                 for categoryName in cat.keys {
-                    // TODO: save a new CategoriesList, get image from getCategories
-
-                    
                     if (!self.checkForDuplicates(categories: self.categories, categoryName: categoryName)) {
-                        // TODO get image from category and storage
-                        
                         if let imageURL = imageURLs[categoryName] {
-                            
                             self.categories.append(Category(name: categoryName, image: imageURL))
                         }
                     }

@@ -175,26 +175,26 @@ class ChatViewController: JSQMessagesViewController {
         return false
     }
     
-    func isChatTooOld() -> Bool{
+    // TODO: bring to right place to check
+    // Chat should be deleted when more then 3 days old -- check every day !
+    func isChatTooOld(
+        //indexPath: IndexPath!
+        ) -> Bool{
         let lastMessage = messages[messages.count - 1]
         
-        // TODO: check what lastMessage.date returns
-        let dateThreeDaysBefore = (String(describing: lastMessage.date!))
-        let dateMessage = (String(describing: Date().yesterday))
+        let dateThreeDaysBefore = Date().threeDaysBefore
+        let dateMessage = lastMessage.date!
+        //let timestampChat = chat?.timestamp
         
-        // TODO: Eventually check for range also by comparing days and month seperated
-        var dateMessageArray = dateMessage.components(separatedBy: " ")
-        let dateMessageDay = dateMessageArray[0]
+        let calendar = Calendar.current
+        let dayMessage = calendar.component(.day, from: dateMessage)
+        let dayThreeDaysBefore = calendar.component(.day, from: dateThreeDaysBefore)
         
-        var dateThreeDaysBeforeArray = dateThreeDaysBefore.components(separatedBy: " ")
-        let dateThreeDaysBeforeDay = dateThreeDaysBeforeArray[0]
+        print(dayMessage)
+        print(dayThreeDaysBefore)
+        print(dayThreeDaysBefore == dayMessage)
         
-        print(dateThreeDaysBeforeDay)
-        print(dateMessageDay)
-        print(dateThreeDaysBeforeDay == dateMessageDay)
-        
-        // Chat should be deleted when more then 3 days old -- check every day !
-        if (dateThreeDaysBeforeDay == dateMessageDay) {
+        if (dayThreeDaysBefore == dayMessage) {
             return true
         }
         return false

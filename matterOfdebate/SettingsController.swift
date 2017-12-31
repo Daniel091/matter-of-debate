@@ -64,6 +64,7 @@ class SettingsController: FormViewController {
         }
         
         // test if new username is already taken
+        // TODO: is not working?
         var ref: DatabaseReference!
         ref = Database.database().reference().child("users")
         ref.queryOrdered(byChild: "username").queryEqual(toValue: usr_name as! String).observeSingleEvent(of: .value) { (userSnapshot) in
@@ -95,7 +96,6 @@ class SettingsController: FormViewController {
             if userSnapshot.childrenCount != 0 {
                 print("email already exists")
                 
-                // TODO: benachrichtige den user.
                 let emailAlert = UIAlertController(title: "", message: "email already exists", preferredStyle: .alert)
                 emailAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
                     NSLog("The duplicate email alert occured.")
@@ -126,7 +126,6 @@ class SettingsController: FormViewController {
             self.performSegue(withIdentifier: "loggedOutUser", sender: self)
             
             //SingletonUser.sharedInstance.user = User(uid: "", email: "", user_name: "")
-            // TODO: clean Navigation Stack
             print(":-) logged out")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
@@ -137,5 +136,4 @@ class SettingsController: FormViewController {
     func triggerCreateTheme() {
         self.performSegue(withIdentifier: "adminThemeControlSeque", sender: self)
     }
-
 }

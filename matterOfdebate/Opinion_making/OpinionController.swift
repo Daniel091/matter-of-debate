@@ -65,7 +65,6 @@ class OpinionController : UIViewController {
         
         //going back to browse through themes
         let backToTopicView = UIAlertAction(title: "Theme View", style: .default) { (_) in
-            //TODO: mal draufgucken lassen obs vom Navigationstack her stimmt was ich da tue :D
             self.backToTopicView(self)
         }
         

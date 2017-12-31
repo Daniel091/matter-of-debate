@@ -67,7 +67,6 @@ class MatchingFunction {
     }
     
     // checks if user has chat already for this Topic
-    // TODO: implement futures oder so
     func userHasChat(userID: String, topicID: String, completion: @escaping (Bool) -> Void)
     {
         DispatchQueue.global(qos: .background).async {
