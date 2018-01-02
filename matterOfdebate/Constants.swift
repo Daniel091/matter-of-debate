@@ -20,13 +20,22 @@ struct Constants {
         
         static let curruserReference = Auth.auth().currentUser
         static let databaseUsers = databaseRoot.child("users")
+        static let reportedUsers = databaseRoot.child("reportedUsers")
         
         static let storageRoot = Storage.storage().reference()
         static let storageThemesImgs = storageRoot.child("theme-images")
     }
     
-    // neutral (0) is in pro List!!
+    // matching user -- neutral (0) is in pro List!!
     public static let opinionGroupNumber = 5;
     public static let opinionMaximum = 50;
     public static let opinionGroupDistance = opinionMaximum/opinionGroupNumber;
+    
+    // chat configurations
+    public static let maxNumberOfCharacters = 250
+    public static let maxNumberCopyPaste = 1
+    public static let maxNumberOfChatmessages = 3
+    
+    // controll debug mode
+    public static let isInDebugMode = true;
 }

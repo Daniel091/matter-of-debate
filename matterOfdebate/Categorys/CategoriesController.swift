@@ -8,13 +8,18 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseStorageUI
 
 class CategoriesController: UICollectionViewController {
     
+    private let storage = Storage.storage()
     @IBOutlet var categoriesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Categories"
         
         NotificationCenter.default.addObserver(self, selector: #selector(categoriesUpdated), name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
     
@@ -23,15 +28,18 @@ class CategoriesController: UICollectionViewController {
         if (user_obj.isAdmin) {
             CategoryViewModel.sharedInstance.getCategories()
         } else {
-            CategoryViewModel.sharedInstance.getTopicCategories()
+            CategoryViewModel.sharedInstance.getThemeCategories()
         }
-        
-        //let categoryGenerator = CategoryGeneratorMock()
-        //categories = categoryGenerator.getCategories()
     }
     
     @objc private func categoriesUpdated () {
         categoriesCollectionView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? OpinionController {
+            viewController.delegate = self
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,8 +71,8 @@ class CategoriesController: UICollectionViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             
             // TODO: plus icon
-            if let image = UIImage(named: "Image")?.withHorizontallyFlippedOrientation() {
-                cell.displayContent(image: image, title: "+")
+            if let image = UIImage(named: "PlusCategory")?.withHorizontallyFlippedOrientation() {
+                cell.displayContent(image: image, title: "")
             }
             return cell
         }
@@ -73,15 +81,17 @@ class CategoriesController: UICollectionViewController {
         
         let category = CategoryViewModel.sharedInstance.categories[indexPath.row]
         
-        if let image = UIImage(named: category.image) {
-            cell.displayContent(image: image, title: category.title)
-        } else {
-            // TODO: actual dummy image
-            cell.displayContent(image: UIImage(named: "Image")!, title: category.title)
-        }
+        let reference = storage.reference(forURL: category.image)
+        cell.imageView.sd_setImage(with: reference, placeholderImage: UIImage(named: "Image"))
+        cell.themeLabel.text = category.title
         
         return cell
     }
+}
+
+extension CategoriesController: TabBarDelegate {
     
-    
+    func switchToTab(_ index: Int) {
+        tabBarController?.selectedIndex = index
+    }
 }

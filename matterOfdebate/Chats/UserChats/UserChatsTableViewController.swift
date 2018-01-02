@@ -73,9 +73,12 @@ class UserChatsTableViewController: UITableViewController {
                     let themeData = snapshot.value as! Dictionary<String, AnyObject>
                     
                     let theme_title = themeData["titel"] as? String ?? ""
+                    let descr = themeData["description"] as? String ?? ""
                     let img_url = themeData["img-url"] as? String ?? ""
-
-                    self.chats.append(Chat(chat_key, theme_title, last_m, users, timestamp, img_url))
+                    let topic = Topic(name: theme_title, description: descr, categories: [], imageUrl: "")
+                    
+                    self.chats.append(Chat(chat_key, theme_title, last_m, users, timestamp, img_url, topic))
+                    self.chats.sort(by: Chat.sortChatsbyTimestamp)
                     self.tableView.reloadData()
                 }) { (error) in
                     print(error.localizedDescription)
@@ -104,6 +107,7 @@ class UserChatsTableViewController: UITableViewController {
                 found_chat?.timestamp = timestamp
                 found_chat?.lastMessage = last_m
                 
+                self.chats.sort(by: Chat.sortChatsbyTimestamp)
                 self.tableView.reloadData()
             } else {
                 print("Error! Could not decode chats data in child changed")
@@ -111,6 +115,7 @@ class UserChatsTableViewController: UITableViewController {
         })
     }
     
+    //TODO: wenn man zu schnell zwischen den Chats wechselt gibts ne exception..
     // click on chat row should show chat view
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chat = chats[indexPath.row]
@@ -147,9 +152,8 @@ class UserChatsTableViewController: UITableViewController {
         // use firebase and sd web image to load picture asnyc
         let reference = self.storage.reference(forURL: chat.img_url)
         
-        // steffis big bad wolf as default picture
-        let plImage = UIImage(named: "Image")
-        cell.photoImageView.sd_setImage(with: reference, placeholderImage: plImage)
+        // no placeholder image
+        cell.photoImageView.sd_setImage(with: reference, placeholderImage: nil)
         
         return cell
     }

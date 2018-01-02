@@ -18,12 +18,16 @@ class EmailLoginController: UIViewController {
     @IBOutlet weak var email_login_field: UITextField!
     @IBOutlet weak var pw_login_field: UITextField!
     
+    @IBOutlet weak var adminButton: UIButton!
+    @IBOutlet weak var userButton: UIButton!
+    
     // Spinner
     var sv : UIView = UIView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        adminButton.isHidden = !Constants.isInDebugMode
+        userButton.isHidden = !Constants.isInDebugMode
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -112,9 +116,9 @@ class EmailLoginController: UIViewController {
     func get_user(_ usr_uid: String,_ isAnonymous: Bool) {
         
         // TODO do we really need this? if SingletonUser is already there
-        if SingletonUser.sharedInstance.user.uid == usr_uid {
-            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
-        }
+//        if SingletonUser.sharedInstance.user.uid == usr_uid {
+//            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+//        }
         
         isAnonymous ? constructAnonymousUser(usr_uid) : fetchUsrDatafromDatabase(usr_uid)
     }
@@ -146,6 +150,23 @@ class EmailLoginController: UIViewController {
     func constructAnonymousUser(_ usr_uid: String) {
         SingletonUser.sharedInstance.user = User(uid: usr_uid, email: "", user_name: "Anonymous", isAdmin: false, isAnonymous: true)
         self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+    }
+    
+    @IBAction func adminLoginPressed(_ sender: Any) {
+        self.sv = UIViewController.displaySpinner(onView: self.view)
+        Auth.auth().signIn(withEmail: "s.admin@test.de", password: "passwort", completion: ({ (user, error) in
+            
+        }))
+    }
+    @IBAction func userLoginPressed(_ sender: Any) {
+        self.sv = UIViewController.displaySpinner(onView: self.view)
+        Auth.auth().signIn(withEmail: "s.user@test.de", password: "passwort", completion: ({ (user, error) in
+            
+        }))
+    }
+    
+    @IBAction func registerButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "showRegistration", sender: self)
     }
 }
 

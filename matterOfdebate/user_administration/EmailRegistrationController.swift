@@ -23,9 +23,8 @@ class EmailRegistrationController: UIViewController {
     }
 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
-    
     
     @IBAction func createUser(_ sender: UIButton) {
         guard let email = email_field.text, !email.isEmpty, let pw = pw_field.text, !pw.isEmpty,

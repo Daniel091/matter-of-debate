@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Firebase
+import SDWebImage
+import FirebaseStorageUI
 
 class CategoryViewModel : CategoryProtocol
     // https://krakendev.io/blog/the-right-way-to-write-a-singleton
@@ -24,29 +26,44 @@ class CategoryViewModel : CategoryProtocol
     // Admin speciefied view of Categories
     func getCategories() {
         print("im starting my getCategories now")
-        self.ref.child("categories").observe(.value, with: { (snapshot) in
+        self.ref.child("categories")
+            .observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
             let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
             
-            self.categories = categoriesFirebase.flatMap { Category(name: $0.key, image: $0.value["img-url"]!) }
+            self.categories = categoriesFirebase.flatMap { category in
+                Category(name: category.key, image: category.value["img-url"]!)
+            }
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "categoriesUpdated"), object: nil)
         })
     }
     
     // User specified View of Categories
-    func getTopicCategories() {
-        self.ref.child("themes").observe(.value, with: { (snapshot) in
+    func getThemeCategories() {
+        
+        var imageURLs = Dictionary<String, String>()
+        Constants.refs.databaseCategories.observe(.value, with: { (snapshot) in
+            let postDict = snapshot.value
+            let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
+            
+            categoriesFirebase.forEach{category in
+                imageURLs[category.key] = category.value["img-url"]
+            }
+        })
+        
+        Constants.refs.databaseThemes.observe(.value, with: { (snapshot) in
             let postDict = snapshot.value
             let categoriesFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
             
             for thisElement in categoriesFirebase {
-                let valuesToWant = thisElement.value
-                let cat = valuesToWant["categories"] as! [String]
-                for element in cat {
-                    // TODO: save a new CategoriesList, get image from getCategories
-                    if (!self.checkForDuplicates(categories: self.categories, element: element)) {
-                        self.categories.append(Category(name: element, image: "Image"))
+                let themeData = thisElement.value
+                let cat = themeData["categories"] as! [String:Bool]
+                for categoryName in cat.keys {
+                    if (!self.checkForDuplicates(categories: self.categories, categoryName: categoryName)) {
+                        if let imageURL = imageURLs[categoryName] {
+                            self.categories.append(Category(name: categoryName, image: imageURL))
+                        }
                     }
                 }
             }
@@ -54,9 +71,9 @@ class CategoryViewModel : CategoryProtocol
         })
     }
     
-    func checkForDuplicates(categories : [Category], element : String) -> Bool {
+    func checkForDuplicates(categories : [Category], categoryName : String) -> Bool {
         for everything in categories {
-            if(everything.title == element) {
+            if(everything.title == categoryName) {
                 return true
             }
         }

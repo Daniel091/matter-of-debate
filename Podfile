@@ -16,5 +16,8 @@ target 'matterOfdebate' do
   pod 'Eureka'
   pod 'ImageRow', '~> 3.0'
   pod 'JSQMessagesViewController'
-  
+  pod 'AwaitKit', '~> 3.0.1'  
+
+  pod 'Charts'
+  pod 'ChartsRealm'
 end

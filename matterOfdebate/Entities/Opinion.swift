@@ -18,4 +18,7 @@ struct Opinion {
         self.opinionGroup = opinionGroup
         self.topic = topic
     }
+    func getOpinionGroup() -> Int {
+        return opinionGroup
+    }
 }

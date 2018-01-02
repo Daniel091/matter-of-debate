@@ -1,8 +1,8 @@
 //
-//  ChatViewController.swift
+//  MessagesView.swift
 //  matterOfdebate
 //
-//  Created by Daniel Eichinger on 29.11.17.
+//  Created by Daniel Eichinger on 24.12.17.
 //  Copyright © 2017 Gruppe7. All rights reserved.
 //
 
@@ -10,45 +10,38 @@ import UIKit
 import JSQMessagesViewController
 import Firebase
 
-class ChatViewController: JSQMessagesViewController {
-    
+class MessagesView: JSQMessagesViewController {
     // array that stores messages
     var messages = [JSQMessage]()
     
-    // ChatViewController has a Chat object to display
+    // MessagesView has a Chat object to display
     var chat: Chat?
     
     // create colored message bubbles, outgoing is blue, incoming gray
     // lazy vars are only initialized once, when there accessed
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleRed())
     }()
     
     lazy var incomingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up back navigation
-        //setupBackButton()
+        // hide input bar
+        self.inputToolbar.removeFromSuperview()
         
-        // set up settings button for chat
         setupSettingsChatButton()
         
-        // if no chat dismiss ChatView
-        guard let chat_id = chat?.id else {
-            dismiss(animated: true, completion: nil)
+        
+        guard let chat_obj = chat, let users = chat?.users else {
             return
         }
         
-        
-        // get user object
-        let user_obj = SingletonUser.sharedInstance.user
-        
-        senderId = user_obj.uid
-        senderDisplayName = user_obj.user_name
+        senderId = users.keys.first
+        senderDisplayName = "Not needed here, but has to be set"
         
         // hide attachement button
         inputToolbar.contentView.leftBarButtonItem = nil
@@ -58,7 +51,7 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         // Query Messages of chat_id
-        let query = Constants.refs.databaseMessages.child(chat_id).queryLimited(toLast: 10)
+        let query = Constants.refs.databaseMessages.child(chat_obj.id)
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
             if let data = snapshot.value as? [String: String] {
                 if let name = data["name"], let text = data["text"], let id = data["sender-id"], !text.isEmpty {
@@ -72,49 +65,18 @@ class ChatViewController: JSQMessagesViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     func setupSettingsChatButton() {
         let settingsButton = UIBarButtonItem(image: UIImage.jsq_defaultTypingIndicator(), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
         navigationItem.rightBarButtonItem = settingsButton
     }
     
-    // TODO implement showing of chat settings
     @objc func settingsButtonTapped(sender: UIBarButtonItem) {
         print(":-) Implement mee")
     }
-    
-    func setupBackButton() {
-        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backButtonTapped(sender:)))
-        navigationItem.leftBarButtonItem = backButton
-    }
-    @objc func backButtonTapped(sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // User sends a message
-    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        
-        guard let chat_id = chat?.id else {
-            dismiss(animated: true, completion: nil)
-            return
-        }
-        
-        // push text to firebase database messages
-        let ref = Constants.refs.databaseMessages.child(chat_id).childByAutoId()
-        let message = ["sender-id": senderId, "name": senderDisplayName, "text": text]
-        ref.setValue(message)
-        
-        // and set lastMessage of chat; and update timestamp
-        let ref_chat = Constants.refs.databaseChats.child(chat_id)
-        let timestamp = Date().timeIntervalSince1970
-        
-        let childUpdates = ["lastMessage": senderDisplayName + ": " + text,
-                            "timestamp": timestamp] as [String : Any]
-        ref_chat.updateChildValues(childUpdates)
-        
-        // do a nice animation
-        finishSendingMessage()
-    }
-    
     
     // returns message from specific index
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -130,7 +92,7 @@ class ChatViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         return messages[indexPath.item].senderId == senderId ? outgoingBubble : incomingBubble
     }
-
+    
     // hiding of avatars by now
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
@@ -151,4 +113,20 @@ class ChatViewController: JSQMessagesViewController {
         return cell
     }
     
+    // sets sender name on top of message bubble
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString!{
+        let message = messages[indexPath.item]
+        
+        guard let senderDisplayName = message.senderDisplayName else {
+            assertionFailure()
+            return nil
+        }
+        
+        return NSAttributedString(string: senderDisplayName)
+    }
+    
+    // needed little extra space, for sender name at top of message bubble
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
+        return 17.0
+    }
 }
