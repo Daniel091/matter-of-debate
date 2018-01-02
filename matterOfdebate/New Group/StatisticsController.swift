@@ -95,8 +95,8 @@ class StatisticsController : UIViewController {
         barChart.barData?.barWidth = Double(0.50)
         
         // set colors
-        let green = UIColor(hue: 0.35, saturation: 1, brightness: 0.42, alpha: 1.0) /* #006b0a */
-        let red = UIColor(hue: 0.0222, saturation: 1, brightness: 0.58, alpha: 1.0) /* #931300 */
+        let green = UIColor(hue: 0.3083, saturation: 1, brightness: 0.8, alpha: 1.0) /* #1ecc00 */
+        let red = UIColor(hue: 0, saturation: 1, brightness: 0.92, alpha: 1.0) /* #ea0000 */
         dataSet.colors = [green, red]
         
         //This must stay at end of function
