@@ -123,7 +123,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZhA-vv-ltB">
                                 <rect key="frame" x="20" y="138" width="335" height="206.33333333333337"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matter of Debate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-FL-OJU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Matter of Debate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-FL-OJU">
                                         <rect key="frame" x="43.333333333333329" y="0.0" width="248.33333333333337" height="32.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Panton-BlackCaps" family="Panton" pointSize="27"/>
                                         <nil key="textColor"/>
@@ -171,7 +171,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hH-TK-Nee">
-                                        <rect key="frame" x="96" y="176.33333333333331" width="143" height="30"/>
+                                        <rect key="frame" x="96" y="176.66666666666669" width="143" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Sign in Anonymously"/>
                                         <connections>
@@ -180,6 +180,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="1hH-TK-Nee" firstAttribute="top" secondItem="nRl-Z8-TrE" secondAttribute="bottom" constant="30" id="1Aw-Pb-V33"/>
                                     <constraint firstAttribute="trailing" secondItem="OSP-ue-GhG" secondAttribute="trailing" id="UnW-Eh-QXW"/>
                                     <constraint firstAttribute="trailing" secondItem="Nji-AR-pHw" secondAttribute="trailing" id="qUK-sY-10x"/>
                                 </constraints>
@@ -214,6 +215,7 @@
                             <constraint firstItem="6Fs-Pz-WPS" firstAttribute="centerX" secondItem="2P4-WK-4ag" secondAttribute="centerX" id="f2G-kj-WVc"/>
                             <constraint firstItem="ZhA-vv-ltB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oGn-ON-7da"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZhA-vv-ltB" secondAttribute="trailing" constant="20" id="rwB-D7-yUW"/>
+                            <constraint firstItem="1hH-TK-Nee" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xM1-J7-02l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
