@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cUT-tS-5XS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fVw-S6-yZu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -246,20 +246,29 @@
                                     <constraint firstAttribute="height" constant="50" id="NFL-zF-Dl9"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NyN-Lm-4yq" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="314" width="375" height="353"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NyN-Lm-4yq" firstAttribute="leading" secondItem="5r1-Ko-wrX" secondAttribute="leading" id="04D-yV-Zq5"/>
                             <constraint firstItem="5r1-Ko-wrX" firstAttribute="trailing" secondItem="KHA-Pc-u0T" secondAttribute="trailing" id="5FN-NP-QKo"/>
                             <constraint firstItem="5r1-Ko-wrX" firstAttribute="trailing" secondItem="Ysm-tq-mL1" secondAttribute="trailing" id="BmR-xF-BeL"/>
+                            <constraint firstItem="5r1-Ko-wrX" firstAttribute="trailing" secondItem="NyN-Lm-4yq" secondAttribute="trailing" id="G0y-hx-hKs"/>
                             <constraint firstItem="KHA-Pc-u0T" firstAttribute="centerX" secondItem="Ysm-tq-mL1" secondAttribute="centerX" id="Hbz-6H-HQd"/>
                             <constraint firstItem="KHA-Pc-u0T" firstAttribute="top" secondItem="Ysm-tq-mL1" secondAttribute="bottom" id="NoB-cl-etn"/>
+                            <constraint firstItem="NyN-Lm-4yq" firstAttribute="top" secondItem="KHA-Pc-u0T" secondAttribute="bottom" id="RWW-nm-5hb"/>
                             <constraint firstItem="Ysm-tq-mL1" firstAttribute="top" secondItem="5r1-Ko-wrX" secondAttribute="top" id="qfm-HS-rFx"/>
+                            <constraint firstAttribute="bottom" secondItem="NyN-Lm-4yq" secondAttribute="bottom" id="stk-GJ-Aez"/>
                             <constraint firstItem="Ysm-tq-mL1" firstAttribute="leading" secondItem="5r1-Ko-wrX" secondAttribute="leading" id="wMG-Mh-0Ws"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5r1-Ko-wrX"/>
                     </view>
                     <connections>
                         <outlet property="barChart" destination="c2e-4J-fXU" id="VOb-Pc-dpq"/>
+                        <outlet property="pieChart" destination="NyN-Lm-4yq" id="hyD-oP-Exf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu4-iX-ccF" userLabel="First Responder" sceneMemberID="firstResponder"/>

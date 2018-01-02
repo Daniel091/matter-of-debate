@@ -15,6 +15,7 @@
 		486F6FD61FDF57A8005376D8 /* OpinionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD51FDF57A8005376D8 /* OpinionView.swift */; };
 		486F6FD81FDF57BF005376D8 /* OpinionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */; };
 		486F6FDA1FDF5808005376D8 /* OpinionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */; };
+		4872F3FF1FFBEE5F0045E350 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872F3FE1FFBEE5F0045E350 /* PieChartView.swift */; };
 		48A6C6831FF2F1EC006CA003 /* StatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */; };
 		48A6C6851FF2F785006CA003 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6841FF2F785006CA003 /* StatisticsView.swift */; };
 		48A6C6871FF2F9E3006CA003 /* CreatingCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */; };
@@ -68,6 +69,7 @@
 		486F6FD51FDF57A8005376D8 /* OpinionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionView.swift; sourceTree = "<group>"; };
 		486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionViewModel.swift; sourceTree = "<group>"; };
 		486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionProtocol.swift; sourceTree = "<group>"; };
+		4872F3FE1FFBEE5F0045E350 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsController.swift; sourceTree = "<group>"; };
 		48A6C6841FF2F785006CA003 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingCharts.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				48A6C6841FF2F785006CA003 /* StatisticsView.swift */,
 				48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */,
 				48A6C6881FF2FAA9006CA003 /* StatisticCalculations.swift */,
+				4872F3FE1FFBEE5F0045E350 /* PieChartView.swift */,
 			);
 			name = Statistics;
 			path = "New Group";
@@ -478,6 +481,7 @@
 				652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */,
 				65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */,
 				657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */,
+				4872F3FF1FFBEE5F0045E350 /* PieChartView.swift in Sources */,
 				4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */,
 				652FA6551FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift in Sources */,
 				6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */,
