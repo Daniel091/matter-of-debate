@@ -61,7 +61,7 @@ class CategoriesController: UICollectionViewController {
         
         //TODO: insert TopicView here!
         // trigger Seque showThemeView when user clicks on any element in collection
-        self.performSegue(withIdentifier: "showMatchOpinionView", sender: self)
+        self.performSegue(withIdentifier: "toSwipe", sender: self)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

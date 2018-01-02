@@ -24,13 +24,15 @@ class SwipeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //shadows for the card
         swipeContainer.layer.shadowColor = UIColor.black.cgColor
         swipeContainer.layer.shadowOpacity = 0.3
         swipeContainer.layer.shadowOffset = CGSize.init(width: 0, height: 6)
         swipeContainer.layer.shadowRadius = 15
+        //move buttons under the card
         topView.sendSubview(toBack: swipeNoButton)
         topView.sendSubview(toBack: swipeYesButton)
-        
+        //TODO Load themes from Category
         
     }
     
@@ -98,11 +100,15 @@ class SwipeViewController: UIViewController {
 
     func swipeYes() {
         print("yes")
-        
+        self.performSegue(withIdentifier: "toOpinion", sender: self)
     }
 
     func swipeNo() {
         print("NO")
+        UIViewPropertyAnimator.init(duration: 0.3, curve: UIViewAnimationCurve.easeIn, animations: {
+            self.swipeContainer.center = self.swipeNoButton.center
+        }).startAnimation()
+        //TODO Load new Subject/Theme
     }
 
     // Ist die Geste lange und schnell genug um unmissverständlich zu sein?

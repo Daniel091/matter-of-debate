@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xtm-E0-auN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xtm-E0-auN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,6 +67,7 @@
                         <outlet property="categoriesCollectionView" destination="zHa-aO-9E5" id="K79-tq-xzd"/>
                         <segue destination="PgJ-hV-MVd" kind="show" identifier="showMatchOpinionView" id="a5F-kK-KQe"/>
                         <segue destination="G7F-ea-hVv" kind="show" identifier="showCreateCategoryView" id="wGM-Mt-EdH"/>
+                        <segue destination="31B-wI-BWM" kind="show" identifier="toSwipe" id="JRt-9e-fxI"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEo-h3-P1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mm7-EG-6KI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6953" y="-2115"/>
+            <point key="canvasLocation" x="7305" y="-2144"/>
         </scene>
         <!--Opinion Controller-->
         <scene sceneID="mA1-n9-Jku">
@@ -198,7 +200,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozH-Nh-4zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="i05-hG-bJo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6462" y="-1385"/>
+            <point key="canvasLocation" x="7393" y="-1188"/>
         </scene>
         <!--Item-->
         <scene sceneID="eQx-IL-T1a">
@@ -225,6 +227,148 @@
             </objects>
             <point key="canvasLocation" x="5172" y="153.69458128078819"/>
         </scene>
+        <!--Swipe View Controller-->
+        <scene sceneID="401-e8-df8">
+            <objects>
+                <tapGestureRecognizer id="KMN-qu-6i9">
+                    <connections>
+                        <action selector="handleTapYes:" destination="31B-wI-BWM" id="Sw4-aN-CdJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bYe-7c-NPO">
+                    <connections>
+                        <action selector="handleTapNo:" destination="31B-wI-BWM" id="CPI-YP-3f0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yAM-la-4GA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ldk-l7-KcF">
+                    <connections>
+                        <action selector="handleSwipe:" destination="31B-wI-BWM" id="WSC-6A-vZq"/>
+                    </connections>
+                </panGestureRecognizer>
+                <viewController storyboardIdentifier="swipeView" id="31B-wI-BWM" customClass="SwipeViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KBI-nM-oPQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDp-D3-2Pz">
+                                <rect key="frame" x="16" y="64" width="343" height="381"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="politics" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-Qo-4pk">
+                                        <rect key="frame" x="8" y="8" width="327" height="244"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="244" id="Bf1-NK-q55"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Merkel - Hot or Not?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA5-Vd-UDW">
+                                        <rect key="frame" x="8" y="260" width="156.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="kjnkjklhljhihsjrtpoihjeaopihgersiohgpoeijgs" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GyJ-1K-Vqi">
+                                        <rect key="frame" x="8" y="288.5" width="327" height="84.5"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                        <viewLayoutGuide key="safeArea" id="Fbh-eM-7hv"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="GyJ-1K-Vqi" firstAttribute="trailing" secondItem="ANb-Qo-4pk" secondAttribute="trailing" id="MWl-f4-aEd"/>
+                                    <constraint firstItem="OA5-Vd-UDW" firstAttribute="leading" secondItem="GyJ-1K-Vqi" secondAttribute="leading" id="RLE-O1-WrA"/>
+                                    <constraint firstItem="ANb-Qo-4pk" firstAttribute="top" secondItem="EDp-D3-2Pz" secondAttribute="top" constant="8" id="WDV-Xz-PuX"/>
+                                    <constraint firstItem="OA5-Vd-UDW" firstAttribute="leading" secondItem="ANb-Qo-4pk" secondAttribute="leading" id="bOj-LF-TCE"/>
+                                    <constraint firstItem="GyJ-1K-Vqi" firstAttribute="trailing" secondItem="EDp-D3-2Pz" secondAttribute="trailingMargin" id="e2h-Q7-xNP"/>
+                                    <constraint firstItem="GyJ-1K-Vqi" firstAttribute="leading" secondItem="EDp-D3-2Pz" secondAttribute="leadingMargin" id="eph-D2-mVc"/>
+                                    <constraint firstItem="OA5-Vd-UDW" firstAttribute="top" secondItem="ANb-Qo-4pk" secondAttribute="bottom" constant="8" symbolic="YES" id="hqh-xg-6fN"/>
+                                    <constraint firstItem="GyJ-1K-Vqi" firstAttribute="bottom" secondItem="EDp-D3-2Pz" secondAttribute="bottomMargin" id="idK-nZ-RS0"/>
+                                    <constraint firstItem="ANb-Qo-4pk" firstAttribute="top" secondItem="EDp-D3-2Pz" secondAttribute="topMargin" id="owf-eT-eUO"/>
+                                    <constraint firstItem="GyJ-1K-Vqi" firstAttribute="top" secondItem="OA5-Vd-UDW" secondAttribute="bottom" constant="8" symbolic="YES" id="xLg-xB-zPM"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ldk-l7-KcF" appends="YES" id="FQy-Cd-zIr"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwC-ND-3W3">
+                                <rect key="frame" x="16" y="478" width="124" height="124"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XwC-ND-3W3" secondAttribute="height" multiplier="1:1" id="k8T-bo-O2B"/>
+                                    <constraint firstAttribute="width" constant="124" id="m85-ot-zLY"/>
+                                    <constraint firstAttribute="height" constant="124" id="wdW-j8-pI0"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="swipeNo"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bYe-7c-NPO" appends="YES" id="spO-SI-oyy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RS3-Xj-5Mb">
+                                <rect key="frame" x="235" y="478" width="124" height="124"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="5Cn-Fz-EU4"/>
+                                    <constraint firstAttribute="width" secondItem="RS3-Xj-5Mb" secondAttribute="height" multiplier="1:1" id="5jW-m0-LPG"/>
+                                    <constraint firstAttribute="height" constant="124" id="IjM-NE-0if"/>
+                                    <constraint firstAttribute="width" secondItem="RS3-Xj-5Mb" secondAttribute="height" multiplier="1:1" id="vRR-dO-qfX"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="swipeYes"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KMN-qu-6i9" appends="YES" id="goS-Jz-hUX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="pBb-d4-8TF" firstAttribute="trailing" secondItem="EDp-D3-2Pz" secondAttribute="trailing" constant="16" id="11U-oZ-cIW"/>
+                            <constraint firstItem="EDp-D3-2Pz" firstAttribute="top" secondItem="pBb-d4-8TF" secondAttribute="top" id="MKB-jm-Def"/>
+                            <constraint firstItem="pBb-d4-8TF" firstAttribute="bottom" secondItem="RS3-Xj-5Mb" secondAttribute="bottom" constant="16" id="UCL-vy-fX2"/>
+                            <constraint firstItem="XwC-ND-3W3" firstAttribute="leading" secondItem="pBb-d4-8TF" secondAttribute="leading" constant="16" id="X2F-7H-Z8e"/>
+                            <constraint firstItem="EDp-D3-2Pz" firstAttribute="leading" secondItem="pBb-d4-8TF" secondAttribute="leading" constant="16" id="dVd-gX-bK0"/>
+                            <constraint firstItem="RS3-Xj-5Mb" firstAttribute="top" secondItem="EDp-D3-2Pz" secondAttribute="bottom" constant="33" id="hHC-61-eSM"/>
+                            <constraint firstItem="XwC-ND-3W3" firstAttribute="top" secondItem="EDp-D3-2Pz" secondAttribute="bottom" constant="33" id="kkQ-4v-N1c"/>
+                            <constraint firstItem="pBb-d4-8TF" firstAttribute="trailing" secondItem="RS3-Xj-5Mb" secondAttribute="trailing" constant="16" id="sKd-Hb-7WF"/>
+                            <constraint firstItem="EDp-D3-2Pz" firstAttribute="centerX" secondItem="pBb-d4-8TF" secondAttribute="centerX" id="tHB-oX-KKV"/>
+                            <constraint firstItem="pBb-d4-8TF" firstAttribute="bottom" secondItem="XwC-ND-3W3" secondAttribute="bottom" constant="16" id="z17-ad-1gA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pBb-d4-8TF"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="HRR-29-7rT"/>
+                    <connections>
+                        <outlet property="imgSwipe" destination="ANb-Qo-4pk" id="301-6j-ra4"/>
+                        <outlet property="labelSwipe" destination="OA5-Vd-UDW" id="eds-r1-7mZ"/>
+                        <outlet property="swipeContainer" destination="EDp-D3-2Pz" id="QO5-L6-OSL"/>
+                        <outlet property="swipeNoButton" destination="XwC-ND-3W3" id="4D6-25-XoA"/>
+                        <outlet property="swipeText" destination="GyJ-1K-Vqi" id="a6O-Sc-Q4h"/>
+                        <outlet property="swipeYesButton" destination="RS3-Xj-5Mb" id="JHc-FW-p1l"/>
+                        <outlet property="topView" destination="KBI-nM-oPQ" id="iZe-7K-apA"/>
+                        <segue destination="PgJ-hV-MVd" kind="show" identifier="toOpinion" id="T93-Cs-T5a"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="6279" y="-1189"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="politics" width="420" height="280"/>
+        <image name="swipeNo" width="125" height="125"/>
+        <image name="swipeYes" width="125" height="125"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="T93-Cs-T5a"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
