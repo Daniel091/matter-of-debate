@@ -14,6 +14,7 @@ import FirebaseStorageUI
 class CategoriesController: UICollectionViewController {
     
     private let storage = Storage.storage()
+    private var selectedCategory: Category?
     @IBOutlet var categoriesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -40,6 +41,10 @@ class CategoriesController: UICollectionViewController {
         if let viewController = segue.destination as? OpinionController {
             viewController.delegate = self
         }
+        if let viewController = segue.destination as? SwipeViewController {
+            viewController.selectedCat = selectedCategory
+        }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -58,9 +63,9 @@ class CategoriesController: UICollectionViewController {
         }
         
         print("foobar \(indexPath.row)")
+        let categories: [Category] = CategoryViewModel.sharedInstance.categories
+        selectedCategory = categories[indexPath.item]
         
-        //TODO: insert TopicView here!
-        // trigger Seque showThemeView when user clicks on any element in collection
         self.performSegue(withIdentifier: "toSwipe", sender: self)
     }
     

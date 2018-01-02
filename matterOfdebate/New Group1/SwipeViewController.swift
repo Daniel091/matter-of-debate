@@ -21,6 +21,7 @@ class SwipeViewController: UIViewController {
     var gestureStart: CGPoint?
     var gestureEnd: CGPoint?
     var defaultPos: CGPoint?
+    public var selectedCat: Category?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,7 +39,6 @@ class SwipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         swipeText.text = "This is an example test and should be replaced by the time you see this view."
     }
     
