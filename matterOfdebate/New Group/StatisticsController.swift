@@ -42,14 +42,20 @@ class StatisticsController : UIViewController {
       
         // load statistics list
         loadStatistics()
-        
-        // update charts with dummy data TODO STEFFI :P
-        let dummy_contra = 5.0
-        let dummy_pro = 3.0
-        barChartUpdate(dummy_pro, dummy_contra)
-        pieChartUpdate(dummy_pro, dummy_contra)
     }
     
+    func updateCharts() {
+        // show content of shared list
+        guard let chat_obj = chat else {return}
+        
+        if !sharedData.statistics.isEmpty {
+            if let i = sharedData.statistics.index(where: { $0.id == chat_obj.id }) {
+                let statistic = sharedData.statistics[i]
+                barChartUpdate(Double(statistic.pro), Double(statistic.contra))
+                pieChartUpdate(Double(statistic.pro), Double(statistic.contra))
+            }
+        }
+    }
     
     func loadStatistics() {
         guard let chat_obj = chat else {
@@ -68,13 +74,15 @@ class StatisticsController : UIViewController {
                 let pro = value?["pro"] as? Int ?? 0
                 let ops = value?["users"] as? [[String]] ?? [[]]
                 
-                let statistic = Statistic(contra: contra, pro: pro, opinions: ops)
+                let statistic = Statistic(id: snapshot.key,contra: contra, pro: pro, opinions: ops)
                 self.sharedData.statistics.append(statistic)
+                self.updateCharts()
+                
             }) { (error) in
                 print(error.localizedDescription)
             }
-            
-            
+        } else {
+            self.updateCharts()
         }
     }
     

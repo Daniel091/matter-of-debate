@@ -9,11 +9,13 @@
 import Foundation
 
 struct Statistic {
+    var id : String
     var contra: Int
     var pro: Int
     var opinions = [[String]]()
     
-    init(contra : Int, pro : Int, opinions : [[String]]) {
+    init(id: String, contra : Int, pro : Int, opinions : [[String]]) {
+        self.id = id
         self.contra = contra
         self.opinions = opinions
         self.pro = pro
