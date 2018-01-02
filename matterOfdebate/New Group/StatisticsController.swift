@@ -39,8 +39,10 @@ class StatisticsController : UIViewController {
         initPieChart()
         
         // update charts with dummy data TODO STEFFI :P
-        barChartUpdate()
-        pieChartUpdate()
+        let dummy_contra = 5.0
+        let dummy_pro = 3.0
+        barChartUpdate(dummy_pro, dummy_contra)
+        pieChartUpdate(dummy_pro, dummy_contra)
     }
     
     @IBAction func proClick(_ sender: Any) {
@@ -67,12 +69,19 @@ class StatisticsController : UIViewController {
         contraVotes = contraVotes+1
     }
     
-    func pieChartUpdate() {
-        let entry1 = PieChartDataEntry(value: 70.0, label: "Pro")
-        let entry2 = PieChartDataEntry(value: 30.0, label: "Contra")
+    func pieChartUpdate(_ pro : Double,_ contra : Double) {
+        let entry1 = PieChartDataEntry(value: pro, label: "Pro")
+        let entry2 = PieChartDataEntry(value: contra, label: "Contra")
         let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Pro und Contras")
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
+
+        // show percentages
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 1
+        formatter.multiplier = 1.0
+        pieChart.data?.setValueFormatter(DefaultValueFormatter(formatter:formatter))
         
         dataSet.colors = ChartColorTemplates.joyful()
         
@@ -83,6 +92,8 @@ class StatisticsController : UIViewController {
     func initPieChart() {
         pieChart.chartDescription?.enabled = false
         pieChart.usePercentValuesEnabled = true
+        
+        pieChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInCirc)
     }
     
     func initBarChart() {
@@ -110,12 +121,14 @@ class StatisticsController : UIViewController {
         barChart.scaleYEnabled = false
         barChart.highlightPerTapEnabled = false
         barChart.highlightPerDragEnabled = false
+        
+        barChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
     }
     
-    func barChartUpdate () {
+    func barChartUpdate (_ pro : Double,_ contra : Double) {
         //future home of bar chart code
-        let entry1 = BarChartDataEntry(x: 1.0, y: 50.0)
-        let entry2 = BarChartDataEntry(x: 2.0, y: 50.0)
+        let entry1 = BarChartDataEntry(x: 1.0, y: pro)
+        let entry2 = BarChartDataEntry(x: 2.0, y: contra)
         let dataSet = BarChartDataSet(values: [entry1, entry2], label: "Pro und Contra")
 
         let data = BarChartData(dataSets: [dataSet])
@@ -128,13 +141,12 @@ class StatisticsController : UIViewController {
         dataSet.colors = [green, red]
         
         //This must stay at end of function
-        barChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBack)
         barChart.notifyDataSetChanged()
     }
     
     @IBAction func renderCharts() {
-        barChartUpdate()
-        pieChartUpdate()
+        barChartUpdate(3.0,3.0)
+        pieChartUpdate(3.0, 3.0)
     }
     
     class ChartStringFormatter: NSObject, IAxisValueFormatter {
