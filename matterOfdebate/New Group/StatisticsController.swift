@@ -25,7 +25,6 @@ class StatisticsController : UIViewController {
     public var proVotes = 0
     public var contraVotes = 0
     var allVotes = 0
-    var sharedData = SharedData()
     
     override func viewDidLoad() {
         title = "Statistik"
@@ -47,22 +46,19 @@ class StatisticsController : UIViewController {
     func updateCharts() {
         // show content of shared list
         guard let chat_obj = chat else {return}
-        
-        if !sharedData.statistics.isEmpty {
-            if let i = sharedData.statistics.index(where: { $0.id == chat_obj.id }) {
-                let statistic = sharedData.statistics[i]
-                barChartUpdate(Double(statistic.pro), Double(statistic.contra))
-                pieChartUpdate(Double(statistic.pro), Double(statistic.contra))
-            }
-        }
+        guard let statistic = statisticCalculation.getStatisticByChatId(chat_obj.id) else {return}
+
+        barChartUpdate(Double(statistic.pro), Double(statistic.contra))
+        pieChartUpdate(Double(statistic.pro), Double(statistic.contra))
     }
+    
     
     func loadStatistics() {
         guard let chat_obj = chat else {
             return
         }
         
-        if sharedData.statistics.isEmpty{
+        if SharedData.statistics.isEmpty{
            
             // gets statistic data once, saves it to sharedData list
             let ref = Constants.refs.statistics.child(chat_obj.id)
@@ -75,7 +71,7 @@ class StatisticsController : UIViewController {
                 let ops = value?["users"] as? [[String]] ?? [[]]
                 
                 let statistic = Statistic(id: snapshot.key,contra: contra, pro: pro, opinions: ops)
-                self.sharedData.statistics.append(statistic)
+                SharedData.statistics.append(statistic)
                 self.updateCharts()
                 
             }) { (error) in

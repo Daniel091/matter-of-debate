@@ -23,4 +23,16 @@ class StatisticCalculations {
         userRef.child("startOpinion").setValue(startOpinion)
         userRef.child("endOpinion").setValue(currentOpinion)
     }
+    
+    func getStatisticByChatId(_ chatId : String) -> Statistic? {
+        if !SharedData.statistics.isEmpty {
+            if let i = SharedData.statistics.index(where: { $0.id == chatId }) {
+                let statistic = SharedData.statistics[i]
+                return statistic
+            }
+        }
+        
+        return nil
+    }
+    
 }

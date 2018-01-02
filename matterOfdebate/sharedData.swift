@@ -9,7 +9,7 @@
 import Foundation
 
 struct SharedData {
-    var statistics = [Statistic]()
+    public static var statistics = [Statistic]()
 
 }
 
