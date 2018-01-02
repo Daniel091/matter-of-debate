@@ -28,8 +28,6 @@ class StatisticsController : UIViewController {
     
     override func viewDidLoad() {
         title = "Statistik"
-        //allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
-        //statisticCalculations.setChart(months: months, ui: unitsSold
         
         // set round buttons
         contraBtn.layer.cornerRadius = 10
@@ -58,8 +56,10 @@ class StatisticsController : UIViewController {
             return
         }
         
-        if SharedData.statistics.isEmpty{
-           
+        if let statistic = statisticCalculation.getStatisticByChatId(chat_obj.id) {
+            barChartUpdate(Double(statistic.pro), Double(statistic.contra))
+            pieChartUpdate(Double(statistic.pro), Double(statistic.contra))
+        } else {
             // gets statistic data once, saves it to sharedData list
             let ref = Constants.refs.statistics.child(chat_obj.id)
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -70,15 +70,14 @@ class StatisticsController : UIViewController {
                 let pro = value?["pro"] as? Int ?? 0
                 let ops = value?["users"] as? [[String]] ?? [[]]
                 
-                let statistic = Statistic(id: snapshot.key,contra: contra, pro: pro, startOpinion: "ops.first", currentOpinion: "ops[1]", opinions: ops)
+                let statistic = Statistic(id: snapshot.key, contra: contra, pro: pro, startOpinion: "asd", currentOpinion: "asasd", opinions: ops)
+                
                 SharedData.statistics.append(statistic)
                 self.updateCharts()
                 
             }) { (error) in
                 print(error.localizedDescription)
             }
-        } else {
-            self.updateCharts()
         }
     }
     
@@ -86,6 +85,7 @@ class StatisticsController : UIViewController {
         guard let chatObject = chat else {
             return
         }
+        
         if(SharedData.statistics.isEmpty) {
             return
         }
@@ -164,6 +164,7 @@ class StatisticsController : UIViewController {
     func initPieChart() {
         pieChart.chartDescription?.enabled = false
         pieChart.usePercentValuesEnabled = true
+        pieChart.legend.enabled = false
         
         pieChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInCirc)
     }
