@@ -27,6 +27,7 @@ class StatisticsController : UIViewController {
         title = "Statistik"
         //allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
         //statisticCalculations.setChart(months: months, ui: unitsSold)
+        initBarChart()
         barChartUpdate()
         pieChartUpdate()
     }
@@ -59,22 +60,23 @@ class StatisticsController : UIViewController {
         
     }
     
-    func barChartUpdate () {
-        //future home of bar chart code
-        let entry1 = BarChartDataEntry(x: 1.0, y: 50.0)
-        let entry2 = BarChartDataEntry(x: 2.0, y: 50.0)
-        let dataSet = BarChartDataSet(values: [entry1, entry2], label: "Pro und Contra")
-        let data = BarChartData(dataSets: [dataSet])
-        barChart.data = data
-        barChart.chartDescription?.text = "Chat Meinungen"
-    
-        
+    func initBarChart() {
         let formatter = ChartStringFormatter()
         barChart.xAxis.valueFormatter = formatter
-        
+
+        barChart.xAxis.labelCount = 2
         barChart.xAxis.labelPosition = .bottom
-        //All other additions to this function will go here
-        dataSet.colors = ChartColorTemplates.colorful()
+        
+        // disable gird lines, legend, descritption label
+        barChart.leftAxis.drawGridLinesEnabled = false
+        barChart.xAxis.drawGridLinesEnabled = false
+        barChart.leftAxis.drawAxisLineEnabled = false
+        barChart.rightAxis.drawGridLinesEnabled = false
+        barChart.rightAxis.drawAxisLineEnabled = false
+        barChart.leftAxis.axisMinimum = 0
+        barChart.rightAxis.enabled = false
+        barChart.legend.enabled = false
+        barChart.chartDescription?.enabled = false
         
         // Disable user edit
         barChart.doubleTapToZoomEnabled = false
@@ -83,7 +85,22 @@ class StatisticsController : UIViewController {
         barChart.scaleYEnabled = false
         barChart.highlightPerTapEnabled = false
         barChart.highlightPerDragEnabled = false
+    }
+    
+    func barChartUpdate () {
+        //future home of bar chart code
+        let entry1 = BarChartDataEntry(x: 1.0, y: 50.0)
+        let entry2 = BarChartDataEntry(x: 2.0, y: 50.0)
+        let dataSet = BarChartDataSet(values: [entry1, entry2], label: "Pro und Contra")
+
+        let data = BarChartData(dataSets: [dataSet])
+        barChart.data = data
+        barChart.barData?.barWidth = Double(0.50)
         
+        // set colors
+        let green = UIColor(hue: 0.35, saturation: 1, brightness: 0.42, alpha: 1.0) /* #006b0a */
+        let red = UIColor(hue: 0.0222, saturation: 1, brightness: 0.58, alpha: 1.0) /* #931300 */
+        dataSet.colors = [green, red]
         
         //This must stay at end of function
         barChart.notifyDataSetChanged()
@@ -94,10 +111,9 @@ class StatisticsController : UIViewController {
     }
     
     class ChartStringFormatter: NSObject, IAxisValueFormatter {
-        var nameValues: [String]! =  ["A", "B", "C", "D"]
-        
         public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-            return String(describing: nameValues[Int(value)])
+            let strings = ["Pro","Contra"]
+            return strings[Int(value)-1]
         }
     }
 }
