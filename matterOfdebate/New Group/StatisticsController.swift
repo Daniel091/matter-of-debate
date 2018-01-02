@@ -47,6 +47,9 @@ class StatisticsController : UIViewController {
     }
     
     @IBAction func proClick(_ sender: Any) {
+        guard let chatObject = chat else {
+            return
+        }
         //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
         if(false) {
             // TODO: show dialoge
@@ -57,14 +60,17 @@ class StatisticsController : UIViewController {
         //TODO: Async Abfrage auf die Datenbank, ob der User schon eine Opinion hat die contra war vorher
         if(true) {
             contraVotes = contraVotes-1
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro")
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
         } else {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro")
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
         }
         print("testPro")
     }
     
     @IBAction func contraClick(_ sender: Any) {
+        guard let chatObject = chat else {
+            return
+        }
         //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
         if(false) {
             return
@@ -74,9 +80,9 @@ class StatisticsController : UIViewController {
         //TODO: Async Abfrage auf die Datenbank, ob der User schon eine Opinion hat die contra war vorher
         if(true) {
             proVotes = proVotes-1
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra" )
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id )
         } else {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra")
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id)
         }
         print("testContra")
     }
