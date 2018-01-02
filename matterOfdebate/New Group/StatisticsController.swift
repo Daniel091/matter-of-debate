@@ -82,8 +82,12 @@ class StatisticsController : UIViewController {
         guard let chatObject = chat else {
             return
         }
+        if(sharedData.statistics.isEmpty) {
+            return
+        }
+        
         //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
-        if(false) {
+        if(sharedData.statistics) {
             // TODO: show dialoge
             return
         }
