@@ -38,7 +38,7 @@ class StatisticsController : UIViewController {
         // Init charts
         initBarChart()
         initPieChart()
-        
+      
         // update charts with dummy data TODO STEFFI :P
         let dummy_contra = 5.0
         let dummy_pro = 3.0
