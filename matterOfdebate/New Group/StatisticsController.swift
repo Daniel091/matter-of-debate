@@ -12,6 +12,8 @@ import Charts
 class StatisticsController : UIViewController {
     let statisticCalculations = StatisticCalculations()
     
+    @IBOutlet weak var proBtn: UIButton!
+    @IBOutlet weak var contraBtn: UIButton!
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
     
@@ -27,7 +29,16 @@ class StatisticsController : UIViewController {
         title = "Statistik"
         //allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
         //statisticCalculations.setChart(months: months, ui: unitsSold)
+        
+        // set round buttons
+        contraBtn.layer.cornerRadius = 10
+        proBtn.layer.cornerRadius = 10
+        
+        // Init charts
         initBarChart()
+        initPieChart()
+        
+        // update charts with dummy data TODO STEFFI :P
         barChartUpdate()
         pieChartUpdate()
     }
@@ -57,7 +68,21 @@ class StatisticsController : UIViewController {
     }
     
     func pieChartUpdate() {
+        let entry1 = PieChartDataEntry(value: 70.0, label: "Pro")
+        let entry2 = PieChartDataEntry(value: 30.0, label: "Contra")
+        let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Pro und Contras")
+        let data = PieChartData(dataSet: dataSet)
+        pieChart.data = data
         
+        dataSet.colors = ChartColorTemplates.joyful()
+        
+        //This must stay at end of function
+        pieChart.notifyDataSetChanged()
+    }
+    
+    func initPieChart() {
+        pieChart.chartDescription?.enabled = false
+        pieChart.usePercentValuesEnabled = true
     }
     
     func initBarChart() {
@@ -103,11 +128,13 @@ class StatisticsController : UIViewController {
         dataSet.colors = [green, red]
         
         //This must stay at end of function
+        barChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBack)
         barChart.notifyDataSetChanged()
     }
     
     @IBAction func renderCharts() {
         barChartUpdate()
+        pieChartUpdate()
     }
     
     class ChartStringFormatter: NSObject, IAxisValueFormatter {
