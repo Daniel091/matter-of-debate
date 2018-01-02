@@ -13,6 +13,7 @@ class StatisticsController : UIViewController {
     let statisticCalculations = StatisticCalculations()
     
     @IBOutlet weak var barChart: BarChartView!
+    @IBOutlet weak var pieChart: PieChartView!
     
     // MessagesView has a Chat object to display
     var chat: Chat?
@@ -22,15 +23,13 @@ class StatisticsController : UIViewController {
     public var contraVotes = 0
     var allVotes = 0
     
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
-    
     override func viewDidLoad() {
         title = "Statistik"
         //allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
         //statisticCalculations.setChart(months: months, ui: unitsSold)
         initBarChart()
         barChartUpdate()
+        pieChartUpdate()
     }
     
     @IBAction func proClick(_ sender: Any) {
@@ -55,6 +54,10 @@ class StatisticsController : UIViewController {
     
     @IBAction func voteForContra(_ sender: Any) {
         contraVotes = contraVotes+1
+    }
+    
+    func pieChartUpdate() {
+        
     }
     
     func initBarChart() {
