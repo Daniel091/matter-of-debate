@@ -196,10 +196,75 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="yK4-Q6-KNP"/>
                     </view>
+                    <connections>
+                        <segue destination="fVw-S6-yZu" kind="show" identifier="showStats" id="OTi-f0-vIR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ag-58-ZZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7860" y="-576"/>
+        </scene>
+        <!--Statistics Controller-->
+        <scene sceneID="7zX-ZY-z7U">
+            <objects>
+                <viewController id="fVw-S6-yZu" customClass="StatisticsController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zjr-7J-LYq" customClass="StatisticsView" customModule="matterOfdebate" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ysm-tq-mL1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-4J-fXU" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="4Nq-ci-mmN"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KHA-Pc-u0T">
+                                <rect key="frame" x="0.0" y="264" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFE-eX-rw3">
+                                        <rect key="frame" x="0.0" y="10" width="187.5" height="30"/>
+                                        <state key="normal" title="Pro"/>
+                                        <connections>
+                                            <action selector="proClick:" destination="fVw-S6-yZu" eventType="touchUpInside" id="Qqf-BW-bVh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACJ-DK-cY1">
+                                        <rect key="frame" x="187.5" y="10" width="187.5" height="30"/>
+                                        <state key="normal" title="Contra"/>
+                                        <connections>
+                                            <action selector="contraClick:" destination="fVw-S6-yZu" eventType="touchUpInside" id="fPn-s6-fru"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NFL-zF-Dl9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5r1-Ko-wrX" firstAttribute="trailing" secondItem="KHA-Pc-u0T" secondAttribute="trailing" id="5FN-NP-QKo"/>
+                            <constraint firstItem="5r1-Ko-wrX" firstAttribute="trailing" secondItem="Ysm-tq-mL1" secondAttribute="trailing" id="BmR-xF-BeL"/>
+                            <constraint firstItem="KHA-Pc-u0T" firstAttribute="centerX" secondItem="Ysm-tq-mL1" secondAttribute="centerX" id="Hbz-6H-HQd"/>
+                            <constraint firstItem="KHA-Pc-u0T" firstAttribute="top" secondItem="Ysm-tq-mL1" secondAttribute="bottom" id="NoB-cl-etn"/>
+                            <constraint firstItem="Ysm-tq-mL1" firstAttribute="top" secondItem="5r1-Ko-wrX" secondAttribute="top" id="qfm-HS-rFx"/>
+                            <constraint firstItem="Ysm-tq-mL1" firstAttribute="leading" secondItem="5r1-Ko-wrX" secondAttribute="leading" id="wMG-Mh-0Ws"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5r1-Ko-wrX"/>
+                    </view>
+                    <connections>
+                        <outlet property="barChart" destination="c2e-4J-fXU" id="VOb-Pc-dpq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zu4-iX-ccF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8868" y="-566.26686656671666"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KCe-fj-Ioa">

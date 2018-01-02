@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import Charts
 
 class StatisticsController : UIViewController {
     let statisticCalculations = StatisticCalculations()
     
-    @IBOutlet weak var ContraButton: UIButton!
-    @IBOutlet weak var proButton: UIButton!
+    @IBOutlet weak var barChart: BarChartView!
     
+    // MessagesView has a Chat object to display
+    var chat: Chat?
+    
+    var statisticsView = StatisticsView()
     public var proVotes = 0
     public var contraVotes = 0
     var allVotes = 0
@@ -22,10 +26,18 @@ class StatisticsController : UIViewController {
     let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
     
     override func viewDidLoad() {
-        allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
-        
-        statisticCalculations.setChart(months: months, ui: unitsSold)
-        
+        title = "Statistik"
+        //allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
+        //statisticCalculations.setChart(months: months, ui: unitsSold)
+        barChartUpdate()
+    }
+    
+    @IBAction func proClick(_ sender: Any) {
+        print("testPro")
+    }
+    
+    @IBAction func contraClick(_ sender: Any) {
+        print("testContra")
     }
     
     public func getProVotes() -> Int{
@@ -42,5 +54,47 @@ class StatisticsController : UIViewController {
     
     @IBAction func voteForContra(_ sender: Any) {
         contraVotes = contraVotes+1
+    }
+    
+    func barChartUpdate () {
+        //future home of bar chart code
+        let entry1 = BarChartDataEntry(x: 1.0, y: 50.0)
+        let entry2 = BarChartDataEntry(x: 2.0, y: 50.0)
+        let dataSet = BarChartDataSet(values: [entry1, entry2], label: "Pro und Contra")
+        let data = BarChartData(dataSets: [dataSet])
+        barChart.data = data
+        barChart.chartDescription?.text = "Chat Meinungen"
+    
+        
+        let formatter = ChartStringFormatter()
+        barChart.xAxis.valueFormatter = formatter
+        
+        barChart.xAxis.labelPosition = .bottom
+        //All other additions to this function will go here
+        dataSet.colors = ChartColorTemplates.colorful()
+        
+        // Disable user edit
+        barChart.doubleTapToZoomEnabled = false
+        barChart.pinchZoomEnabled = false
+        barChart.scaleXEnabled = false
+        barChart.scaleYEnabled = false
+        barChart.highlightPerTapEnabled = false
+        barChart.highlightPerDragEnabled = false
+        
+        
+        //This must stay at end of function
+        barChart.notifyDataSetChanged()
+    }
+    
+    @IBAction func renderCharts() {
+        barChartUpdate()
+    }
+    
+    class ChartStringFormatter: NSObject, IAxisValueFormatter {
+        var nameValues: [String]! =  ["A", "B", "C", "D"]
+        
+        public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            return String(describing: nameValues[Int(value)])
+        }
     }
 }
