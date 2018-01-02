@@ -9,6 +9,7 @@
 import Foundation
 
 struct Statistic {
+    var id : String
     var contra: Int
     var pro: Int
     var startOpinion: String
@@ -16,6 +17,7 @@ struct Statistic {
     var opinions = [[String]]()
     
     init(contra : Int, pro : Int, startOpinion: String, currentOpinion:String ,opinions : [[String]]) {
+        self.id = id
         self.contra = contra
         self.opinions = opinions
         self.pro = pro
