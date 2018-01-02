@@ -25,11 +25,12 @@ class StatisticsController : UIViewController {
     public var proVotes = 0
     public var contraVotes = 0
     var allVotes = 0
+    var sharedData = SharedData()
     
     override func viewDidLoad() {
         title = "Statistik"
         //allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
-        //statisticCalculations.setChart(months: months, ui: unitsSold)
+        //statisticCalculations.setChart(months: months, ui: unitsSold
         
         // set round buttons
         contraBtn.layer.cornerRadius = 10
@@ -39,11 +40,42 @@ class StatisticsController : UIViewController {
         initBarChart()
         initPieChart()
       
+        // load statistics list
+        loadStatistics()
+        
         // update charts with dummy data TODO STEFFI :P
         let dummy_contra = 5.0
         let dummy_pro = 3.0
         barChartUpdate(dummy_pro, dummy_contra)
         pieChartUpdate(dummy_pro, dummy_contra)
+    }
+    
+    
+    func loadStatistics() {
+        guard let chat_obj = chat else {
+            return
+        }
+        
+        if sharedData.statistics.isEmpty{
+           
+            // gets statistic data once, saves it to sharedData list
+            let ref = Constants.refs.statistics.child(chat_obj.id)
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                
+                let contra = value?["contra"] as? Int ?? 0
+                let pro = value?["pro"] as? Int ?? 0
+                let ops = value?["users"] as? [[String]] ?? [[]]
+                
+                let statistic = Statistic(contra: contra, pro: pro, opinions: ops)
+                self.sharedData.statistics.append(statistic)
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+            
+        }
     }
     
     @IBAction func proClick(_ sender: Any) {
