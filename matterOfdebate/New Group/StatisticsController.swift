@@ -70,7 +70,7 @@ class StatisticsController : UIViewController {
                 let pro = value?["pro"] as? Int ?? 0
                 let ops = value?["users"] as? [[String]] ?? [[]]
                 
-                let statistic = Statistic(id: snapshot.key,contra: contra, pro: pro, opinions: ops)
+                let statistic = Statistic(id: snapshot.key,contra: contra, pro: pro, startOpinion: "ops.first", currentOpinion: "ops[1]", opinions: ops)
                 SharedData.statistics.append(statistic)
                 self.updateCharts()
                 
@@ -86,19 +86,18 @@ class StatisticsController : UIViewController {
         guard let chatObject = chat else {
             return
         }
-        if(sharedData.statistics.isEmpty) {
+        if(SharedData.statistics.isEmpty) {
             return
         }
         
-        //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
-        if(true) {
+        //TODO: auf die current Opinion noch den User matchen !!
+        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.currentOpinion == "pro") {
             // TODO: show dialoge
             return
         }
         
         proVotes = proVotes+1
-        //TODO: Async Abfrage auf die Datenbank, ob der User schon eine Opinion hat die contra war vorher
-        if(true) {
+        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.startOpinion.isEmpty)! {
             contraVotes = contraVotes-1
             statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
         } else {
@@ -111,14 +110,13 @@ class StatisticsController : UIViewController {
         guard let chatObject = chat else {
             return
         }
-        //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
-        if(false) {
+        //TODO: auf die current Opinion noch den User matchen !!
+        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.currentOpinion == "contra") {
             return
         }
         
         contraVotes = contraVotes+1
-        //TODO: Async Abfrage auf die Datenbank, ob der User schon eine Opinion hat die contra war vorher
-        if(true) {
+        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.startOpinion.isEmpty)! {
             proVotes = proVotes-1
             statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id )
         } else {
