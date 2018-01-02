@@ -18,7 +18,8 @@ class StatisticsController : UIViewController {
     // MessagesView has a Chat object to display
     var chat: Chat?
     
-    var statisticsView = StatisticsView()
+    let statisticCalculation = StatisticCalculations()
+    
     public var proVotes = 0
     public var contraVotes = 0
     var allVotes = 0
@@ -33,10 +34,37 @@ class StatisticsController : UIViewController {
     }
     
     @IBAction func proClick(_ sender: Any) {
+        //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
+        if(false) {
+            // TODO: show dialoge
+            return
+        }
+        
+        proVotes = proVotes+1
+        //TODO: Async Abfrage auf die Datenbank, ob der User schon eine Opinion hat die contra war vorher
+        if(true) {
+            contraVotes = contraVotes-1
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro")
+        } else {
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro")
+        }
         print("testPro")
     }
     
     @IBAction func contraClick(_ sender: Any) {
+        //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
+        if(false) {
+            return
+        }
+        
+        contraVotes = contraVotes+1
+        //TODO: Async Abfrage auf die Datenbank, ob der User schon eine Opinion hat die contra war vorher
+        if(true) {
+            proVotes = proVotes-1
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra" )
+        } else {
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra")
+        }
         print("testContra")
     }
     

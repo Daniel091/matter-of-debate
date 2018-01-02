@@ -28,4 +28,15 @@ class StatisticCalculations {
         return chartData
     }
     
+    func sendStatisticsToDatatbase(proVotes: Int, contraVotes: Int, currentOpinion: String, startOpinion: String) {
+        let dataRef = Constants.refs.statistics
+        dataRef.child("pro").setValue(proVotes)
+        dataRef.child("contra").setValue(contraVotes)
+        let userRef = dataRef.child("users").child(SingletonUser.sharedInstance.user.uid)
+        userRef.child("startOpinion").setValue(startOpinion)
+        userRef.child("endOpinion").setValue(currentOpinion)
+        
+        
+    }
+    
 }
