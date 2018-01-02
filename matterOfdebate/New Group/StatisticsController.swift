@@ -22,10 +22,6 @@ class StatisticsController : UIViewController {
     
     let statisticCalculation = StatisticCalculations()
     
-    public var proVotes = 0
-    public var contraVotes = 0
-    var allVotes = 0
-    
     override func viewDidLoad() {
         title = "Statistik"
         
@@ -96,13 +92,18 @@ class StatisticsController : UIViewController {
             return
         }
         
-        proVotes = proVotes+1
+        var proVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getPro()
+        var contraVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getContra()
+        
+        guard let proVotes = proVotesOptional else { return }
+        guard let contraVotes = contraVotesOptional else { return }
+        
         if(statisticCalculation.getStatisticByChatId(chatObject.id)?.startOpinion.isEmpty)! {
-            contraVotes = contraVotes-1
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes+1, contraVotes: contraVotes-1, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
         } else {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes+1, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
         }
+        updateCharts()
         print("testPro")
     }
     
@@ -115,30 +116,19 @@ class StatisticsController : UIViewController {
             return
         }
         
-        contraVotes = contraVotes+1
+        let proVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getPro()
+        let contraVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getContra()
+        
+        guard let proVotes = proVotesOptional else { return }
+        guard let contraVotes = contraVotesOptional else { return }
+        
         if(statisticCalculation.getStatisticByChatId(chatObject.id)?.startOpinion.isEmpty)! {
-            proVotes = proVotes-1
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id )
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes-1, contraVotes: contraVotes+1, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id )
         } else {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id)
+            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes+1, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id)
         }
+        updateCharts()
         print("testContra")
-    }
-    
-    public func getProVotes() -> Int{
-        return proVotes
-    }
-    
-    public func getContraVotes() -> Int{
-        return contraVotes
-    }
-    
-    @IBAction func voteForPro(_ sender: Any) {
-        proVotes = proVotes+1
-    }
-    
-    @IBAction func voteForContra(_ sender: Any) {
-        contraVotes = contraVotes+1
     }
     
     func pieChartUpdate(_ pro : Double,_ contra : Double) {

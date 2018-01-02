@@ -40,4 +40,12 @@ struct Statistic {
     public func getCurrentOpinion() -> String{
         return currentOpinion
     }
+    
+    public mutating func setContra(_ contra: Int) {
+        self.contra = contra
+    }
+    
+    public mutating func setPro(_ pro: Int) {
+        self.pro = pro
+    }
 }
