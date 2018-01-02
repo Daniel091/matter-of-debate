@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CategoryStoryboard~.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:matterOfdebate.xcodeproj">
    </FileRef>
    <FileRef

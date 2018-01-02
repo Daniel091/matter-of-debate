@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */; };
+		4832EC811FF630CE003A9693 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */; };
 		483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA51FC89FB100338945 /* CategoriesController.swift */; };
 		483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */; };
 		4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846C5591FE6A99C00889779 /* MatchingFunction.swift */; };
@@ -55,7 +56,6 @@
 		65DD4A7C1FF15B5800233187 /* UserChats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD4A7A1FF15B5800233187 /* UserChats.storyboard */; };
 		65DD4A7F1FF15DA000233187 /* UserChatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD4A7E1FF15DA000233187 /* UserChatSettings.swift */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
-		F5E5CF1B1FFBC82100A0FA10 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E5CF1A1FFBC82100A0FA10 /* CategoryStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +68,7 @@
 		486F6FD51FDF57A8005376D8 /* OpinionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionView.swift; sourceTree = "<group>"; };
 		486F6FD71FDF57BF005376D8 /* OpinionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionViewModel.swift; sourceTree = "<group>"; };
 		486F6FD91FDF5808005376D8 /* OpinionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionProtocol.swift; sourceTree = "<group>"; };
+		48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CategoryStoryboard.storyboard; path = /Users/stefaniehuber/Documents/UNI_LMU/Semester9/IOSPraktikum/Repository/MatterOfDebate/matterOfdebate/storyboards/CategoryStoryboard.storyboard; sourceTree = "<absolute>"; };
 		48A6C6821FF2F1EC006CA003 /* StatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsController.swift; sourceTree = "<group>"; };
 		48A6C6841FF2F785006CA003 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		48A6C6861FF2F9E3006CA003 /* CreatingCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingCharts.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
 		E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5E5CF1A1FFBC82100A0FA10 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CategoryStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,7 +282,7 @@
 		657F43F71FEFEA25003497B3 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F5E5CF1A1FFBC82100A0FA10 /* CategoryStoryboard.storyboard */,
+				48A6C6801FF2F0BA006CA003 /* CategoryStoryboard.storyboard */,
 				65DD4A7A1FF15B5800233187 /* UserChats.storyboard */,
 				657F43F81FEFEA25003497B3 /* AllChats.storyboard */,
 			);
@@ -371,9 +371,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DD4A7C1FF15B5800233187 /* UserChats.storyboard in Resources */,
-				F5E5CF1B1FFBC82100A0FA10 /* CategoryStoryboard.storyboard in Resources */,
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
+				4832EC811FF630CE003A9693 /* CategoryStoryboard.storyboard in Resources */,
 				657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
