@@ -12,6 +12,8 @@ import Charts
 class StatisticsController : UIViewController {
     let statisticCalculations = StatisticCalculations()
     
+    @IBOutlet weak var proBtn: UIButton!
+    @IBOutlet weak var contraBtn: UIButton!
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
     
@@ -28,9 +30,20 @@ class StatisticsController : UIViewController {
         title = "Statistik"
         //allVotes = statisticCalculations.provideChartData(proVotes: proVotes, contraVotes: contraVotes)
         //statisticCalculations.setChart(months: months, ui: unitsSold)
+        
+        // set round buttons
+        contraBtn.layer.cornerRadius = 10
+        proBtn.layer.cornerRadius = 10
+        
+        // Init charts
         initBarChart()
-        barChartUpdate()
-        pieChartUpdate()
+        initPieChart()
+        
+        // update charts with dummy data TODO STEFFI :P
+        let dummy_contra = 5.0
+        let dummy_pro = 3.0
+        barChartUpdate(dummy_pro, dummy_contra)
+        pieChartUpdate(dummy_pro, dummy_contra)
     }
     
     @IBAction func proClick(_ sender: Any) {
@@ -84,8 +97,31 @@ class StatisticsController : UIViewController {
         contraVotes = contraVotes+1
     }
     
-    func pieChartUpdate() {
+    func pieChartUpdate(_ pro : Double,_ contra : Double) {
+        let entry1 = PieChartDataEntry(value: pro, label: "Pro")
+        let entry2 = PieChartDataEntry(value: contra, label: "Contra")
+        let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Pro und Contras")
+        let data = PieChartData(dataSet: dataSet)
+        pieChart.data = data
+
+        // show percentages
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 1
+        formatter.multiplier = 1.0
+        pieChart.data?.setValueFormatter(DefaultValueFormatter(formatter:formatter))
         
+        dataSet.colors = ChartColorTemplates.joyful()
+        
+        //This must stay at end of function
+        pieChart.notifyDataSetChanged()
+    }
+    
+    func initPieChart() {
+        pieChart.chartDescription?.enabled = false
+        pieChart.usePercentValuesEnabled = true
+        
+        pieChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInCirc)
     }
     
     func initBarChart() {
@@ -113,12 +149,14 @@ class StatisticsController : UIViewController {
         barChart.scaleYEnabled = false
         barChart.highlightPerTapEnabled = false
         barChart.highlightPerDragEnabled = false
+        
+        barChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
     }
     
-    func barChartUpdate () {
+    func barChartUpdate (_ pro : Double,_ contra : Double) {
         //future home of bar chart code
-        let entry1 = BarChartDataEntry(x: 1.0, y: 50.0)
-        let entry2 = BarChartDataEntry(x: 2.0, y: 50.0)
+        let entry1 = BarChartDataEntry(x: 1.0, y: pro)
+        let entry2 = BarChartDataEntry(x: 2.0, y: contra)
         let dataSet = BarChartDataSet(values: [entry1, entry2], label: "Pro und Contra")
 
         let data = BarChartData(dataSets: [dataSet])
@@ -126,8 +164,8 @@ class StatisticsController : UIViewController {
         barChart.barData?.barWidth = Double(0.50)
         
         // set colors
-        let green = UIColor(hue: 0.35, saturation: 1, brightness: 0.42, alpha: 1.0) /* #006b0a */
-        let red = UIColor(hue: 0.0222, saturation: 1, brightness: 0.58, alpha: 1.0) /* #931300 */
+        let green = UIColor(hue: 0.3083, saturation: 1, brightness: 0.8, alpha: 1.0) /* #1ecc00 */
+        let red = UIColor(hue: 0, saturation: 1, brightness: 0.92, alpha: 1.0) /* #ea0000 */
         dataSet.colors = [green, red]
         
         //This must stay at end of function
@@ -135,7 +173,8 @@ class StatisticsController : UIViewController {
     }
     
     @IBAction func renderCharts() {
-        barChartUpdate()
+        barChartUpdate(3.0,3.0)
+        pieChartUpdate(3.0, 3.0)
     }
     
     class ChartStringFormatter: NSObject, IAxisValueFormatter {
