@@ -16,7 +16,7 @@ struct Statistic {
     var currentOpinion: String
     var opinions = [[String]]()
     
-    init(contra : Int, pro : Int, startOpinion: String, currentOpinion:String ,opinions : [[String]]) {
+    init(id : String, contra : Int, pro : Int, startOpinion: String, currentOpinion:String ,opinions : [[String]]) {
         self.id = id
         self.contra = contra
         self.opinions = opinions
