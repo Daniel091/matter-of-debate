@@ -60,7 +60,7 @@ class SwipeViewController: UIViewController {
 
     @IBAction func handleSwipe(_ sender: UIPanGestureRecognizer)
     {
-        var velocity = sender.velocity(in: sender.view)
+        let velocity = sender.velocity(in: sender.view)
         switch (sender.state) {
         case UIGestureRecognizerState.began:
             break

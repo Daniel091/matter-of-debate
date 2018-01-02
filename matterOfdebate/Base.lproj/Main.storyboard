@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -302,139 +300,6 @@
             </objects>
             <point key="canvasLocation" x="4911" y="1619"/>
         </scene>
-        <!--Swipe View Controller-->
-        <scene sceneID="0BD-uS-GEO">
-            <objects>
-                <viewController id="yle-re-xOJ" customClass="SwipeViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u4k-q9-6O5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFR-Me-oH2">
-                                <rect key="frame" x="16" y="44" width="343" height="512"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="PlaceholderSubjectImg" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-j8-Mt1">
-                                        <rect key="frame" x="8" y="8" width="327" height="244"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="244" id="cSL-So-kGV"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Merkel - Hot or Not?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55f-I8-a5d">
-                                        <rect key="frame" x="8" y="260" width="156.33333333333334" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="kjnkjklhljhihsjrtpoihjeaopihgersiohgpoeijgs" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpl-lK-n3r">
-                                        <rect key="frame" x="8" y="289" width="327" height="215"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
-                                        </accessibility>
-                                        <viewLayoutGuide key="safeArea" id="nbP-0a-KWh"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="trailing" secondItem="QFR-Me-oH2" secondAttribute="trailingMargin" id="0c2-WG-mJe"/>
-                                    <constraint firstItem="Sxn-j8-Mt1" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="top" constant="8" id="2MY-Th-koi"/>
-                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="trailing" secondItem="Sxn-j8-Mt1" secondAttribute="trailing" id="6P7-4l-y0D"/>
-                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="bottom" secondItem="QFR-Me-oH2" secondAttribute="bottomMargin" id="7kv-eo-oDe"/>
-                                    <constraint firstItem="Sxn-j8-Mt1" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="topMargin" id="BZy-4r-5zz"/>
-                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="leading" secondItem="QFR-Me-oH2" secondAttribute="leadingMargin" id="GiJ-VI-spn"/>
-                                    <constraint firstItem="55f-I8-a5d" firstAttribute="leading" secondItem="rpl-lK-n3r" secondAttribute="leading" id="a4B-PM-RMR"/>
-                                    <constraint firstItem="55f-I8-a5d" firstAttribute="top" secondItem="Sxn-j8-Mt1" secondAttribute="bottom" constant="8" symbolic="YES" id="bJp-jJ-YsL"/>
-                                    <constraint firstItem="55f-I8-a5d" firstAttribute="leading" secondItem="Sxn-j8-Mt1" secondAttribute="leading" id="vQE-eR-CN6"/>
-                                    <constraint firstItem="rpl-lK-n3r" firstAttribute="top" secondItem="55f-I8-a5d" secondAttribute="bottom" constant="8" symbolic="YES" id="ygi-8C-VgQ"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="NQh-ga-94A" appends="YES" id="3SF-1s-XQc"/>
-                                </connections>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAP-Lz-5eQ">
-                                <rect key="frame" x="16" y="589" width="124" height="124"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="dAP-Lz-5eQ" secondAttribute="height" multiplier="1:1" id="cde-du-Fo6"/>
-                                    <constraint firstAttribute="height" constant="124" id="mMV-HV-So3"/>
-                                    <constraint firstAttribute="width" constant="124" id="nhV-3h-Pxw"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="swipeNo"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="i6h-V7-ryA" appends="YES" id="chs-FQ-2Jb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVv-aZ-FFW">
-                                <rect key="frame" x="235" y="589" width="124" height="124"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="SVv-aZ-FFW" secondAttribute="height" multiplier="1:1" id="1sL-1x-PAA"/>
-                                    <constraint firstAttribute="height" constant="124" id="RX9-Cy-QyA"/>
-                                    <constraint firstAttribute="width" constant="124" id="ZBQ-TV-DRe"/>
-                                    <constraint firstAttribute="width" secondItem="SVv-aZ-FFW" secondAttribute="height" multiplier="1:1" id="mdn-sX-K72"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="swipeYes"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Mfz-oO-JSn" appends="YES" id="YGX-rf-btv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="bottom" secondItem="SVv-aZ-FFW" secondAttribute="bottom" constant="16" id="1QG-ew-N44"/>
-                            <constraint firstItem="dAP-Lz-5eQ" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="bottom" constant="33" id="EDD-Yj-9rg"/>
-                            <constraint firstItem="QFR-Me-oH2" firstAttribute="centerX" secondItem="XQt-fv-gpb" secondAttribute="centerX" id="HG5-07-cy2"/>
-                            <constraint firstItem="SVv-aZ-FFW" firstAttribute="top" secondItem="QFR-Me-oH2" secondAttribute="bottom" constant="33" id="LhZ-Og-DsE"/>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="bottom" secondItem="dAP-Lz-5eQ" secondAttribute="bottom" constant="16" id="aLt-Rr-Njh"/>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="trailing" secondItem="SVv-aZ-FFW" secondAttribute="trailing" constant="16" id="bdz-mK-b89"/>
-                            <constraint firstItem="XQt-fv-gpb" firstAttribute="trailing" secondItem="QFR-Me-oH2" secondAttribute="trailing" constant="16" id="bsB-Pi-UbH"/>
-                            <constraint firstItem="QFR-Me-oH2" firstAttribute="top" secondItem="XQt-fv-gpb" secondAttribute="top" id="crI-tY-rN8"/>
-                            <constraint firstItem="dAP-Lz-5eQ" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="16" id="fAN-ys-cWx"/>
-                            <constraint firstItem="QFR-Me-oH2" firstAttribute="leading" secondItem="XQt-fv-gpb" secondAttribute="leading" constant="16" id="udR-xP-yan"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="XQt-fv-gpb"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="zNP-NP-cDH"/>
-                    <connections>
-                        <outlet property="imgSwipe" destination="Sxn-j8-Mt1" id="do3-20-hxw"/>
-                        <outlet property="labelSwipe" destination="55f-I8-a5d" id="6kn-lR-cac"/>
-                        <outlet property="swipeContainer" destination="QFR-Me-oH2" id="d7H-3x-uaW"/>
-                        <outlet property="swipeNoButton" destination="dAP-Lz-5eQ" id="mv9-Qe-WVL"/>
-                        <outlet property="swipeText" destination="rpl-lK-n3r" id="fVH-xE-CPQ"/>
-                        <outlet property="swipeYesButton" destination="SVv-aZ-FFW" id="dif-d3-5Pb"/>
-                        <outlet property="topView" destination="u4k-q9-6O5" id="u6V-FW-coW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-mw-c6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="NQh-ga-94A">
-                    <connections>
-                        <action selector="handleSwipe:" destination="yle-re-xOJ" id="hfh-2E-62t"/>
-                    </connections>
-                </panGestureRecognizer>
-                <tapGestureRecognizer id="i6h-V7-ryA">
-                    <connections>
-                        <action selector="handleTapNo:" destination="yle-re-xOJ" id="DbN-LN-XFu"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="Mfz-oO-JSn">
-                    <connections>
-                        <action selector="handleTapYes:" destination="yle-re-xOJ" id="N3T-7Y-Wko"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="4228" y="-645"/>
-        </scene>
         <!--CreateCategoryViewController-->
         <scene sceneID="CFk-0S-DD0">
             <objects>
@@ -562,7 +427,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="TY6-RK-409" kind="relationship" relationship="viewControllers" id="29D-kU-lI0"/>
-                        <segue destination="yle-re-xOJ" kind="relationship" relationship="viewControllers" id="EPt-qI-ytz"/>
                         <segue destination="PKh-20-UGy" kind="relationship" relationship="viewControllers" id="HnG-2p-uhY"/>
                         <segue destination="XJi-mA-luc" kind="relationship" relationship="viewControllers" id="4If-TG-lU2"/>
                     </connections>
@@ -772,11 +636,6 @@
             <point key="canvasLocation" x="5153" y="-2086"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="PlaceholderSubjectImg" width="400" height="209"/>
-        <image name="swipeNo" width="125" height="125"/>
-        <image name="swipeYes" width="125" height="125"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v2a-te-Owv"/>
     </inferredMetricsTieBreakers>

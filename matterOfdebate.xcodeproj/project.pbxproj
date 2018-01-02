@@ -44,6 +44,7 @@
 		65BB74C21FE1283F0070C44E /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB74C11FE1283F0070C44E /* CreateCategoryViewController.swift */; };
 		65BF4F3D1FE68C4800FF8865 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF4F3C1FE68C4800FF8865 /* TableViewHelper.swift */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
+		F5F1BE661FF28C1B00E00F6C /* SwipeBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F1BE651FF28C1B00E00F6C /* SwipeBoard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
 		E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F1BE651FF28C1B00E00F6C /* SwipeBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SwipeBoard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				656430381FC1A4CF0019F9BE /* user_administration */,
 				656430391FC1A5550019F9BE /* ui_extensions */,
 				6529A4531FBB8DA000DFBE96 /* Main.storyboard */,
+				F5F1BE651FF28C1B00E00F6C /* SwipeBoard.storyboard */,
 				65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */,
 				6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */,
 				65174D2F1FC072CE00E5B902 /* SettingsController.swift */,
@@ -304,6 +307,7 @@
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
+				F5F1BE661FF28C1B00E00F6C /* SwipeBoard.storyboard in Resources */,
 				409B08241FE809B200389567 /* swipeCardView.xib in Resources */,
 				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
 				6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */,
