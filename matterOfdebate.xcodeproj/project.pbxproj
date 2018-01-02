@@ -57,6 +57,8 @@
 		65DD4A7F1FF15DA000233187 /* UserChatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD4A7E1FF15DA000233187 /* UserChatSettings.swift */; };
 		65DF2E351FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */; };
 		65F6644D1FFBD15300A6AC52 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F6644C1FFBD15300A6AC52 /* CategoryStoryboard.storyboard */; };
+		65F6644F1FFC06E700A6AC52 /* sharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6644E1FFC06E700A6AC52 /* sharedData.swift */; };
+		65F664511FFC076300A6AC52 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F664501FFC076300A6AC52 /* Statistic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +115,8 @@
 		65DD4A7E1FF15DA000233187 /* UserChatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatSettings.swift; sourceTree = "<group>"; };
 		65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiscThemeViewController.swift; sourceTree = "<group>"; };
 		65F6644C1FFBD15300A6AC52 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CategoryStoryboard.storyboard; sourceTree = "<group>"; };
+		65F6644E1FFC06E700A6AC52 /* sharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharedData.swift; sourceTree = "<group>"; };
+		65F664501FFC076300A6AC52 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		E665E3187207AD3F9F84B92B /* Pods-matterOfdebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -190,6 +194,7 @@
 				48B657CD1FD460EC0017266B /* Topic.swift */,
 				48B657CF1FD460FC0017266B /* Category.swift */,
 				48EA29EB1FE00AD700518C8D /* Opinion.swift */,
+				65F664501FFC076300A6AC52 /* Statistic.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */,
 				65693D6C1FCED5A8009FE995 /* Bridging-Header.h */,
 				65693D6D1FCED7D3009FE995 /* Constants.swift */,
+				65F6644E1FFC06E700A6AC52 /* sharedData.swift */,
 			);
 			path = matterOfdebate;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656030DF1FD89E840029C549 /* UserChatsTableViewController.swift in Sources */,
+				65F664511FFC076300A6AC52 /* Statistic.swift in Sources */,
 				48A6C6871FF2F9E3006CA003 /* CreatingCharts.swift in Sources */,
 				486F6FD61FDF57A8005376D8 /* OpinionView.swift in Sources */,
 				656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */,
@@ -513,6 +520,7 @@
 				48AEEFCD1FCB79CE00726996 /* CategoryProtocol.swift in Sources */,
 				48EA29EC1FE00AD700518C8D /* Opinion.swift in Sources */,
 				486F6FDA1FDF5808005376D8 /* OpinionProtocol.swift in Sources */,
+				65F6644F1FFC06E700A6AC52 /* sharedData.swift in Sources */,
 				48B657CE1FD460EC0017266B /* Topic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
