@@ -95,7 +95,7 @@ class StatisticsController : UIViewController {
         }
         
         //TODO: Async Abfrage auf die Datenbank ob der user schon eine Opinion hat die pro ist
-        if(sharedData.statistics) {
+        if(true) {
             // TODO: show dialoge
             return
         }
