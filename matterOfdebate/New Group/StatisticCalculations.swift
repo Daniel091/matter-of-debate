@@ -35,4 +35,13 @@ class StatisticCalculations {
         return nil
     }
     
+    func updateStatistic(_ statistic: Statistic) {
+        if !SharedData.statistics.isEmpty {
+            if let index = SharedData.statistics.index(where: { $0.id == statistic.id }) {
+                var newStatistic = SharedData.statistics[index]
+                newStatistic.setPro(statistic.getPro())
+                newStatistic.setContra(statistic.getContra())
+            }
+        }
+    }
 }
