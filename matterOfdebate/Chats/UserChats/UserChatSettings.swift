@@ -115,6 +115,12 @@ class UserChatSettings: FormViewController {
         DispatchQueue.global(qos: .background).async {
             Constants.refs.reportedUsers
                 .child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                guard snapshot.exists() else {
+                    completion(0)
+                    return
+                }
+                        
                 let postDict = snapshot.value
                 
                 let reportedUserDatabase = postDict as? Dictionary<String, AnyObject> ?? [String : AnyObject]()
@@ -132,33 +138,25 @@ class UserChatSettings: FormViewController {
     // TODO: fix abfrage nach number of reports
     // TODO: insert real abfrage ob der User im baum schon existiert
     func sendReportsToDatabase(_ reportedUserID: String) {
-//        let dispatchGroup = DispatchGroup()
-//        var currentNumberOfReports: Int?
-        let numberOfReports = 1
+        let dispatchGroup = DispatchGroup()
+        var currentNumberOfReports: Int?
+        var numberOfReports = 1
         
-//        dispatchGroup.enter()
-//        self.getNumberOfReportsOfUser(userID: reportedUserID) { result in
-//            currentNumberOfReports = result
-//            dispatchGroup.leave()
-//        }
-//
-//        dispatchGroup.notify(queue: .main) {
-//            numberOfReports = currentNumberOfReports!
+        let dataRef = Constants.refs.reportedUsers.child(reportedUserID)
         
-            let dataRef = Constants.refs.reportedUsers
-                .child(reportedUserID)
-            
-            guard dataRef.isAccessibilityElement else {
-                dataRef.child("numberReports").setValue(numberOfReports)
-                let reportingUseresRef = dataRef.child("reportingUsers")
-                reportingUseresRef.child(SingletonUser.sharedInstance.user.uid).setValue(true)
-                return
-            }
-            
+        dispatchGroup.enter()
+        self.getNumberOfReportsOfUser(userID: reportedUserID) { result in
+            currentNumberOfReports = result
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            numberOfReports = currentNumberOfReports!
+        
             dataRef.child("numberReports").setValue(numberOfReports+1)
             let reportingUseresRef = dataRef.child("reportingUsers")
             reportingUseresRef.child(SingletonUser.sharedInstance.user.uid).setValue(true)
-        //}
+        }
     }
     
     func showDialog(title: String, message: String) {

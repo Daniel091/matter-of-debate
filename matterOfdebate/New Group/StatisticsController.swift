@@ -52,33 +52,28 @@ class StatisticsController : UIViewController {
         guard let chat_obj = chat else {
             return
         }
-        
-        if let statistic = statisticCalculation.getStatisticByChatId(chat_obj.id) {
-            barChartUpdate(Double(statistic.pro), Double(statistic.contra))
-            pieChartUpdate(Double(statistic.pro), Double(statistic.contra))
-        } else {
-            // gets statistic data once, saves it to sharedData list
-            let ref = Constants.refs.statistics.child(chat_obj.id)
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                let value = snapshot.value as? NSDictionary
-                
-                let contra = value?["contra"] as? Int ?? 0
-                let pro = value?["pro"] as? Int ?? 0
-                let opinions = value?["users"] as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
-                let user = opinions[SingletonUser.sharedInstance.user.uid]
-                let startOpinion = user?["startOpinion"]
-                let currentOpinion = user?["endOpinion"]
-                
-                let statistic = Statistic(id: snapshot.key, contra: contra, pro: pro, startOpinion: startOpinion, currentOpinion: currentOpinion)
-                
-                SharedData.statistics.append(statistic)
-                self.updateCharts()
-                
-            }) { (error) in
-                print(error.localizedDescription)
-            }
+        // gets statistic data once, saves it to sharedData list
+        let ref = Constants.refs.statistics.child(chat_obj.id)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            let contra = value?["contra"] as? Int ?? 0
+            let pro = value?["pro"] as? Int ?? 0
+            let opinions = value?["users"] as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
+            let user = opinions[SingletonUser.sharedInstance.user.uid]
+            let startOpinion = user?["startOpinion"]
+            let currentOpinion = user?["endOpinion"]
+            
+            let statistic = Statistic(id: snapshot.key, contra: contra, pro: pro, startOpinion: startOpinion, currentOpinion: currentOpinion)
+            
+            SharedData.statistics.append(statistic)
+            self.updateCharts()
+            
+        }) { (error) in
+            print(error.localizedDescription)
         }
+        
     }
     
     @IBAction func proClick(_ sender: Any) {

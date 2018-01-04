@@ -11,10 +11,6 @@ import Charts
 
 class StatisticCalculations {
     
-    func provideChartData(proVotes: Int, contraVotes: Int) -> Int {
-        return proVotes + contraVotes
-    }
-    
     func sendStatisticsToDatatbase(_ statistic: Statistic) {
         let dataRef = Constants.refs.statistics.child(statistic.getID())
         dataRef.child("pro").setValue(statistic.getPro())
