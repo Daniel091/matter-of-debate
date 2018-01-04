@@ -84,8 +84,41 @@ class UserChatSettings: FormViewController {
         
         self.endChat()
         
-        // TODO: get real Opinion!!
-        matchingFunction.searchForMatching(topicID: chatObject.topic.id, currUserID: SingletonUser.sharedInstance.user.uid, opinionGroup: 3)
+        let dispatchGroup = DispatchGroup()
+        var currentOpinion: Int = 0
+        
+        dispatchGroup.enter()
+        self.getUserOpinion(chatObject.topic.id) { result in
+            guard let currOpinion = result else {
+                dispatchGroup.leave()
+                return
+            }
+            currentOpinion = currOpinion
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            // TODO: Fehler weil Daniel not_set reingeschrieben hat als TopicID
+            self.matchingFunction.searchForMatching(topicID: chatObject.topic.id, currUserID: SingletonUser.sharedInstance.user.uid, opinionGroup: currentOpinion)
+        }
+    }
+    
+    func getUserOpinion(_ topicID: String, completion: @escaping (Int?) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            Constants.refs.databaseUsers.child(SingletonUser.sharedInstance.user.uid).child("opinions")
+                .observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    guard snapshot.exists() else {
+                        completion(nil)
+                        return
+                    }
+                    
+                    let topicOpinion = snapshot.value as? Dictionary<String, Int> ?? [String : Int]()
+                    let opinionValue = topicOpinion[topicID]
+                    
+                    completion(opinionValue)
+                })
+        }
     }
     
     func reportUser() {
@@ -135,8 +168,6 @@ class UserChatSettings: FormViewController {
         }
     }
     
-    // TODO: fix abfrage nach number of reports
-    // TODO: insert real abfrage ob der User im baum schon existiert
     func sendReportsToDatabase(_ reportedUserID: String) {
         let dispatchGroup = DispatchGroup()
         var currentNumberOfReports: Int?
