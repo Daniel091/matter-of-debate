@@ -38,6 +38,7 @@ class StatisticsController : UIViewController {
     }
     
     func updateCharts() {
+        // TODO for Daniel: update die Charts mit Animation bitte !! :D :D :D 
         // show content of shared list
         guard let chat_obj = chat else {return}
         guard let statistic = statisticCalculation.getStatisticByChatId(chat_obj.id) else {return}
@@ -93,6 +94,7 @@ class StatisticsController : UIViewController {
         }
         
         statisticCalculations.sendStatisticsToDatatbase(chatStatistics)
+        statisticCalculations.updateStatistic(chatStatistics)
         updateCharts()
         print("testPro")
     }
@@ -110,6 +112,7 @@ class StatisticsController : UIViewController {
         }
         
         statisticCalculations.sendStatisticsToDatatbase(chatStatistics)
+        statisticCalculations.updateStatistic(chatStatistics)
         updateCharts()
         print("testContra")
     }

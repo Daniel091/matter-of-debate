@@ -26,9 +26,8 @@ class StatisticCalculations {
     
     func getStatisticByChatId(_ chatId : String) -> Statistic? {
         if !SharedData.statistics.isEmpty {
-            if let i = SharedData.statistics.index(where: { $0.id == chatId }) {
-                let statistic = SharedData.statistics[i]
-                return statistic
+            if let index = SharedData.statistics.index(where: { $0.id == chatId }) {
+                return SharedData.statistics[index]
             }
         }
         
@@ -38,9 +37,7 @@ class StatisticCalculations {
     func updateStatistic(_ statistic: Statistic) {
         if !SharedData.statistics.isEmpty {
             if let index = SharedData.statistics.index(where: { $0.id == statistic.id }) {
-                var newStatistic = SharedData.statistics[index]
-                newStatistic.setPro(statistic.getPro())
-                newStatistic.setContra(statistic.getContra())
+                SharedData.statistics[index] = statistic
             }
         }
     }
