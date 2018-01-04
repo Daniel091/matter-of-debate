@@ -9,20 +9,25 @@
 import Foundation
 
 struct Statistic {
+    
+    // TODO: private
+    
     var id : String
     var contra: Int
     var pro: Int
-    var startOpinion: String
-    var currentOpinion: String
-    var opinions = [[String]]()
+    var startOpinion: String?
+    var currentOpinion: String?
     
-    init(id: String, contra : Int, pro : Int, startOpinion: String, currentOpinion:String ,opinions : [[String]]) {
+    init(id: String, contra : Int, pro : Int, startOpinion: String?, currentOpinion:String?) {
         self.id = id
         self.contra = contra
-        self.opinions = opinions
         self.pro = pro
         self.currentOpinion = currentOpinion
         self.startOpinion = startOpinion
+    }
+    
+    public func getID() -> String {
+        return id
     }
     
     public func getContra() -> Int {
@@ -33,11 +38,11 @@ struct Statistic {
         return pro
     }
     
-    public func getStartOpinion() -> String{
+    public func getStartOpinion() -> String?{
         return startOpinion
     }
     
-    public func getCurrentOpinion() -> String{
+    public func getCurrentOpinion() -> String?{
         return currentOpinion
     }
     
@@ -47,5 +52,41 @@ struct Statistic {
     
     public mutating func setPro(_ pro: Int) {
         self.pro = pro
+    }
+    
+    public mutating func setCurrentOpinion(_ currentOpinion: String) {
+        self.currentOpinion = currentOpinion
+    }
+    
+    public mutating func votePro() -> Bool{
+        if self.startOpinion != nil {
+            if(self.currentOpinion == "pro") {
+                return false
+            }
+            pro = pro + 1
+            contra = contra - 1
+            currentOpinion = "pro"
+        } else {
+            pro = pro + 1
+            currentOpinion = "pro"
+            startOpinion = "pro"
+        }
+        return true
+    }
+    
+    public mutating func voteContra() -> Bool{
+        if self.startOpinion != nil {
+            if(self.currentOpinion == "contra") {
+                return false
+            }
+            contra = contra + 1
+            pro = pro - 1
+            currentOpinion = "contra"
+        } else {
+            contra = contra + 1
+            currentOpinion = "contra"
+            startOpinion = "contra"
+        }
+        return true
     }
 }

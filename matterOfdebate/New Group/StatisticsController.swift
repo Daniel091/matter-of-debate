@@ -64,9 +64,12 @@ class StatisticsController : UIViewController {
                 
                 let contra = value?["contra"] as? Int ?? 0
                 let pro = value?["pro"] as? Int ?? 0
-                let ops = value?["users"] as? [[String]] ?? [[]]
+                let opinions = value?["users"] as? Dictionary<String, Dictionary<String, String>> ?? [String : [String : String]]()
+                let user = opinions[SingletonUser.sharedInstance.user.uid]
+                let startOpinion = user?["startOpinion"]
+                let currentOpinion = user?["endOpinion"]
                 
-                let statistic = Statistic(id: snapshot.key, contra: contra, pro: pro, startOpinion: "asd", currentOpinion: "asasd", opinions: ops)
+                let statistic = Statistic(id: snapshot.key, contra: contra, pro: pro, startOpinion: startOpinion, currentOpinion: currentOpinion)
                 
                 SharedData.statistics.append(statistic)
                 self.updateCharts()
@@ -78,55 +81,35 @@ class StatisticsController : UIViewController {
     }
     
     @IBAction func proClick(_ sender: Any) {
-        guard let chatObject = chat else {
-            return
-        }
+        guard let chatObject = chat else {return}
+        guard var chatStatistics = statisticCalculation.getStatisticByChatId(chatObject.id) else {return}
         
         if(SharedData.statistics.isEmpty) {
             return
         }
-        
-        //TODO: auf die current Opinion noch den User matchen !!
-        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.currentOpinion == "pro") {
-            // TODO: show dialoge
+        if(!chatStatistics.votePro()) {
+            // TODO show toast
             return
         }
         
-        var proVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getPro()
-        var contraVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getContra()
-        
-        guard let proVotes = proVotesOptional else { return }
-        guard let contraVotes = contraVotesOptional else { return }
-        
-        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.startOpinion.isEmpty)! {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes+1, contraVotes: contraVotes-1, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
-        } else {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes+1, contraVotes: contraVotes, currentOpinion: "pro", startOpinion: "pro", chatID: chatObject.id)
-        }
+        statisticCalculations.sendStatisticsToDatatbase(chatStatistics)
         updateCharts()
         print("testPro")
     }
     
     @IBAction func contraClick(_ sender: Any) {
-        guard let chatObject = chat else {
+        guard let chatObject = chat else {return}
+        guard var chatStatistics = statisticCalculation.getStatisticByChatId(chatObject.id) else {return}
+        
+        if(SharedData.statistics.isEmpty) {
             return
         }
-        //TODO: auf die current Opinion noch den User matchen !!
-        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.currentOpinion == "contra") {
+        if(!chatStatistics.voteContra()) {
+            // TODO show toast
             return
         }
         
-        let proVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getPro()
-        let contraVotesOptional = statisticCalculation.getStatisticByChatId(chatObject.id)?.getContra()
-        
-        guard let proVotes = proVotesOptional else { return }
-        guard let contraVotes = contraVotesOptional else { return }
-        
-        if(statisticCalculation.getStatisticByChatId(chatObject.id)?.startOpinion.isEmpty)! {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes-1, contraVotes: contraVotes+1, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id )
-        } else {
-            statisticCalculations.sendStatisticsToDatatbase(proVotes: proVotes, contraVotes: contraVotes+1, currentOpinion: "contra", startOpinion: "contra", chatID: chatObject.id)
-        }
+        statisticCalculations.sendStatisticsToDatatbase(chatStatistics)
         updateCharts()
         print("testContra")
     }

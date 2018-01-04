@@ -15,13 +15,13 @@ class StatisticCalculations {
         return proVotes + contraVotes
     }
     
-    func sendStatisticsToDatatbase(proVotes: Int, contraVotes: Int, currentOpinion: String, startOpinion: String, chatID: String) {
-        let dataRef = Constants.refs.statistics.child(chatID)
-        dataRef.child("pro").setValue(proVotes)
-        dataRef.child("contra").setValue(contraVotes)
+    func sendStatisticsToDatatbase(_ statistic: Statistic) {
+        let dataRef = Constants.refs.statistics.child(statistic.getID())
+        dataRef.child("pro").setValue(statistic.getPro())
+        dataRef.child("contra").setValue(statistic.getContra())
         let userRef = dataRef.child("users").child(SingletonUser.sharedInstance.user.uid)
-        userRef.child("startOpinion").setValue(startOpinion)
-        userRef.child("endOpinion").setValue(currentOpinion)
+        userRef.child("startOpinion").setValue(statistic.getStartOpinion())
+        userRef.child("endOpinion").setValue(statistic.getCurrentOpinion())
     }
     
     func getStatisticByChatId(_ chatId : String) -> Statistic? {
