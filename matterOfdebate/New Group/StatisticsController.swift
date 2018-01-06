@@ -38,7 +38,6 @@ class StatisticsController : UIViewController {
     }
     
     func updateCharts() {
-        // TODO for Daniel: update die Charts mit Animation bitte !! :D :D :D 
         // show content of shared list
         guard let chat_obj = chat else {return}
         guard let statistic = statisticCalculation.getStatisticByChatId(chat_obj.id) else {return}
@@ -128,6 +127,9 @@ class StatisticsController : UIViewController {
         
         dataSet.colors = ChartColorTemplates.joyful()
         
+        // animation for chart update
+        pieChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInCirc)
+        
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
     }
@@ -183,7 +185,10 @@ class StatisticsController : UIViewController {
         let green = UIColor(hue: 0.3083, saturation: 1, brightness: 0.8, alpha: 1.0) /* #1ecc00 */
         let red = UIColor(hue: 0, saturation: 1, brightness: 0.92, alpha: 1.0) /* #ea0000 */
         dataSet.colors = [green, red]
-        
+
+        // animation for chart update
+        barChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
+
         //This must stay at end of function
         barChart.notifyDataSetChanged()
     }
