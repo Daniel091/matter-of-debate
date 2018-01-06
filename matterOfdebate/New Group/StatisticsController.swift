@@ -8,10 +8,13 @@
 
 import Foundation
 import Charts
+import Firebase
 
 class StatisticsController : UIViewController {
     let statisticCalculations = StatisticCalculations()
-    
+    private var statsRefUpdateHandle: DatabaseHandle?
+    private lazy var statsRef = Constants.refs.statistics
+
     @IBOutlet weak var proBtn: UIButton!
     @IBOutlet weak var contraBtn: UIButton!
     @IBOutlet weak var barChart: BarChartView!
@@ -35,6 +38,40 @@ class StatisticsController : UIViewController {
       
         // load statistics list
         loadStatistics()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // set event handler for to update statistic when firebase child changes
+        guard let chat_obj = chat else {return}
+        print(chat_obj.id)
+        
+        // Child is changed maybe, maybe trigger this with an Btn (e.g Refresh Charts)
+        statsRef = statsRef.child(chat_obj.id)
+        statsRefUpdateHandle = statsRef.observe(.childChanged, with: { (snapshot) -> Void in
+            if (snapshot.key == "pro") {
+                let pro = snapshot.value as? Int ?? 0
+                guard let chatStatistics = self.statisticCalculation.getStatisticByChatId(chat_obj.id) else {return}
+                chatStatistics.setPro(pro)
+            } else if (snapshot.key == "contra") {
+                let contra = snapshot.value as? Int ?? 0
+                guard let chatStatistics = self.statisticCalculation.getStatisticByChatId(chat_obj.id) else {return}
+                chatStatistics.setContra(contra)
+            } else {
+                return
+            }
+            self.updateCharts()
+        })
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // remove observer
+        if let updateHandle = self.statsRefUpdateHandle {
+            statsRef.removeObserver(withHandle: updateHandle)
+        }
     }
     
     func updateCharts() {
@@ -77,38 +114,36 @@ class StatisticsController : UIViewController {
     
     @IBAction func proClick(_ sender: Any) {
         guard let chatObject = chat else {return}
-        guard var chatStatistics = statisticCalculation.getStatisticByChatId(chatObject.id) else {return}
+        guard let chatStatistics = statisticCalculation.getStatisticByChatId(chatObject.id) else {return}
         
         if(SharedData.statistics.isEmpty) {
             return
         }
         if(!chatStatistics.votePro()) {
-            // TODO show toast
+            // TODO show toast @Steffi do we really need this? never going to be triggered
             return
         }
         
         statisticCalculations.sendStatisticsToDatatbase(chatStatistics)
         statisticCalculations.updateStatistic(chatStatistics)
         updateCharts()
-        print("testPro")
     }
     
     @IBAction func contraClick(_ sender: Any) {
         guard let chatObject = chat else {return}
-        guard var chatStatistics = statisticCalculation.getStatisticByChatId(chatObject.id) else {return}
+        guard let chatStatistics = statisticCalculation.getStatisticByChatId(chatObject.id) else {return}
         
         if(SharedData.statistics.isEmpty) {
             return
         }
         if(!chatStatistics.voteContra()) {
-            // TODO show toast
+            // TODO show toast @Steffi do we really need this? never going to be triggered
             return
         }
         
         statisticCalculations.sendStatisticsToDatatbase(chatStatistics)
         statisticCalculations.updateStatistic(chatStatistics)
         updateCharts()
-        print("testContra")
     }
     
     func pieChartUpdate(_ pro : Double,_ contra : Double) {
@@ -194,8 +229,8 @@ class StatisticsController : UIViewController {
     }
     
     @IBAction func renderCharts() {
-        barChartUpdate(3.0,3.0)
-        pieChartUpdate(3.0, 3.0)
+        barChartUpdate(0,0)
+        pieChartUpdate(0,0)
     }
     
     class ChartStringFormatter: NSObject, IAxisValueFormatter {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Statistic {
+class Statistic {
     
     // TODO: private
     
@@ -46,19 +46,19 @@ struct Statistic {
         return currentOpinion
     }
     
-    public mutating func setContra(_ contra: Int) {
+    public func setContra(_ contra: Int) {
         self.contra = contra
     }
     
-    public mutating func setPro(_ pro: Int) {
+    public func setPro(_ pro: Int) {
         self.pro = pro
     }
     
-    public mutating func setCurrentOpinion(_ currentOpinion: String) {
+    public func setCurrentOpinion(_ currentOpinion: String) {
         self.currentOpinion = currentOpinion
     }
     
-    public mutating func votePro() -> Bool{
+    public func votePro() -> Bool{
         if self.startOpinion != nil {
             if(self.currentOpinion == "pro") {
                 return false
@@ -74,7 +74,7 @@ struct Statistic {
         return true
     }
     
-    public mutating func voteContra() -> Bool{
+    public func voteContra() -> Bool{
         if self.startOpinion != nil {
             if(self.currentOpinion == "contra") {
                 return false
