@@ -21,6 +21,7 @@ class SwipeViewController: UIViewController {
     var gestureStart: CGPoint?
     var gestureEnd: CGPoint?
     var defaultPos: CGPoint?
+    private var topics: [Topic] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,6 +44,7 @@ class SwipeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         defaultPos = swipeContainer.center
+        topics = []
     }
 
     @IBAction func handleTapNo(_ sender: UITapGestureRecognizer) {

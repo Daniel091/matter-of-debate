@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class SwipeViewController: UIViewController {
     
@@ -21,7 +22,8 @@ class SwipeViewController: UIViewController {
     var gestureStart: CGPoint?
     var gestureEnd: CGPoint?
     var defaultPos: CGPoint?
-    public var selectedCat: Category?
+    public var selectedCat: String?
+    private var topics: [Topic] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,18 +35,24 @@ class SwipeViewController: UIViewController {
         //move buttons under the card
         topView.sendSubview(toBack: swipeNoButton)
         topView.sendSubview(toBack: swipeYesButton)
-        //TODO Load themes from Category
-        
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeText.text = "This is an example test and should be replaced by the time you see this view."
+        getThemesOfCategory(selectedCat!)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         defaultPos = swipeContainer.center
+        if topics.count > 0 {
+            swipeText.text = topics[0].description
+            labelSwipe.text = topics[0].title
+            
+        }
     }
 
     @IBAction func handleTapNo(_ sender: UITapGestureRecognizer) {
@@ -100,14 +108,33 @@ class SwipeViewController: UIViewController {
 
     func swipeYes() {
         print("yes")
+        let animator = UIViewPropertyAnimator.init(duration: 0.5, curve: UIViewAnimationCurve.easeIn, animations: {
+            self.swipeContainer.center = self.swipeYesButton.center
+            self.swipeContainer.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            self.swipeContainer.alpha = 0.01
+        })
+        animator.startAnimation()
         self.performSegue(withIdentifier: "toOpinion", sender: self)
     }
 
     func swipeNo() {
         print("NO")
-        UIViewPropertyAnimator.init(duration: 0.3, curve: UIViewAnimationCurve.easeIn, animations: {
-            self.swipeContainer.center = self.swipeNoButton.center
-        }).startAnimation()
+        let sourceView = self.swipeContainer
+        //TODO For custom SwipeContainerView
+        let copiedView = sourceView?.copyView()
+        print(copiedView?.constraints.description)
+        copiedView!.backgroundColor = UIColor.red
+        copiedView!.center = defaultPos!
+        copiedView!.updateConstraintsIfNeeded()
+        let animator = UIViewPropertyAnimator.init(duration: 0.6, curve: UIViewAnimationCurve.easeOut, animations: {
+            self.swipeContainer!.center = self.swipeNoButton.center
+            self.swipeContainer!.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            self.swipeContainer!.alpha = 0.01
+        })
+        animator.startAnimation()
+        
+        //TODO add a dismissed mark to topic data
+        //reloadCard()
         //TODO Load new Subject/Theme
     }
 
@@ -119,6 +146,16 @@ class SwipeViewController: UIViewController {
         return false
     }
     
+    func reloadCard() {
+        self.swipeContainer.center = defaultPos!
+        self.swipeContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
+        self.swipeContainer.alpha = 1
+        return
+    }
+    
+    func copyView<T: UIView>() -> T {
+        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
+    }
     
     class Direction {
         // direction is one for downleft
@@ -144,6 +181,24 @@ class SwipeViewController: UIViewController {
                 return Direction.up
             }
         }
+    }
+    
+    func getThemesOfCategory(_ theme_id: String) {
+        
+        let themesRef = Constants.refs.databaseThemes
+        let themesUpdateHandle = themesRef.queryOrdered(byChild: "categories/" + theme_id)
+            .queryEqual(toValue: true)
+            .observe(.childAdded, with: { (snapshot) -> Void in
+                
+                let themesData = snapshot.value as! Dictionary<String, AnyObject>
+                let t_title = themesData["titel"] as? String ?? ""
+                let img_url = themesData["img-url"] as? String ?? ""
+                let description = themesData["description"] as? String ?? ""
+                
+                let topic = Topic(name: t_title, description: description, categories: [theme_id], imageUrl: img_url, id: snapshot.key)
+                
+                self.topics.append(topic)
+            })
     }
     
 }

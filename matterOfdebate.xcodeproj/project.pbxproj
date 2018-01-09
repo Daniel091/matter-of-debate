@@ -59,6 +59,7 @@
 		65F6644D1FFBD15300A6AC52 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F6644C1FFBD15300A6AC52 /* CategoryStoryboard.storyboard */; };
 		F599A36B1FFBE6D90040D0A9 /* Swiping in Resources */ = {isa = PBXBuildFile; fileRef = F599A36A1FFBE6D90040D0A9 /* Swiping */; };
 		F599A3701FFBF2200040D0A9 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599A36F1FFBF2200040D0A9 /* SwipeViewController.swift */; };
+		F5FE943B1FFC276100280C2A /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE943A1FFC276100280C2A /* SwipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F599A36A1FFBE6D90040D0A9 /* Swiping */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Swiping; sourceTree = "<group>"; };
 		F599A36F1FFBF2200040D0A9 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		F5FE943A1FFC276100280C2A /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				F599A36F1FFBF2200040D0A9 /* SwipeViewController.swift */,
+				F5FE943A1FFC276100280C2A /* SwipeView.swift */,
 			);
 			name = Swiping;
 			path = "New Group1";
@@ -493,6 +496,7 @@
 				656030DF1FD89E840029C549 /* UserChatsTableViewController.swift in Sources */,
 				48A6C6871FF2F9E3006CA003 /* CreatingCharts.swift in Sources */,
 				486F6FD61FDF57A8005376D8 /* OpinionView.swift in Sources */,
+				F5FE943B1FFC276100280C2A /* SwipeView.swift in Sources */,
 				656430371FC1A29C0019F9BE /* ActivitySpinner.swift in Sources */,
 				65174D301FC072CE00E5B902 /* SettingsController.swift in Sources */,
 				652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */,

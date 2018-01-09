@@ -42,7 +42,7 @@ class CategoriesController: UICollectionViewController {
             viewController.delegate = self
         }
         if let viewController = segue.destination as? SwipeViewController {
-            viewController.selectedCat = selectedCategory
+            viewController.selectedCat = selectedCategory?.title
         }
         
     }

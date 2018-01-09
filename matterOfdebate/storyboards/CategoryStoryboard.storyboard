@@ -230,22 +230,6 @@
         <!--Swipe View Controller-->
         <scene sceneID="401-e8-df8">
             <objects>
-                <tapGestureRecognizer id="KMN-qu-6i9">
-                    <connections>
-                        <action selector="handleTapYes:" destination="31B-wI-BWM" id="Sw4-aN-CdJ"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="bYe-7c-NPO">
-                    <connections>
-                        <action selector="handleTapNo:" destination="31B-wI-BWM" id="CPI-YP-3f0"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yAM-la-4GA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="ldk-l7-KcF">
-                    <connections>
-                        <action selector="handleSwipe:" destination="31B-wI-BWM" id="WSC-6A-vZq"/>
-                    </connections>
-                </panGestureRecognizer>
                 <viewController storyboardIdentifier="swipeView" id="31B-wI-BWM" customClass="SwipeViewController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KBI-nM-oPQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -358,6 +342,22 @@
                         <segue destination="PgJ-hV-MVd" kind="show" identifier="toOpinion" id="T93-Cs-T5a"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="KMN-qu-6i9">
+                    <connections>
+                        <action selector="handleTapYes:" destination="31B-wI-BWM" id="Sw4-aN-CdJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bYe-7c-NPO">
+                    <connections>
+                        <action selector="handleTapNo:" destination="31B-wI-BWM" id="CPI-YP-3f0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yAM-la-4GA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ldk-l7-KcF">
+                    <connections>
+                        <action selector="handleSwipe:" destination="31B-wI-BWM" id="WSC-6A-vZq"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6279" y="-1189"/>
         </scene>
