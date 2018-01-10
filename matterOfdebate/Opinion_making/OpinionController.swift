@@ -28,7 +28,7 @@ class OpinionController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Your Opinion"
+        title = selectedTopic!.title
     }
     
     
