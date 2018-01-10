@@ -123,7 +123,7 @@ class SwipeViewController: UIViewController {
     func swipeYes() {
         print("yes")
         animateCardTo(view: swipeYesButton)
-        if !noThemesView.isHidden {
+        if noThemesView.isHidden {
             self.performSegue(withIdentifier: "toOpinion", sender: self)
         }
     }
