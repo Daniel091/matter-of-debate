@@ -58,62 +58,47 @@ class SettingsController: FormViewController {
     func saveUsrData() {
         print("Trying to save usr data")
         let valuesDictionary = form.values()
-
-        guard let email = valuesDictionary["email"]!, let usr_name = valuesDictionary["username"]! else {
+        
+        guard var email = valuesDictionary["email"]!, var usr_name = valuesDictionary["username"]! else {
             return
         }
         
-        // test if new username is already taken
-        // TODO: is not working?
-        var ref: DatabaseReference!
-        ref = Database.database().reference().child("users")
-        ref.queryOrdered(byChild: "username").queryEqual(toValue: usr_name as! String).observeSingleEvent(of: .value) { (userSnapshot) in
-
-            if userSnapshot.childrenCount != 0 {
-                print("Username already exists")
-                
-                // TODO: benachrichtige den user.
-                let usernameAlert = UIAlertController(title: "", message: "Username already exists", preferredStyle: .alert)
-                usernameAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
-                    NSLog("The duplicate username alert occured.")
-                }))
-                self.present(usernameAlert, animated: true, completion: nil)
-                
-            } else {
-
-                // update Username
+        // cast to string
+        let email_str = email as! String
+        let usr_name_str = usr_name as! String
+        
+        // when entered username is not the current username, check if its unique.
+        if SingletonUser.sharedInstance.user.user_name != usr_name_str {
+            
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            ref.queryOrdered(byChild: "username").queryEqual(toValue: usr_name).observeSingleEvent(of: .value, with: { (userSnapshot) in
+                if userSnapshot.childrenCount == 0 {
+                    
+                // Update username
                 let ref_usr = Constants.refs.databaseUsers.child(self.user_obj.uid)
-                let childUpdates = ["username": usr_name] as [String : Any]
-
+                let childUpdates = ["username": usr_name]
                 ref_usr.updateChildValues(childUpdates)
-                print("username changed")
-            }
+                }
+            })
         }
         
-        // test if email already exists
-        ref.queryOrdered(byChild: "email").queryEqual(toValue: email as! String).observeSingleEvent(of: .value) { (userSnapshot) in
+        // when entered email is not the current email, check if its unique.
+        if SingletonUser.sharedInstance.user.email != email_str {
             
-            if userSnapshot.childrenCount != 0 {
-                print("email already exists")
-                
-                let emailAlert = UIAlertController(title: "", message: "email already exists", preferredStyle: .alert)
-                emailAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
-                    NSLog("The duplicate email alert occured.")
-                }))
-                self.present(emailAlert, animated: true, completion: nil)
-                
-                
-            } else {
-                
-                // update email
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            ref.queryOrdered(byChild: "email").queryEqual(toValue: email_str).observeSingleEvent(of: .value, with: { (userSnapshot) in
+                if userSnapshot.childrenCount == 0 {
+                    
+                // Update email
                 let ref_email = Constants.refs.databaseUsers.child(self.user_obj.uid)
-                let childUpdates = ["email": email] as [String : Any]
+                let childUpdates = ["email": email_str]
                 
-                // TODO: Update singleton
-                
+                SingletonUser.sharedInstance.user.email = email_str
                 ref_email.updateChildValues(childUpdates)
-                print("email changed")
-            }
+                }
+            })
         }
     }
     

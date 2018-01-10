@@ -24,6 +24,8 @@ struct Constants {
         
         static let storageRoot = Storage.storage().reference()
         static let storageThemesImgs = storageRoot.child("theme-images")
+        
+        static let statistics = databaseRoot.child("statistics")
     }
     
     // matching user -- neutral (0) is in pro List!!

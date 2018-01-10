@@ -9,6 +9,6 @@
 import Foundation
 
 class SingletonUser {
-    static let sharedInstance = SingletonUser()
+    static var sharedInstance = SingletonUser()
     var user : User = User(uid: "", email: "", user_name: "")
 }

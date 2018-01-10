@@ -70,12 +70,25 @@ class MessagesView: JSQMessagesViewController {
     }
 
     func setupSettingsChatButton() {
-        let settingsButton = UIBarButtonItem(image: UIImage.jsq_defaultTypingIndicator(), style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
+        let settingsButton = UIBarButtonItem(title: "Statistiken", style: .plain, target: self, action: #selector(settingsButtonTapped(sender:)))
         navigationItem.rightBarButtonItem = settingsButton
     }
     
     @objc func settingsButtonTapped(sender: UIBarButtonItem) {
-        print(":-) Implement mee")
+        if let chat_obj = self.chat {
+            self.performSegue(withIdentifier: "showStats", sender: chat_obj)
+        }
+    }
+    
+    // give topic to next controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let chat = sender as? Chat {
+            let statisticsController = segue.destination as! StatisticsController
+            statisticsController.chat = chat
+        }
+        
     }
     
     // returns message from specific index

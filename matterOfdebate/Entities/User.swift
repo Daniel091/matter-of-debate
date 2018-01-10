@@ -11,8 +11,8 @@ import FirebaseAuth
 
 struct User {
     let uid: String
-    let email: String
-    let user_name: String
+    var email: String
+    var user_name: String
     let isAdmin: Bool
     let isAnonymous: Bool
     
