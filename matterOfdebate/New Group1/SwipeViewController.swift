@@ -15,18 +15,16 @@ class SwipeViewController: UIViewController {
     @IBOutlet weak var swipeContainer: UIView!
     @IBOutlet weak var imgSwipe: UIImageView!
     @IBOutlet weak var labelSwipe: UILabel!
-    @IBOutlet weak var swipeText: UITextField!
+    @IBOutlet weak var swipeTextView: UITextView!
     @IBOutlet weak var swipeNoButton: UIButton!
     @IBOutlet weak var swipeYesButton: UIButton!
     @IBOutlet var topView: UIView!
     @IBOutlet weak var noThemesView: UIView!
-    @IBOutlet weak var backToCategoriesButton: UIButton!
-    var gestureStart: CGPoint?
-    var gestureEnd: CGPoint?
     var defaultPos: CGPoint?
     public var selectedCat: String?
     private var topics: [Topic] = []
     private var topicCounter: Int = 0
+    private let storage = Storage.storage()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,9 +53,10 @@ class SwipeViewController: UIViewController {
         super.viewDidAppear(true)
         defaultPos = swipeContainer.center
         if topics.count > 0 {
-            swipeText.text = topics[0].description
+            swipeTextView.text = topics[0].description
             labelSwipe.text = topics[0].title
-            // To do image load
+            let url = self.storage.reference(forURL: topics[0].imageUrl)
+            imgSwipe.sd_setImage(with: url, placeholderImage: UIImage(named: "Image"))
             topicCounter = 0
             swipeContainer.isHidden = false
             swipeContainer.alpha = 0.001
@@ -67,6 +66,8 @@ class SwipeViewController: UIViewController {
             }, completion: {(true) in
                 
             })
+        } else {
+            noThemesView.isHidden = false
         }
     }
 
@@ -138,8 +139,10 @@ class SwipeViewController: UIViewController {
         self.swipeContainer!.alpha = 0
         topicCounter = topicCounter+1
         if topicCounter < topics.count {
-            self.swipeText.text = topics[topicCounter].description
+            self.swipeTextView.text = topics[topicCounter].description
             self.labelSwipe.text = topics[topicCounter].title
+            let url = self.storage.reference(forURL: topics[topicCounter].imageUrl)
+            imgSwipe.sd_setImage(with: url, placeholderImage: UIImage(named: "Image"))
             UIView.animate(withDuration: 0.2, animations: {
                 self.swipeContainer!.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.swipeContainer!.alpha = 1
