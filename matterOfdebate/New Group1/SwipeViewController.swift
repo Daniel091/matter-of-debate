@@ -19,11 +19,14 @@ class SwipeViewController: UIViewController {
     @IBOutlet weak var swipeNoButton: UIButton!
     @IBOutlet weak var swipeYesButton: UIButton!
     @IBOutlet var topView: UIView!
+    @IBOutlet weak var noThemesView: UIView!
+    @IBOutlet weak var backToCategoriesButton: UIButton!
     var gestureStart: CGPoint?
     var gestureEnd: CGPoint?
     var defaultPos: CGPoint?
     public var selectedCat: String?
     private var topics: [Topic] = []
+    private var topicCounter: Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,15 +35,18 @@ class SwipeViewController: UIViewController {
         swipeContainer.layer.shadowOpacity = 0.3
         swipeContainer.layer.shadowOffset = CGSize.init(width: 0, height: 6)
         swipeContainer.layer.shadowRadius = 15
+        swipeContainer!.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        swipeContainer.isHidden = true
         //move buttons under the card
         topView.sendSubview(toBack: swipeNoButton)
         topView.sendSubview(toBack: swipeYesButton)
+        
+        noThemesView.isHidden = true
         self.navigationController?.navigationBar.isTranslucent = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipeText.text = "This is an example test and should be replaced by the time you see this view."
         getThemesOfCategory(selectedCat!)
         
     }
@@ -51,7 +57,16 @@ class SwipeViewController: UIViewController {
         if topics.count > 0 {
             swipeText.text = topics[0].description
             labelSwipe.text = topics[0].title
-            
+            // To do image load
+            topicCounter = 0
+            swipeContainer.isHidden = false
+            swipeContainer.alpha = 0.001
+            UIView.animate(withDuration: 0.2, animations: {
+                self.swipeContainer!.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.swipeContainer!.alpha = 1
+            }, completion: {(true) in
+                
+            })
         }
     }
 
@@ -77,7 +92,6 @@ class SwipeViewController: UIViewController {
         case .possible:
             break
         case .changed:
-//            print(sender.velocity(in: sender.view))
             //moving the card
             let translation = sender.translation(in: topView)
             if let view = sender.view {
@@ -108,33 +122,69 @@ class SwipeViewController: UIViewController {
 
     func swipeYes() {
         print("yes")
-        let animator = UIViewPropertyAnimator.init(duration: 0.5, curve: UIViewAnimationCurve.easeIn, animations: {
-            self.swipeContainer.center = self.swipeYesButton.center
-            self.swipeContainer.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            self.swipeContainer.alpha = 0.01
+        animateCardTo(view: swipeYesButton)
+        if !noThemesView.isHidden {
+            self.performSegue(withIdentifier: "toOpinion", sender: self)
+        }
+    }
+    
+    @IBAction func backToCat(_ sender: UIButton) {
+        dismiss(animated: true, completion: {})
+    }
+    
+    fileprivate func prepareCardReset() {
+        self.swipeContainer.center = CGPoint(x:(self.defaultPos?.x)!, y:(self.defaultPos?.y)!)
+        self.swipeContainer!.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        self.swipeContainer!.alpha = 0
+        topicCounter = topicCounter+1
+        if topicCounter < topics.count {
+            self.swipeText.text = topics[topicCounter].description
+            self.labelSwipe.text = topics[topicCounter].title
+            UIView.animate(withDuration: 0.2, animations: {
+                self.swipeContainer!.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.swipeContainer!.alpha = 1
+            }, completion: {(true) in
+                
+            })
+        } else {
+            noThemesView.isHidden = false
+        }
+    }
+    
+    @IBAction func back(_ sender: UITapGestureRecognizer) {
+        print("back")
+        navigationController?.popViewController(animated: true)
+    }
+    fileprivate func animateCardTo(view: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.swipeContainer!.center = view.center
+            self.swipeContainer!.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            self.swipeContainer!.alpha = 0.001
+        }, completion: {(true) in
+            self.prepareCardReset()
         })
-        animator.startAnimation()
-        self.performSegue(withIdentifier: "toOpinion", sender: self)
+        
+        
+//        {
+//            self.swipeContainer!.center = view.center
+//            self.swipeContainer!.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+//            self.swipeContainer!.alpha = 0.01
+//        }
+        
+        
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? OpinionController {
+            viewController.selectedTopic = topics[topicCounter]
+        }
+    }
+    
     func swipeNo() {
         print("NO")
-        let sourceView = self.swipeContainer
-        //TODO For custom SwipeContainerView
-        let copiedView = sourceView?.copyView()
-        print(copiedView?.constraints.description)
-        copiedView!.backgroundColor = UIColor.red
-        copiedView!.center = defaultPos!
-        copiedView!.updateConstraintsIfNeeded()
-        let animator = UIViewPropertyAnimator.init(duration: 0.6, curve: UIViewAnimationCurve.easeOut, animations: {
-            self.swipeContainer!.center = self.swipeNoButton.center
-            self.swipeContainer!.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            self.swipeContainer!.alpha = 0.01
-        })
-        animator.startAnimation()
-        
+        animateCardTo(view: swipeNoButton)
         //TODO add a dismissed mark to topic data
-        //reloadCard()
+        //resetCard()
         //TODO Load new Subject/Theme
     }
 
@@ -186,7 +236,7 @@ class SwipeViewController: UIViewController {
     func getThemesOfCategory(_ theme_id: String) {
         
         let themesRef = Constants.refs.databaseThemes
-        let themesUpdateHandle = themesRef.queryOrdered(byChild: "categories/" + theme_id)
+        _ = themesRef.queryOrdered(byChild: "categories/" + theme_id)
             .queryEqual(toValue: true)
             .observe(.childAdded, with: { (snapshot) -> Void in
                 
@@ -200,5 +250,4 @@ class SwipeViewController: UIViewController {
                 self.topics.append(topic)
             })
     }
-    
 }

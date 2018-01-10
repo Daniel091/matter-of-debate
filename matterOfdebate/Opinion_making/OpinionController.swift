@@ -17,6 +17,7 @@ class OpinionController : UIViewController {
     @IBOutlet var opinionView : UIView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderVal: UILabel!
+    public var selectedTopic: Topic?
     
     //TODO: insert real ThemeID
     let topicID = "-L-kN-4XVEASyFAR0asg"
