@@ -56,7 +56,7 @@ class SwipeViewController: UIViewController {
             swipeTextView.text = topics[0].description
             labelSwipe.text = topics[0].title
             let url = self.storage.reference(forURL: topics[0].imageUrl)
-            imgSwipe.sd_setImage(with: url, placeholderImage: UIImage(named: "Image"))
+            imgSwipe.sd_setImage(with: url, placeholderImage: nil)
             topicCounter = 0
             swipeContainer.isHidden = false
             swipeContainer.alpha = 0.001

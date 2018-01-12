@@ -115,12 +115,13 @@ class UserChatsTableViewController: UITableViewController {
         })
     }
     
-    //TODO: wenn man zu schnell zwischen den Chats wechselt gibts ne exception..
     // click on chat row should show chat view
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chat = chats[indexPath.row]
-        print(":-) clicked " + chat.id)
-        self.performSegue(withIdentifier: "showMessages", sender: chat)
+        if indexPath.row < chats.count {
+            let chat = chats[indexPath.row]
+            print(":-) clicked " + chat.id)
+            self.performSegue(withIdentifier: "showMessages", sender: chat)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
