@@ -35,13 +35,20 @@ class SettingsController: FormViewController {
                     })
         }
         
-        // Logout button
         form +++ Section("Weitere Einstellungen")
+            // Logout button
             <<< ButtonRow("logout"){
                 $0.title = "Logout"
                 }.onCellSelection({ (cell, row) in
                     self.logoutUser()
                 })
+            // Delete account button
+            <<< ButtonRow("deleteAccount"){
+                $0.title = "Delete Account"
+                }.onCellSelection({ (cell, row) in
+                    self.securityPopup()
+                })
+        
         // if user is Admin show create theme section
         if user_obj.isAdmin && !user_obj.isAnonymous{
             form +++ Section("Admin-Panel")
@@ -59,7 +66,7 @@ class SettingsController: FormViewController {
         print("Trying to save usr data")
         let valuesDictionary = form.values()
         
-        guard var email = valuesDictionary["email"]!, var usr_name = valuesDictionary["username"]! else {
+        guard let email = valuesDictionary["email"]!, let usr_name = valuesDictionary["username"]! else {
             return
         }
         
@@ -116,6 +123,33 @@ class SettingsController: FormViewController {
             print ("Error signing out: %@", signOutError)
         }
         
+    }
+    
+    // shows a security popup window to make sure the user wants to delete his account
+    func securityPopup() {
+        let deleteUserAlert = UIAlertController(title: "", message: "Do you want to delete your Account?", preferredStyle: .alert)
+        // delete user action
+        deleteUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .`default`, handler: { _ in
+            self.deleteAccount()
+        }))
+        // not deleting the user action
+        deleteUserAlert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Default action"), style: .`default`, handler: { _ in
+            print("Delete account cancelled")
+        }))
+        self.present(deleteUserAlert, animated: true, completion: nil)
+    }
+    
+    // deletes the current user`s account
+    func deleteAccount() {
+        let user = Auth.auth().currentUser
+        user?.delete { error in
+            if let error = error {
+                print("An error occurred: \(error)")
+            } else {
+                print("Account deleted")
+                self.logoutUser()
+            }
+        }
     }
     
     func triggerCreateTheme() {

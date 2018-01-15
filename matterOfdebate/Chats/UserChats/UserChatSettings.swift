@@ -51,6 +51,14 @@ class UserChatSettings: FormViewController {
                 }.onCellSelection({ (cell, row) in
                     self.reportUser()
                 })
+        
+        // Chat Rules Section
+        form +++ Section("Chat Rules")
+            <<< TextAreaRow(){
+                $0.value = "Please be polite and use reasonable Language. Respect your chat partners and their opinion, especialle when it differs from your own."
+                }.cellUpdate() {cell, row in
+                    cell.textView.textColor = UIColor.red
+        }
     }
 
     func endChat() {
