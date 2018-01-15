@@ -45,6 +45,7 @@ class SettingsController: FormViewController {
             // Delete account button
             <<< ButtonRow("deleteAccount"){
                 $0.title = "Delete Account"
+                $0.hidden = Condition(booleanLiteral: user_obj.isAnonymous)
                 }.onCellSelection({ (cell, row) in
                     self.securityPopup()
                 })
@@ -142,6 +143,7 @@ class SettingsController: FormViewController {
     // deletes the current user`s account
     func deleteAccount() {
         let user = Auth.auth().currentUser
+        Constants.refs.databaseUsers.child(SingletonUser.sharedInstance.user.uid).removeValue()
         user?.delete { error in
             if let error = error {
                 print("An error occurred: \(error)")
