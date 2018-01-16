@@ -125,7 +125,7 @@ class SwipeViewController: UIViewController {
         print("yes")
         animateCardTo(view: swipeYesButton)
         if noThemesView.isHidden {
-            self.performSegue(withIdentifier: "toOpinion", sender: self)
+            self.performSegue(withIdentifier: "toOpinion", sender: topics[topicCounter])
         }
     }
     
@@ -178,11 +178,12 @@ class SwipeViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
         if let viewController = segue.destination as? OpinionController {
             viewController.selectedTopic = topics[topicCounter]
         }
     }
-    
     func swipeNo() {
         print("NO")
         animateCardTo(view: swipeNoButton)

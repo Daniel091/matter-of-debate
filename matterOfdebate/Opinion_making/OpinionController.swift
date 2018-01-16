@@ -19,8 +19,7 @@ class OpinionController : UIViewController {
     @IBOutlet weak var sliderVal: UILabel!
     public var selectedTopic: Topic?
     
-    //TODO: insert real ThemeID
-    let topicID = "-L-kN-4XVEASyFAR0asg"
+    var topicID = ""
     
     var opinionValue: Int = 0
     
@@ -31,6 +30,11 @@ class OpinionController : UIViewController {
         title = selectedTopic!.title
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let id = selectedTopic?.id {
+            topicID = id
+        }
+    }
     
     @IBAction func backToTopicView(_ sender: Any) {
         navigationController?.popViewController(animated: false)
