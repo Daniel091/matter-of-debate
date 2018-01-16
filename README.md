@@ -1,26 +1,21 @@
+# Setting Up the Project
+1. install pods (pod install)
 
+# some Features
+1. User Administration, 3 types of Users: 
+- admin Uusers 
+    1. can create new categories, and discussion topics 
+    2. and can do everything that a normal user can do
+- normal users 
+    1. can make opinions on topics
+    2. get matched with other users based on their opinion and chat with them
+    3. can see all chats, and vote for pro and contra
+    4. edit their password, email, logout, delete their account
+- anonymous users
+    1. cant edit their password, email, because they have none
+    2. cant chat with other users, they can only watch all chats
 
-# Setting Up Firebase Pod
-
-1. switch to develop branch 
-2. create a firebase account 
-
-3. mail daniel youre account email, so he adds you to the firebase console
-4. install cocoapods: https://guides.cocoapods.org/using/getting-started.html
-
-5. go into app directory and type: pod install 
-
-
-
-
-
-# Xcode and Git
-
-Nice tutorial how to switch branches on Git with Xcode
-https://stackoverflow.com/questions/44396681/switching-branch-on-xcode-9
-
-
-
-
-
+2. Categories and Topics
+A Categorie has 0 or more Topics.
+Users can make opinions on Topics.
 
