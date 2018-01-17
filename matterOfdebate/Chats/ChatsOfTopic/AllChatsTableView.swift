@@ -8,7 +8,6 @@
 
 import UIKit
 
-// TODO rename to CategoriesTableView
 class AllChatsTableView: UITableViewController {
     
     private var categories: [Category] = []

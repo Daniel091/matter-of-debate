@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-// TODO: for publishing push this to server backend 
+// LATE TODO: for publishing push this to server backend
 class MatchingFunction {
     
     var ref = Database.database().reference()
@@ -75,7 +75,6 @@ class MatchingFunction {
                 let chatsFirebase = postDict as? Dictionary<String, Dictionary<String, AnyObject>> ?? [String : [String : AnyObject]]()
                 
                 for chat in chatsFirebase {
-                    //TODO: ändern falls Daniel auf die Idee kommt den Namen auf firebase zu ändern :D
                     if(chat.value["title"] as! String != topicID) {
                         continue
                     }

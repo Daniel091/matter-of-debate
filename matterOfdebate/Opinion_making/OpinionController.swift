@@ -14,12 +14,14 @@ protocol TabBarDelegate: class {
 
 class OpinionController : UIViewController {
     
+    @IBOutlet weak var topicDescriptionLabel: UILabel!
     @IBOutlet var opinionView : UIView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderVal: UILabel!
     public var selectedTopic: Topic?
     
     var topicID = ""
+    var topicDescription = ""
     
     var opinionValue: Int = 0
     
@@ -28,6 +30,12 @@ class OpinionController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = selectedTopic!.title
+        
+        if let description = selectedTopic?.description {
+            topicDescription = description
+        }
+        topicDescriptionLabel.text = topicDescription
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,8 +84,8 @@ class OpinionController : UIViewController {
         //stay at this view
         let gotToChatsView = UIAlertAction(title: "Chat View", style: .cancel) { (_) in
             self.navigationController?.popToRootViewController(animated: false)
+            //TODO: geht iwie nimmer -.- -.-
             self.delegate?.switchToTab(2)
-            //self.performSegue(withIdentifier: "showChatsView", sender: self)
         }
         
         //adding the action to dialogbox

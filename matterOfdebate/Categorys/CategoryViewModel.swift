@@ -82,9 +82,8 @@ class CategoryViewModel : CategoryProtocol
     
     // push to Database
     func pushCatToDatabase(category : Category) {
-        // TODO: name of category has to be unique
+        // LATE TODO: name of category has to be unique
         let eventRefChild = self.ref.child("categories").child(category.title)
         eventRefChild.setValue(["img-url": category.image])
-        
     }
 }

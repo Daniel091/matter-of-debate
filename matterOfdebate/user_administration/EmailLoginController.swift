@@ -9,9 +9,6 @@
 import UIKit
 import Firebase
 
-
-// TODO compare with this:
-// https://github.com/firebase/quickstart-ios/blob/master/authentication/AuthenticationExampleSwift/EmailViewController.swift
 class EmailLoginController: UIViewController {
     
     @IBOutlet weak var feedback_label: UILabel!

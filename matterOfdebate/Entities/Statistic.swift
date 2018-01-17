@@ -9,14 +9,11 @@
 import Foundation
 
 class Statistic {
-    
-    // TODO: private
-    
-    var id : String
-    var contra: Int
-    var pro: Int
-    var startOpinion: String?
-    var currentOpinion: String?
+    private var id : String
+    private var contra: Int
+    private var pro: Int
+    private var startOpinion: String?
+    private var currentOpinion: String?
     
     init(id: String, contra : Int, pro : Int, startOpinion: String?, currentOpinion:String?) {
         self.id = id

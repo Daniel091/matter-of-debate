@@ -79,8 +79,8 @@ class StatisticsController : UIViewController {
         guard let chat_obj = chat else {return}
         guard let statistic = statisticCalculation.getStatisticByChatId(chat_obj.id) else {return}
 
-        barChartUpdate(Double(statistic.pro), Double(statistic.contra))
-        pieChartUpdate(Double(statistic.pro), Double(statistic.contra))
+        barChartUpdate(Double(statistic.getPro()), Double(statistic.getContra()))
+        pieChartUpdate(Double(statistic.getPro()), Double(statistic.getContra()))
     }
     
     
@@ -120,7 +120,7 @@ class StatisticsController : UIViewController {
             return
         }
         if(!chatStatistics.votePro()) {
-            // TODO show toast @Steffi do we really need this? never going to be triggered
+            showDialog()
             return
         }
         
@@ -137,7 +137,7 @@ class StatisticsController : UIViewController {
             return
         }
         if(!chatStatistics.voteContra()) {
-            // TODO show toast @Steffi do we really need this? never going to be triggered
+            showDialog()
             return
         }
         
@@ -238,5 +238,18 @@ class StatisticsController : UIViewController {
             let strings = ["Pro","Contra"]
             return strings[Int(value)-1]
         }
+    }
+    
+    func showDialog() {
+        let dialogController = UIAlertController(title: "chenge opinion", message: "You can only click the same opinion one time. Please select the other opinion.", preferredStyle: .alert)
+        
+        //going back
+        let backToTopicView = UIAlertAction(title: "OK", style: .default) { (_) in
+        }
+        
+        //adding the action to dialogbox
+        dialogController.addAction(backToTopicView)
+        
+        self.present(dialogController, animated: true, completion: nil)
     }
 }
