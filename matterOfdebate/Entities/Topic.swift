@@ -17,7 +17,7 @@ struct Topic {
     let id : String
     let isActive: Bool = true
     
-    init (name: String, description: String, categories: [String], imageUrl : String, id : String = "not_set") {
+    init (name: String, description: String, categories: [String], imageUrl : String, id : String) {
         self.title = name
         self.description = description
         self.categories = categories

@@ -72,10 +72,11 @@ class UserChatsTableViewController: UITableViewController {
                 Constants.refs.databaseThemes.child(title).observeSingleEvent(of: .value, with: { (snapshot) in
                     let themeData = snapshot.value as! Dictionary<String, AnyObject>
                     
+                    let themeID = snapshot.key
                     let theme_title = themeData["titel"] as? String ?? ""
                     let descr = themeData["description"] as? String ?? ""
                     let img_url = themeData["img-url"] as? String ?? ""
-                    let topic = Topic(name: theme_title, description: descr, categories: [], imageUrl: "")
+                    let topic = Topic(name: theme_title, description: descr, categories: [], imageUrl: "", id: themeID)
                     
                     self.chats.append(Chat(chat_key, theme_title, last_m, users, timestamp, img_url, topic))
                     self.chats.sort(by: Chat.sortChatsbyTimestamp)

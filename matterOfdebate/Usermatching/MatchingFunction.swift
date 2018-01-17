@@ -29,7 +29,6 @@ class MatchingFunction {
                 if(user.key == currUserID) {
                     continue
                 }
-                print("test")
                 let userData = user.value
                 if let opinions = userData["opinions"] as? Dictionary<String,Int> {
                     for opinion in opinions {

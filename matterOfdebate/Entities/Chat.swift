@@ -21,7 +21,7 @@ class Chat {
          _ users: Dictionary<String, Bool>,
          _ timestamp: Double,
          _ img_url: String,
-         _ topic: Topic = Topic(name: "", description: "", categories: [], imageUrl: "")) {
+         _ topic: Topic = Topic(name: "", description: "", categories: [], imageUrl: "", id: "")) {
         
         self.title = title
         self.lastMessage = lastMessage

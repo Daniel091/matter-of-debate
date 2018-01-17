@@ -55,7 +55,7 @@ class UserChatSettings: FormViewController {
         // Chat Rules Section
         form +++ Section("Chat Rules")
             <<< TextAreaRow(){
-                $0.value = "Please be polite and use reasonable Language. Respect your chat partners and their opinion, especialle when it differs from your own."
+                $0.value = "Please be polite and use reasonable Language. Respect your chat partners and their opinion, especially when it differs from your own."
                 }.cellUpdate() {cell, row in
                     cell.textView.textColor = UIColor.red
         }
@@ -106,7 +106,7 @@ class UserChatSettings: FormViewController {
         }
         
         dispatchGroup.notify(queue: .main) {
-            // TODO: Fehler weil Daniel not_set reingeschrieben hat als TopicID
+            let topicID = chatObject.topic.id
             self.matchingFunction.searchForMatching(topicID: chatObject.topic.id, currUserID: SingletonUser.sharedInstance.user.uid, opinionGroup: currentOpinion)
         }
     }

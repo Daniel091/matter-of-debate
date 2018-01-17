@@ -184,7 +184,6 @@ class ChatViewController: JSQMessagesViewController {
         
         let dateThreeDaysBefore = Date().threeDaysBefore
         let dateMessage = lastMessage.date!
-        //let timestampChat = chat?.timestamp
         
         let calendar = Calendar.current
         let dayMessage = calendar.component(.day, from: dateMessage)
