@@ -31,6 +31,8 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        deleteOldChats()
+        
         // set up back navigation
         //setupBackButton()
         
@@ -175,7 +177,13 @@ class ChatViewController: JSQMessagesViewController {
         return false
     }
     
-    // TODO: bring to right place to check
+    func deleteOldChats() {
+        if(isChatTooOld()) {
+            guard let chatObject = chat else { return }
+            Constants.refs.databaseChats.child(chatObject.id).removeValue()
+        }
+    }
+    
     // Chat should be deleted when more then 3 days old -- check every day !
     func isChatTooOld(
         //indexPath: IndexPath!
