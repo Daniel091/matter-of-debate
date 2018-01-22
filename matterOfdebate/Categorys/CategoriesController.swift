@@ -38,13 +38,12 @@ class CategoriesController: UICollectionViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? OpinionController {
+        if let viewController = segue.destination as? SwipeViewController {
             viewController.delegate = self
         }
         if let viewController = segue.destination as? SwipeViewController {
             viewController.selectedCat = selectedCategory?.title
         }
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

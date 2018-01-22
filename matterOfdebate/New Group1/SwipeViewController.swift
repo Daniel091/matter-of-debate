@@ -12,6 +12,8 @@ import Firebase
 
 class SwipeViewController: UIViewController {
     
+    weak var delegate: TabBarDelegate?
+    
     @IBOutlet weak var swipeContainer: UIView!
     @IBOutlet weak var imgSwipe: UIImageView!
     @IBOutlet weak var labelSwipe: UILabel!
@@ -182,6 +184,7 @@ class SwipeViewController: UIViewController {
 
         if let viewController = segue.destination as? OpinionController {
             viewController.selectedTopic = topics[topicCounter]
+            viewController.delegate = self
         }
     }
     func swipeNo() {
@@ -253,5 +256,12 @@ class SwipeViewController: UIViewController {
                 
                 self.topics.append(topic)
             })
+    }
+}
+
+extension SwipeViewController: TabBarDelegate {
+    
+    func switchToTab(_ index: Int) {
+         delegate?.switchToTab(index)
     }
 }
