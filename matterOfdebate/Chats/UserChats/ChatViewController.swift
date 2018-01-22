@@ -188,21 +188,24 @@ class ChatViewController: JSQMessagesViewController {
     func isChatTooOld(
         //indexPath: IndexPath!
         ) -> Bool{
-        let lastMessage = messages[messages.count - 1]
+        let lastMessage : JSQMessage;
         
-        let dateThreeDaysBefore = Date().threeDaysBefore
-        let dateMessage = lastMessage.date!
-        
-        let calendar = Calendar.current
-        let dayMessage = calendar.component(.day, from: dateMessage)
-        let dayThreeDaysBefore = calendar.component(.day, from: dateThreeDaysBefore)
-        
-        print(dayMessage)
-        print(dayThreeDaysBefore)
-        print(dayThreeDaysBefore == dayMessage)
-        
-        if (dayThreeDaysBefore == dayMessage) {
-            return true
+        if(messages.count > 0) {
+            lastMessage = messages[messages.count - 1]
+            
+            let dateThreeDaysBefore = Date().threeDaysBefore
+            let dateMessage = lastMessage.date!
+            let calendar = Calendar.current
+            let dayMessage = calendar.component(.day, from: dateMessage)
+            let dayThreeDaysBefore = calendar.component(.day, from: dateThreeDaysBefore)
+            
+            print(dayMessage)
+            print(dayThreeDaysBefore)
+            print(dayThreeDaysBefore == dayMessage)
+            
+            if (dayThreeDaysBefore == dayMessage) {
+                return true
+            }
         }
         return false
     }

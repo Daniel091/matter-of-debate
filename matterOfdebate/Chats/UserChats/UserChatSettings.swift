@@ -70,7 +70,7 @@ class UserChatSettings: FormViewController {
         var dataRef = Constants.refs.databaseChats.child(chat_obj.id)
             .child("users")
             .child(SingletonUser.sharedInstance.user.uid)
-        dataRef.setValue(false)
+        dataRef.removeValue()
         
         // make a message to other chat partner
         let user_name = SingletonUser.sharedInstance.user.user_name
