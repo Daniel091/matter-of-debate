@@ -20,7 +20,11 @@
 
 ## personalChats:
 1. 1 and 1 chat (see only your active chats) (Daniel)
-2. settings
+2. Chat restrictions
+    + Users are only allowed to write three messages in one row (Steffi)
+    + Users are only allowed to enter less than 250 charakters in one chatmessage (Steffi)
+    + Users are not allowed to copy-paste more than one charakter into chatmessage (Steffi)
+3. settings
     + Select next user (Steffi)
     + Exit chat (Daniel)
     + Report user (Steffi)
