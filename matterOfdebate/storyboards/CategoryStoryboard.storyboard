@@ -245,8 +245,11 @@
                                             <constraint firstAttribute="height" constant="244" id="Bf1-NK-q55"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Merkel - Hot or Not?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA5-Vd-UDW">
-                                        <rect key="frame" x="8" y="260" width="157" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Merkel - Hot or Not?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA5-Vd-UDW">
+                                        <rect key="frame" x="8" y="260" width="327" height="21"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -273,6 +276,7 @@
                                     <constraint firstItem="OA5-Vd-UDW" firstAttribute="top" secondItem="ANb-Qo-4pk" secondAttribute="bottom" constant="8" symbolic="YES" id="hqh-xg-6fN"/>
                                     <constraint firstAttribute="trailing" secondItem="ANb-Qo-4pk" secondAttribute="trailing" constant="8" id="jek-aN-0SG"/>
                                     <constraint firstItem="ANb-Qo-4pk" firstAttribute="top" secondItem="EDp-D3-2Pz" secondAttribute="topMargin" id="owf-eT-eUO"/>
+                                    <constraint firstAttribute="trailing" secondItem="OA5-Vd-UDW" secondAttribute="trailing" constant="8" id="sgm-8l-oYA"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ldk-l7-KcF" appends="YES" id="FQy-Cd-zIr"/>

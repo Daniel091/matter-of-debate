@@ -13,7 +13,6 @@ import Eureka
 class SettingsController: FormViewController {
     
     let user_obj = SingletonUser.sharedInstance.user
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +58,26 @@ class SettingsController: FormViewController {
                         self.triggerCreateTheme()
                     })
         }
+        
+        //if user is neither admin nor anonymous, he can propose topics
+        if !user_obj.isAdmin && !user_obj.isAnonymous {
+            form +++ Section("Thema vorschlagen")
+                <<< TextRow("t_titel"){ row in
+                    row.title = "Thema Titel"
+                    row.value = ""
+                }
+                <<< TextRow("t_description"){
+                    $0.title = "Beschreibung"
+                    $0.value = ""
+                }
+                <<< ButtonRow("propose Theme"){
+                    $0.title = "Propose aTheme"
+                    }.onCellSelection({ (cell, row) in
+                        self.proposeTopic()
+                    })
+        }
+        
+        
         
     }
     
@@ -156,5 +175,8 @@ class SettingsController: FormViewController {
     
     func triggerCreateTheme() {
         self.performSegue(withIdentifier: "adminThemeControlSeque", sender: self)
+    }
+    
+    func proposeTopic() {
     }
 }
