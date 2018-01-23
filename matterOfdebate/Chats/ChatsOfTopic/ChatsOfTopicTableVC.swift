@@ -52,7 +52,7 @@ class ChatsOfTopicTableVC: UITableViewController {
                 let timestamp = chatsData["timestamp"] as? Double ?? 0.0
                 let users = chatsData["users"] as? Dictionary<String, Bool> ?? [String: Bool]()
                 
-                if lastMessage != "" {
+                if lastMessage != "" && users.count == 2{
                     self.chats.append(Chat(snapshot.key, theme_id, lastMessage, users, timestamp, ""))
                     self.chats.sort(by: Chat.sortChatsbyTimestamp)
                     self.tableView.reloadData()
