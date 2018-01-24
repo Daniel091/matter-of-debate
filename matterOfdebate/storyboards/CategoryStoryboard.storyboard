@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories Controller-->
+        <!--Kategorien-->
         <scene sceneID="rGC-cT-uVe">
             <objects>
                 <collectionViewController id="TY6-RK-409" customClass="CategoriesController" customModule="matterOfdebate" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                             <outlet property="dataSource" destination="TY6-RK-409" id="eJI-f7-Jxg"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="LVf-tD-OHm"/>
+                    <tabBarItem key="tabBarItem" title="Kategorien" image="categoriesTab" id="LVf-tD-OHm"/>
                     <navigationItem key="navigationItem" id="2eu-92-5wP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -407,11 +407,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="categoriesTab" width="25" height="25"/>
         <image name="politics" width="420" height="280"/>
         <image name="swipeNo" width="125" height="125"/>
         <image name="swipeYes" width="125" height="125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T93-Cs-T5a"/>
+        <segue reference="a5F-kK-KQe"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -38,7 +38,7 @@ class SwipeViewController: UIViewController {
         swipeContainer!.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         swipeContainer.isHidden = true
         //Fixing UILabel for multiline text
-        labelSwipe.lineBreakMode = .byTruncatingTail
+        labelSwipe.lineBreakMode = .byWordWrapping
         labelSwipe.numberOfLines = 0
         //move buttons under the card
         topView.sendSubview(toBack: swipeNoButton)

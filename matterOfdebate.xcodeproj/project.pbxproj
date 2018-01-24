@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		409B08241FE809B200389567 /* swipeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409B08231FE809B200389567 /* swipeCardView.xib */; };
 		40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */; };
 		483FEAA61FC89FB100338945 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA51FC89FB100338945 /* CategoriesController.swift */; };
 		483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */; };
@@ -26,7 +25,6 @@
 		6529A4501FBB8DA000DFBE96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */; };
 		6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */; };
 		6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4531FBB8DA000DFBE96 /* Main.storyboard */; };
-		6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4561FBB8DA000DFBE96 /* Assets.xcassets */; };
 		6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6529A4611FBB91BB00DFBE96 /* .gitignore */; };
 		652FA64C1FEACD9D007A9A33 /* AllChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */; };
 		652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652FA64D1FEACE36007A9A33 /* CategoryCell.swift */; };
@@ -54,6 +52,10 @@
 		65F6644D1FFBD15300A6AC52 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F6644C1FFBD15300A6AC52 /* CategoryStoryboard.storyboard */; };
 		F50C336020069C39007C0548 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C335F20069C39007C0548 /* Statistic.swift */; };
 		F50C336420069C8F007C0548 /* sharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C336320069C8F007C0548 /* sharedData.swift */; };
+		F5503E7B2017ACF30052725A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5503E7A2017ACF20052725A /* Assets.xcassets */; };
+		F559AE87201905E600D438B0 /* UIProposalTabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559AE86201905E600D438B0 /* UIProposalTabelVC.swift */; };
+		F559AE892019069200D438B0 /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559AE882019069200D438B0 /* Proposal.swift */; };
+		F583EB392019025F00E13011 /* UIProposalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583EB382019025F00E13011 /* UIProposalCell.swift */; };
 		F599A36B1FFBE6D90040D0A9 /* Swiping in Resources */ = {isa = PBXBuildFile; fileRef = F599A36A1FFBE6D90040D0A9 /* Swiping */; };
 		F599A3701FFBF2200040D0A9 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599A36F1FFBF2200040D0A9 /* SwipeViewController.swift */; };
 		F5FE943B1FFC276100280C2A /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE943A1FFC276100280C2A /* SwipeView.swift */; };
@@ -61,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		176893BE42F27B08E96B003B /* Pods-matterOfdebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matterOfdebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-matterOfdebate/Pods-matterOfdebate.release.xcconfig"; sourceTree = "<group>"; };
-		409B08231FE809B200389567 /* swipeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = swipeCardView.xib; sourceTree = "<group>"; };
 		40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Panton-BlackCaps.otf"; sourceTree = "<group>"; };
 		483FEAA51FC89FB100338945 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		483FEAA71FC8A19E00338945 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		6529A44F1FBB8DA000DFBE96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6529A4511FBB8DA000DFBE96 /* EmailLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginController.swift; sourceTree = "<group>"; };
 		6529A4541FBB8DA000DFBE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6529A4561FBB8DA000DFBE96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6529A45B1FBB8DA000DFBE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6529A4611FBB91BB00DFBE96 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		652FA64B1FEACD9D007A9A33 /* AllChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsTableView.swift; sourceTree = "<group>"; };
@@ -112,6 +112,10 @@
 		E6BC9421A83A9ACCAB43881D /* Pods_matterOfdebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matterOfdebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50C335F20069C39007C0548 /* Statistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Statistic.swift; path = matterOfdebate/Entities/Statistic.swift; sourceTree = SOURCE_ROOT; };
 		F50C336320069C8F007C0548 /* sharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sharedData.swift; sourceTree = "<group>"; };
+		F5503E7A2017ACF20052725A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F559AE86201905E600D438B0 /* UIProposalTabelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProposalTabelVC.swift; sourceTree = "<group>"; };
+		F559AE882019069200D438B0 /* Proposal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
+		F583EB382019025F00E13011 /* UIProposalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIProposalCell.swift; sourceTree = "<group>"; };
 		F599A36A1FFBE6D90040D0A9 /* Swiping */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Swiping; sourceTree = "<group>"; };
 		F599A36F1FFBF2200040D0A9 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		F5FE943A1FFC276100280C2A /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				48B657CD1FD460EC0017266B /* Topic.swift */,
 				48B657CF1FD460FC0017266B /* Category.swift */,
 				48EA29EB1FE00AD700518C8D /* Opinion.swift */,
+				F559AE882019069200D438B0 /* Proposal.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 		6529A4431FBB8DA000DFBE96 = {
 			isa = PBXGroup;
 			children = (
+				F5503E7A2017ACF20052725A /* Assets.xcassets */,
 				6529A4611FBB91BB00DFBE96 /* .gitignore */,
 				6529A44E1FBB8DA000DFBE96 /* matterOfdebate */,
 				6529A44D1FBB8DA000DFBE96 /* Products */,
@@ -225,16 +231,16 @@
 				656430381FC1A4CF0019F9BE /* user_administration */,
 				656430391FC1A5550019F9BE /* ui_extensions */,
 				6529A4531FBB8DA000DFBE96 /* Main.storyboard */,
+				F583EB382019025F00E13011 /* UIProposalCell.swift */,
 				65DF2E341FC6D10A0019ADB6 /* CreateDiscThemeViewController.swift */,
 				6564303A1FC1C1F10019F9BE /* TabBarMainController.swift */,
 				65174D2F1FC072CE00E5B902 /* SettingsController.swift */,
 				F599A36A1FFBE6D90040D0A9 /* Swiping */,
-				6529A4561FBB8DA000DFBE96 /* Assets.xcassets */,
 				6529A45B1FBB8DA000DFBE96 /* Info.plist */,
 				40A4B77A1FCD77A20033C88D /* Panton-BlackCaps.otf */,
-				409B08231FE809B200389567 /* swipeCardView.xib */,
 				65693D6C1FCED5A8009FE995 /* Bridging-Header.h */,
 				65693D6D1FCED7D3009FE995 /* Constants.swift */,
+				F559AE86201905E600D438B0 /* UIProposalTabelVC.swift */,
 			);
 			path = matterOfdebate;
 			sourceTree = "<group>";
@@ -386,11 +392,10 @@
 				F599A36B1FFBE6D90040D0A9 /* Swiping in Resources */,
 				65F6644D1FFBD15300A6AC52 /* CategoryStoryboard.storyboard in Resources */,
 				40A4B77B1FCD77A30033C88D /* Panton-BlackCaps.otf in Resources */,
+				F5503E7B2017ACF30052725A /* Assets.xcassets in Resources */,
 				6529A4621FBB91BB00DFBE96 /* .gitignore in Resources */,
 				657F43F91FEFEA26003497B3 /* AllChats.storyboard in Resources */,
 				654D95041FBC44BF0003C99D /* GoogleService-Info.plist in Resources */,
-				409B08241FE809B200389567 /* swipeCardView.xib in Resources */,
-				6529A4571FBB8DA000DFBE96 /* Assets.xcassets in Resources */,
 				6529A4551FBB8DA000DFBE96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,13 +497,16 @@
 				652FA64E1FEACE36007A9A33 /* CategoryCell.swift in Sources */,
 				65174D321FC0817F00E5B902 /* EmailRegistrationController.swift in Sources */,
 				657849C21FD972ED00936D5A /* ChatTableViewCell.swift in Sources */,
+				F583EB392019025F00E13011 /* UIProposalCell.swift in Sources */,
 				4846C55A1FE6A99C00889779 /* MatchingFunction.swift in Sources */,
+				F559AE87201905E600D438B0 /* UIProposalTabelVC.swift in Sources */,
 				652FA6551FEFCB02007A9A33 /* ChatsOfTopicTableVC.swift in Sources */,
 				F50C336420069C8F007C0548 /* sharedData.swift in Sources */,
 				6529A4521FBB8DA000DFBE96 /* EmailLoginController.swift in Sources */,
 				483FEAA81FC8A19E00338945 /* CategoryCollectionViewCell.swift in Sources */,
 				656030DD1FD874120029C549 /* SingletonUser.swift in Sources */,
 				48A6C6891FF2FAA9006CA003 /* StatisticCalculations.swift in Sources */,
+				F559AE892019069200D438B0 /* Proposal.swift in Sources */,
 				486F6FD41FDF553C005376D8 /* OpinionController.swift in Sources */,
 				6564303B1FC1C1F10019F9BE /* TabBarMainController.swift in Sources */,
 				48B657D21FD4658C0017266B /* CategoryViewModel.swift in Sources */,

@@ -57,6 +57,11 @@ class SettingsController: FormViewController {
                     }.onCellSelection({ (cell, row) in
                         self.triggerCreateTheme()
                     })
+                <<< ButtonRow("proposals"){
+                    $0.title = "View Propsoals"
+                    }.onCellSelection({ (cell, row) in
+                        self.toProposals()
+                    })
         }
         
         //if user is neither admin nor anonymous, he can propose topics
@@ -178,5 +183,9 @@ class SettingsController: FormViewController {
     }
     
     func proposeTopic() {
+    }
+    
+    func toProposals() {
+        performSegue(withIdentifier: "toProposedThemes", sender: self)
     }
 }

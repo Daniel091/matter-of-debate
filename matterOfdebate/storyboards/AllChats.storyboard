@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cUT-tS-5XS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cUT-tS-5XS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -283,11 +283,11 @@
             </objects>
             <point key="canvasLocation" x="8868" y="-566.26686656671666"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Alle Diskussionen-->
         <scene sceneID="KCe-fj-Ioa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cUT-tS-5XS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="PVj-dv-SB7"/>
+                    <tabBarItem key="tabBarItem" title="Alle Diskussionen" image="allchatsTab" id="PVj-dv-SB7"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="527-Tb-HFJ">
@@ -306,5 +306,6 @@
     </scenes>
     <resources>
         <image name="Image" width="202" height="200"/>
+        <image name="allchatsTab" width="25" height="25"/>
     </resources>
 </document>
