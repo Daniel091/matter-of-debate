@@ -277,6 +277,7 @@ class SwipeViewController: UIViewController {
             let userID = SingletonUser.sharedInstance.user.uid
             let user = dictionary![userID]
             if let opinions = user!["opinions"] as? [String : Int] {
+                print("opinions counter: \(opinions.count)")
             for topic in tempTopics {
                 if self.alreadyHasOpinion(id: topic.id, array: opinions.keys) {
                     print("useralready has opinion on \(topic.id)")
@@ -284,6 +285,10 @@ class SwipeViewController: UIViewController {
                     self.topics.append(topic)
                 }
             }
+            } else {
+                if(!SingletonUser.sharedInstance.user.isAnonymous) {
+                    self.topics += tempTopics
+                }
             }
         }
     }
