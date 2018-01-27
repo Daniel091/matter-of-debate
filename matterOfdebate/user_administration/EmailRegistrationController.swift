@@ -47,9 +47,6 @@ class EmailRegistrationController: UIViewController {
                 self.usr_obj = User(userData: user!, user_name: usr_name)
                 SingletonUser.sharedInstance.user = self.usr_obj!
                 
-                // Perform segue
-                self.performSegue(withIdentifier: "signedInSequeAfterRegistered", sender: self)
-                
                 self.push_usr_to_database(usr: self.usr_obj!)
             } else {
                 
