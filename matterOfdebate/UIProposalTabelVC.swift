@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UIProposalTabelVC: UITableViewController {
     
@@ -20,13 +21,21 @@ class UIProposalTabelVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
-        let p1 = Proposal(t: "Titel wefwa weaf faega erga wa", d: "Tas feaeg  eargae wfwef wag feaeg  eargae wfwef wag feaeg  eargae wfwef wag feaeg  eargae wfwef wag", i: "23415316352")
-        let p2 = Proposal(t: "Titel2 wefwa weaf faega erga wa", d: "Tas feaeg  eargae wfwef wag feaeg  eargae wfwef wag feaeg  eargae wfwef wag feaeg  eargae wfwef wag", i: "23415316354")
-        let p3 = Proposal(t: "Titel3 wefwa weaf faega erga wa", d: "Tas feaeg  eargae wfwef wag feaeg  eargae wfwef wag feaeg  eargae wfwef wag feaeg  eargae wfwef wag", i: "23415316354")
-        
-        proposals += [p1, p2, p3]
-        
+        Constants.refs.databaseProposals.observe(DataEventType.value, with: { (snapshot) in
+            let pDictionary = snapshot.value as? [String : AnyObject]
+            let elements = pDictionary?.values
+            
+            var items: [Proposal] = []
+            
+            for element in elements! {
+                print(element["title"] as! String)
+                let temp: Proposal = Proposal(t: element["title"] as! String, d: element["description"] as! String, i: "")
+                items.append(temp)
+            }
+            self.proposals = items
+            self.tableView.reloadData()
+            
+        })
         
     }
     

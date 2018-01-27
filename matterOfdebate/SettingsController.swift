@@ -13,6 +13,7 @@ import Eureka
 class SettingsController: FormViewController {
     
     let user_obj = SingletonUser.sharedInstance.user
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let navBar = self.navigationController?.navigationBar {
@@ -71,11 +72,9 @@ class SettingsController: FormViewController {
             form +++ Section("Thema vorschlagen")
                 <<< TextRow("t_titel"){ row in
                     row.title = "Thema Titel"
-                    row.value = ""
                 }
                 <<< TextRow("t_description"){
                     $0.title = "Beschreibung"
-                    $0.value = ""
                 }
                 <<< ButtonRow("propose Theme"){
                     $0.title = "Propose aTheme"
@@ -185,6 +184,34 @@ class SettingsController: FormViewController {
     }
     
     func proposeTopic() {
+        let valuesDictionary = form.values()
+        guard let ttitle = valuesDictionary["t_titel"]!, let tdescr = valuesDictionary["t_description"]! else {
+            return
+        }
+        // cast to string
+        let proposedTitle = ttitle as! String
+        let proposedDescr = tdescr as! String
+        
+        // is theme already proposed
+        
+       
+        // creating new path for a proposal
+        let refProposal = Constants.refs.databaseProposals.childByAutoId()
+        // values for storing
+        let propValues = ["title": proposedTitle, "description": proposedDescr]
+        // adding the values to the proposal
+        refProposal.updateChildValues(propValues)
+        
+        let alertController = UIAlertController.init(title: "Neues Thema vorgeschlagen", message: "Dein Vorschlag wird in Betracht gezogen", preferredStyle: UIAlertControllerStyle.alert)
+        let alertAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(alertAction)
+        alertAction.isEnabled = true
+        self.present(alertController, animated: true, completion: nil)
+        
+        self.form.setValues(["t_titel": "", "t_description": ""])
+        self.form.rowBy(tag: "t_titel")?.reload()
+        self.form.rowBy(tag: "t_description")?.reload()
+        
     }
     
     func toProposals() {
