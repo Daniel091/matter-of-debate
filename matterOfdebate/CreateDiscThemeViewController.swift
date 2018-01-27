@@ -14,9 +14,9 @@ import Firebase
 // FormViewController is a subclass of UIViewController provided by Eureka
 class CreateDiscThemeViewController: FormViewController{
     var ref: DatabaseReference!
-    var selectedProposal: Proposal? = nil
-    var isProposed: Bool = false
-//
+    var selectedProposal: Proposal? = nil // for hijacking this view
+    var isProposed: Bool = false    // for hijacking this view
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +55,7 @@ class CreateDiscThemeViewController: FormViewController{
                 row.clearAction = .yes(style: UIAlertActionStyle.destructive)
             }
         
+        // repurposed this view to save a suggested topic (Proposal)
         if isProposed {
             print(selectedProposal?.title)
             self.form.setValues(["titel": selectedProposal?.title, "description": selectedProposal?.description])
@@ -163,6 +164,6 @@ class CreateDiscThemeViewController: FormViewController{
     
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
     }
 }

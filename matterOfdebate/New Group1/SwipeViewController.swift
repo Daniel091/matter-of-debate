@@ -22,6 +22,7 @@ class SwipeViewController: UIViewController {
     @IBOutlet weak var swipeYesButton: UIButton!
     @IBOutlet var topView: UIView!
     @IBOutlet weak var noThemesView: UIView!
+    @IBOutlet weak var errorMessage: UILabel!
     var defaultPos: CGPoint?
     public var selectedCat: String?
     private var topics: [Topic] = []
@@ -44,13 +45,23 @@ class SwipeViewController: UIViewController {
         topView.sendSubview(toBack: swipeNoButton)
         topView.sendSubview(toBack: swipeYesButton)
         
-        noThemesView.isHidden = true
-        self.navigationController?.navigationBar.isTranslucent = true
+        
+        if(SingletonUser.sharedInstance.user.isAnonymous) {
+            noThemesView.isHidden = false
+            errorMessage.text = "Nur für registrierte Nutzer"
+        } else {
+            noThemesView.isHidden = true
+            errorMessage.text = "Keine Themen mehr"
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getThemesOfCategory(selectedCat!)
+        if(!SingletonUser.sharedInstance.user.isAnonymous) {
+            getThemesOfCategory(selectedCat!)
+        } else {
+            self.topics = []
+        }
         
     }
     
@@ -72,7 +83,10 @@ class SwipeViewController: UIViewController {
                 
             })
         } else {
-            noThemesView.isHidden = false
+            if(!SingletonUser.sharedInstance.user.isAnonymous) {
+                noThemesView.isHidden = false
+                
+            }
         }
     }
 
@@ -138,6 +152,9 @@ class SwipeViewController: UIViewController {
         dismiss(animated: true, completion: {})
     }
     
+    @IBAction func backToCatAnon(_ sender: Any) {
+        dismiss(animated: true, completion: {})
+    }
     fileprivate func prepareCardReset() {
         self.swipeContainer.center = CGPoint(x:(self.defaultPos?.x)!, y:(self.defaultPos?.y)!)
         self.swipeContainer!.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -163,6 +180,7 @@ class SwipeViewController: UIViewController {
         print("back")
         navigationController?.popViewController(animated: true)
     }
+    
     fileprivate func animateCardTo(view: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
             self.swipeContainer!.center = view.center
@@ -171,14 +189,6 @@ class SwipeViewController: UIViewController {
         }, completion: {(true) in
             self.prepareCardReset()
         })
-        
-        
-//        {
-//            self.swipeContainer!.center = view.center
-//            self.swipeContainer!.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-//            self.swipeContainer!.alpha = 0.01
-//        }
-        
         
     }
 
@@ -243,6 +253,10 @@ class SwipeViewController: UIViewController {
     
     func getThemesOfCategory(_ theme_id: String) {
         
+        self.topics = []
+        var tempTopics:[Topic] = []
+        
+        //retrieving topics
         let themesRef = Constants.refs.databaseThemes
         _ = themesRef.queryOrdered(byChild: "categories/" + theme_id)
             .queryEqual(toValue: true)
@@ -255,8 +269,33 @@ class SwipeViewController: UIViewController {
                 
                 let topic = Topic(name: t_title, description: description, categories: [theme_id], imageUrl: img_url, id: snapshot.key)
                 
-                self.topics.append(topic)
+                tempTopics.append(topic)
             })
+        
+        // only add topic if user has no opinion yet
+        Constants.refs.databaseUsers.observe(DataEventType.value) { (userSnap) in let dictionary = userSnap.value as? [String : AnyObject]
+            let userID = SingletonUser.sharedInstance.user.uid
+            let user = dictionary![userID]
+            if let opinions = user!["opinions"] as? [String : Int] {
+            for topic in tempTopics {
+                if self.alreadyHasOpinion(id: topic.id, array: opinions.keys) {
+                    print("useralready has opinion on \(topic.id)")
+                } else {
+                    self.topics.append(topic)
+                }
+            }
+            }
+        }
+    }
+    
+    // checking if id is in array
+    func alreadyHasOpinion(id: String, array: Dictionary<String,Int>.Keys) -> Bool {
+        for opinion in array {
+            if opinion == id {
+                return true
+            }
+        }
+        return false
     }
 }
 

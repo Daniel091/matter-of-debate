@@ -50,6 +50,7 @@ class UIProposalTabelVC: UITableViewController {
         if let viewController = segue.destination as? CreateDiscThemeViewController {
             viewController.selectedProposal = selectedProposal
             viewController.isProposed = true
+            print(viewController.isProposed)
         }
     }
     
@@ -91,6 +92,7 @@ class UIProposalTabelVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedProposal = proposals[indexPath.row]
+        print(selectedProposal.title)
         performSegue(withIdentifier: "toCreateTheme", sender: self)
     }
     
@@ -106,7 +108,6 @@ class UIProposalTabelVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             Constants.refs.databaseProposals.child(proposals[indexPath.item].id).removeValue()
-//            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

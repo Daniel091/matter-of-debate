@@ -449,7 +449,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="7cJ-ug-VX9" kind="show" identifier="toCreateTheme" id="9dG-XO-x5r"/>
+                        <segue destination="7cJ-ug-VX9" kind="show" identifier="toCreateTheme" id="ryS-GG-6fU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WK4-wD-kMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -489,7 +489,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2DW-fr-2FI"/>
-        <segue reference="9dG-XO-x5r"/>
+        <segue reference="ryS-GG-6fU"/>
         <segue reference="psF-Ly-k65"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -313,8 +313,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLm-Sa-XDW">
                                 <rect key="frame" x="67" y="289" width="240" height="81"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keine Themen mehr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0v-M6-WB0">
-                                        <rect key="frame" x="43" y="8" width="154" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Keine Themen mehr" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0v-M6-WB0">
+                                        <rect key="frame" x="8" y="8" width="224" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="iT0-KU-UOR"/>
                                         </constraints>
@@ -323,7 +323,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBm-Ps-ahV">
-                                        <rect key="frame" x="62" y="50" width="117" height="31"/>
+                                        <rect key="frame" x="61.5" y="50" width="117" height="31"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="r3v-6x-0qF"/>
@@ -370,6 +370,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="HRR-29-7rT"/>
                     <connections>
+                        <outlet property="errorMessage" destination="r0v-M6-WB0" id="GKu-HN-lNJ"/>
                         <outlet property="imgSwipe" destination="ANb-Qo-4pk" id="301-6j-ra4"/>
                         <outlet property="labelSwipe" destination="OA5-Vd-UDW" id="eds-r1-7mZ"/>
                         <outlet property="noThemesView" destination="rLm-Sa-XDW" id="0Fu-AR-Y8w"/>
@@ -413,6 +414,6 @@
         <image name="swipeYes" width="125" height="125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a5F-kK-KQe"/>
+        <segue reference="T93-Cs-T5a"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -61,7 +61,7 @@ class SettingsController: FormViewController {
                         self.triggerCreateTheme()
                     })
                 <<< ButtonRow("proposals"){
-                    $0.title = "View Propsoals"
+                    $0.title = "View Proposals"
                     }.onCellSelection({ (cell, row) in
                         self.toProposals()
                     })
