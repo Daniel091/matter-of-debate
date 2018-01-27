@@ -17,6 +17,7 @@ struct Constants {
         static let databaseMessages = databaseRoot.child("messages")
         static let databaseCategories = databaseRoot.child("categories")
         static let databaseThemes = databaseRoot.child("themes")
+        static let databaseProposals = databaseRoot.child("proposals")
         
         static let curruserReference = Auth.auth().currentUser
         static let databaseUsers = databaseRoot.child("users")

@@ -15,7 +15,9 @@ class SettingsController: FormViewController {
     let user_obj = SingletonUser.sharedInstance.user
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.topItem?.title = "Settings"
+        }
         // if user is not Anonymus show change user data options
         if !user_obj.isAnonymous {
             form +++ Section("Benutzer Informationen")

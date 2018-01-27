@@ -245,7 +245,7 @@
                         <viewLayoutGuide key="safeArea" id="4v9-El-ZuV"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="TU5-89-3I2"/>
-                    <navigationItem key="navigationItem" id="N7y-eH-QmQ"/>
+                    <navigationItem key="navigationItem" title="Einstellungen" id="N7y-eH-QmQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loggedOutUser" id="psF-Ly-k65"/>
@@ -403,18 +403,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyQ-6k-RR6">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyQ-6k-RR6">
                                             <rect key="frame" x="16" y="7" width="343" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ea5-zS-nVK">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea5-zS-nVK">
                                             <rect key="frame" x="16" y="36" width="343" height="43"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" staticText="YES"/>
                                             </accessibility>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="43" id="fDY-3j-rLF"/>
+                                            </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -433,6 +436,7 @@
                                 <connections>
                                     <outlet property="lableP" destination="OyQ-6k-RR6" id="fr8-as-KBP"/>
                                     <outlet property="textP" destination="Ea5-zS-nVK" id="ErO-Iy-HYY"/>
+                                    <segue destination="mzz-CD-xF8" kind="show" id="N5C-mG-NXX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -486,6 +490,7 @@
         <image name="categoriesTab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="N5C-mG-NXX"/>
         <segue reference="2DW-fr-2FI"/>
         <segue reference="psF-Ly-k65"/>
     </inferredMetricsTieBreakers>
