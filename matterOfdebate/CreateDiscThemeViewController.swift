@@ -58,8 +58,6 @@ class CreateDiscThemeViewController: FormViewController{
         if isProposed {
             print(selectedProposal?.title)
             self.form.setValues(["titel": selectedProposal?.title, "description": selectedProposal?.description])
-//            self.form.rowBy(tag: "titel")?.reload()
-//            self.form.rowBy(tag: "description")?.reload()
         }
     }
     
