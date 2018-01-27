@@ -77,7 +77,7 @@ class SettingsController: FormViewController {
                     $0.title = "Beschreibung"
                 }
                 <<< ButtonRow("propose Theme"){
-                    $0.title = "Propose aTheme"
+                    $0.title = "Propose a Theme"
                     }.onCellSelection({ (cell, row) in
                         self.proposeTopic()
                     })
@@ -202,12 +202,14 @@ class SettingsController: FormViewController {
         // adding the values to the proposal
         refProposal.updateChildValues(propValues)
         
+        // alert the user
         let alertController = UIAlertController.init(title: "Neues Thema vorgeschlagen", message: "Dein Vorschlag wird in Betracht gezogen", preferredStyle: UIAlertControllerStyle.alert)
         let alertAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(alertAction)
         alertAction.isEnabled = true
         self.present(alertController, animated: true, completion: nil)
         
+        // reset Eureka form
         self.form.setValues(["t_titel": "", "t_description": ""])
         self.form.rowBy(tag: "t_titel")?.reload()
         self.form.rowBy(tag: "t_description")?.reload()

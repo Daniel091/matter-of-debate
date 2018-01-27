@@ -190,6 +190,7 @@ class SwipeViewController: UIViewController {
             viewController.delegate = self
         }
     }
+    
     func swipeNo() {
         print("NO")
         animateCardTo(view: swipeNoButton)
@@ -213,9 +214,6 @@ class SwipeViewController: UIViewController {
         return
     }
     
-    func copyView<T: UIView>() -> T {
-        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
-    }
     
     class Direction {
         // direction is one for downleft

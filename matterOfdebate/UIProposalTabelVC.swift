@@ -12,6 +12,7 @@ import Firebase
 class UIProposalTabelVC: UITableViewController {
     
     var proposals = [Proposal]()
+    var selectedProposal = Proposal(t: "", d: "", i: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +26,31 @@ class UIProposalTabelVC: UITableViewController {
             let pDictionary = snapshot.value as? [String : AnyObject]
             let elements = pDictionary?.values
             
+            // unfolding the data and adding it to the array
             var items: [Proposal] = []
-            
-            for element in elements! {
-                print(element["title"] as! String)
-                let temp: Proposal = Proposal(t: element["title"] as! String, d: element["description"] as! String, i: "")
+            for datablock in pDictionary! {
+                let pID: String = datablock.key
+                let pTitle: String = datablock.value["title"] as! String
+                let pDescr: String = datablock.value["description"] as! String
+                let temp: Proposal = Proposal(t: pTitle, d: pDescr, i: pID)
                 items.append(temp)
             }
+            
+            // reloading data
             self.proposals = items
             self.tableView.reloadData()
             
         })
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let viewController = segue.destination as? CreateDiscThemeViewController {
+            viewController.selectedProposal = selectedProposal
+            viewController.isProposed = true
+        }
     }
     
     @IBAction func doneAction(_ sender: UIBarButtonItem) {
@@ -68,20 +82,24 @@ class UIProposalTabelVC: UITableViewController {
         }
         // Configure the cell...
         let proposedTheme = proposals[indexPath.row]
-        cell.lableP.text = proposedTheme.title
-        cell.textP.text = proposedTheme.description
+        cell.titleView.text = proposedTheme.title
+        cell.textView.text = proposedTheme.description
         
         return cell
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedProposal = proposals[indexPath.row]
+        performSegue(withIdentifier: "toCreateTheme", sender: self)
     }
-    */
+    
+    //Override to support conditional editing of the table view.
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        //Return false if you do not want the specified item to be editable.
+//        return true
+//    }
+ 
 
     /*
     // Override to support editing the table view.

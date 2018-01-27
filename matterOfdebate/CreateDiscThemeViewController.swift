@@ -14,6 +14,8 @@ import Firebase
 // FormViewController is a subclass of UIViewController provided by Eureka
 class CreateDiscThemeViewController: FormViewController{
     var ref: DatabaseReference!
+    var selectedProposal: Proposal? = nil
+    var isProposed: Bool = false
 //
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,13 @@ class CreateDiscThemeViewController: FormViewController{
                 row.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum]
                 row.clearAction = .yes(style: UIAlertActionStyle.destructive)
             }
-
+        
+        if isProposed {
+            print(selectedProposal?.title)
+            self.form.setValues(["titel": selectedProposal?.title, "description": selectedProposal?.description])
+//            self.form.rowBy(tag: "titel")?.reload()
+//            self.form.rowBy(tag: "description")?.reload()
+        }
     }
     
     func upload_img_to_storage(_ image: UIImage,_ titel: String,_ values_dict: [String : Any?]) {
@@ -123,6 +131,12 @@ class CreateDiscThemeViewController: FormViewController{
         let titel = valuesDictionary["titel"]! as! String
         upload_img_to_storage(image, titel, valuesDictionary)
         dismiss(animated: true, completion: nil)
+        
+        // if topic was proposed, delete proposed topic from proposals
+        if isProposed {
+            Constants.refs.databaseProposals.child((selectedProposal?.id)!).removeValue()
+        }
+        isProposed = false
     }
     
     // simple check if Values in Dictionary are not nil or empty Strings

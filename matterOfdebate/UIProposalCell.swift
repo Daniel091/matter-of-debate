@@ -10,8 +10,8 @@ import UIKit
 class UIProposalCell: UITableViewCell {
 
     //MARK: Properties
-    @IBOutlet weak var lableP: UILabel!
-    @IBOutlet weak var textP: UITextView!
+    @IBOutlet weak var titleView: UILabel!
+    @IBOutlet weak var textView: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
