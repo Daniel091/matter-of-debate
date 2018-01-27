@@ -25,10 +25,6 @@ class EmailLoginController: UIViewController {
         super.viewDidLoad()
         adminButton.isHidden = !Constants.isInDebugMode
         userButton.isHidden = !Constants.isInDebugMode
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let fuser = user {
@@ -40,6 +36,10 @@ class EmailLoginController: UIViewController {
                 print("Not signed in")
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
