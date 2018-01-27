@@ -14,6 +14,9 @@ class SettingsController: FormViewController {
     
     let user_obj = SingletonUser.sharedInstance.user
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         if let navBar = self.navigationController?.navigationBar {
@@ -82,9 +85,6 @@ class SettingsController: FormViewController {
                         self.proposeTopic()
                     })
         }
-        
-        
-        
     }
     
     // Checks in Firebase for douplicates and then updates the user data
