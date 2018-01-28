@@ -53,16 +53,17 @@ class SwipeViewController: UIViewController {
             noThemesView.isHidden = true
             errorMessage.text = "Keine Themen mehr"
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if(!SingletonUser.sharedInstance.user.isAnonymous) {
             getThemesOfCategory(selectedCat!)
         } else {
             self.topics = []
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

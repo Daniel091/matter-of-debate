@@ -45,7 +45,8 @@ class OpinionController : UIViewController {
     }
     
     @IBAction func backToTopicView(_ sender: Any) {
-        navigationController?.popViewController(animated: false)
+        self.navigationController?.popToRootViewController(animated: false)
+        self.delegate?.switchToTab(0)
     }
     
     @IBAction func changeOpinion(_ sender: UISlider) {
@@ -74,15 +75,15 @@ class OpinionController : UIViewController {
     }
     
     func showDialog() {
-        let dialogController = UIAlertController(title: "Searching for match", message: "This could take bit longer ... Do you want to change to your Chats or go back to browse in Topics ?", preferredStyle: .alert)
+        let dialogController = UIAlertController(title: "Searching for match", message: "This could take a bit longer ... Do you want to change to your chats or go back to browse topics ?", preferredStyle: .alert)
         
         //going back to browse through themes
-        let backToTopicView = UIAlertAction(title: "Theme View", style: .default) { (_) in
+        let backToTopicView = UIAlertAction(title: "Categories", style: .default) { (_) in
             self.backToTopicView(self)
         }
         
         //stay at this view
-        let gotToChatsView = UIAlertAction(title: "Chat View", style: .cancel) { (_) in
+        let gotToChatsView = UIAlertAction(title: "Chats", style: .cancel) { (_) in
             self.navigationController?.popToRootViewController(animated: false)
             //TODO: geht iwie nimmer -.- -.-
             self.delegate?.switchToTab(2)
