@@ -48,6 +48,7 @@
 2. Anonymous user (only for watching all chats) (Daniel)
 3. Proposing a topic as a user (Gregor)
 4. Reviewing proposed topics and either delete or create new topic as admin (Gregor)
+5. Designing and implementing custom icons(app icon, tab icons) (Gregor)
 
 # User Administration in detail, 3 types of Users: 
 1. Admin Users
