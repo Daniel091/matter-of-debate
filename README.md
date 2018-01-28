@@ -46,13 +46,15 @@
 ## extraFeatures:
 1. User and admin- role distinction (Steffi)
 2. Anonymous user (only for watching all chats) (Daniel)
-
+3. Proposing a topic as a user (Gregor)
+4. Reviewing proposed topics and either delete or create new topic as admin (Gregor)
 
 # User Administration in detail, 3 types of Users: 
 1. Admin Users
     + can create new categories, and discussion topics 
     + and can do everything that a normal user can do
     + (only admin of firebase is possible to give you adminrights)
+    + can view/delete/approve proposed topics
 2. Normal users 
     + can make opinions on topics
     + get matched with other users based on their opinion and chat with them
@@ -61,4 +63,5 @@
 3. Anonymous users
     + cant edit their password, email, because they have none
     + cant chat with other users, they can only watch all chats
+    + cant swipe through topcis
 
