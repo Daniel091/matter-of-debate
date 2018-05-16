@@ -1,3 +1,6 @@
+# Matter of Debate App
+created as a part of the IOS-internship at the LMU in 2017
+
 # Setting Up the Project
 1. install pods (pod install)
 2. Debug mode in Constants to enable/ disable login buttons for a test normal user and admin user
